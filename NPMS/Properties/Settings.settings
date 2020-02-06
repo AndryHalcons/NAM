@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NPMS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ColorfondoForms" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Tan</Value>
+    </Setting>
+    <Setting Name="Fuente" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Noto Serif Cond, 9.749999pt, style=Bold</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,173 @@
+/* --------------Creacion Esquema--------------- */
+CREATE SCHEMA `npms`;
+
+/* --------------Creacion tabla vlan_ipv4--------------- */
+
+CREATE TABLE `npms`.`vlan_ipv4` (
+  `Vlan` INT NOT NULL,
+  `Nombre` VARCHAR(150) NULL,
+  `Ubicacion` VARCHAR(150) NULL,
+  `Vsys/balanceador/otro` VARCHAR(150) NULL,
+  `Descripcion` VARCHAR(150) NULL,
+  `Direccion_red` VARCHAR(65) NOT NULL,
+  `Rango_ip_inicio` VARCHAR(65) NULL,
+  `Rango_ip_fin` VARCHAR(65) NULL,
+  `Mascara` VARCHAR(65) NULL,
+  `Gateway` VARCHAR(65) NULL,
+  `Gateway2` VARCHAR(65) NULL,
+  `Gateway3` VARCHAR(65) NULL,
+  `Observaciones` VARCHAR(200) NULL,
+  `Dispositivo` VARCHAR(150) NULL,
+  `Firewall` VARCHAR(150) NULL,
+  `Entorno` VARCHAR(150) NULL,
+  `Normativa` VARCHAR(150) NULL,
+  `Estado` VARCHAR(150) NULL,
+  `Tipo_de_red` VARCHAR(150) NULL,
+  `Equipos` VARCHAR(150) NULL,
+  `Clasificacion` VARCHAR(150) NULL,
+  `Tarea` VARCHAR(150) NULL,
+  `Usuario` VARCHAR(150) NULL,
+  `Fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+  ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Vlan`, `Direccion_red`),
+  UNIQUE INDEX `Vlan_UNIQUE` (`Vlan` ASC) VISIBLE,
+  UNIQUE INDEX `Direccion_red_UNIQUE` (`Direccion_red` ASC) VISIBLE);
+
+/* --------------Creacion vlan_ipv6 --------------- */
+
+
+  CREATE TABLE `npms`.`vlan_ipv6` (
+  `Vlan` INT NOT NULL,
+  `Nombre` VARCHAR(150) NULL,
+  `Ubicacion` VARCHAR(150) NULL,
+  `Vsys/balanceador/otro` VARCHAR(150) NULL,
+  `Descripcion` VARCHAR(150) NULL,
+  `Direccion_red` VARCHAR(65) NOT NULL,
+  `Rango_ip_inicio` VARCHAR(65) NULL,
+  `Rango_ip_fin` VARCHAR(65) NULL,
+  `Mascara` VARCHAR(65) NULL,
+  `Gateway` VARCHAR(65) NULL,
+  `Gateway2` VARCHAR(65) NULL,
+  `Gateway3` VARCHAR(65) NULL,
+  `Observaciones` VARCHAR(200) NULL,
+  `Dispositivo` VARCHAR(150) NULL,
+  `Firewall` VARCHAR(150) NULL,
+  `Entorno` VARCHAR(150) NULL,
+  `Normativa` VARCHAR(150) NULL,
+  `Estado` VARCHAR(150) NULL,
+  `Tipo_de_red` VARCHAR(150) NULL,
+  `Equipos` VARCHAR(150) NULL,
+  `Clasificacion` VARCHAR(150) NULL,
+  `Tarea` VARCHAR(150) NULL,
+  `Usuario` VARCHAR(150) NULL,
+  `Fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+  ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Vlan`, `Direccion_red`),
+  UNIQUE INDEX `Vlan_UNIQUE` (`Vlan` ASC) VISIBLE,
+  UNIQUE INDEX `Direccion_red_UNIQUE` (`Direccion_red` ASC) VISIBLE);
+
+/* --------------Creacion tabla usuarios--------------- */
+
+ CREATE TABLE `npms`.`Usuarios` (
+  `Usuario` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `Nivel` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Usuario`),
+  UNIQUE INDEX `Usuario_UNIQUE` (`Usuario` ASC) VISIBLE);
+  INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) VALUES ('root', 'toor', 'administrador');
+
+/* --------------Creacion tabla logs vlan--------------- */
+
+CREATE TABLE `npms`.`vlan_logs` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Accion` VARCHAR(150) NULL,
+  `Vlan` INT NOT NULL,
+  `Nombre` VARCHAR(150) NULL,
+  `Ubicacion` VARCHAR(150) NULL,
+  `Vsys/balanceador/otro` VARCHAR(150) NULL,
+  `Descripcion` VARCHAR(150) NULL,
+  `Direccion_red` VARCHAR(65) NOT NULL,
+  `Rango_ip_inicio` VARCHAR(65) NULL,
+  `Rango_ip_fin` VARCHAR(65) NULL,
+  `Mascara` VARCHAR(65) NULL,
+  `Gateway` VARCHAR(65) NULL,
+  `Gateway2` VARCHAR(65) NULL,
+  `Gateway3` VARCHAR(65) NULL,
+  `Observaciones` VARCHAR(200) NULL,
+  `Dispositivo` VARCHAR(150) NULL,
+  `Firewall` VARCHAR(150) NULL,
+  `Entorno` VARCHAR(150) NULL,
+  `Normativa` VARCHAR(150) NULL,
+  `Estado` VARCHAR(150) NULL,
+  `Tipo_de_red` VARCHAR(150) NULL,
+  `Equipos` VARCHAR(150) NULL,
+  `Clasificacion` VARCHAR(150) NULL,
+  `Tarea` VARCHAR(150) NULL,
+  `Usuario` VARCHAR(150) NULL,
+  `Fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+  ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `Vlan_UNIQUE` (`ID` ASC) VISIBLE);
+
+/* --------------Creacion tabla logs IP--------------- */
+
+ CREATE TABLE `npms`.`Ip_log` 
+(`ID` INT NOT NULL AUTO_INCREMENT,
+`IP` VARCHAR(30) NOT NULL,
+`Accion` VARCHAR(45) NULL,
+`Vlan` INT NOT NULL,
+`Ubicacion` VARCHAR(150) NULL,
+`Mac` VARCHAR(30) NULL,
+`DNS` VARCHAR(150) NULL,
+`Descripcion` VARCHAR(150) NULL,
+`Hostname_revisado` VARCHAR(150) NULL,
+`Hostname` VARCHAR(150) NULL,
+`Fecha_modificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP,
+`Tarea` VARCHAR(150) NULL,
+`usuario` VARCHAR(150) NULL,
+PRIMARY KEY (`ID`),
+UNIQUE INDEX `IP_UNIQUE` (`IP` ASC) VISIBLE);
+
+
+
+/* --------------Creacion Procedure para logs vlan_ipv4--------------- */
+
+DELIMITER $$
+CREATE PROCEDURE update_vlan_log_ipv4(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) , IN VarVlan Int)
+BEGIN
+
+insert into vlan_logs (`Vlan` ,`Nombre`,`Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
+`Rango_ip_inicio`,`Rango_ip_fin`,`Mascara`,`Gateway`,`Gateway2`,`Gateway3`,`Observaciones`,`Dispositivo`,
+`Firewall`,`Entorno`,`Normativa`,`Estado`,`Tipo_de_red`,`Equipos` ,`Clasificacion`,`Tarea`,`Usuario`)
+select `Vlan`, `Nombre`, `Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
+`Rango_ip_inicio`,`Rango_ip_fin`,`Mascara`,`Gateway`,`Gateway2`,`Gateway3`,`Observaciones`,
+`Dispositivo`,`Firewall`,`Entorno`,`Normativa`,`Estado`,`Tipo_de_red`,`Equipos`,
+`Clasificacion`,`Tarea`,`Usuario`
+from vlan_ipv4
+where Vlan = VarVlan;
+SET @max_id = (SELECT MAX(ID) FROM vlan_logs);
+UPDATE `npms`.`vlan_logs` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
+DELETE FROM `npms`.vlan_ipv4 WHERE (`Vlan` = VarVlan);
+END$$
+
+/* --------------Creacion Procedure para logs vlan_ipv6--------------- */
+
+DELIMITER $$
+CREATE PROCEDURE update_vlan_log_ipv6(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) , IN VarVlan Int,IN Tabla_con_Prefijo varchar(20))
+BEGIN
+
+insert into vlan_logs (`Vlan` ,`Nombre`,`Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
+`Rango_ip_inicio`,`Rango_ip_fin`,`Mascara`,`Gateway`,`Gateway2`,`Gateway3`,`Observaciones`,`Dispositivo`,
+`Firewall`,`Entorno`,`Normativa`,`Estado`,`Tipo_de_red`,`Equipos` ,`Clasificacion`,`Tarea`,`Usuario`)
+select `Vlan`, `Nombre`, `Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
+`Rango_ip_inicio`,`Rango_ip_fin`,`Mascara`,`Gateway`,`Gateway2`,`Gateway3`,`Observaciones`,
+`Dispositivo`,`Firewall`,`Entorno`,`Normativa`,`Estado`,`Tipo_de_red`,`Equipos`,
+`Clasificacion`,`Tarea`,`Usuario`
+from vlan_ipv6
+where Vlan = VarVlan;
+SET @max_id = (SELECT MAX(ID) FROM vlan_logs);
+UPDATE `npms`.`vlan_logs` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
+DELETE FROM `npms`.vlan_ipv6 WHERE (`Vlan` = VarVlan);
+END$$
