@@ -26,7 +26,7 @@ namespace NPMS
         {           
             string User = textBoxUser.Text.ToString();
             string Pass = SecureCommon.Encriptar(textBoxPassword.Text.ToString());
-            //Esta parte valida el acceso a la BBDD
+            //Esta parte valida la configuracion de acceso a la BBDD 
             bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();
             if (ValidaAccesoBBDD == true)
             {
