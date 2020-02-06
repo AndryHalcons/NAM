@@ -18,10 +18,11 @@ namespace NPMS.administrate_network
     {
         public Administrate_ipv4_vlan_form()
             
-        {
+        {           
             //textBoxUsuarioLog.Text = Usuario;
             InitializeComponent();
         }
+      
         private void Button_search_Click(object sender, EventArgs e)
         {
             Consulta_all();

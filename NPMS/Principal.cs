@@ -26,6 +26,7 @@ namespace NPMS
         {           
             string User = textBoxUser.Text.ToString();
             string Pass = SecureCommon.Encriptar(textBoxPassword.Text.ToString());
+            
             //Esta parte valida la configuracion de acceso a la BBDD 
             bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();
             if (ValidaAccesoBBDD == true)
@@ -33,7 +34,8 @@ namespace NPMS
                 bool ValidaAccesoAPP = Common.EntryUsuarioApp(User, Pass);
                 if (ValidaAccesoAPP == true)
                 {
-                    Gestion panelgestion = new Gestion(User);
+                    string Rol = Sentencias.Dato_Campo_String("usuarios", "Usuario", User, 2);
+                    Gestion panelgestion = new Gestion(User,Rol);
                     this.Hide();
                     panelgestion.ShowDialog();
                     this.Close();

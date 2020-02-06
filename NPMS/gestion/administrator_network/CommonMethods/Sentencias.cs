@@ -163,7 +163,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             if (protocolo == "IPv4")
             {
-                string query2 = "CALL update_vlan_log_ipv4('Delete', '"+Common.UsuarioLogueado()+"', '"+id_vlan+"');";
+                string query2 = "CALL update_vlan_log_ipv4('Delete', '"+ GlobalParam.IDUser + "', '"+id_vlan+"');";
                 string query3 = "DROP TABLE IF EXISTS `" + id_vlan + "`;";
                 Bbdd_apply_simple(query2);
                 Bbdd_apply(id_vlan,query3);
@@ -171,7 +171,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             if (protocolo == "IPv6")
             {
                 string tablaipv6 = "ipv6_"+id_vlan+"";
-                string query2 = "CALL update_vlan_log_ipv6('Delete', '" + Common.UsuarioLogueado() +"','" + id_vlan + "','"+tablaipv6+"');";
+                string query2 = "CALL update_vlan_log_ipv6('Delete', '" + GlobalParam.IDUser + "','" + id_vlan + "','"+tablaipv6+"');";
                 string query3 = "DROP TABLE IF EXISTS `" + tablaipv6 + "`;";
                 Bbdd_apply_simple(query2);
                 Bbdd_apply(id_vlan, query3);

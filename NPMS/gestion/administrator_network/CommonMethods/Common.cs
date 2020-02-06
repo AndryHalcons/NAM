@@ -15,21 +15,15 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 {
     class Common
     {
-        
- 
-       
-        //Variable que indica al programa donde se encuentra el archivo
-        //que contiene la configuracion de conexion a la base de datos 
+
+
+
+        /*Variable que indica al programa donde se encuentra el archivo
+         * que contiene la configuracion de conexion a la base de datos */
         public static string ruta_ArchivoConfBbdd =  Application.StartupPath+"/DatSettings.txt";
-     
-        //Variable que contiene la ruta temporal donde se crea el archivo de SESION
-        public static string tempArch = Path.GetTempFileName();
-       
-        //Comprueba que el txt que contiene los datos de conexion a BBDD
-        //Existen en la carpeta del proyecto, si no está lo crea 
-        // genera contenido para trabajar con el
-
-
+       /*Comprueba que el txt que contiene los datos de conexion a BBDD
+         * existen en la carpeta del proyecto, si no está lo crea  
+         * genera contenido para trabajar con el*/
         public static bool ArchivoConfBbdd()
         {
             try
@@ -51,39 +45,6 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }                                                                                                                                             
          }
 
-        //Encripta e Inserta en un archivo temporal creado por la variable tempArch
-        // el nombre de usuario y el rol
-        public static void CreateSession(string usuario, string rol)
-        {
-            StreamWriter sw = File.CreateText(tempArch);
-            sw.WriteLine(SecureCommon.Encriptar(usuario));
-            sw.WriteLine(SecureCommon.Encriptar(rol));
-            sw.Close();
-
-        }
-
-        //De aqui sacara la app el nombre de usuario de la sesion cada vez que lo necesite
-        //Desencriptandolo
-        public static string UsuarioLogueado()
-        {
-            StreamReader sr = File.OpenText(tempArch);
-            string user_name = SecureCommon.DesEncriptar(sr.ReadLine());
-            sr.Close();
-            return user_name;
-        }
-        //De aqui sacara la app el ROL de usuario de las sesion cada vez eu lo necsite
-        //Desencriptandolo
-        public static string RolUsuarioLogueado()
-        {
-            StreamReader sr = File.OpenText(tempArch);
-            string user_name = SecureCommon.DesEncriptar(sr.ReadLine());
-            string user_rol = SecureCommon.DesEncriptar(sr.ReadLine());
-            sr.Close();
-            return user_rol;
-        }
-
-        //VALIDA el usuario a nivel de BBDD revisa que los parametros de conexion
-        //son correctos
         public static bool EntryUsuarioBBDD()
         {
             MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());

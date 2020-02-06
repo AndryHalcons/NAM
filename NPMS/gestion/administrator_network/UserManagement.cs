@@ -35,8 +35,6 @@ namespace NPMS.gestion.administrator_network
             bool BUser = Common.ValidadorCamposVacios(textBoxAddName.Text, "User");
             bool BPass = Common.ValidadorCamposVacios(textBoxAddPassword.Text, "Password");
             bool Euser = Common.ValidarDatoExistente("usuarios", "Usuario", textBoxAddName.Text);
-            // Desactivado temporalmente
-            //string EncryptUser = SecureCommon.Encriptar(textBoxAddName.Text);
             string rol = listBoxRol.SelectedItem.ToString();
             string EncryptUser = textBoxAddName.Text;
             string EncryptPass = SecureCommon.Encriptar(textBoxAddPassword.Text);
@@ -78,7 +76,7 @@ namespace NPMS.gestion.administrator_network
             string newpass = textBoxNewPassword.Text;
             string Enewpass = SecureCommon.Encriptar(newpass);
             string Enoldpass = SecureCommon.Encriptar(oldpass);
-            string usuario = Common.UsuarioLogueado();
+            string usuario = GlobalParam.IDUser;
             bool Boldpass = Common.ValidadorCamposVacios(oldpass, "Old password");
             bool Bnewpass = Common.ValidadorCamposVacios(newpass, "New password");
             bool ValidarOldPass = Common.EntryUsuarioApp(usuario, Enoldpass);

@@ -21,18 +21,18 @@ namespace NPMS
         //Necesario para indicar quien realiza las modificaciones en la BBDD desde la app
         
 
-        public Gestion(string user_dat)
+        public Gestion(string user_dat,string rol_user)
         {
             InitializeComponent();
             string rol_usuario = Sentencias.Dato_Campo_String("usuarios", "Usuario", user_dat, 2);
-            Common.CreateSession(user_dat,rol_usuario);
+            GlobalParam.IDUser = user_dat;
+            GlobalParam.IDRol = rol_usuario;
         }          
 
 
    
         private void Administrate_ipv4_ip_Click(object sender, EventArgs e)
         {
-            
            Administrate_ipv4_ip_form panel_ip_ipv4 = new Administrate_ipv4_ip_form();
             panel_ip_ipv4.Show();
         }
