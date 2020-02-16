@@ -20,10 +20,7 @@ namespace NPMS
             
 
         }
-        //nada
-        private void nada()
-        {
-        }
+      
         private void Validar_credenciales_Click(object sender, EventArgs e)
         {           
             string User = textBoxUser.Text.ToString();
