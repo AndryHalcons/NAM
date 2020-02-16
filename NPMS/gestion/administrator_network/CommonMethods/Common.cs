@@ -180,7 +180,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 IPAddress ip = IPAddress.Parse(Dato_campo);
                 if (Dato_campo.Contains("."))
                 {
-                    MessageBox.Show("Incorrect format IpV6 in '" + NombreCampoVacio + "'");
+                    MessageBox.Show("Incorrect format IPv6 in '" + NombreCampoVacio + "'");
                     return false;
                 }
                 else
@@ -192,7 +192,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             catch
             {
-                MessageBox.Show("Incorrect format IpV6 in '"+NombreCampoVacio+"'");
+                MessageBox.Show("Incorrect format IPv6 in '"+NombreCampoVacio+"'");
                 return false;
             }
            
