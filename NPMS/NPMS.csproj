@@ -226,6 +226,7 @@
       <DependentUpon>Administrate_ipv4_vlan_form.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\CommonMethods\Common.cs" />
+    <Compile Include="gestion\administrator_network\CommonMethods\CreadorTablas.cs" />
     <Compile Include="gestion\administrator_network\CommonMethods\GlobalParam.cs" />
     <Compile Include="gestion\administrator_network\CommonMethods\SecureCommon.cs" />
     <Compile Include="gestion\administrator_network\CommonMethods\Sentencias.cs" />

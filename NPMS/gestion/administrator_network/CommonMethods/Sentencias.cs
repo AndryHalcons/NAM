@@ -100,6 +100,9 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             Conexion.Close();
             return Rol;
         }
+        
+        //*******************************************************************************************//
+
 
 
         //Método que se encarga de añadir la Vlan  creada a la base de datos
@@ -118,26 +121,48 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             {
                 CreartablaIpv4(id_DireccionRed, id_vlan, id_Gateway1, id_Gateway2, id_Gateway3);
             }
-            if (tabla == "IPv6")
+            if (tabla == "vlan_ipv6")
             {
-                CreartablaIpv6(id_DireccionRed, id_vlan, id_Gateway1, id_Gateway2, id_Gateway3);
+                CreadorTablas.CreartablaIPv6(id_DireccionRed, id_vlan, id_Gateway1, id_Gateway2, id_Gateway3,id_RangoInicio,id_RangoFin);
             }                    
         }
 
 
-        //Metodo que se encarga del Update (Insertar información) sobre las tablas IP en la base de datos
+        /*Método que se encarga del Update (Insertar información) sobre las tablas IP en la base de datos
+         Decide si la inserccion es sobre las tablas IPV6 O IPV5 con la variable **"protocolo"**
+         Decide si la accion es insert o update con la variable ***ACCION***
+
+        */
         public static void Insert_ip(string protocolo, string id_vlan, string id_Ubicacion, string id_mac, string id_dns, string id_Descripcion, string id_hostnameR,
-          string id_hostname, string id_Tarea, string id_usuario, string id_ip)
+          string id_hostname, string id_Tarea, string id_usuario, string id_ip, bool Accion)
         {
             if (protocolo == "IPv4")
-            {
-                string queryUpdate = "UPDATE `npms`.`" + id_vlan + "` SET `Ubicacion` = '" + id_Ubicacion + "', `Mac` = '" + id_mac + "', `DNS` = '" + id_dns + "', `Descripcion` = '" + id_Descripcion + "', `Hostname_revisado` = '" + id_hostnameR + "', `Hostname` = '" + id_hostname + "', `Tarea` = '" + id_Tarea + "', `usuario` = '" + id_usuario + "' WHERE (`IP` = '" + id_ip + "');";
-                Bbdd_apply(id_vlan, queryUpdate);
+            {           
+                if (Accion == true)
+                {
+                    string queryUpdate = "UPDATE `npms`.`" + id_vlan + "` SET `Ubicacion` = '" + id_Ubicacion + "', `Mac` = '" + id_mac + "', `DNS` = '" + id_dns + "', `Descripcion` = '" + id_Descripcion + "', `Hostname_revisado` = '" + id_hostnameR + "', `Hostname` = '" + id_hostname + "', `Tarea` = '" + id_Tarea + "', `usuario` = '" + id_usuario + "' WHERE (`IP` = '" + id_ip + "');";
+                    Bbdd_apply(id_vlan, queryUpdate);
+                }
+                else
+                {
+                    string queryInsert = "INSERT INTO `npms`.`1` (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) " +
+                        "VALUES('" + id_vlan + "', '" + id_ip + "', '" + id_Ubicacion + "', '" + id_mac + "', '" + id_dns + "', '" + id_Descripcion + "', '" + id_hostnameR + "', '" + id_hostname + "', '" + id_Tarea + "', '" + id_usuario + "');";
+                    Bbdd_apply("ipv6_" + id_vlan + "", queryInsert);
+                }
             }
-            if (protocolo == "IPv6")
+            if (protocolo == "vlan_ipv6")
             {
-                string queryUpdate = "UPDATE `npms`.`ipv6_"+id_vlan+"` SET `Ubicacion` = '" + id_Ubicacion + "', `Mac` = '" + id_mac + "', `DNS` = '" + id_dns + "', `Descripcion` = '" + id_Descripcion + "', `Hostname_revisado` = '" + id_hostnameR + "', `Hostname` = '" + id_hostname + "', `Tarea` = '" + id_Tarea + "', `usuario` = '" + id_usuario + "' WHERE (`IP` = '" + id_ip + "');";
-                Bbdd_apply("ipv6_"+id_vlan+"", queryUpdate);
+                if (Accion == true)
+                {
+                    string queryUpdate = "UPDATE `npms`.`ipv6_" + id_vlan + "` SET `Ubicacion` = '" + id_Ubicacion + "', `Mac` = '" + id_mac + "', `DNS` = '" + id_dns + "', `Descripcion` = '" + id_Descripcion + "', `Hostname_revisado` = '" + id_hostnameR + "', `Hostname` = '" + id_hostname + "', `Tarea` = '" + id_Tarea + "', `usuario` = '" + id_usuario + "' WHERE (`IP` = '" + id_ip + "');";
+                    Bbdd_apply("ipv6_" + id_vlan + "", queryUpdate);
+                }
+                else
+                {
+                    string queryInsert = "INSERT INTO `npms`.`ipv6_" + id_vlan + "` (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) " +
+                        "VALUES('" + id_vlan + "', '" + id_ip + "', '" + id_Ubicacion + "', '" + id_mac + "', '" + id_dns + "', '" + id_Descripcion + "', '" + id_hostnameR + "', '" + id_hostname + "', '" + id_Tarea + "', '" + id_usuario + "');";
+                    Bbdd_apply("ipv6_" + id_vlan + "", queryInsert);
+                }
             }
             
         }

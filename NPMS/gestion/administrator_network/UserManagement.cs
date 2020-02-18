@@ -28,7 +28,7 @@ namespace NPMS.gestion.administrator_network
 
 
         }
-
+        //Este método crea los nuevos usuarios de la aplicacion
         private void ButtonAddUser_Click(object sender, EventArgs e)
         {
             listBoxRol.SelectedIndex = 0;         
@@ -37,7 +37,7 @@ namespace NPMS.gestion.administrator_network
             bool Euser = Common.ValidarDatoExistente("usuarios", "Usuario", textBoxAddName.Text);
             string rol = listBoxRol.SelectedItem.ToString();
             string EncryptUser = textBoxAddName.Text;
-            string EncryptPass = SecureCommon.Encriptar(textBoxAddPassword.Text);
+            string EncryptPass = SecureCommon.EncryptHash(textBoxAddPassword.Text);
             if (Euser == true)
             {
                 MessageBox.Show("User already exist!");
@@ -45,14 +45,15 @@ namespace NPMS.gestion.administrator_network
             if (BUser == true && BPass == true && Euser == false )
             {
                 
-                string query = "INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) VALUES ('"+EncryptUser+"', '"+EncryptPass+"', '"+rol+"');";
+                string query = "INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) " +
+                    "VALUES ('"+EncryptUser+"', '"+EncryptPass+"', '"+rol+"');";
                 Sentencias.Bbdd_apply_simple(query);
             }
             DatagridUser();
             textBoxAddName.Text = null;
             textBoxAddPassword.Text = null;
         }
-
+        //Este método borra los usuarios de la aplicacion
         private void ButtonDelUser_Click(object sender, EventArgs e)
         {
             bool BUser = Common.ValidadorCamposVacios(textBoxDelUser.Text, "User");
@@ -69,13 +70,13 @@ namespace NPMS.gestion.administrator_network
             DatagridUser();
             textBoxDelUser.Text = null;
         }
-
+        //Este método sirve para cambiar la contraseña de el usuario en la aplicacion
         private void ButtonChangePassword_Click(object sender, EventArgs e)
         {
             string oldpass = textBoxOldPassword.Text;
             string newpass = textBoxNewPassword.Text;
-            string Enewpass = SecureCommon.Encriptar(newpass);
-            string Enoldpass = SecureCommon.Encriptar(oldpass);
+            string Enewpass = SecureCommon.EncryptHash(newpass);
+            string Enoldpass = SecureCommon.EncryptHash(oldpass);
             string usuario = GlobalParam.IDUser;
             bool Boldpass = Common.ValidadorCamposVacios(oldpass, "Old password");
             bool Bnewpass = Common.ValidadorCamposVacios(newpass, "New password");

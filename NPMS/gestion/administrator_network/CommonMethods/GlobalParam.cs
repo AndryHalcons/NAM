@@ -10,5 +10,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
     {
         public static string IDUser;
         public static string IDRol;
+        public static string Vlan_IPv6_Select;
+        public static string Vlan_IPv4_Select;
     }
 }

@@ -16,14 +16,14 @@ namespace NPMS.gestion.administrator_network.update_databases
         //Guardar nuevos datos sobre una ip
         private void Button_apply_insert_ipv4_Click_1(object sender, EventArgs e)
         {
-            string id_vlan = label_vlan_prueba.Text;
+            string id_vlan = GlobalParam.Vlan_IPv6_Select;
             bool Vip_ip = Common.ValidadorIP(textBoxIp.Text, "IP");
             bool VC_ip = Common.ValidadorCamposVacios(textBoxIp.Text, "IP");
             bool VC_tarea = Common.ValidadorCamposVacios(textBoxTarea.Text, "Tarea");
             bool VC_descripcion = Common.ValidadorCamposVacios(textBoxDescripcion.Text, "Descripcion");
             if (Vip_ip == true && VC_ip == true && VC_tarea == true && VC_descripcion == true)
             {
-                
+                string VlanAdaptada = "ipv6_" + id_vlan + "";
                 string id_ip = textBoxIp.Text.ToString();
                 string id_dns = textBoxDns.Text.ToString();
                 string id_mac = textBoxMac.Text.ToString();
@@ -33,9 +33,10 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Tarea = textBoxTarea.Text.ToString();
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
                 string id_usuario = GlobalParam.IDUser;
-                string protocolo = "IPv6";
+                string protocolo = "vlan_ipv6";
+                bool ValidarAccion = Common.ValidarDatoExistente(VlanAdaptada, "IP", id_ip);
                 Sentencias.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
-                id_hostname, id_Tarea, id_usuario, id_ip);
+                id_hostname, id_Tarea, id_usuario, id_ip,ValidarAccion);
                 this.Close();
             }
 
@@ -51,7 +52,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             if (Vid_ip == true && VC_ip == true && V_tarea == true)
             {
                 string id_tarea = textBoxTareaDel.Text.ToString();
-                string id_vlan = label_vlan_prueba.Text;
+                string id_vlan = GlobalParam.Vlan_IPv6_Select;
                 string id_ip = textBoxSelectIpDel.Text.ToString();
                 string id_usuario = GlobalParam.IDUser;
                 string protocolo = "IPv6";

@@ -24,7 +24,7 @@ namespace NPMS
         private void Validar_credenciales_Click(object sender, EventArgs e)
         {           
             string User = textBoxUser.Text.ToString();
-            string Pass = SecureCommon.Encriptar(textBoxPassword.Text.ToString());
+            string Pass = SecureCommon.EncryptHash(textBoxPassword.Text.ToString());
             
             //Esta parte valida la configuracion de acceso a la BBDD 
             bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();

@@ -34,8 +34,9 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
                 string id_usuario = GlobalParam.IDUser;
                 string protocolo = "IPv4";
+                bool Accion = true;
                 Sentencias.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
-                id_hostname, id_Tarea, id_usuario, id_ip);
+                id_hostname, id_Tarea, id_usuario, id_ip, Accion);
                 this.Close();
             }
 

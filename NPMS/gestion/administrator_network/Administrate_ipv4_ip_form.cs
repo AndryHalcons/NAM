@@ -45,10 +45,11 @@ namespace NPMS.administrate_network
            
         }
         //Boton de consulta
-        private void Button_search_Click(object sender, EventArgs e)
+        private void button_search_Click_1(object sender, EventArgs e)
         {
             Consulta_all();
         }
+
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
@@ -64,6 +65,9 @@ namespace NPMS.administrate_network
 
         }
 
+        private void Button_search_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

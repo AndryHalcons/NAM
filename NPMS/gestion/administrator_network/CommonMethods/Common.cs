@@ -45,6 +45,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }                                                                                                                                             
          }
 
+        //Comprueba que las credenciales de la BBDD son correctas
         public static bool EntryUsuarioBBDD()
         {
             MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
