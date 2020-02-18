@@ -117,9 +117,9 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 "INSERT INTO `npms`.`"+ tabla + "` (`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`, `Gateway2`, `Gateway3`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" +
                 "VALUES('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "',' " + id_Gateway1 + "','" + id_Gateway2 + "', '" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "', '" + id_TipoRed + "', '" + id_Equipos + "','" + id_Clasificacion + "', '" + id_Tarea + "', '" + id_Usuario + "');";
             Bbdd_apply(tabla, query);
-            if (tabla == "IPv4")
+            if (tabla == "vlan_ipv4")
             {
-                CreartablaIpv4(id_DireccionRed, id_vlan, id_Gateway1, id_Gateway2, id_Gateway3);
+                CreadorTablas.CreartablaIPv4(id_DireccionRed, id_vlan, id_Gateway1, id_Gateway2, id_Gateway3, id_RangoInicio, id_RangoFin);
             }
             if (tabla == "vlan_ipv6")
             {
@@ -129,9 +129,8 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 
 
         /*Método que se encarga del Update (Insertar información) sobre las tablas IP en la base de datos
-         Decide si la inserccion es sobre las tablas IPV6 O IPV5 con la variable **"protocolo"**
+         Decide si la inserccion es sobre las tablas IPv6 O IPv4 con la variable **"protocolo"**
          Decide si la accion es insert o update con la variable ***ACCION***
-
         */
         public static void Insert_ip(string protocolo, string id_vlan, string id_Ubicacion, string id_mac, string id_dns, string id_Descripcion, string id_hostnameR,
           string id_hostname, string id_Tarea, string id_usuario, string id_ip, bool Accion)
@@ -166,21 +165,21 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             
         }
-
-        //Metodo que se encarga del Update (Delete/Liberar IP) sobre las tablas ip en la base de datos
-        public static void Update_ip(string protocolo, string id_vlan, string id_tarea,string id_usuario,string id_ip)
+        
+        //Metodo que se encarga del (Delete/Liberar IP) sobre las tablas ip en la base de datos
+        public static void Delete_ip(string protocolo, string id_vlan, string id_tarea,string id_usuario,string id_ip)
         {
             if (protocolo == "IPv4")
             {
-                string queryDel = "UPDATE `npms`.`" + id_vlan + "` SET `Ubicacion` = NULL, `Mac` = NULL, `DNS` = NULL, `Descripcion` = NULL, `Hostname_revisado` = NULL, `Hostname` = NULL, `Tarea` = '" + id_tarea + "', `usuario` = '" + id_usuario + "' WHERE (`IP` = '" + id_ip + "');";
+                string queryDel = "DELETE FROM `npms`.`"+id_vlan + "` WHERE (`IP` = '"+id_ip +"');";
                 Bbdd_apply(id_vlan, queryDel);
             }
             if (protocolo == "IPv6")
             {
-                string queryDel = "UPDATE `npms`.`ipv6_"+id_vlan+"` SET `Ubicacion` = NULL, `Mac` = NULL, `DNS` = NULL, `Descripcion` = NULL, `Hostname_revisado` = NULL, `Hostname` = NULL, `Tarea` = '" + id_tarea + "', `usuario` = '" + id_usuario + "' WHERE (`IP` = '" + id_ip + "');";
+                string TablaNormalizada = "ipv6_"+id_vlan+"";
+                string queryDel = "DELETE FROM `npms`.`"+TablaNormalizada+"` WHERE (`IP` = '"+id_ip+"');";
                 Bbdd_apply("ipv6_"+id_vlan+"", queryDel);
-            }
-            
+            }        
         }
 
         //Metodo que borra La Vlan en la tabla de Vlans y tambien borra la tabla IP asociada     
@@ -200,15 +199,8 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 string query3 = "DROP TABLE IF EXISTS `" + tablaipv6 + "`;";
                 Bbdd_apply_simple(query2);
                 Bbdd_apply(id_vlan, query3);
-            }
-            
-            
+            }                       
         }
-
-
-
-
-
 
 
 

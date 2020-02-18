@@ -56,7 +56,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_ip = textBoxSelectIpDel.Text.ToString();
                 string id_usuario = GlobalParam.IDUser;
                 string protocolo = "IPv4";
-                Sentencias.Update_ip(protocolo, id_vlan, id_tarea, id_usuario, id_ip);
+                Sentencias.Delete_ip(protocolo, id_vlan, id_tarea, id_usuario, id_ip);
                 this.Close();
             }
         }
