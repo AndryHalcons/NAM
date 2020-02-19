@@ -76,6 +76,49 @@ CREATE TABLE `npms`.`vlan_ipv4` (
   UNIQUE INDEX `Usuario_UNIQUE` (`Usuario` ASC) VISIBLE);
   INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) VALUES ('root', 'toor', 'administrador');
 
+  /* --------------Creacion tabla inventarios--------------- */
+
+CREATE TABLE `npms`.`inventario` (
+  `Hostname` VARCHAR(45) NULL,
+  `DNS` VARCHAR(45) NULL,
+  `Comentarios` VARCHAR(45) NULL,
+  `IP` VARCHAR(45) NULL,
+  `Nº Serie` VARCHAR(45) NOT NULL,
+  `Nombre_producto` VARCHAR(45) NULL,
+  `Fabricante` VARCHAR(45) NULL,
+  `Ubicacion` VARCHAR(45) NULL,
+  `Entorno` VARCHAR(45) NULL,
+  `Dominio` VARCHAR(45) NULL,
+  `Contacto_propietario` VARCHAR(45) NULL,
+  `Info_adicional` VARCHAR(45) NULL,
+  `Puertos` VARCHAR(45) NULL,
+  `Otros_1` VARCHAR(45) NULL,
+  `Otros_2` VARCHAR(45) NULL,
+  PRIMARY KEY (`Nº Serie`),
+  UNIQUE INDEX `Nº Serie_UNIQUE` (`Nº Serie` ASC) VISIBLE);
+
+/* --------------Creacion tabla parcheo--------------- */
+
+ CREATE TABLE `npms`.`parcheo` (
+  `Edificio` VARCHAR(45) NOT NULL,
+  `Planta` INT NOT NULL,
+  `Armario` VARCHAR(45) NULL,
+  `Panel` VARCHAR(45) NULL,
+  `Puerto_Panel` VARCHAR(45) NULL,
+  `Pila` VARCHAR(45) NULL,
+  `Switch` VARCHAR(45) NULL,
+  `Puerto_Switch` VARCHAR(45) NULL,
+  `Interfaz` VARCHAR(45) NULL,
+  `Link` VARCHAR(45) NULL,
+  `Speed` VARCHAR(45) NULL,
+  `Duplex` VARCHAR(45) NULL,
+  `Type` VARCHAR(45) NULL,
+  `Vlan` VARCHAR(45) NULL,
+  `Description` VARCHAR(45) NULL,
+  `IP_Switch` VARCHAR(45) NULL,
+  PRIMARY KEY (`Edificio`));
+
+
 /* --------------Creacion tabla logs vlan IPv4--------------- */
 
 CREATE TABLE `npms`.`log_vlan_ipv4` (
@@ -141,6 +184,8 @@ CREATE TABLE `npms`.`log_vlan_ipv6` (
   ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `Vlan_UNIQUE` (`ID` ASC) VISIBLE);
+
+
 
 /* --------------Creacion tabla logs IPv4--------------- */
 
@@ -223,3 +268,41 @@ SET @max_id = (SELECT MAX(ID) FROM log_vlan_ipv6);
 UPDATE `npms`.`log_vlan_ipv6` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
 DELETE FROM `npms`.vlan_ipv6 WHERE (`Vlan` = VarVlan);
 END$$
+
+
+/* --------------Creacion Procedure para logs IP_ipv4--------------- */
+
+DELIMITER $$
+CREATE PROCEDURE `update_ip_log_ipv4`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN VarIP varchar(20), IN VarVlan Int)
+BEGIN
+
+insert into log_ip_ipv4 (`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,
+`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
+select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,`Descripcion`,
+`Hostname_revisado`,`Hostname`,`tarea`,`usuario`
+from `1`
+where IP = VarIP;
+SET @max_id = (SELECT MAX(ID) FROM log_ip_ipv4);
+UPDATE `npms`.`log_ip_ipv4` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
+DELETE FROM `npms`.`1` WHERE (`IP` = VarIP);
+END
+
+
+
+
+V2
+CREATE PROCEDURE `update_ip_log_ipv4`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN VarIP varchar(20), IN VarVlan Int)
+BEGIN
+SET @sentencia = 'insert into log_ip_ipv4 (`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,
+`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
+select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,`Descripcion`,
+`Hostname_revisado`,`Hostname`,`tarea`,`usuario`
+from '+@VarVlan+' where IP = VarIP';
+PREPARE Spreparada from @sentencia;
+EXECUTE Spreparada;
+SET @max_id = (SELECT MAX(ID) FROM log_ip_ipv4);
+UPDATE `npms`.`log_ip_ipv4` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
+DELETE FROM `npms`.`1` WHERE (`IP` = VarIP);
+END

@@ -33,9 +33,11 @@
             this.administrate_ipv6_ip = new System.Windows.Forms.Button();
             this.administrate_ipv6_vlan = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonUserManagement = new System.Windows.Forms.Button();
-            this.buttonLogsIpIpv4 = new System.Windows.Forms.Button();
             this.buttonImportData = new System.Windows.Forms.Button();
+            this.buttonLogsIpIpv4 = new System.Windows.Forms.Button();
+            this.buttonUserManagement = new System.Windows.Forms.Button();
+            this.inventory = new System.Windows.Forms.Button();
+            this.patching_switchs = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -108,9 +110,11 @@
             this.tableLayoutPanel1.Controls.Add(this.administrate_ipv4_vlan, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.administrate_ipv6_ip, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.administrate_ipv6_vlan, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.buttonUserManagement, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.buttonLogsIpIpv4, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.buttonImportData, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.buttonImportData, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.buttonLogsIpIpv4, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.buttonUserManagement, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.inventory, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.patching_switchs, 0, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -131,22 +135,22 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(369, 621);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
-            // buttonUserManagement
+            // buttonImportData
             // 
-            this.buttonUserManagement.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.buttonUserManagement.Location = new System.Drawing.Point(4, 316);
-            this.buttonUserManagement.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonUserManagement.Name = "buttonUserManagement";
-            this.buttonUserManagement.Size = new System.Drawing.Size(287, 34);
-            this.buttonUserManagement.TabIndex = 13;
-            this.buttonUserManagement.Text = "User Management";
-            this.buttonUserManagement.UseVisualStyleBackColor = true;
-            this.buttonUserManagement.Click += new System.EventHandler(this.ButtonUserManagement_Click);
+            this.buttonImportData.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonImportData.Location = new System.Drawing.Point(4, 576);
+            this.buttonImportData.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonImportData.Name = "buttonImportData";
+            this.buttonImportData.Size = new System.Drawing.Size(287, 35);
+            this.buttonImportData.TabIndex = 15;
+            this.buttonImportData.Text = "Import data";
+            this.buttonImportData.UseVisualStyleBackColor = true;
+            this.buttonImportData.Click += new System.EventHandler(this.ButtonImportData_Click);
             // 
             // buttonLogsIpIpv4
             // 
             this.buttonLogsIpIpv4.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.buttonLogsIpIpv4.Location = new System.Drawing.Point(4, 368);
+            this.buttonLogsIpIpv4.Location = new System.Drawing.Point(4, 524);
             this.buttonLogsIpIpv4.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogsIpIpv4.Name = "buttonLogsIpIpv4";
             this.buttonLogsIpIpv4.Size = new System.Drawing.Size(287, 35);
@@ -155,17 +159,41 @@
             this.buttonLogsIpIpv4.UseVisualStyleBackColor = true;
             this.buttonLogsIpIpv4.Click += new System.EventHandler(this.buttonLogsIpIpv4_Click);
             // 
-            // buttonImportData
+            // buttonUserManagement
             // 
-            this.buttonImportData.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.buttonImportData.Location = new System.Drawing.Point(4, 420);
-            this.buttonImportData.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonImportData.Name = "buttonImportData";
-            this.buttonImportData.Size = new System.Drawing.Size(287, 35);
-            this.buttonImportData.TabIndex = 15;
-            this.buttonImportData.Text = "Import data";
-            this.buttonImportData.UseVisualStyleBackColor = true;
-            this.buttonImportData.Click += new System.EventHandler(this.ButtonImportData_Click);
+            this.buttonUserManagement.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonUserManagement.Location = new System.Drawing.Point(4, 472);
+            this.buttonUserManagement.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonUserManagement.Name = "buttonUserManagement";
+            this.buttonUserManagement.Size = new System.Drawing.Size(287, 34);
+            this.buttonUserManagement.TabIndex = 13;
+            this.buttonUserManagement.Text = "User Management";
+            this.buttonUserManagement.UseVisualStyleBackColor = true;
+            this.buttonUserManagement.Click += new System.EventHandler(this.ButtonUserManagement_Click);
+            // 
+            // inventory
+            // 
+            this.inventory.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.inventory.Location = new System.Drawing.Point(4, 316);
+            this.inventory.Margin = new System.Windows.Forms.Padding(4);
+            this.inventory.Name = "inventory";
+            this.inventory.Size = new System.Drawing.Size(287, 34);
+            this.inventory.TabIndex = 16;
+            this.inventory.Text = "Inventory";
+            this.inventory.UseVisualStyleBackColor = true;
+            this.inventory.Click += new System.EventHandler(this.inventory_Click);
+            // 
+            // patching_switchs
+            // 
+            this.patching_switchs.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.patching_switchs.Location = new System.Drawing.Point(4, 368);
+            this.patching_switchs.Margin = new System.Windows.Forms.Padding(4);
+            this.patching_switchs.Name = "patching_switchs";
+            this.patching_switchs.Size = new System.Drawing.Size(287, 34);
+            this.patching_switchs.TabIndex = 17;
+            this.patching_switchs.Text = "Patching Switchs";
+            this.patching_switchs.UseVisualStyleBackColor = true;
+            this.patching_switchs.Click += new System.EventHandler(this.patching_switchs_Click);
             // 
             // label1
             // 
@@ -311,5 +339,7 @@
         private System.Windows.Forms.Button buttonFastNetworkFirewall;
         private System.Windows.Forms.DataGridView dataGridViewFastNetworkFirewall;
         private System.Windows.Forms.Button buttonImportData;
+        private System.Windows.Forms.Button inventory;
+        private System.Windows.Forms.Button patching_switchs;
     }
 }

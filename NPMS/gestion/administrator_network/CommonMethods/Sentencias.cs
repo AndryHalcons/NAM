@@ -171,7 +171,9 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             if (protocolo == "IPv4")
             {
+                string query2 = "CALL update_ip_log_ipv4('Delete', '" + GlobalParam.IDUser + "','" + id_ip + "', '" + id_vlan + "');";
                 string queryDel = "DELETE FROM `npms`.`"+id_vlan + "` WHERE (`IP` = '"+id_ip +"');";
+                Bbdd_apply_simple(query2);
                 Bbdd_apply(id_vlan, queryDel);
             }
             if (protocolo == "IPv6")

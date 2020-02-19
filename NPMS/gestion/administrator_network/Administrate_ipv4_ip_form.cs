@@ -27,12 +27,12 @@ namespace NPMS.administrate_network
  
             InitializeComponent();
             
-        }     
+        }
         //Valida que el campo Vlan tiene un valor y abre el form Insert_or_update_ip_ipv4
         // Si el campo vlan no es de tipo entero, o no tiene valor, no permite abrir el form
-        private void Button_Update_IP_Data_Click(object sender, EventArgs e)
+        private void button_Update_IP_Data_Click(object sender, EventArgs e)
         {
-            
+            GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool VClan = Common.ValidadorCamposVacios(textBox_Vlan.Text, "Vlan");
             bool ComprobarExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
@@ -42,10 +42,9 @@ namespace NPMS.administrate_network
                 Insert_or_update_ip_ipv4 panel_update_ip_ipv4 = new Insert_or_update_ip_ipv4(ValorVlan);
                 panel_update_ip_ipv4.Show();
             }
-           
         }
         //Boton de consulta
-        private void button_search_Click_1(object sender, EventArgs e)
+        private void button_search_Click(object sender, EventArgs e)
         {
             Consulta_all();
         }
@@ -53,6 +52,7 @@ namespace NPMS.administrate_network
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
+            GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool ValidaExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && ValidaExistencia == true)
@@ -65,9 +65,6 @@ namespace NPMS.administrate_network
 
         }
 
-        private void Button_search_Click(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

@@ -120,6 +120,7 @@
             this.button_search.TabIndex = 7;
             this.button_search.Text = "IP USED";
             this.button_search.UseVisualStyleBackColor = true;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
             // button_Update_IP_Data
             // 
@@ -131,6 +132,7 @@
             this.button_Update_IP_Data.TabIndex = 8;
             this.button_Update_IP_Data.Text = "Update To Row IP Data";
             this.button_Update_IP_Data.UseVisualStyleBackColor = true;
+            this.button_Update_IP_Data.Click += new System.EventHandler(this.button_Update_IP_Data_Click);
             // 
             // Administrate_ipv4_ip_form
             // 

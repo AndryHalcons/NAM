@@ -62,6 +62,29 @@ namespace NPMS
             panel_user_management.Show();
         }
 
+        private void ButtonImportData_Click(object sender, EventArgs e)
+        {
+            ImportData panel_importData = new ImportData();
+            panel_importData.Show();
+        }
+
+        private void buttonLogsIpIpv4_Click(object sender, EventArgs e)
+        {
+            LogsApp panel_LogsApp = new LogsApp();
+            panel_LogsApp.Show();
+        }
+
+        private void inventory_Click(object sender, EventArgs e)
+        {
+            Inventory panel_inventory = new Inventory();
+            panel_inventory.Show();
+        }
+
+        private void patching_switchs_Click(object sender, EventArgs e)
+        {
+            Patching_switchs panel_patching_switchs = new Patching_switchs();
+            panel_patching_switchs.Show();
+        }
         private void ButtonFastNetworkFirewall_Click(object sender, EventArgs e)
         {
             string source = textBoxFastSource.Text;
@@ -76,17 +99,7 @@ namespace NPMS
             }
         }
 
-        private void ButtonImportData_Click(object sender, EventArgs e)
-        {
-            ImportData panel_importData = new ImportData();
-            panel_importData.Show();
-        }
-
-        private void buttonLogsIpIpv4_Click(object sender, EventArgs e)
-        {
-            LogsApp panel_LogsApp = new LogsApp();
-            panel_LogsApp.Show();
-        }
+   
     }
 
    
