@@ -274,35 +274,34 @@ END$$
 
 DELIMITER $$
 CREATE PROCEDURE `update_ip_log_ipv4`(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) ,IN VarIP varchar(20), IN VarVlan Int)
+IN VarUsuario varchar(20) ,IN VarIP varchar(30), IN VarVlan varchar(30))
 BEGIN
+  SET @s = CONCAT("insert into `log_ip_ipv4`
+(`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
+select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,
+`Descripcion`,`Hostname_revisado`,`Hostname`,
+`tarea`,`usuario`
+from `",VarVlan,"` where IP ='", VarIP,"'");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END$$
+DELIMITER ;
 
-insert into log_ip_ipv4 (`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,
-`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
-select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,`Descripcion`,
-`Hostname_revisado`,`Hostname`,`tarea`,`usuario`
-from `1`
-where IP = VarIP;
-SET @max_id = (SELECT MAX(ID) FROM log_ip_ipv4);
-UPDATE `npms`.`log_ip_ipv4` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
-DELETE FROM `npms`.`1` WHERE (`IP` = VarIP);
-END
+/* --------------Creacion Procedure para logs IP_ipv6--------------- */
 
-
-
-
-V2
-CREATE PROCEDURE `update_ip_log_ipv4`(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) ,IN VarIP varchar(20), IN VarVlan Int)
+DELIMITER $$
+CREATE PROCEDURE `update_ip_log_ipv6`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN VarIP varchar(30), IN VarVlan varchar(30))
 BEGIN
-SET @sentencia = 'insert into log_ip_ipv4 (`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,
-`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
-select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,`Descripcion`,
-`Hostname_revisado`,`Hostname`,`tarea`,`usuario`
-from '+@VarVlan+' where IP = VarIP';
-PREPARE Spreparada from @sentencia;
-EXECUTE Spreparada;
-SET @max_id = (SELECT MAX(ID) FROM log_ip_ipv4);
-UPDATE `npms`.`log_ip_ipv4` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
-DELETE FROM `npms`.`1` WHERE (`IP` = VarIP);
-END
+  SET @s = CONCAT("insert into `log_ip_ipv4`
+(`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
+select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,
+`Descripcion`,`Hostname_revisado`,`Hostname`,
+`tarea`,`usuario`
+from `",VarVlan,"` where IP ='", VarIP,"'");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END$$
+DELIMITER ;
