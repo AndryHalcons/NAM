@@ -32,15 +32,19 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Ubicacion = textBoxUbicacion.Text.ToString();
                 string id_Tarea = textBoxTarea.Text.ToString();
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
-                string id_usuario = GlobalParam.IDUser;
                 string protocolo = "vlan_ipv6";
-                bool ValidarAccion = Common.ValidarDatoExistente(VlanAdaptada, "IP", id_ip);
-                Sentencias.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
-                id_hostname, id_Tarea, id_usuario, id_ip,ValidarAccion);
-                this.Close();
+                bool ValidarAccion = Common.ValidarDatoExistenteConMensaje(VlanAdaptada, "IP", id_ip,"IP");
+                if (ValidarAccion == false)
+                {
+                    SentenciasPro.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
+                    id_hostname, id_Tarea, id_ip);
+                    this.Close();
+                }
+                
             }
+            //string tabla, string campo, string Datoaportado, string NombreCampoValidar
 
-            
+
         }
 
         private void ButtonApplyDel_Click(object sender, EventArgs e)
@@ -54,9 +58,8 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_tarea = textBoxTareaDel.Text.ToString();
                 string id_vlan = GlobalParam.Vlan_IPv6_Select;
                 string id_ip = textBoxSelectIpDel.Text.ToString();
-                string id_usuario = GlobalParam.IDUser;
                 string protocolo = "IPv6";
-                Sentencias.Delete_ip(protocolo, id_vlan, id_tarea, id_usuario, id_ip);
+                SentenciasPro.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);
                 this.Close();
             }
         }

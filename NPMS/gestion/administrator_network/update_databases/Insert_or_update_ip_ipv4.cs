@@ -32,12 +32,15 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Ubicacion = textBoxUbicacion.Text.ToString();
                 string id_Tarea = textBoxTarea.Text.ToString();
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
-                string id_usuario = GlobalParam.IDUser;
                 string protocolo = "IPv4";
-                bool Accion = true;
-                Sentencias.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
-                id_hostname, id_Tarea, id_usuario, id_ip, Accion);
-                this.Close();
+                bool ValidarAccion = Common.ValidarDatoExistenteConMensaje(id_vlan, "IP", id_ip, "IP");
+                if (ValidarAccion == false)
+                {
+                    SentenciasPro.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
+                    id_hostname, id_Tarea, id_ip);
+                    this.Close();
+                }
+                
             }
 
             
@@ -54,9 +57,8 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_tarea = textBoxTareaDel.Text.ToString();
                 string id_vlan = label_vlan_prueba.Text;
                 string id_ip = textBoxSelectIpDel.Text.ToString();
-                string id_usuario = GlobalParam.IDUser;
                 string protocolo = "IPv4";
-                Sentencias.Delete_ip(protocolo, id_vlan, id_tarea, id_usuario, id_ip);
+                SentenciasPro.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);
                 this.Close();
             }
         }

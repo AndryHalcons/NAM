@@ -230,8 +230,8 @@ UNIQUE INDEX `IP_UNIQUE` (`IP` ASC) VISIBLE);
 /* --------------Creacion Procedure para logs vlan_ipv4--------------- */
 
 DELIMITER $$
-CREATE PROCEDURE update_vlan_log_ipv4(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) , IN VarVlan Int)
+CREATE PROCEDURE `update_vlan_log_ipv4`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) , IN VarVlan varchar(20) , IN VarTarea varchar(50))
 BEGIN
 
 insert into log_vlan_ipv4 (`Vlan` ,`Nombre`,`Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
@@ -244,37 +244,46 @@ select `Vlan`, `Nombre`, `Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Dire
 from vlan_ipv4
 where Vlan = VarVlan;
 SET @max_id = (SELECT MAX(ID) FROM log_vlan_ipv4);
-UPDATE `npms`.`log_vlan_ipv4` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
+UPDATE `npms`.`log_vlan_ipv4` SET `Accion` = VarAccion, `Tarea` = VarTarea, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
 DELETE FROM `npms`.vlan_ipv4 WHERE (`Vlan` = VarVlan);
+ SET @s = CONCAT("DROP TABLE IF EXISTS `",VarVlan,"`;");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
 END$$
+DELIMITER ;
 
 /* --------------Creacion Procedure para logs vlan_ipv6--------------- */
 
 DELIMITER $$
-CREATE PROCEDURE update_vlan_log_ipv6(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) , IN VarVlan Int,IN Tabla_con_Prefijo varchar(20))
+CREATE PROCEDURE `update_vlan_log_ipv4`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) , IN VarVlan varchar(20) , IN VarTarea varchar(50))
 BEGIN
 
-insert into log_vlan_ipv6 (`Vlan` ,`Nombre`,`Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
+insert into log_vlan_ipv4 (`Vlan` ,`Nombre`,`Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
 `Rango_ip_inicio`,`Rango_ip_fin`,`Mascara`,`Gateway`,`Gateway2`,`Gateway3`,`Observaciones`,`Dispositivo`,
 `Firewall`,`Entorno`,`Normativa`,`Estado`,`Tipo_de_red`,`Equipos` ,`Clasificacion`,`Tarea`,`Usuario`)
 select `Vlan`, `Nombre`, `Ubicacion`,`Vsys/balanceador/otro`,`Descripcion`,`Direccion_red`,
 `Rango_ip_inicio`,`Rango_ip_fin`,`Mascara`,`Gateway`,`Gateway2`,`Gateway3`,`Observaciones`,
 `Dispositivo`,`Firewall`,`Entorno`,`Normativa`,`Estado`,`Tipo_de_red`,`Equipos`,
 `Clasificacion`,`Tarea`,`Usuario`
-from vlan_ipv6
+from vlan_ipv4
 where Vlan = VarVlan;
-SET @max_id = (SELECT MAX(ID) FROM log_vlan_ipv6);
-UPDATE `npms`.`log_vlan_ipv6` SET `Accion` = VarAccion, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
-DELETE FROM `npms`.vlan_ipv6 WHERE (`Vlan` = VarVlan);
+SET @max_id = (SELECT MAX(ID) FROM log_vlan_ipv4);
+UPDATE `npms`.`log_vlan_ipv4` SET `Accion` = VarAccion, `Tarea` = VarTarea, `Usuario` = VarUsuario WHERE `ID` = @max_id; 
+DELETE FROM `npms`.vlan_ipv4 WHERE (`Vlan` = VarVlan);
+ SET @s = CONCAT("DROP TABLE IF EXISTS `",VarVlan,"`;");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
 END$$
-
+DELIMITER ;
 
 /* --------------Creacion Procedure para logs IP_ipv4--------------- */
 
 DELIMITER $$
 CREATE PROCEDURE `update_ip_log_ipv4`(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) ,IN VarIP varchar(30), IN VarVlan varchar(30))
+IN VarUsuario varchar(20) ,IN VarIP varchar(30), IN VarVlan varchar(30), IN VarTarea varchar(50))
 BEGIN
   SET @s = CONCAT("insert into `log_ip_ipv4`
 (`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
@@ -285,22 +294,204 @@ from `",VarVlan,"` where IP ='", VarIP,"'");
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
+ SET @s2 = CONCAT("DELETE FROM `npms`.`",VarVlan,"` WHERE `IP` = '", VarIP,"';");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+SET @max_id = (SELECT MAX(ID) FROM log_ip_ipv4);
+UPDATE `npms`.`log_ip_ipv4` SET `Accion` = VarAccion, `Tarea` = VarTarea, `Usuario` = VarUsuario WHERE `ID` = @max_id;    
 END$$
 DELIMITER ;
+
 
 /* --------------Creacion Procedure para logs IP_ipv6--------------- */
 
 DELIMITER $$
 CREATE PROCEDURE `update_ip_log_ipv6`(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) ,IN VarIP varchar(30), IN VarVlan varchar(30))
+IN VarUsuario varchar(20) ,IN VarIP varchar(30), IN VarVlan varchar(30), IN VarTarea varchar(50))
 BEGIN
-  SET @s = CONCAT("insert into `log_ip_ipv4`
+  SET @s = CONCAT("insert into `log_ip_ipv6`
 (`IP` ,`Vlan`,`Ubicacion`,`Mac`,`DNS`,`Descripcion`,`Hostname_revisado`,`Hostname`,`tarea`,`usuario`)
 select `IP`, `Vlan`, `Ubicacion`,`Mac`,`DNS`,
 `Descripcion`,`Hostname_revisado`,`Hostname`,
 `tarea`,`usuario`
 from `",VarVlan,"` where IP ='", VarIP,"'");
     PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ SET @s2 = CONCAT("DELETE FROM `npms`.`",VarVlan,"` WHERE `IP` = '", VarIP,"';");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+SET @max_id = (SELECT MAX(ID) FROM log_ip_ipv6);
+UPDATE `npms`.`log_ip_ipv6` SET `Accion` = VarAccion, `Tarea` = VarTarea, `Usuario` = VarUsuario WHERE `ID` = @max_id;  
+END$$
+DELIMITER ;
+
+/* --------------Creacion Procedure para Insert_ip_IPv4--------------- */
+
+DELIMITER $$
+CREATE PROCEDURE `insert_ip_ipv4`(in id_accion varchar(30),
+in id_vlan varchar(30),in id_ip varchar(30),in id_Ubicacion varchar(30),in id_mac varchar(30),
+in id_dns varchar(30),in id_Descripcion varchar(30),in id_hostnameR varchar(30),
+in id_hostname varchar(30),in id_Tarea varchar(30),in id_usuario varchar(30))
+BEGIN
+SET @s = CONCAT("INSERT INTO `npms`.`",id_vlan,"` (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+VALUES ('",id_vlan,"', '",id_ip,"','",id_Ubicacion,"', '",id_mac,"','",id_dns,"','",id_Descripcion,"', 
+'",id_hostnameR,"', '",id_hostname,"', '",id_Tarea,"', '",id_usuario,"');
+");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+SET @b = CONCAT("INSERT INTO `npms`.`log_ip_ipv4` 
+(`IP`, `Accion`, `Vlan`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+VALUES ('",id_ip,"', '",id_accion,"', '",id_vlan,"','",id_Ubicacion,"',
+'",id_mac,"', '",id_dns,"', '",id_Descripcion,"', '",id_hostnameR,"', '",id_hostname,"', 
+'",id_Tarea,"', '",id_usuario,"');
+");
+    PREPARE stmt FROM @b;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+END$$
+DELIMITER ;
+
+/* --------------Creacion Procedure para Insert_ip_IPv6--------------- */
+
+DELIMITER $$
+CREATE PROCEDURE `insert_ip_ipv6`(in id_accion varchar(30),
+in id_vlan varchar(30),in id_ip varchar(30),in id_Ubicacion varchar(30),in id_mac varchar(30),
+in id_dns varchar(30),in id_Descripcion varchar(30),in id_hostnameR varchar(30),
+in id_hostname varchar(30),in id_Tarea varchar(30),in id_usuario varchar(30),in id_FormateoTabla varchar(30))
+BEGIN
+SET @s = CONCAT("INSERT INTO `npms`.`",id_FormateoTabla,"` (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+VALUES ('",id_vlan,"', '",id_ip,"','",id_Ubicacion,"', '",id_mac,"','",id_dns,"','",id_Descripcion,"', 
+'",id_hostnameR,"', '",id_hostname,"', '",id_Tarea,"', '",id_usuario,"');
+");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+SET @b = CONCAT("INSERT INTO `npms`.`log_ip_ipv6` 
+(`IP`, `Accion`, `Vlan`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+VALUES ('",id_ip,"', '",id_accion,"', '",id_vlan,"','",id_Ubicacion,"',
+'",id_mac,"', '",id_dns,"', '",id_Descripcion,"', '",id_hostnameR,"', '",id_hostname,"', 
+'",id_Tarea,"', '",id_usuario,"');
+");
+    PREPARE stmt FROM @b;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+END$$
+DELIMITER ;
+
+/* --------------Creacion Procedure para Insert_vlan_IPv4--------------- */
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_vlan_ipv4`(in id_vlan varchar(30),
+in id_nombre_vlan varchar(30),in id_Ubicacion varchar(30),in id_Vsys varchar(30),
+in id_Descripcion varchar(30),in id_DireccionRed varchar(30),in id_RangoInicio varchar(30),
+in id_RangoFin varchar(30),in id_Mascara varchar(30),in id_Gateway1 varchar(30),
+in id_Gateway2 varchar(30),in id_Gateway3 varchar(30),in id_Observaciones varchar(30),
+in id_Dispositivo varchar(30),in id_Firewall varchar(30),in id_Entorno varchar(30),
+in id_Normativa varchar(30),in id_Estado varchar(30),in id_TipoRed varchar(30),
+in id_Equipos varchar(30),in id_Clasificacion varchar(30),in id_Tarea varchar(30),in id_Usuario varchar(30))
+BEGIN
+SET @s = CONCAT("INSERT INTO `npms`.`vlan_ipv4` (`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`, `Gateway2`, `Gateway3`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
+"VALUES('" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
+'" , id_Descripcion , "','" , id_DireccionRed , "','" , id_RangoInicio , "','" , id_RangoFin , "',
+'" , id_Mascara , "',' " , id_Gateway1 , "','" , id_Gateway2 , "', '" , id_Gateway3 , "',
+'" , id_Observaciones , "','" , id_Dispositivo , "','" , id_Firewall , "','" , id_Entorno , "',
+'" , id_Normativa , "',' " , id_Estado , "','" , id_TipoRed , "', '" , id_Equipos , "',
+'" , id_Clasificacion , "', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;  
+set @Ctable = CONCAT("CREATE TABLE `npms`.`",id_vlan,"` (`ID` INT NOT NULL AUTO_INCREMENT,`Vlan` INT NOT NULL,`IP` VARCHAR(30) NOT NULL,`Ubicacion` VARCHAR(150) NULL,`Mac` VARCHAR(30) NULL,`DNS` VARCHAR(150) NULL,`Descripcion` VARCHAR(150) NULL,`Hostname_revisado` VARCHAR(150) NULL,`Hostname` VARCHAR(150) NULL,`Fecha_modificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP,`Tarea` VARCHAR(150) NULL,`usuario` VARCHAR(150) NULL,PRIMARY KEY (`ID`,`IP`),UNIQUE INDEX `IP_UNIQUE` (`IP` ASC) VISIBLE);");
+    PREPARE stmt FROM @Ctable;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+    set @ingate1 = CONCAT("INSERT INTO `npms`.`",id_vlan,"` 
+    (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+    VALUES ('" , id_vlan , "', '" , id_Gateway1 , "', '', '', '', 'Gateway1', 'Gateway1', 'Gateway1', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @ingate1;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+      set @ingate2 = CONCAT("INSERT INTO `npms`.`",id_vlan,"` 
+    (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+    VALUES ('" , id_vlan , "', '" , id_Gateway2 , "', '', '', '', 'Gateway2', 'Gateway2', 'Gateway2', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @ingate2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+      set @ingate3 = CONCAT("INSERT INTO `npms`.`",id_vlan,"` 
+    (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+    VALUES ('" , id_vlan , "', '" , id_Gateway3 , "', '', '', '', 'Gateway3', 'Gateway3', 'Gateway3', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @ingate3;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+    
+SET @log = CONCAT("INSERT INTO `npms`.`log_vlan_ipv4` (`Accion`,`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`, `Gateway2`, `Gateway3`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
+"VALUES('Create','" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
+'" , id_Descripcion , "','" , id_DireccionRed , "','" , id_RangoInicio , "','" , id_RangoFin , "',
+'" , id_Mascara , "',' " , id_Gateway1 , "','" , id_Gateway2 , "', '" , id_Gateway3 , "',
+'" , id_Observaciones , "','" , id_Dispositivo , "','" , id_Firewall , "','" , id_Entorno , "',
+'" , id_Normativa , "',' " , id_Estado , "','" , id_TipoRed , "', '" , id_Equipos , "',
+'" , id_Clasificacion , "', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @log;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END
+
+
+/* --------------Creacion Procedure para Insert_vlan_IPv6--------------- */
+
+DELIMITER $$
+CREATE  PROCEDURE `insert_vlan_ipv6`(in Formateo_vlan varchar(30),in id_vlan varchar(30),
+in id_nombre_vlan varchar(30),in id_Ubicacion varchar(30),in id_Vsys varchar(30),
+in id_Descripcion varchar(30),in id_DireccionRed varchar(30),in id_RangoInicio varchar(30),
+in id_RangoFin varchar(30),in id_Mascara varchar(30),in id_Gateway1 varchar(30),
+in id_Gateway2 varchar(30),in id_Gateway3 varchar(30),in id_Observaciones varchar(30),
+in id_Dispositivo varchar(30),in id_Firewall varchar(30),in id_Entorno varchar(30),
+in id_Normativa varchar(30),in id_Estado varchar(30),in id_TipoRed varchar(30),
+in id_Equipos varchar(30),in id_Clasificacion varchar(30),in id_Tarea varchar(30),in id_Usuario varchar(30))
+BEGIN
+SET @s = CONCAT("INSERT INTO `npms`.`vlan_ipv6` (`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`, `Gateway2`, `Gateway3`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
+"VALUES('" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
+'" , id_Descripcion , "','" , id_DireccionRed , "','" , id_RangoInicio , "','" , id_RangoFin , "',
+'" , id_Mascara , "',' " , id_Gateway1 , "','" , id_Gateway2 , "', '" , id_Gateway3 , "',
+'" , id_Observaciones , "','" , id_Dispositivo , "','" , id_Firewall , "','" , id_Entorno , "',
+'" , id_Normativa , "',' " , id_Estado , "','" , id_TipoRed , "', '" , id_Equipos , "',
+'" , id_Clasificacion , "', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;  
+set @Ctable = CONCAT("CREATE TABLE `npms`.`",Formateo_vlan,"` (`ID` INT NOT NULL AUTO_INCREMENT,`Vlan` INT NOT NULL,`IP` VARCHAR(30) NOT NULL,`Ubicacion` VARCHAR(150) NULL,`Mac` VARCHAR(30) NULL,`DNS` VARCHAR(150) NULL,`Descripcion` VARCHAR(150) NULL,`Hostname_revisado` VARCHAR(150) NULL,`Hostname` VARCHAR(150) NULL,`Fecha_modificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP,`Tarea` VARCHAR(150) NULL,`usuario` VARCHAR(150) NULL,PRIMARY KEY (`ID`,`IP`),UNIQUE INDEX `IP_UNIQUE` (`IP` ASC) VISIBLE);");
+    PREPARE stmt FROM @Ctable;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+    set @ingate1 = CONCAT("INSERT INTO `npms`.`",Formateo_vlan,"` 
+    (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+    VALUES ('" , id_vlan , "', '" , id_Gateway1 , "', '', '', '', 'Gateway1', 'Gateway1', 'Gateway1', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @ingate1;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+      set @ingate2 = CONCAT("INSERT INTO `npms`.`",Formateo_vlan,"` 
+    (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+    VALUES ('" , id_vlan , "', '" , id_Gateway2 , "', '', '', '', 'Gateway2', 'Gateway2', 'Gateway2', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @ingate2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+      set @ingate3 = CONCAT("INSERT INTO `npms`.`",Formateo_vlan,"` 
+    (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+    VALUES ('" , id_vlan , "', '" , id_Gateway3 , "', '', '', '', 'Gateway3', 'Gateway3', 'Gateway3', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @ingate3;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+SET @log = CONCAT("INSERT INTO `npms`.`log_vlan_ipv6` (`Accion`,`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`, `Gateway2`, `Gateway3`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
+"VALUES('Create','" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
+'" , id_Descripcion , "','" , id_DireccionRed , "','" , id_RangoInicio , "','" , id_RangoFin , "',
+'" , id_Mascara , "',' " , id_Gateway1 , "','" , id_Gateway2 , "', '" , id_Gateway3 , "',
+'" , id_Observaciones , "','" , id_Dispositivo , "','" , id_Firewall , "','" , id_Entorno , "',
+'" , id_Normativa , "',' " , id_Estado , "','" , id_TipoRed , "', '" , id_Equipos , "',
+'" , id_Clasificacion , "', '" , id_Tarea , "', '" , id_Usuario , "');");
+    PREPARE stmt FROM @log;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
 END$$
