@@ -80,7 +80,7 @@ namespace NPMS.administrate_network
                 //Extrae los campos ip de la tabla
                 string query = "SELECT IP FROM npms.`" + Vlan + "`;";
                 //Sentencias.Bbdd_apply_datagridView(Vlan, query, dataGridView_ipv4);
-
+                /*
                 MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
                 databaseConnection.Open();
                 MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
@@ -88,23 +88,18 @@ namespace NPMS.administrate_network
                 commandDatabase.Fill(ds2, Vlan);
                 dataGridView_ipv4.DataSource = ds2;
                 dataGridView_ipv4.DataMember = Vlan;
-                databaseConnection.Close();
+                databaseConnection.Close();*/
                 
                 //Parte que genera el rango
                 DataTable dt = new DataTable();
-                dt.Columns.Add("IP");
-                dataGridView_ipv4.DataSource = dt;              
+                dt.Columns.Add("IP");           
                 foreach (var ip in IPAddressRange.Parse(id_DireccionRed))
                 {
-
                         DataRow row = dt.NewRow();
                         row["IP"] = ip;
-                        dt.Rows.Add(row);
-                    
-                    
+                        dt.Rows.Add(row);                                   
                 }
                 
-                databaseConnection.Close();
 
             }
 
