@@ -41,6 +41,8 @@
             this.labelport = new System.Windows.Forms.Label();
             this.textBox_name_port_settings = new System.Windows.Forms.TextBox();
             this.button_change_bbdd_settings = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,11 +149,13 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox_name_bbdd_settings, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelport, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBox_name_port_settings, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.button_change_bbdd_settings, 1, 6);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 13);
+            this.tableLayoutPanel1.Controls.Add(this.button_change_bbdd_settings, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 6);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 13);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
@@ -159,8 +163,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(360, 314);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(360, 376);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // label2
@@ -199,21 +203,44 @@
             // button_change_bbdd_settings
             // 
             this.button_change_bbdd_settings.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button_change_bbdd_settings.Location = new System.Drawing.Point(184, 274);
+            this.button_change_bbdd_settings.Location = new System.Drawing.Point(184, 319);
             this.button_change_bbdd_settings.Margin = new System.Windows.Forms.Padding(4);
             this.button_change_bbdd_settings.Name = "button_change_bbdd_settings";
-            this.button_change_bbdd_settings.Size = new System.Drawing.Size(168, 28);
+            this.button_change_bbdd_settings.Size = new System.Drawing.Size(168, 34);
             this.button_change_bbdd_settings.TabIndex = 0;
             this.button_change_bbdd_settings.Text = "Apply";
             this.button_change_bbdd_settings.UseVisualStyleBackColor = true;
             this.button_change_bbdd_settings.Click += new System.EventHandler(this.Button_change_bbdd_settings_Click);
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label1.Location = new System.Drawing.Point(4, 270);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 36);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "BBDD Type";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "MySQL",
+            "SQLServer"});
+            this.comboBox1.Location = new System.Drawing.Point(183, 273);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(165, 25);
+            this.comboBox1.TabIndex = 19;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(381, 339);
+            this.ClientSize = new System.Drawing.Size(425, 422);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -239,5 +266,7 @@
         private System.Windows.Forms.TextBox textBox_name_port_settings;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_change_bbdd_settings;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

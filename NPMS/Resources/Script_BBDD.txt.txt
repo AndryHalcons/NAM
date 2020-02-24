@@ -189,41 +189,41 @@ CREATE TABLE `npms`.`log_vlan_ipv6` (
 
 /* --------------Creacion tabla logs IPv4--------------- */
 
- CREATE TABLE `npms`.`log_ip_ipv4` 
-(`ID` INT NOT NULL AUTO_INCREMENT,
-`IP` VARCHAR(30) NOT NULL,
-`Accion` VARCHAR(45) NULL,
-`Vlan` INT NOT NULL,
-`Ubicacion` VARCHAR(150) NULL,
-`Mac` VARCHAR(30) NULL,
-`DNS` VARCHAR(150) NULL,
-`Descripcion` VARCHAR(150) NULL,
-`Hostname_revisado` VARCHAR(150) NULL,
-`Hostname` VARCHAR(150) NULL,
-`Fecha_modificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP,
-`Tarea` VARCHAR(150) NULL,
-`usuario` VARCHAR(150) NULL,
-PRIMARY KEY (`ID`),
-UNIQUE INDEX `IP_UNIQUE` (`IP` ASC) VISIBLE);
+CREATE TABLE `log_ip_ipv4` (
+  `ID` INT(20) NOT NULL AUTO_INCREMENT,
+  `IP` varchar(30) NOT NULL,
+  `Accion` varchar(45) DEFAULT NULL,
+  `Vlan` int(11) NOT NULL,
+  `Ubicacion` varchar(150) DEFAULT NULL,
+  `Mac` varchar(40) DEFAULT NULL,
+  `DNS` varchar(150) DEFAULT NULL,
+  `Descripcion` varchar(150) DEFAULT NULL,
+  `Hostname_revisado` varchar(150) DEFAULT NULL,
+  `Hostname` varchar(150) DEFAULT NULL,
+  `Fecha_modificacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Tarea` varchar(150) DEFAULT NULL,
+  `usuario` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+)
 
 /* --------------Creacion tabla logs IPv6--------------- */
 
- CREATE TABLE `npms`.`log_ip_ipv6` 
-(`ID` INT NOT NULL AUTO_INCREMENT,
-`IP` VARCHAR(30) NOT NULL,
-`Accion` VARCHAR(45) NULL,
-`Vlan` INT NOT NULL,
-`Ubicacion` VARCHAR(150) NULL,
-`Mac` VARCHAR(30) NULL,
-`DNS` VARCHAR(150) NULL,
-`Descripcion` VARCHAR(150) NULL,
-`Hostname_revisado` VARCHAR(150) NULL,
-`Hostname` VARCHAR(150) NULL,
-`Fecha_modificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP,
-`Tarea` VARCHAR(150) NULL,
-`usuario` VARCHAR(150) NULL,
-PRIMARY KEY (`ID`),
-UNIQUE INDEX `IP_UNIQUE` (`IP` ASC) VISIBLE);
+ CREATE TABLE `log_ip_ipv6` (
+  `ID` INT(20) NOT NULL AUTO_INCREMENT,
+  `IP` varchar(30) NOT NULL,
+  `Accion` varchar(45) DEFAULT NULL,
+  `Vlan` int(11) NOT NULL,
+  `Ubicacion` varchar(150) DEFAULT NULL,
+  `Mac` varchar(40) DEFAULT NULL,
+  `DNS` varchar(150) DEFAULT NULL,
+  `Descripcion` varchar(150) DEFAULT NULL,
+  `Hostname_revisado` varchar(150) DEFAULT NULL,
+  `Hostname` varchar(150) DEFAULT NULL,
+  `Fecha_modificacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Tarea` varchar(150) DEFAULT NULL,
+  `usuario` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+)
 
 
 
@@ -279,7 +279,7 @@ DELETE FROM `npms`.vlan_ipv4 WHERE (`Vlan` = VarVlan);
 END$$
 DELIMITER ;
 
-/* --------------Creacion Procedure para logs IP_ipv4--------------- */
+/* --------------Creacion Procedure para update/deletelogs IP_ipv4--------------- */
 
 DELIMITER $$
 CREATE PROCEDURE `update_ip_log_ipv4`(IN VarAccion Varchar(20), 
@@ -304,7 +304,7 @@ END$$
 DELIMITER ;
 
 
-/* --------------Creacion Procedure para logs IP_ipv6--------------- */
+/* --------------Creacion Procedure para update/delete_logs IP_ipv6--------------- */
 
 DELIMITER $$
 CREATE PROCEDURE `update_ip_log_ipv6`(IN VarAccion Varchar(20), 

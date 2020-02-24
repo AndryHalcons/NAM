@@ -26,6 +26,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 string server_name = SecureCommon.DesEncriptar(sr.ReadLine());
                 string bbdd_name = SecureCommon.DesEncriptar(sr.ReadLine());
                 string port_name = SecureCommon.DesEncriptar(sr.ReadLine());
+                GlobalParam.BBDD_Type = SecureCommon.DesEncriptar(sr.ReadLine());
                 sr.Close();
                 string connectionString = "datasource=" + server_name + ";port=" + port_name + ";username=" + user_name + ";password=" + password_name + ";database=" + bbdd_name + ";";
                 return connectionString;

@@ -201,6 +201,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="gestion\administrator_network\pruebasipv4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion\administrator_network\pruebasipv4.Designer.cs">
+      <DependentUpon>pruebasipv4.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestion\administrator_network\Administrate_ipv6_vlan_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="gestion\administrator_network\pruebasipv4.resx">
+      <DependentUpon>pruebasipv4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\Administrate_ipv6_vlan_form.resx">
       <DependentUpon>Administrate_ipv6_vlan_form.cs</DependentUpon>
     </EmbeddedResource>

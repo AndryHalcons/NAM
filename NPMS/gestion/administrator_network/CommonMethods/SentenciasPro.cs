@@ -14,7 +14,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
          */
         public static void Delete_Vlan(string protocolo, string id_vlan, string id_tarea)
         {
-            if (GlobalParam.BBDD_Type == "MySql")
+            if (GlobalParam.BBDD_Type == "MySQL")
             {
                 if (protocolo == "IPv4")
                 {
@@ -43,7 +43,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
-            if (GlobalParam.BBDD_Type == "MySql")
+            if (GlobalParam.BBDD_Type == "MySQL")
             {
 
           

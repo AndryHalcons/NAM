@@ -35,11 +35,12 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             catch
             {
                 StreamWriter sw = File.CreateText(ruta_ArchivoConfBbdd);
-                sw.WriteLine(SecureCommon.Encriptar("Database user"));
+                sw.WriteLine(SecureCommon.Encriptar("Database User"));
                 sw.WriteLine(SecureCommon.Encriptar("Database Pass"));
                 sw.WriteLine(SecureCommon.Encriptar("Database Server"));
                 sw.WriteLine(SecureCommon.Encriptar("Database schema"));
                 sw.WriteLine(SecureCommon.Encriptar("Database Port"));
+                sw.WriteLine(SecureCommon.Encriptar("BBDD Type"));
                 sw.Close();
                 return true;
             }                                                                                                                                             

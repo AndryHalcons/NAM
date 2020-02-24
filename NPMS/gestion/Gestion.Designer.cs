@@ -46,6 +46,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonFastNetworkFirewall = new System.Windows.Forms.Button();
             this.dataGridViewFastNetworkFirewall = new System.Windows.Forms.DataGridView();
+            this.buttonPruebas = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFastNetworkFirewall)).BeginInit();
@@ -115,6 +116,7 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonUserManagement, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.inventory, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.patching_switchs, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.buttonPruebas, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -300,6 +302,18 @@
             this.dataGridViewFastNetworkFirewall.Size = new System.Drawing.Size(639, 86);
             this.dataGridViewFastNetworkFirewall.TabIndex = 14;
             // 
+            // buttonPruebas
+            // 
+            this.buttonPruebas.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonPruebas.Location = new System.Drawing.Point(4, 108);
+            this.buttonPruebas.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonPruebas.Name = "buttonPruebas";
+            this.buttonPruebas.Size = new System.Drawing.Size(287, 35);
+            this.buttonPruebas.TabIndex = 18;
+            this.buttonPruebas.Text = "Pruebas VLAN IPv4";
+            this.buttonPruebas.UseVisualStyleBackColor = true;
+            this.buttonPruebas.Click += new System.EventHandler(this.buttonPruebas_Click);
+            // 
             // Gestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -341,5 +355,6 @@
         private System.Windows.Forms.Button buttonImportData;
         private System.Windows.Forms.Button inventory;
         private System.Windows.Forms.Button patching_switchs;
+        private System.Windows.Forms.Button buttonPruebas;
     }
 }
