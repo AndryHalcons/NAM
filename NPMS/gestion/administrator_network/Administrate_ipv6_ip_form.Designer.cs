@@ -127,11 +127,11 @@
             this.dataGridView_ipv4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_ipv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ipv4.GridColor = System.Drawing.Color.Tan;
-            this.dataGridView_ipv4.Location = new System.Drawing.Point(16, 111);
+            this.dataGridView_ipv4.Location = new System.Drawing.Point(3, 111);
             this.dataGridView_ipv4.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_ipv4.Name = "dataGridView_ipv4";
             this.dataGridView_ipv4.ReadOnly = true;
-            this.dataGridView_ipv4.Size = new System.Drawing.Size(1016, 543);
+            this.dataGridView_ipv4.Size = new System.Drawing.Size(747, 302);
             this.dataGridView_ipv4.TabIndex = 12;
             // 
             // Administrate_ipv6_ip_form

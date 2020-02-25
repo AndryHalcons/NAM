@@ -303,6 +303,12 @@
     <Compile Include="gestion\administrator_network\update_databases_ipv6\Insert_or_update_vlan_ipv6.Designer.cs">
       <DependentUpon>Insert_or_update_vlan_ipv6.cs</DependentUpon>
     </Compile>
+    <Compile Include="gestion\administrator_network\update_inventory\Update_inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion\administrator_network\update_inventory\Update_inventory.Designer.cs">
+      <DependentUpon>Update_inventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestion\administrator_network\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv6\Insert_or_update_vlan_ipv6.resx">
       <DependentUpon>Insert_or_update_vlan_ipv6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gestion\administrator_network\update_inventory\Update_inventory.resx">
+      <DependentUpon>Update_inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>

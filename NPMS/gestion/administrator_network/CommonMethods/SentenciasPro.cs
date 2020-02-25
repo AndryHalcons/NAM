@@ -36,7 +36,8 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         }
 
         //Método que se encarga de añadir la Vlan  creada a la base de datos
-        //También invoca dentro de el al metodo que crea las tablas IP, correspondiente a la Vlan
+        //el procedure invocado también crea la tabla de rango ip correspondiente al a vlan
+      
         public static void Insert_vlan(string protocolo,string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
          string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
@@ -73,7 +74,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
          */
         public static void Delete_ip(string protocolo, string id_vlan, string id_tarea, string id_ip)
         {
-            if (GlobalParam.BBDD_Type == "MySql")
+            if (GlobalParam.BBDD_Type == "MySQL")
             {
 
                 if (protocolo == "IPv4")
@@ -93,25 +94,32 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 
             }
         }
-        //Metodo que se encarga de reservar una ip (crear) según el protocolo (IPv4/IPv6) y eltipo de base de datos
+        //Metodo que se encarga de reservar una ip (crear) según el protocolo (IPv4/IPv6) y el tipo de base de datos
         public static void Insert_ip(string protocolo, string id_vlan, string id_Ubicacion, string id_mac, string id_dns, string id_Descripcion, string id_hostnameR,
          string id_hostname, string id_Tarea, string id_ip)
         {
-            if (GlobalParam.BBDD_Type == "MySql")
+            if (GlobalParam.BBDD_Type == "MySQL")
             {
 
 
                 if (protocolo == "IPv4")
                 {
 
-                    string query = "CALL insert_ip_ipv4('Create','" + id_vlan + "','" + id_ip + "','" + id_Ubicacion + "','" + id_mac + "','" + id_dns + "','" + id_Descripcion + "','" + id_hostnameR + "','" + id_hostname + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
+                    string query = "CALL insert_ip_ipv4('Create','" + id_vlan + "'," +
+                        "'" + id_ip + "','" + id_Ubicacion + "','" + id_mac + "'," +
+                        "'" + id_dns + "','" + id_Descripcion + "','" + id_hostnameR + "'," +
+                        "'" + id_hostname + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
                         Sentencias.Bbdd_apply_simple(query);
                     
                 }
                 if (protocolo == "vlan_ipv6")
                 {
                     string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
-                    string query = "CALL insert_ip_ipv4('Create','" + id_vlan + "','" + id_ip + "','" + id_Ubicacion + "','" + id_mac + "','" + id_dns + "','" + id_Descripcion + "','" + id_hostnameR + "','" + id_hostname + "','" + id_Tarea + "','" + GlobalParam.IDUser + "','" + FormatoVlanIPv6 + "')";
+                    string query = "CALL insert_ip_ipv4('Create','" + id_vlan + "'," +
+                        "'" + id_ip + "','" + id_Ubicacion + "','" + id_mac + "'," +
+                        "'" + id_dns + "','" + id_Descripcion + "','" + id_hostnameR + "'," +
+                        "'" + id_hostname + "','" + id_Tarea + "','" + GlobalParam.IDUser + "'," +
+                        "'" + FormatoVlanIPv6 + "')";
                     Sentencias.Bbdd_apply_simple(query);
                 }
             }
@@ -121,6 +129,43 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 
             }
 
+        }
+        //Metodo que se encarga de insertar un nuevo dispositivo en el inventario 
+        //ejecuta la sentencia según  el tipo de base de datos
+        public static void Insert_inventory(string hostname,string dns, string comments, string ip, string sn,
+            string name,string manufacturer, string location, string environment, string domain, string contact
+            , string aditional_info, string ports, string other1, string other2, string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                string query = "call insert_inventory('Create','" + hostname + "'," +
+                    "'" + dns + "','" + comments + "','" + ip + "','" + sn + "'," +
+                    "'" + name + "','" + manufacturer + "','" + location + "'," +
+                    "'" + environment + "','" + domain + "','" + contact + "'," +
+                    "'" + aditional_info + "','" + ports + "','" + other1 + "'," +
+                    "'" + other2 + "','" + worder + "','" + GlobalParam.IDUser + "') ";
+
+                Sentencias.Bbdd_apply_simple(query);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+        }
+        //Metodo que se encarga de BORRAR un  dispositivo en el inventario 
+        //ejecuta la sentencia según  el tipo de base de datos
+        public static void Delete_inventory(string SN, string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                string query = "call update_inventory_log('Delete','" + GlobalParam.IDUser + "'," +
+                    "'" + SN + "','" + worder + "')";
+                Sentencias.Bbdd_apply_simple(query);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
         }
 
     }

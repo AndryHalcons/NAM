@@ -170,7 +170,7 @@
             this.dataGridView_ipv4_vlan.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_ipv4_vlan.Name = "dataGridView_ipv4_vlan";
             this.dataGridView_ipv4_vlan.ReadOnly = true;
-            this.dataGridView_ipv4_vlan.Size = new System.Drawing.Size(684, 386);
+            this.dataGridView_ipv4_vlan.Size = new System.Drawing.Size(684, 276);
             this.dataGridView_ipv4_vlan.TabIndex = 11;
             // 
             // Administrate_ipv6_vlan_form
@@ -179,7 +179,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(714, 588);
+            this.ClientSize = new System.Drawing.Size(714, 478);
             this.Controls.Add(this.dataGridView_ipv4_vlan);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);

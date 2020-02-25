@@ -52,15 +52,12 @@ namespace NPMS.administrate_network
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
-            GlobalParam.Vlan_IPv6_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             string VlanAdaptada = "ipv6_" + textBox_Vlan.Text + "";
             bool ValidaExistencia = Common.ValidadorTabla(VlanAdaptada);
             if (VVlan == true && ValidaExistencia == true)
             {
-                string Vlan = textBox_Vlan.Text.ToString();
-                string query = "SELECT * FROM npms.`ipv6_" + Vlan + "`;";
-                Sentencias.Bbdd_apply_datagridView(Vlan,query,dataGridView_ipv4);              
+                Sentencias.Bbdd_apply_all_datagridView(VlanAdaptada, dataGridView_ipv4);
             }
                         
 

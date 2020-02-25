@@ -35,54 +35,168 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         //************* Parametros de accion en base de datos,  aportando la tabla destino y la  QuerySQL***********
         public static void Bbdd_apply(string nombre_tabla, string query)
         {
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-            DataSet ds = new DataSet();
-            string Snombre_tabla = nombre_tabla.ToString();
-            commandDatabase.Fill(ds, Snombre_tabla);
-            databaseConnection.Close();
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+                DataSet ds = new DataSet();
+                string Snombre_tabla = nombre_tabla.ToString();
+                commandDatabase.Fill(ds, Snombre_tabla);
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
         }
         //Consulta simple en Base de datos con query
         public static void Bbdd_apply_simple(string query)
+
         {
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandText = query;
-            commandDatabase.ExecuteNonQuery();
-            databaseConnection.Close();
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                commandDatabase.CommandText = query;
+                commandDatabase.ExecuteNonQuery();
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+
         }
         //Metodo que Realiza las consultas en las BBDD y  muestra el resultado en un DataGridView
         public static void Bbdd_apply_datagridView(string tabla, string query ,DataGridView Datagrid_Name)
         {
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-            DataSet ds = new DataSet();
-            commandDatabase.Fill(ds, tabla);
-            Datagrid_Name.DataSource = ds;
-            Datagrid_Name.DataMember = tabla;
-            databaseConnection.Close();
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+                DataSet ds = new DataSet();
+                commandDatabase.Fill(ds, tabla);
+                Datagrid_Name.DataSource = ds;
+                Datagrid_Name.DataMember = tabla;
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+
+        }
+        //Metodo que Realiza un SELECT * ALL en las BBDD  
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_all_datagridView(string tabla, DataGridView Datagrid_Name)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                string query = "call simplyselectall('"+tabla+"')";
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+                DataSet ds = new DataSet();
+                commandDatabase.Fill(ds, tabla);
+                Datagrid_Name.DataSource = ds;
+                Datagrid_Name.DataMember = tabla;
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+
+        }
+        //Metodo que Realiza un SELECT * ALL en las BBDD con ORDER DESC 
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_all_Desc_datagridView(string tabla, DataGridView Datagrid_Name)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                string query = "call simplyselectallorderdesc('" + tabla + "')";
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+                DataSet ds = new DataSet();
+                commandDatabase.Fill(ds, tabla);
+                Datagrid_Name.DataSource = ds;
+                Datagrid_Name.DataMember = tabla;
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+
+        }
+        //Metodo que Realiza las consultas en las BBDD filtrando por el valor EXACTO de un campo 
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_where_datagridView(string tabla, string campo,string datocampo, DataGridView Datagrid_Name)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                string query = "call simplyselectwhere('" +tabla+ "','" + campo + "','" + datocampo + "')";
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+                DataSet ds = new DataSet();
+                commandDatabase.Fill(ds, tabla);
+                Datagrid_Name.DataSource = ds;
+                Datagrid_Name.DataMember = tabla;
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+
+        }
+        //Metodo que Realiza las consultas en las BBDD filtrando por el valor "LIKE" de un campo 
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_wherelike_datagridView(string tabla, string campo, string datocampo, DataGridView Datagrid_Name)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                string query = "call simplyselectwherelike('" + tabla + "','" + campo + "','" + datocampo + "')";
+                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+                databaseConnection.Open();
+                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+                DataSet ds = new DataSet();
+                commandDatabase.Fill(ds, tabla);
+                Datagrid_Name.DataSource = ds;
+                Datagrid_Name.DataMember = tabla;
+                databaseConnection.Close();
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+
         }
 
 
         //Obtiene el dato de un campo de tipo INT
         public static int Dato_Campo_Int(string tabla, string NombreCampo, string DatoCampo, int PosicionCampo)
         {
-            MySqlCommand Query = new MySqlCommand();
-            MySqlConnection Conexion = new MySqlConnection();
-            MySqlDataReader consultar;
-            Conexion = new MySqlConnection();
-            Conexion.ConnectionString = bbdd_connection_data();
-            Conexion.Open();
-            Query.CommandText = "SELECT * FROM npms." + tabla + " WHERE " + NombreCampo + " = '" + DatoCampo + "';";
-            Query.Connection = Conexion;
-            consultar = Query.ExecuteReader();
-            consultar.Read();
-            int Rol = consultar.GetInt32(PosicionCampo);
-            Conexion.Close();
-            return Rol;
+                MySqlCommand Query = new MySqlCommand();
+                MySqlConnection Conexion = new MySqlConnection();
+                MySqlDataReader consultar;
+                Conexion = new MySqlConnection();
+                Conexion.ConnectionString = bbdd_connection_data();
+                Conexion.Open();
+                Query.CommandText = "SELECT * FROM npms." + tabla + " WHERE " + NombreCampo + " = '" + DatoCampo + "';";
+                Query.Connection = Conexion;
+                consultar = Query.ExecuteReader();
+                consultar.Read();
+                int Rol = consultar.GetInt32(PosicionCampo);
+                Conexion.Close();
+                return Rol;
+   
+
         }
         //Obtiene el dato de un campo de tipo String,
         public static string Dato_Campo_String(string tabla, string NombreCampo, string DatoCampo, int PosicionCampo)

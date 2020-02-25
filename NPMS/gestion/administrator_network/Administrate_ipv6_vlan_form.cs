@@ -37,7 +37,7 @@ namespace NPMS.administrate_network
             bool Iniciador = true;
             if (Bdata_IpOctets == true && Bdata_vlan == true)
             {
-                MessageBox.Show("No puede buscar los camops IP  y Vlan a la vez");
+                MessageBox.Show("You cannot search in two fields at the same time");
                 Iniciador = false;
             }
             

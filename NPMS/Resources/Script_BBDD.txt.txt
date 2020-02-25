@@ -78,24 +78,27 @@ CREATE TABLE `npms`.`vlan_ipv4` (
 
   /* --------------Creacion tabla inventarios--------------- */
 
-CREATE TABLE `npms`.`inventario` (
-  `Hostname` VARCHAR(45) NULL,
-  `DNS` VARCHAR(45) NULL,
-  `Comentarios` VARCHAR(45) NULL,
-  `IP` VARCHAR(45) NULL,
-  `Nº Serie` VARCHAR(45) NOT NULL,
-  `Nombre_producto` VARCHAR(45) NULL,
-  `Fabricante` VARCHAR(45) NULL,
-  `Ubicacion` VARCHAR(45) NULL,
-  `Entorno` VARCHAR(45) NULL,
-  `Dominio` VARCHAR(45) NULL,
-  `Contacto_propietario` VARCHAR(45) NULL,
-  `Info_adicional` VARCHAR(45) NULL,
-  `Puertos` VARCHAR(45) NULL,
-  `Otros_1` VARCHAR(45) NULL,
-  `Otros_2` VARCHAR(45) NULL,
-  PRIMARY KEY (`Nº Serie`),
-  UNIQUE INDEX `Nº Serie_UNIQUE` (`Nº Serie` ASC) VISIBLE);
+CREATE TABLE `npms`.`inventory` (
+  `HOSTNAME` VARCHAR(60) NULL,
+  `DNS` VARCHAR(60) NULL,
+  `COMMENTS` VARCHAR(60) NULL,
+  `IP` VARCHAR(60) NULL,
+  `SN` VARCHAR(60) NOT NULL,
+  `NAME` VARCHAR(60) NULL,
+  `MANUFACTURER` VARCHAR(60) NULL,
+  `LOCATION` VARCHAR(60) NULL,
+  `ENVIRONMENT` VARCHAR(60) NULL,
+  `DOMAIN` VARCHAR(60) NULL,
+  `CONTACT_PROPERTY` VARCHAR(60) NULL,
+  `ADITIONAL_INFO` VARCHAR(60) NULL,
+  `PORTS` VARCHAR(60) NULL,
+  `OTHER_1` VARCHAR(60) NULL,
+  `OTHER_2` VARCHAR(60) NULL,
+  `DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `WORK_ORDER` varchar(150) DEFAULT NULL,
+  `USER` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`SN`),
+  UNIQUE INDEX `SN_UNIQUE` (`SN` ASC) VISIBLE);
 
 /* --------------Creacion tabla parcheo--------------- */
 
@@ -224,6 +227,31 @@ CREATE TABLE `log_ip_ipv4` (
   `usuario` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 )
+/*----------------------------Creacion tabla logs Inventory------------------------*/
+
+CREATE TABLE `npms`.`log_inventory` (
+  `ID` INT(50) NOT NULL AUTO_INCREMENT,
+  `ACTION` VARCHAR(60) NULL,
+  `HOSTNAME` VARCHAR(60) NULL,
+  `DNS` VARCHAR(60) NULL,
+  `COMMENTS` VARCHAR(60) NULL,
+  `IP` VARCHAR(60) NULL,
+  `SN` VARCHAR(60) NOT NULL,
+  `NAME` VARCHAR(60) NULL,
+  `MANUFACTURER` VARCHAR(60) NULL,
+  `LOCATION` VARCHAR(60) NULL,
+  `ENVIRONMENT` VARCHAR(60) NULL,
+  `DOMAIN` VARCHAR(60) NULL,
+  `CONTACT_PROPERTY` VARCHAR(60) NULL,
+  `ADITIONAL_INFO` VARCHAR(60) NULL,
+  `PORTS` VARCHAR(60) NULL,
+  `OTHER_1` VARCHAR(60) NULL,
+  `OTHER_2` VARCHAR(60) NULL,
+  `DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `WORK_ORDER` varchar(150) DEFAULT NULL,
+  `USER` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
 
 
 
@@ -443,14 +471,14 @@ END
 /* --------------Creacion Procedure para Insert_vlan_IPv6--------------- */
 
 DELIMITER $$
-CREATE  PROCEDURE `insert_vlan_ipv6`(in Formateo_vlan varchar(30),in id_vlan varchar(30),
-in id_nombre_vlan varchar(30),in id_Ubicacion varchar(30),in id_Vsys varchar(30),
-in id_Descripcion varchar(30),in id_DireccionRed varchar(30),in id_RangoInicio varchar(30),
-in id_RangoFin varchar(30),in id_Mascara varchar(30),in id_Gateway1 varchar(30),
-in id_Gateway2 varchar(30),in id_Gateway3 varchar(30),in id_Observaciones varchar(30),
-in id_Dispositivo varchar(30),in id_Firewall varchar(30),in id_Entorno varchar(30),
-in id_Normativa varchar(30),in id_Estado varchar(30),in id_TipoRed varchar(30),
-in id_Equipos varchar(30),in id_Clasificacion varchar(30),in id_Tarea varchar(30),in id_Usuario varchar(30))
+CREATE  PROCEDURE `insert_vlan_ipv6`(in Formateo_vlan varchar(30),in id_vlan varchar(80),
+in id_nombre_vlan varchar(30),in id_Ubicacion varchar(100),in id_Vsys varchar(30),
+in id_Descripcion varchar(100),in id_DireccionRed varchar(100),in id_RangoInicio varchar(100),
+in id_RangoFin varchar(100),in id_Mascara varchar(100),in id_Gateway1 varchar(100),
+in id_Gateway2 varchar(100),in id_Gateway3 varchar(100),in id_Observaciones varchar(100),
+in id_Dispositivo varchar(100),in id_Firewall varchar(100),in id_Entorno varchar(100),
+in id_Normativa varchar(100),in id_Estado varchar(100),in id_TipoRed varchar(100),
+in id_Equipos varchar(100),in id_Clasificacion varchar(100),in id_Tarea varchar(100),in id_Usuario varchar(100))
 BEGIN
 SET @s = CONCAT("INSERT INTO `npms`.`vlan_ipv6` (`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`, `Gateway2`, `Gateway3`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
 "VALUES('" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
@@ -494,5 +522,122 @@ SET @log = CONCAT("INSERT INTO `npms`.`log_vlan_ipv6` (`Accion`,`Vlan`, `Nombre`
     PREPARE stmt FROM @log;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
+END$$
+DELIMITER ;
+
+
+
+/*********************Procedure insert inventory***************************/
+
+DELIMITER $$
+CREATE PROCEDURE `insert_inventory`(in accion varchar(80),
+in hostname varchar(80),in dns varchar(80),in comments varchar(80),in ip varchar(80),
+in sn varchar(80),in nombre varchar(80),in manufacturer varchar(80),
+in location varchar(80),in environment varchar(80),in domain varchar(80)
+,in contact varchar(80),in aditionalinfo varchar(80),in ports varchar(80)
+,in other1 varchar(80),in other2 varchar(80),in worder varchar(80),in usuario varchar(80))
+BEGIN
+SET @s = CONCAT("INSERT INTO `npms`.`inventory` 
+(`HOSTNAME`, `DNS`, `COMMENTS`, `IP`, `SN`, `NAME`, 
+`MANUFACTURER`, `LOCATION`, `ENVIRONMENT`, `DOMAIN`, `CONTACT_PROPERTY`, 
+`ADITIONAL_INFO`, `PORTS`, `OTHER_1`, `OTHER_2`, `WORK_ORDER`, `USER`) 
+VALUES 
+('",hostname,"', '",dns,"', '",comments,"', '",ip,"', '",sn,"', '",nombre,"', 
+'",manufacturer,"', '",location,"', '",environment,"', '",domain,"', '",contact,"', 
+'",aditionalinfo,"', '",ports,"', '",other1,"', '",other2,"', '",worder,"', '",usuario,"');");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+SET @b =  CONCAT("INSERT INTO `npms`.`log_inventory` 
+(`ACTION`, `HOSTNAME`, `DNS`, `COMMENTS`, `IP`, `SN`, `NAME`, 
+`MANUFACTURER`, `LOCATION`, `ENVIRONMENT`, `DOMAIN`, `CONTACT_PROPERTY`, 
+`ADITIONAL_INFO`, `PORTS`, `OTHER_1`, `OTHER_2`, `WORK_ORDER`, `USER`) 
+VALUES 
+('",accion,"', '",hostname,"', '",dns,"', '",comments,"', '",ip,"', '",sn,"', '",nombre,"', 
+'",manufacturer,"', '",location,"', '",environment,"', '",domain,"', '",contact,"', 
+'",aditionalinfo,"', '",ports,"', '",other1,"', '",other2,"', '",worder,"', '",usuario,"');");
+    PREPARE stmt FROM @b;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+END$$
+DELIMITER ;
+
+
+/*********************Procedure update inventory***************************/
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_inventory_log`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN SN varchar(50),IN VarTarea varchar(50))
+BEGIN
+  SET @s = CONCAT("insert into `log_inventory`
+(`HOSTNAME`, `DNS`, `COMMENTS`, `IP`, `SN`, `NAME`, 
+`MANUFACTURER`, `LOCATION`, `ENVIRONMENT`, `DOMAIN`, `CONTACT_PROPERTY`, 
+`ADITIONAL_INFO`, `PORTS`, `OTHER_1`, `OTHER_2`, `WORK_ORDER`, `USER`) 
+select `HOSTNAME`, `DNS`,`COMMENTS`,`IP`,`SN`,`NAME`,
+`MANUFACTURER`,`LOCATION`,`ENVIRONMENT`,`DOMAIN`,
+`CONTACT_PROPERTY`,`ADITIONAL_INFO`,`PORTS`,`OTHER_1`,`OTHER_2`
+,`WORK_ORDER`,`USER`
+from `inventory` where SN ='", SN,"'");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ SET @s2 = CONCAT("DELETE FROM `npms`.`inventory` WHERE SN = '",SN,"';");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+SET @max_id = (SELECT MAX(ID) FROM log_inventory);
+UPDATE `npms`.`log_inventory` SET `ACTION` = VarAccion, `WORK_ORDER` = VarTarea, `USER` = VarUsuario WHERE `ID` = @max_id;  
+END$$
+DELIMITER ;
+
+
+
+/*****************************************************************************************************/
+/******************************CREACION PROCEDURES SIMPLES****************************************/
+
+
+/*********************Procedure que Hace un Select all***************************/
+
+DELIMITER $$
+CREATE PROCEDURE `simplyselectall`(in tabla varchar(30))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.`",tabla,"`;");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+/*********************Procedure que Hace un Select all con ORDER DESC (ideal para logs)***************************/
+DELIMITER $$
+CREATE PROCEDURE `simplyselectallorderdesc`(in tabla varchar(30))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` ORDER BY ID desc;");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+/*********************Procedure que busca una fila por el valor de un campo (=)***************************/
+DELIMITER $$
+CREATE PROCEDURE `simplyselect`(in tabla varchar (40),in campo varchar (40),in datocampo varchar(45))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` where ",campo," = '", datocampo,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+/*********************Procedure que busca una fila por el valor de una cadena (LIKE)***************************/
+DELIMITER $$
+CREATE PROCEDURE `simplyselectwherelike`(in tabla varchar (40),in campo varchar (40),in datocampo varchar(45))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` where ",campo," LIKE '%", datocampo,"%';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
 END$$
 DELIMITER ;
