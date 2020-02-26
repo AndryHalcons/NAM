@@ -38,6 +38,7 @@
             this.buttonUserManagement = new System.Windows.Forms.Button();
             this.inventory = new System.Windows.Forms.Button();
             this.patching_switchs = new System.Windows.Forms.Button();
+            this.buttonPruebas = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonFastNetworkFirewall = new System.Windows.Forms.Button();
             this.dataGridViewFastNetworkFirewall = new System.Windows.Forms.DataGridView();
-            this.buttonPruebas = new System.Windows.Forms.Button();
+            this.checkBoxIPv6 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFastNetworkFirewall)).BeginInit();
@@ -197,6 +198,18 @@
             this.patching_switchs.UseVisualStyleBackColor = true;
             this.patching_switchs.Click += new System.EventHandler(this.patching_switchs_Click);
             // 
+            // buttonPruebas
+            // 
+            this.buttonPruebas.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonPruebas.Location = new System.Drawing.Point(4, 108);
+            this.buttonPruebas.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonPruebas.Name = "buttonPruebas";
+            this.buttonPruebas.Size = new System.Drawing.Size(287, 35);
+            this.buttonPruebas.TabIndex = 18;
+            this.buttonPruebas.Text = "Pruebas VLAN IPv4";
+            this.buttonPruebas.UseVisualStyleBackColor = true;
+            this.buttonPruebas.Click += new System.EventHandler(this.buttonPruebas_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -264,6 +277,7 @@
             this.tableLayoutPanel3.Controls.Add(this.textBoxFastDestination, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.buttonFastNetworkFirewall, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.textBoxFastSource, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.checkBoxIPv6, 1, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(416, 16);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -302,17 +316,15 @@
             this.dataGridViewFastNetworkFirewall.Size = new System.Drawing.Size(639, 86);
             this.dataGridViewFastNetworkFirewall.TabIndex = 14;
             // 
-            // buttonPruebas
+            // checkBoxIPv6
             // 
-            this.buttonPruebas.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.buttonPruebas.Location = new System.Drawing.Point(4, 108);
-            this.buttonPruebas.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonPruebas.Name = "buttonPruebas";
-            this.buttonPruebas.Size = new System.Drawing.Size(287, 35);
-            this.buttonPruebas.TabIndex = 18;
-            this.buttonPruebas.Text = "Pruebas VLAN IPv4";
-            this.buttonPruebas.UseVisualStyleBackColor = true;
-            this.buttonPruebas.Click += new System.EventHandler(this.buttonPruebas_Click);
+            this.checkBoxIPv6.AutoSize = true;
+            this.checkBoxIPv6.Location = new System.Drawing.Point(165, 3);
+            this.checkBoxIPv6.Name = "checkBoxIPv6";
+            this.checkBoxIPv6.Size = new System.Drawing.Size(148, 21);
+            this.checkBoxIPv6.TabIndex = 6;
+            this.checkBoxIPv6.Text = "Select IPv6 Search";
+            this.checkBoxIPv6.UseVisualStyleBackColor = true;
             // 
             // Gestion
             // 
@@ -356,5 +368,6 @@
         private System.Windows.Forms.Button inventory;
         private System.Windows.Forms.Button patching_switchs;
         private System.Windows.Forms.Button buttonPruebas;
+        private System.Windows.Forms.CheckBox checkBoxIPv6;
     }
 }

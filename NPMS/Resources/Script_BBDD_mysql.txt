@@ -641,3 +641,74 @@ SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` where ",campo," LIKE '%", datoca
     DEALLOCATE PREPARE stmt;   
 END$$
 DELIMITER ;
+
+/*********************Procedure que busca una fila por el valor exacto de dos campos (LOGGING)***************************/
+
+DELIMITER $$
+CREATE PROCEDURE `simplyselectwhere2fields`(in tabla varchar (40),in campo1 varchar (40),
+in campo2 varchar (40),in datocampo1 varchar(100),in datocampo2 varchar(100))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` WHERE ",campo1," = '", datocampo1,"' and ",campo2," = '", datocampo2,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+/*********************Procedure que hace SELETC* SOBRE DOS CAMPOS  (Ver datos de usuario)***************************/
+
+
+DELIMITER $$
+CREATE  PROCEDURE `simplyselect_view2fields`(
+in tabla varchar (40),
+in campo1 varchar (40),
+in campo2 varchar (40))
+BEGIN
+SET @s = CONCAT("SELECT  ",campo1,",",campo2," FROM npms.`",tabla,"`;");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+/*********************Procedure que comprueba si una tabla existe***************************/
+DELIMITER $$
+CREATE  PROCEDURE `table_exists`(
+in tabla varchar (40))
+BEGIN
+SET @s = CONCAT("SHOW TABLES LIKE '",tabla,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+
+/*********************Procedure que busca la vlan correspondiente a una IP***************************/
+DELIMITER $$
+CREATE PROCEDURE `search_vlan_for_IP`(in tabla varchar(30),
+in Dato varchar(30),in CampoMenor varchar(30),in CampoMayor varchar(30))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` where (INET_ATON('",Dato,"') 
+BETWEEN INET_ATON(",CampoMenor,")and INET_ATON(",CampoMayor,"));");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+/*********************Procedure que muestra el FAST FIREWALL***************************/
+DELIMITER $$
+CREATE PROCEDURE `search_vlan_for_Fast_Firewall`(in tabla varchar(30),
+in origen varchar(30),in destino varchar(30))
+BEGIN
+SET @s = CONCAT("(SELECT * FROM npms.`",tabla,"` where(INET_ATON('",origen,"') 
+BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin)))
+union(SELECT * FROM npms.`",tabla,"` where(INET_ATON('",destino,"') 
+BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin))); ");
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;

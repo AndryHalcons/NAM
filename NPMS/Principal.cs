@@ -27,10 +27,11 @@ namespace NPMS
             string Pass = SecureCommon.EncryptHash(textBoxPassword.Text.ToString());
             
             //Esta parte valida la configuracion de acceso a la BBDD 
-            bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();
+            //bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();
+            bool ValidaAccesoBBDD = Sentencias.Validar_Conexion_BBDD();
             if (ValidaAccesoBBDD == true)
             {
-                bool ValidaAccesoAPP = Common.EntryUsuarioApp(User, Pass);
+                bool ValidaAccesoAPP = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "Usuario", "Password", User, Pass);
                 if (ValidaAccesoAPP == true)
                 {
                     string Rol = Sentencias.Dato_Campo_String("usuarios", "Usuario", User, 2);

@@ -98,9 +98,16 @@ namespace NPMS
             bool Vdestination = Common.ValidadorIP(destination, "Destination");
             if (Vsource == true && Vdestination == true)
             {
-                string query = "(SELECT * FROM npms.vlan_ipv4 where(INET_ATON('"+source+"') BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin)))union(SELECT * FROM npms.vlan_ipv4 where(INET_ATON('"+destination+"') BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin))); ";
-                Sentencias.Bbdd_apply_datagridView("vlan_ipv4", query, dataGridViewFastNetworkFirewall);           
+                if (checkBoxIPv6.Checked == true)
+                {
+                    Sentencias.Bbdd_apply_search_vlan_for_Fast_Firewall("IPv6", source, destination, dataGridViewFastNetworkFirewall);
 
+                }
+                else
+                {
+                    Sentencias.Bbdd_apply_search_vlan_for_Fast_Firewall("IPv4", source, destination, dataGridViewFastNetworkFirewall);
+
+                }
             }
         }
 

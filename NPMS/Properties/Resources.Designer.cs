@@ -111,7 +111,11 @@ namespace NPMS.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a CREATE SCHEMA `npms`;
+        ///   Busca una cadena traducida similar a /* --------------Creacion Esquema--------------- */
+        ///CREATE SCHEMA `npms`;
+        ///
+        ////* --------------Creacion tabla vlan_ipv4--------------- */
+        ///
         ///CREATE TABLE `npms`.`vlan_ipv4` (
         ///  `Vlan` INT NOT NULL,
         ///  `Nombre` VARCHAR(150) NULL,
@@ -122,11 +126,7 @@ namespace NPMS.Properties {
         ///  `Rango_ip_inicio` VARCHAR(65) NULL,
         ///  `Rango_ip_fin` VARCHAR(65) NULL,
         ///  `Mascara` VARCHAR(65) NULL,
-        ///  `Gateway` VARCHAR(65) NULL,
-        ///  `Gateway2` VARCHAR(65) NULL,
-        ///  `Gateway3` VARCHAR(65) NULL,
-        ///  `Observaciones` VARCHAR(200) NULL,
-        ///  ` [resto de la cadena truncado]&quot;;.
+        ///  `Gateway` VARCHA [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string Script_BBDD_txt {
             get {

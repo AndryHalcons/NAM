@@ -45,53 +45,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 return true;
             }                                                                                                                                             
          }
-
-        //Comprueba que las credenciales de la BBDD son correctas
-        public static bool EntryUsuarioBBDD()
-        {
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            try
-            {
-                databaseConnection.Open();
-                databaseConnection.Close();
-                return true;
-            }
-            catch
-            {
-                MessageBox.Show("Database access error");
-                return false;
-            }
-        }
-        //Valida las credenciales de usuario a nivel de Aplicacion
-        //Compara el usuario y contraseña con la fila correspondiente al usuario en la BBDD
-        public static bool EntryUsuarioApp(string Usuario, string Password)
-        {
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "SELECT * FROM npms.usuarios WHERE Usuario = '"+Usuario+"' and Password = '"+Password+"';";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-                databaseConnection.Close();
-                return true;
-
-            }
-            else
-            {
-                databaseConnection.Close();
-                MessageBox.Show("Incorrect logging data");
-                return false;
-            }
-        }
        
-
-        public static void ConsultatablaIP(string nombre_tabla, string query)
-        {
-            Sentencias.Bbdd_apply(nombre_tabla, query);
-        }
-
         ///---------------------------VALIDADORES--------------------------------
         ///Valida que un campo no esté vacio, si lo está muestra un mensaje de error
         public static bool ValidadorCamposVacios(string Dato_Campo, string NombreCampoVacio)
@@ -204,7 +158,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         //**************Valida que una tabla existe *************************
         public static bool ValidadorTabla(string NombreTabla)
         {
-            string query = "SHOW TABLES LIKE '" + NombreTabla + "';";
+            string query = "call table_exists('"+NombreTabla+"');";
             MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
             databaseConnection.Open();
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -230,7 +184,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
             databaseConnection.Open();
-            string query = "SELECT * FROM npms.vlan_ipv4 WHERE Vlan = '" + id_vlan + "';";
+            string query = "call simplyselectwhere('vlan_ipv4','Vlan','" + id_vlan + "')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.Prepare();
             var reader = commandDatabase.ExecuteReader();
@@ -254,7 +208,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
             databaseConnection.Open();
-            string query = "SELECT * FROM npms."+tabla+" WHERE "+campo+" = '" + Datoaportado + "';";
+            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + Datoaportado + "')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.Prepare();
             var reader = commandDatabase.ExecuteReader();
@@ -275,7 +229,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
             databaseConnection.Open();
-            string query = "SELECT * FROM npms." + tabla + " WHERE " + campo + " = '" + Datoaportado + "';";
+            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + Datoaportado + "')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.Prepare();
             var reader = commandDatabase.ExecuteReader();

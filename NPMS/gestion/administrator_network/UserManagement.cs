@@ -21,11 +21,8 @@ namespace NPMS.gestion.administrator_network
         }
         private void DatagridUser()
         {
-            string query = "SELECT  Usuario,Nivel FROM npms.usuarios;";
-            Sentencias.Bbdd_apply_datagridView("usuarios",query,dataGridViewUsers);
 
-
-
+            Sentencias.Bbdd_apply_2fields_datagridView("usuarios", "Usuario", "Nivel", dataGridViewUsers);
 
         }
         //Este método crea los nuevos usuarios de la aplicacion
@@ -80,7 +77,7 @@ namespace NPMS.gestion.administrator_network
             string usuario = GlobalParam.IDUser;
             bool Boldpass = Common.ValidadorCamposVacios(oldpass, "Old password");
             bool Bnewpass = Common.ValidadorCamposVacios(newpass, "New password");
-            bool ValidarOldPass = Common.EntryUsuarioApp(usuario, Enoldpass);
+            bool ValidarOldPass = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "Usuario", "Password", usuario, Enoldpass);
             if (Boldpass == true && Bnewpass == true && ValidarOldPass == true)
             {
                 string query = "UPDATE `npms`.`usuarios` SET `Password` = '"+Enewpass+"' WHERE (`Usuario` = '"+usuario+"');";

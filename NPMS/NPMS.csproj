@@ -437,7 +437,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\Script_BBDD.txt.txt" />
+    <None Include="Resources\Script_BBDD_mysql.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AvatarUsuario.png" />

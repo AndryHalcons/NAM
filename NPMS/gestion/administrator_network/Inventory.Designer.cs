@@ -99,11 +99,11 @@
             this.dataGridViewInventario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInventario.GridColor = System.Drawing.Color.Tan;
-            this.dataGridViewInventario.Location = new System.Drawing.Point(12, 147);
+            this.dataGridViewInventario.Location = new System.Drawing.Point(4, 156);
             this.dataGridViewInventario.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewInventario.Name = "dataGridViewInventario";
             this.dataGridViewInventario.ReadOnly = true;
-            this.dataGridViewInventario.Size = new System.Drawing.Size(1016, 604);
+            this.dataGridViewInventario.Size = new System.Drawing.Size(729, 347);
             this.dataGridViewInventario.TabIndex = 39;
             // 
             // Button_Create_Inventory
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(1067, 588);
+            this.ClientSize = new System.Drawing.Size(737, 516);
             this.Controls.Add(this.Button_Create_Inventory);
             this.Controls.Add(this.dataGridViewInventario);
             this.Controls.Add(this.checkBoxString);

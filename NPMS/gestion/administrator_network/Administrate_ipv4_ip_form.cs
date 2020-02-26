@@ -57,9 +57,7 @@ namespace NPMS.administrate_network
             bool ValidaExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && ValidaExistencia == true)
             {
-                string Vlan = textBox_Vlan.Text.ToString();
-                string query = "SELECT * FROM npms.`" + Vlan + "`;";
-                Sentencias.Bbdd_apply_datagridView(Vlan,query,dataGridView_ipv4);              
+                Sentencias.Bbdd_apply_all_datagridView(textBox_Vlan.Text, dataGridView_ipv4);
             }
                         
 

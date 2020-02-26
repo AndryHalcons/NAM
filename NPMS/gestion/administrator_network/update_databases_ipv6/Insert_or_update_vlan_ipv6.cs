@@ -36,7 +36,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 }
                 catch
                 {
-                    MessageBox.Show("No ha introducido correctamente el formato IPv6 en 'Generate Data'");
+                    MessageBox.Show("Respect the format in 'Generate Data'");
                 }
             
            
@@ -99,7 +99,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             }
             else
             {
-                MessageBox.Show("Recuerde completar los campos en azul correctamente");
+                MessageBox.Show("Remember to complete the fields in blue color");
             }
            
 

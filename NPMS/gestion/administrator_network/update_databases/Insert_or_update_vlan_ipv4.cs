@@ -31,7 +31,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             }
             catch
             {
-                MessageBox.Show("No ha introducido correctamente el formato 0.0.0.0/0 en 'Generate Data'");
+                MessageBox.Show("Respect the format 0.0.0.0/0 in 'Generate Data'");
             }                     
         }
         private void Button_apply_update_ipv4_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             }
             else
             {
-                MessageBox.Show("Recuerde completar los campos en azul correctamente");
+                MessageBox.Show("Remember to complete the fields in blue color");
             }
            
 

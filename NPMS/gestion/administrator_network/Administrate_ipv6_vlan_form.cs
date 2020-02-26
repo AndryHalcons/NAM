@@ -33,34 +33,27 @@ namespace NPMS.administrate_network
             bool Bdata_vlan = Common.ValidadorCamposVacios_SinMensaje(textBox_Vlan.Text);
             string source = textBox_Ip.Text.ToString();
             string data_Vlan = textBox_Vlan.Text.ToString();
-            string query = "0";
-            bool Iniciador = true;
             if (Bdata_IpOctets == true && Bdata_vlan == true)
             {
                 MessageBox.Show("You cannot search in two fields at the same time");
-                Iniciador = false;
             }
             
             if (Bdata_IpOctets == true && Bdata_vlan == false)
             {
-                query = "SELECT * FROM npms.vlan_ipv6 where (INET_ATON('" + source + "') BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin));";
-
+                //Revisar INER ATON NO SOPORTA IPV6
+                Sentencias.Bbdd_apply_search_vlan_for_IP("vlan_ipv6", source, "Rango_ip_inicio", "Rango_ip_fin",dataGridView_ipv4_vlan);
 
             }
             if (Bdata_IpOctets == false && Bdata_vlan == true)
             {
-                query = "SELECT * FROM npms.vlan_ipv6 WHERE Vlan = '" + data_Vlan + "%';";
+                Sentencias.Bbdd_apply_where_datagridView("vlan_ipv6", "Vlan", data_Vlan, dataGridView_ipv4_vlan);
 
             }
             if (Bdata_IpOctets == false && Bdata_vlan == false)
             {
-                query = "SELECT * FROM npms.vlan_ipv6;";
+                Sentencias.Bbdd_apply_all_datagridView("vlan_ipv6", dataGridView_ipv4_vlan);
 
-            }
-            if ( Iniciador == true)
-            {
-                Sentencias.Bbdd_apply_datagridView("vlan_ipv6",query,dataGridView_ipv4_vlan);      
-            }          
+            }        
         }
         private void Button_Update_IP_Data_Click(object sender, EventArgs e)
         {
