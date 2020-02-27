@@ -33,7 +33,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Tarea = textBoxTarea.Text.ToString();
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
                 string protocolo = "IPv4";
-                bool ValidarAccion = Common.ValidarDatoExistenteConMensaje(id_vlan, "IP", id_ip, "IP");
+                bool ValidarAccion = Sentencias.ValidarDatoExistenteConMensaje(id_vlan, "IP", id_ip, "IP");
                 if (ValidarAccion == false)
                 {
                     SentenciasPro.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,

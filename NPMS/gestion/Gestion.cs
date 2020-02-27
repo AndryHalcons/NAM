@@ -17,12 +17,14 @@ namespace NPMS
 {
     public partial class Gestion : Form
     {
-        //Crea un archivo temporal que guarda una fila con el nombre de usuario
-        //Necesario para indicar quien realiza las modificaciones en la BBDD desde la app
+        
+        
         
 
         public Gestion(string user_dat,string rol_user)
         {
+            // Genera las variables globales que indican el usuario logueado y su rol
+            //Necesario para indicar quien realiza las modificaciones en la BBDD desde la app
             InitializeComponent();
             string rol_usuario = Sentencias.Dato_Campo_String("usuarios", "Usuario", user_dat, 2);
             GlobalParam.IDUser = user_dat;

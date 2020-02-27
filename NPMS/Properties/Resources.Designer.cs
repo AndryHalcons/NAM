@@ -109,29 +109,5 @@ namespace NPMS.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a /* --------------Creacion Esquema--------------- */
-        ///CREATE SCHEMA `npms`;
-        ///
-        ////* --------------Creacion tabla vlan_ipv4--------------- */
-        ///
-        ///CREATE TABLE `npms`.`vlan_ipv4` (
-        ///  `Vlan` INT NOT NULL,
-        ///  `Nombre` VARCHAR(150) NULL,
-        ///  `Ubicacion` VARCHAR(150) NULL,
-        ///  `Vsys/balanceador/otro` VARCHAR(150) NULL,
-        ///  `Descripcion` VARCHAR(150) NULL,
-        ///  `Direccion_red` VARCHAR(65) NOT NULL,
-        ///  `Rango_ip_inicio` VARCHAR(65) NULL,
-        ///  `Rango_ip_fin` VARCHAR(65) NULL,
-        ///  `Mascara` VARCHAR(65) NULL,
-        ///  `Gateway` VARCHA [resto de la cadena truncado]&quot;;.
-        /// </summary>
-        internal static string Script_BBDD_txt {
-            get {
-                return ResourceManager.GetString("Script_BBDD.txt", resourceCulture);
-            }
-        }
     }
 }

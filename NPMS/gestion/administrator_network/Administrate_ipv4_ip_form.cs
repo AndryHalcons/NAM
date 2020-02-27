@@ -35,7 +35,7 @@ namespace NPMS.administrate_network
             GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool VClan = Common.ValidadorCamposVacios(textBox_Vlan.Text, "Vlan");
-            bool ComprobarExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
+            bool ComprobarExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && VClan == true && ComprobarExistencia == true)
             {
                 string ValorVlan = textBox_Vlan.Text.ToString();
@@ -54,7 +54,7 @@ namespace NPMS.administrate_network
         {
             GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
-            bool ValidaExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
+            bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && ValidaExistencia == true)
             {
                 Sentencias.Bbdd_apply_all_datagridView(textBox_Vlan.Text, dataGridView_ipv4);

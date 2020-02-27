@@ -16,7 +16,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             bool Campo_vlan = Common.ValidadorCamposVacios_SinMensaje(textBoxVlan.Text);
             bool Bid_vlan = Common.ValidadorInt(textBoxVlan.Text,"Vlan");
             bool V_tarea = Common.ValidadorCamposVacios(textBoxTareaDel.Text, "Tarea");
-            bool E_Vlan = Common.ValidarDatoExistente("vlan_ipv6", "Vlan", textBoxVlan.Text);
+            bool E_Vlan = Sentencias.ValidarDatoExistente("vlan_ipv6", "Vlan", textBoxVlan.Text);
             if (E_Vlan == false)
             {
                 MessageBox.Show("The vlan does not exist!");

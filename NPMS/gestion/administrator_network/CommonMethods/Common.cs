@@ -45,9 +45,11 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 return true;
             }                                                                                                                                             
          }
-       
+
         ///---------------------------VALIDADORES--------------------------------
         ///Valida que un campo no esté vacio, si lo está muestra un mensaje de error
+        ///public static bool Validar_Conexion_BBDD()
+
         public static bool ValidadorCamposVacios(string Dato_Campo, string NombreCampoVacio)
         { 
         
@@ -153,113 +155,6 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
            
         }
-
-
-        //**************Valida que una tabla existe *************************
-        public static bool ValidadorTabla(string NombreTabla)
-        {
-            string query = "call table_exists('"+NombreTabla+"');";
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();           
-            if (reader.HasRows)
-            {
-                databaseConnection.Close();
-                return true;              
-
-            }
-            else
-            {
-                databaseConnection.Close();
-                MessageBox.Show("Vlan "+NombreTabla+" does not exist");
-                return false;
-            }
-
-        }
-        //Valida que una vlan existe Comprueba la id_vlan aportada con el campo Vlan de la tabla
-        //Si el return es True es que el dato se encuentra previamente en la base de datos
-        public static bool ValidarExistenciaVlan(string id_vlan)
-        {
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere('vlan_ipv4','Vlan','" + id_vlan + "')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-
-                MessageBox.Show("The Vlan already exists");
-                databaseConnection.Close();
-                return true;
-            }
-            else
-            {
-                
-                databaseConnection.Close();              
-                return false;
-            }
-        }
-        //Comprueba que el dato no esté en la tabla previamente sin mensaje
-        //Devuelve True si el dato ya se encuentra previamente en la BBDD
-        public static bool ValidarDatoExistente(string tabla,string campo,string Datoaportado)
-        {
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + Datoaportado + "')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-                databaseConnection.Close();
-                return true;
-            }
-            else
-            {
-                databaseConnection.Close();
-                return false;
-            }
-        }
-        //Comprueba que el dato no esté en la tabla previamente con mensaje
-        //Devuelve True si el dato ya se encuentra previamente en la BBDD
-        public static bool ValidarDatoExistenteConMensaje(string tabla, string campo, string Datoaportado, string NombreCampoValidar)
-        {
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + Datoaportado + "')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-                MessageBox.Show("The "+NombreCampoValidar+ " already exists! ");
-                databaseConnection.Close();
-                return true;
-            }
-            else
-            {
-                databaseConnection.Close();
-                return false;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

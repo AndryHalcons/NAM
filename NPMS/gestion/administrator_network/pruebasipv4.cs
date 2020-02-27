@@ -37,7 +37,7 @@ namespace NPMS.administrate_network
             GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool VClan = Common.ValidadorCamposVacios(textBox_Vlan.Text, "Vlan");
-            bool ComprobarExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
+            bool ComprobarExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && VClan == true && ComprobarExistencia == true)
             {
                 string ValorVlan = textBox_Vlan.Text.ToString();
@@ -56,12 +56,12 @@ namespace NPMS.administrate_network
         {
             GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
-            bool ValidaExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
+            bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && ValidaExistencia == true)
             {
-                string Vlan = textBox_Vlan.Text.ToString();
-                string query = "SELECT * FROM npms.`" + Vlan + "`;";
-                Sentencias.Bbdd_apply_datagridView(Vlan,query,dataGridView_ipv4);              
+                string ValorVlan = textBox_Vlan.Text.ToString();
+                Insert_or_update_ip_ipv4 panel_update_ip_ipv4 = new Insert_or_update_ip_ipv4(ValorVlan);
+                panel_update_ip_ipv4.Show();
             }
                         
 
@@ -71,14 +71,13 @@ namespace NPMS.administrate_network
         {
             GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
-            bool ValidaExistencia = Common.ValidadorTabla(textBox_Vlan.Text);
+            bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && ValidaExistencia == true) 
             {
                 string Vlan = textBox_Vlan.Text.ToString();           
                 string id_DireccionRed = Sentencias.Dato_Campo_String("vlan_ipv4", "Vlan", Vlan, 5);
                 label2.Text = id_DireccionRed;
                 //Extrae los campos ip de la tabla
-                string query = "SELECT IP FROM npms.`" + Vlan + "`;";
                 //Sentencias.Bbdd_apply_datagridView(Vlan, query, dataGridView_ipv4);
                 /*
                 MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());

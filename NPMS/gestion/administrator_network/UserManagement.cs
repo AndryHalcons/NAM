@@ -31,7 +31,7 @@ namespace NPMS.gestion.administrator_network
             listBoxRol.SelectedIndex = 0;         
             bool BUser = Common.ValidadorCamposVacios(textBoxAddName.Text, "User");
             bool BPass = Common.ValidadorCamposVacios(textBoxAddPassword.Text, "Password");
-            bool Euser = Common.ValidarDatoExistente("usuarios", "Usuario", textBoxAddName.Text);
+            bool Euser = Sentencias.ValidarDatoExistente("usuarios", "Usuario", textBoxAddName.Text);
             string rol = listBoxRol.SelectedItem.ToString();
             string EncryptUser = textBoxAddName.Text;
             string EncryptPass = SecureCommon.EncryptHash(textBoxAddPassword.Text);
@@ -42,9 +42,9 @@ namespace NPMS.gestion.administrator_network
             if (BUser == true && BPass == true && Euser == false )
             {
                 
-                string query = "INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) " +
-                    "VALUES ('"+EncryptUser+"', '"+EncryptPass+"', '"+rol+"');";
-                Sentencias.Bbdd_apply_simple(query);
+                //string query = "INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) " +"VALUES ('"+EncryptUser+"', '"+EncryptPass+"', '"+rol+"');";
+                //Sentencias.Bbdd_apply_simple(query);
+                Sentencias.Bbdd_apply_create_user(EncryptUser, EncryptPass, rol);
             }
             DatagridUser();
             textBoxAddName.Text = null;
@@ -54,15 +54,14 @@ namespace NPMS.gestion.administrator_network
         private void ButtonDelUser_Click(object sender, EventArgs e)
         {
             bool BUser = Common.ValidadorCamposVacios(textBoxDelUser.Text, "User");
-            bool ComprobarExistencia = Common.ValidarDatoExistente("usuarios", "Usuario", textBoxDelUser.Text);
+            bool ComprobarExistencia = Sentencias.ValidarDatoExistente("usuarios", "Usuario", textBoxDelUser.Text);
             if (ComprobarExistencia == false)
             {
                 MessageBox.Show("Username does not exist!");
             }
             if (BUser == true && ComprobarExistencia == true)
             {
-                string query = "DELETE FROM `npms`.`usuarios` WHERE (`Usuario` = '" + textBoxDelUser.Text + "');";
-                Sentencias.Bbdd_apply_simple(query);
+                Sentencias.Bbdd_apply_where_delete("usuarios", "Usuario",textBoxDelUser.Text);
             }
             DatagridUser();
             textBoxDelUser.Text = null;
@@ -80,8 +79,7 @@ namespace NPMS.gestion.administrator_network
             bool ValidarOldPass = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "Usuario", "Password", usuario, Enoldpass);
             if (Boldpass == true && Bnewpass == true && ValidarOldPass == true)
             {
-                string query = "UPDATE `npms`.`usuarios` SET `Password` = '"+Enewpass+"' WHERE (`Usuario` = '"+usuario+"');";
-                Sentencias.Bbdd_apply("usuarios", query);
+                Sentencias.Bbdd_apply_where_update("usuarios", "Password", "Usuario", Enewpass, usuario);
             }
             textBoxOldPassword.Text = null;
             textBoxNewPassword.Text = null;

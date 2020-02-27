@@ -620,6 +620,44 @@ SET @s = CONCAT("SELECT * FROM npms.`",tabla,"` ORDER BY ID desc;");
 END$$
 DELIMITER ;
 
+/*********************Procedure que borra una fila por el valor de un campo(DELETE)***************************/
+DELIMITER $$
+CREATE PROCEDURE `simply_delete_where`(in tabla varchar (40),in campo varchar (40),in datocampo varchar(100))
+BEGIN
+SET @s = CONCAT("Delete FROM npms.`",tabla,"` where ",campo," = '", datocampo,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+/*********************Procedure que realiza un UPDATE de un campo, por where otro campo***************************/
+DELIMITER $$
+CREATE PROCEDURE `symply_where_update`(in tabla varchar (40),in campo1 varchar (40),in campo2 varchar(100),
+in datocampo1 varchar (40), in datocampo2 varchar(100))
+BEGIN
+SET @s = CONCAT("UPDATE `npms`.`",tabla,"` SET ",campo1," = '", datocampo1,"' WHERE (`", campo2,"` = '",datocampo2,"');");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+
+/*********************Procedure que crea usuarios***************************/
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `create_user`(in usuario varchar (40),in pass varchar (40),in rol varchar(100))
+BEGIN
+SET @s = CONCAT("INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) 
+VALUES ('",usuario,"', '",pass,"', '",rol,"');");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+
+
 /*********************Procedure que busca una fila por el valor de un campo (=)***************************/
 DELIMITER $$
 CREATE PROCEDURE `simplyselect`(in tabla varchar (40),in campo varchar (40),in datocampo varchar(45))
@@ -712,3 +750,4 @@ BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin))); ");
     DEALLOCATE PREPARE stmt;   
 END$$
 DELIMITER ;
+

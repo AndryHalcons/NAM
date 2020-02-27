@@ -201,6 +201,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_commands.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_commands.cs" />
     <Compile Include="gestion\administrator_network\pruebasipv4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,9 +437,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\Script_BBDD_mysql.txt" />
+    <None Include="gestion\administrator_network\bbdd_adapt\Script_BBDD_mysql.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AvatarUsuario.png" />
