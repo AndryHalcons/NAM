@@ -21,8 +21,9 @@ namespace NPMS.gestion.administrator_network.CommonMethods
      
         public static string bbdd_connection_data()
         {
-                string conexion = mysql_commands.bbdd_connection_data();
-                return conexion;                                    
+            string conexion = mysql_commands.bbdd_connection_data();
+            return conexion;
+                                               
         }
         //*********** Comprueba que los parametros de conexion de la BBDD son correctas*************
         public static bool Validar_Conexion_BBDD()
