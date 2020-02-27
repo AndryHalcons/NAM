@@ -25,7 +25,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             {
                 string protocolo = "IPv6";
                 string id_vlan = textBoxVlan.Text.ToString();
-                SentenciasPro.Delete_Vlan(protocolo, id_vlan,textBoxTareaDel.Text);
+                Sentencias.Delete_Vlan(protocolo, id_vlan,textBoxTareaDel.Text);
                 this.Close();
 
             }

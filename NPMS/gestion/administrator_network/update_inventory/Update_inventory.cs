@@ -40,7 +40,7 @@ namespace NPMS.gestion.administrator_network.update_inventory
             bool VWorder = Common.ValidadorCamposVacios(id_WorkOrder, "Work Order");
             if (VSn == true && VWorder == true)
             {
-                SentenciasPro.Insert_inventory(id_hostname, id_DNS, id_Comments, id_IP, id_SN, id_Name, id_Manufacturer,
+                Sentencias.Insert_inventory(id_hostname, id_DNS, id_Comments, id_IP, id_SN, id_Name, id_Manufacturer,
                      id_Location, id_Environment, id_Domain, id_Contact, id_Aditional, id_Ports, id_Other1, id_Other2,
                      id_WorkOrder);
                 this.Close();
@@ -55,7 +55,7 @@ namespace NPMS.gestion.administrator_network.update_inventory
             bool VWorder = Common.ValidadorCamposVacios(id_WorkOrder, "Work Order");
             if (VSn == true && VWorder == true)
             {
-                SentenciasPro.Delete_inventory(id_SN, id_WorkOrder);
+                Sentencias.Delete_inventory(id_SN, id_WorkOrder);
                 this.Close();
             }
         }

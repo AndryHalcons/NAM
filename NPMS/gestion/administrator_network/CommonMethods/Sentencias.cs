@@ -21,20 +21,13 @@ namespace NPMS.gestion.administrator_network.CommonMethods
      
         public static string bbdd_connection_data()
         {
-                StreamReader sr = File.OpenText(Common.ruta_ArchivoConfBbdd);
-                string user_name = SecureCommon.DesEncriptar(sr.ReadLine());
-                string password_name = SecureCommon.DesEncriptar(sr.ReadLine());
-                string server_name = SecureCommon.DesEncriptar(sr.ReadLine());
-                string bbdd_name = SecureCommon.DesEncriptar(sr.ReadLine());
-                string port_name = SecureCommon.DesEncriptar(sr.ReadLine());
-                GlobalParam.BBDD_Type = SecureCommon.DesEncriptar(sr.ReadLine());
-                sr.Close();
-                string connectionString = "datasource=" + server_name + ";port=" + port_name + ";username=" + user_name + ";password=" + password_name + ";database=" + bbdd_name + ";";
-                return connectionString;                     
+                string conexion = mysql_commands.bbdd_connection_data();
+                return conexion;                                    
         }
         //*********** Comprueba que los parametros de conexion de la BBDD son correctas*************
         public static bool Validar_Conexion_BBDD()
         {
+
             MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
             try
             {
@@ -53,17 +46,11 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                string Snombre_tabla = nombre_tabla.ToString();
-                commandDatabase.Fill(ds, Snombre_tabla);
-                databaseConnection.Close();
+                mysql_commands.Bbdd_apply(nombre_tabla, query);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply(nombre_tabla, query);
             }
         }       
         //Consulta simple en Base de datos con query
@@ -72,16 +59,11 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-                commandDatabase.CommandText = query;
-                commandDatabase.ExecuteNonQuery();
-                databaseConnection.Close();
+                mysql_commands.Bbdd_apply_simple(query);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_simple(query);
             }
         }
         //Metodo que hace un select en la BBDD recuperando solamente dos columnas que 
@@ -94,7 +76,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_2fields_datagridView(tabla, campo1, campo2, Datagrid_Name);
             }
         }
         //Metodo que obtiene una fila y valida que existe buscando que una fila tenga
@@ -132,7 +114,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_all_datagridView(tabla, Datagrid_Name);
             }
         }
         //Metodo que Realiza un SELECT * ALL en las BBDD con ORDER DESC 
@@ -145,7 +127,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_all_Desc_datagridView(tabla, Datagrid_Name);
             }
         }
         //Metodo que Realiza las consultas en las BBDD filtrando por el valor EXACTO de un campo 
@@ -158,7 +140,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_where_datagridView(tabla, campo, datocampo, Datagrid_Name);
             }
         }
         //Metodo que Realiza las consultas en las BBDD filtrando por el valor "LIKE" (CADENA) de un campo 
@@ -171,7 +153,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_wherelike_datagridView(tabla, campo, datocampo, Datagrid_Name);
             }
         }
         //Metodo que encuentra la vlan correspondiente a una IP y la muestra en un DATAGRIDVIEW
@@ -183,7 +165,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_search_vlan_for_IP(tabla, IP, campoMenor, campoMayor, Datagrid_Name);
             }
         }
         //Metodo que encuentra la vlan correspondiente a una IP origen y una IP destino
@@ -196,7 +178,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_search_vlan_for_Fast_Firewall(protocolo, IPorigen, IPdestino, Datagrid_Name);
             }
         }
         //Metodo que inserta en la tabla usuarios los campos correpondientes (usuario,pass,rol)
@@ -209,7 +191,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_create_user(user, pass, rol);
             }
         }
         //Metodo que borra una fila que tenga un campo cuyo valor sea exacto al indicado (Borrar usuarios)
@@ -222,7 +204,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_where_delete(tabla, campo, datocampo);
             }
         }
         //Metodo que actualiza el campo1  al indicado ,siempre que el campo2 del usuario sea exacto al existente.
@@ -237,7 +219,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //sqlserver_commands.Bbdd_apply_where_update(tabla, campo1, campo2, datocampo1, datocampo2);
             }
         }
         //Obtiene el dato de un campo de tipo INT
@@ -407,8 +389,113 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 return false;
             }
         }
+        /*Metodo que borra La Vlan en la tabla de Vlans y tambien borra la tabla IP asociada     
+        * Lo hace en relacion a la BBDD que está usando la aplicacion, que se selecciona en
+        * Settings.cs
+        */
+        public static void Delete_Vlan(string protocolo, string id_vlan, string id_tarea)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                    mysql_commands.Delete_Vlan(protocolo, id_vlan, id_tarea);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_Vlan(protocolo, id_vlan, id_tarea);
+            }
+        }
+        //Método que se encarga de añadir la Vlan  creada a la base de datos
+        //el procedure invocado también crea la tabla de rango ip correspondiente al a vlan
+        public static void Insert_vlan(string protocolo, string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
+         string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
+         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
+         string id_Equipos, string id_Clasificacion, string id_Tarea)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Insert_vlan(protocolo, tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                     id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
+                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
+                     id_Equipos, id_Clasificacion, id_Tarea);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                /*sqlserver_commands.Insert_vlan(protocolo, tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                     id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
+                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
+                     id_Equipos, id_Clasificacion, id_Tarea);*/
+            }
+        }
 
 
+        /*Metodo que se encarga del (Delete/Liberar IP) sobre las tablas ip en la base de datos
+         * segun el protoclo (IPv4/IPv6) y en relacion a la BBDD que está usando la aplicacion, 
+         * que se selecciona en
+         * Settings.cs
+         */
+                public static void Delete_ip(string protocolo, string id_vlan, string id_tarea, string id_ip)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);  
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);
+            }
+        }
+        //Metodo que se encarga de reservar una ip (crear) según el protocolo (IPv4/IPv6) y el tipo de base de datos
+        public static void Insert_ip(string protocolo, string id_vlan, string id_Ubicacion, string id_mac, string id_dns, string id_Descripcion, string id_hostnameR,
+         string id_hostname, string id_Tarea, string id_ip)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+
+                mysql_commands.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion,
+                    id_hostnameR, id_hostname, id_Tarea, id_ip);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                /*sqlserver_commands.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion,
+                   id_hostnameR, id_hostname, id_Tarea, id_ip);*/
+            }
+
+        }
+        //Metodo que se encarga de insertar un nuevo dispositivo en el inventario 
+        //ejecuta la sentencia según  el tipo de base de datos
+        public static void Insert_inventory(string hostname, string dns, string comments, string ip, string sn,
+            string name, string manufacturer, string location, string environment, string domain, string contact
+            , string aditional_info, string ports, string other1, string other2, string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Insert_inventory(hostname, dns, comments, ip, sn, name, manufacturer,
+                     location, environment, domain, contact, aditional_info, ports, other1, other2,
+                     worder);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                /*sqlserver_commands.Insert_inventory(hostname, dns, comments, ip, sn, name, manufacturer,
+                     location, environment, domain, contact, aditional_info, ports, other1, other2,
+                     worder);*/
+            }
+        }
+        //Metodo que se encarga de BORRAR un  dispositivo en el inventario 
+        //ejecuta la sentencia según  el tipo de base de datos
+        public static void Delete_inventory(string SN, string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Delete_inventory(SN, worder);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_inventory(SN, worder);
+            }
+        }
 
 
 

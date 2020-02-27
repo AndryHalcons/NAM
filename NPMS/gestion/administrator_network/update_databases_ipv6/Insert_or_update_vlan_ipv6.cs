@@ -89,7 +89,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string protocolo = "IPv6";
                 if (Exists_Vlan == false)
                 {
-                     SentenciasPro.Insert_vlan(protocolo,tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                     Sentencias.Insert_vlan(protocolo,tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
                      id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,

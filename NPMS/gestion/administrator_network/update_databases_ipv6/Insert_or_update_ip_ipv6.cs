@@ -36,7 +36,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 bool ValidarAccion = Sentencias.ValidarDatoExistenteConMensaje(VlanAdaptada, "IP", id_ip,"IP");
                 if (ValidarAccion == false)
                 {
-                    SentenciasPro.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
+                    Sentencias.Insert_ip(protocolo, id_vlan, id_Ubicacion, id_mac, id_dns, id_Descripcion, id_hostnameR,
                     id_hostname, id_Tarea, id_ip);
                     this.Close();
                 }
@@ -59,7 +59,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_vlan = GlobalParam.Vlan_IPv6_Select;
                 string id_ip = textBoxSelectIpDel.Text.ToString();
                 string protocolo = "IPv6";
-                SentenciasPro.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);
+                Sentencias.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);
                 this.Close();
             }
         }
