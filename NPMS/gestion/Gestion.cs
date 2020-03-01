@@ -18,7 +18,7 @@ namespace NPMS
     public partial class Gestion : Form
     {
         
-        
+        //
         
 
         public Gestion(string user_dat,string rol_user)
@@ -72,8 +72,8 @@ namespace NPMS
 
         private void buttonLogsIpIpv4_Click(object sender, EventArgs e)
         {
-            LogsApp panel_LogsApp = new LogsApp();
-            panel_LogsApp.Show();
+            ChangesView panel_changes_view = new ChangesView();
+            panel_changes_view.Show();
         }
 
         private void inventory_Click(object sender, EventArgs e)

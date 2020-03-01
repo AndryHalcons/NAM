@@ -203,6 +203,12 @@
   <ItemGroup>
     <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_commands.cs" />
     <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_commands.cs" />
+    <Compile Include="gestion\administrator_network\Changes_View\ChangesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion\administrator_network\Changes_View\ChangesView.Designer.cs">
+      <DependentUpon>ChangesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestion\administrator_network\pruebasipv4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,12 +255,6 @@
     </Compile>
     <Compile Include="gestion\administrator_network\update_inventory\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gestion\administrator_network\Logs\LogsApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gestion\administrator_network\Logs\LogsApp.Designer.cs">
-      <DependentUpon>LogsApp.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\patching_switchs\Patching_switchs.cs">
       <SubType>Form</SubType>
@@ -330,6 +330,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="gestion\administrator_network\Changes_View\ChangesView.resx">
+      <DependentUpon>ChangesView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\pruebasipv4.resx">
       <DependentUpon>pruebasipv4.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,9 +353,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\update_inventory\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Logs\LogsApp.resx">
-      <DependentUpon>LogsApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\patching_switchs\Patching_switchs.resx">
       <DependentUpon>Patching_switchs.cs</DependentUpon>
