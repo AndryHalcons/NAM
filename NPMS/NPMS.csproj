@@ -209,28 +209,28 @@
     <Compile Include="gestion\administrator_network\pruebasipv4.Designer.cs">
       <DependentUpon>pruebasipv4.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv6_vlan_form.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_vlan_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv6_vlan_form.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_vlan_form.Designer.cs">
       <DependentUpon>Administrate_ipv6_vlan_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv6_ip_form.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_ip_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv6_ip_form.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_ip_form.Designer.cs">
       <DependentUpon>Administrate_ipv6_ip_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv4_ip_form.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Administrate_ipv4_ip_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv4_ip_form.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Administrate_ipv4_ip_form.Designer.cs">
       <DependentUpon>Administrate_ipv4_ip_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv4_vlan_form.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Administrate_ipv4_vlan_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\Administrate_ipv4_vlan_form.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Administrate_ipv4_vlan_form.Designer.cs">
       <DependentUpon>Administrate_ipv4_vlan_form.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\CommonMethods\Common.cs" />
@@ -244,10 +244,10 @@
       <DependentUpon>ImportData.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\importData\ImportSentencias.cs" />
-    <Compile Include="gestion\administrator_network\Inventory.cs">
+    <Compile Include="gestion\administrator_network\update_inventory\Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\Inventory.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_inventory\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\Logs\LogsApp.cs">
@@ -256,10 +256,10 @@
     <Compile Include="gestion\administrator_network\Logs\LogsApp.Designer.cs">
       <DependentUpon>LogsApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\Patching_switchs.cs">
+    <Compile Include="gestion\administrator_network\patching_switchs\Patching_switchs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\Patching_switchs.Designer.cs">
+    <Compile Include="gestion\administrator_network\patching_switchs\Patching_switchs.Designer.cs">
       <DependentUpon>Patching_switchs.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\Settings.cs">
@@ -268,22 +268,22 @@
     <Compile Include="gestion\administrator_network\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\update_databases\Delete_vlan_ipv4.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Delete_vlan_ipv4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\update_databases\Delete_vlan_ipv4.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Delete_vlan_ipv4.Designer.cs">
       <DependentUpon>Delete_vlan_ipv4.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\update_databases\Insert_or_update_ip_ipv4.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Insert_or_update_ip_ipv4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\update_databases\Insert_or_update_ip_ipv4.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Insert_or_update_ip_ipv4.Designer.cs">
       <DependentUpon>Insert_or_update_ip_ipv4.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\update_databases\Insert_or_update_vlan_ipv4.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Insert_or_update_vlan_ipv4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\update_databases\Insert_or_update_vlan_ipv4.Designer.cs">
+    <Compile Include="gestion\administrator_network\update_databases_ipv4\Insert_or_update_vlan_ipv4.Designer.cs">
       <DependentUpon>Insert_or_update_vlan_ipv4.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\update_databases_ipv6\Delete_vlan_ipv6.cs">
@@ -310,10 +310,10 @@
     <Compile Include="gestion\administrator_network\update_inventory\Update_inventory.Designer.cs">
       <DependentUpon>Update_inventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion\administrator_network\UserManagement.cs">
+    <Compile Include="gestion\administrator_network\user_management\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion\administrator_network\UserManagement.Designer.cs">
+    <Compile Include="gestion\administrator_network\user_management\UserManagement.Designer.cs">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
@@ -333,40 +333,40 @@
     <EmbeddedResource Include="gestion\administrator_network\pruebasipv4.resx">
       <DependentUpon>pruebasipv4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Administrate_ipv6_vlan_form.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_vlan_form.resx">
       <DependentUpon>Administrate_ipv6_vlan_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Administrate_ipv6_ip_form.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_ip_form.resx">
       <DependentUpon>Administrate_ipv6_ip_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Administrate_ipv4_ip_form.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv4\Administrate_ipv4_ip_form.resx">
       <DependentUpon>Administrate_ipv4_ip_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Administrate_ipv4_vlan_form.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv4\Administrate_ipv4_vlan_form.resx">
       <DependentUpon>Administrate_ipv4_vlan_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\importData\ImportData.resx">
       <DependentUpon>ImportData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Inventory.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_inventory\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\Logs\LogsApp.resx">
       <DependentUpon>LogsApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\Patching_switchs.resx">
+    <EmbeddedResource Include="gestion\administrator_network\patching_switchs\Patching_switchs.resx">
       <DependentUpon>Patching_switchs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\update_databases\Delete_vlan_ipv4.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv4\Delete_vlan_ipv4.resx">
       <DependentUpon>Delete_vlan_ipv4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\update_databases\Insert_or_update_ip_ipv4.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv4\Insert_or_update_ip_ipv4.resx">
       <DependentUpon>Insert_or_update_ip_ipv4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\update_databases\Insert_or_update_vlan_ipv4.resx">
+    <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv4\Insert_or_update_vlan_ipv4.resx">
       <DependentUpon>Insert_or_update_vlan_ipv4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv6\Delete_vlan_ipv6.resx">
@@ -381,7 +381,7 @@
     <EmbeddedResource Include="gestion\administrator_network\update_inventory\Update_inventory.resx">
       <DependentUpon>Update_inventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\UserManagement.resx">
+    <EmbeddedResource Include="gestion\administrator_network\user_management\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">

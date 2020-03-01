@@ -17,15 +17,15 @@ namespace NPMS
         public Principal()
         {
             InitializeComponent();
-            
+           
 
         }
       
         private void Validar_credenciales_Click(object sender, EventArgs e)
-        {           
+        {
+            Common.Type_bbdd_connection_data();
             string User = textBoxUser.Text.ToString();
-            string Pass = SecureCommon.EncryptHash(textBoxPassword.Text.ToString());
-            
+            string Pass = SecureCommon.EncryptHash(textBoxPassword.Text.ToString());         
             //Esta parte valida la configuracion de acceso a la BBDD 
             //bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();
             bool ValidaAccesoBBDD = Sentencias.Validar_Conexion_BBDD();

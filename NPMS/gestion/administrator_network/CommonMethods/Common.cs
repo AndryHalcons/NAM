@@ -45,12 +45,25 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 return true;
             }                                                                                                                                             
          }
+        //Metodo que le indica al programa antes de iniciar que tipo de BBDD se va a usar
+        //Necesario para que se cargue el string de conexion de la BBDD correspondiente
+        public static void Type_bbdd_connection_data()
+        {
+            StreamReader sr = File.OpenText(ruta_ArchivoConfBbdd);
+            string user_name = SecureCommon.DesEncriptar(sr.ReadLine());
+            string password_name = SecureCommon.DesEncriptar(sr.ReadLine());
+            string server_name = SecureCommon.DesEncriptar(sr.ReadLine());
+            string bbdd_name = SecureCommon.DesEncriptar(sr.ReadLine());
+            string port_name = SecureCommon.DesEncriptar(sr.ReadLine());
+            GlobalParam.BBDD_Type = SecureCommon.DesEncriptar(sr.ReadLine());
+            sr.Close();
+        }
 
         ///---------------------------VALIDADORES--------------------------------
         ///Valida que un campo no esté vacio, si lo está muestra un mensaje de error
         ///public static bool Validar_Conexion_BBDD()
 
-        public static bool ValidadorCamposVacios(string Dato_Campo, string NombreCampoVacio)
+            public static bool ValidadorCamposVacios(string Dato_Campo, string NombreCampoVacio)
         { 
         
                 if (string.IsNullOrEmpty(Dato_Campo))

@@ -20,27 +20,40 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 
      
         public static string bbdd_connection_data()
+
         {
-            string conexion = mysql_commands.bbdd_connection_data();
+
+            //string conexion = mysql_commands.bbdd_connection_data();
+            string conexion = "default";
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                conexion = mysql_commands.bbdd_connection_data();
+                return conexion;
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //conexion = sqlserver_commands.bbdd_connection_data();
+                //return conexion;
+            }         
             return conexion;
-                                               
+            
+
         }
         //*********** Comprueba que los parametros de conexion de la BBDD son correctas*************
         public static bool Validar_Conexion_BBDD()
         {
-
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            try
+            bool resultado = false;
+            if (GlobalParam.BBDD_Type == "MySQL")
             {
-                databaseConnection.Open();
-                databaseConnection.Close();
-                return true;
+                resultado = mysql_commands.Validar_Conexion_BBDD();
+                return resultado;
             }
-            catch
+            if (GlobalParam.BBDD_Type == "SQLServer")
             {
-                MessageBox.Show("Database access error");
-                return false;
+                //resultado = sqlserver_commands.Validar_Conexion_BBDD();
+                //return resultado;
             }
+            return resultado;
         }
         //************* Parametros de accion en base de datos,  aportando la tabla destino y la  QuerySQL***********
         public static void Bbdd_apply(string nombre_tabla, string query)
