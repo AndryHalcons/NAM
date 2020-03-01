@@ -102,24 +102,27 @@ CREATE TABLE `npms`.`inventory` (
 
 /* --------------Creacion tabla parcheo--------------- */
 
- CREATE TABLE `npms`.`parcheo` (
-  `Edificio` VARCHAR(45) NOT NULL,
-  `Planta` INT NOT NULL,
-  `Armario` VARCHAR(45) NULL,
-  `Panel` VARCHAR(45) NULL,
-  `Puerto_Panel` VARCHAR(45) NULL,
-  `Pila` VARCHAR(45) NULL,
-  `Switch` VARCHAR(45) NULL,
-  `Puerto_Switch` VARCHAR(45) NULL,
-  `Interfaz` VARCHAR(45) NULL,
-  `Link` VARCHAR(45) NULL,
-  `Speed` VARCHAR(45) NULL,
-  `Duplex` VARCHAR(45) NULL,
-  `Type` VARCHAR(45) NULL,
-  `Vlan` VARCHAR(45) NULL,
-  `Description` VARCHAR(45) NULL,
-  `IP_Switch` VARCHAR(45) NULL,
-  PRIMARY KEY (`Edificio`));
+CREATE TABLE `patching` (
+  `Building` varchar(45) NOT NULL,
+  `Floor` int(11) NOT NULL,
+  `Closet` varchar(45) DEFAULT NULL,
+  `Panel` varchar(45) DEFAULT NULL,
+  `Panel_Port` varchar(45) DEFAULT NULL,
+  `Stack` varchar(45) DEFAULT NULL,
+  `Switch` varchar(45) DEFAULT NULL,
+  `Switch_Port` varchar(45) DEFAULT NULL,
+  `Interfaz` varchar(45) DEFAULT NULL,
+  `Link` varchar(45) DEFAULT NULL,
+  `Speed` varchar(45) DEFAULT NULL,
+  `Duplex` varchar(45) DEFAULT NULL,
+  `Type` varchar(45) DEFAULT NULL,
+  `Vlan` varchar(45) DEFAULT NULL,
+  `Description` varchar(45) DEFAULT NULL,
+  `IP_Switch` varchar(45) DEFAULT NULL,
+    `ID` INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`ID`)
+) 
+
 
 
 /* --------------Creacion tabla logs vlan IPv4--------------- */
@@ -750,4 +753,26 @@ BETWEEN INET_ATON(Rango_ip_inicio)and INET_ATON(Rango_ip_fin))); ");
     DEALLOCATE PREPARE stmt;   
 END$$
 DELIMITER ;
+/*********************Procedure obtiene todos los campos de una columan y borra duplicados (SELECT DISTINCT)***************************/
+DELIMITER $$
+CREATE PROCEDURE `select_distinct`(in tabla varchar(30),in campo varchar(30))
+BEGIN
+SET @s = CONCAT("SELECT DISTINCT ",campo," FROM npms.",tabla,";");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+/*********************Procedure que obtiene los campos de PATCHING (parcheo)***************************/
 
+DELIMITER $$
+CREATE PROCEDURE `select_patching`(in building varchar(30),in floor varchar(30),
+in closet varchar(30),in panel varchar(30),in port_panel varchar(30))
+BEGIN
+SET @s = CONCAT("SELECT * FROM npms.patching where Building = '",building,"' and floor = '",floor,"' and closet = '",closet,"' 
+and panel = '",panel,"' and Panel_port = '",port_panel,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;

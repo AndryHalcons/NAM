@@ -424,6 +424,31 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 //sqlserver_commands.Delete_inventory(SN, worder);
             }
         }
+        //Metodo que obtiene todos los campos de una columna y borra los duplicados (select DISTINCT)
+        //Los carga en un listbox
+        public static void Select_distinct(string tabla, string campo, ComboBox ListboxName)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_distinct(tabla, campo,ListboxName);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_distinct(tabla, campo,ListboxName);
+            }          
+        }
+        //Metodo que obtiene la fila solicitada en PATCHING y lo muestra en un datagridview
+        public static void Select_patching(string building, string floor, string closet, string panel, string panel_port, DataGridView Datagrid_Name)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_patching(building, floor, closet, panel, panel_port, Datagrid_Name);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_patching(building, floor, closet, panel, panel_port, Datagrid_Name);
+            }
+        }
 
 
 
@@ -441,6 +466,5 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 
 
 
-
-    }
+        }
 }

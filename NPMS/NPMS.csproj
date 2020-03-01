@@ -209,6 +209,12 @@
     <Compile Include="gestion\administrator_network\Changes_View\ChangesView.Designer.cs">
       <DependentUpon>ChangesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="gestion\administrator_network\patching_switchs\Update_patching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion\administrator_network\patching_switchs\Update_patching.Designer.cs">
+      <DependentUpon>Update_patching.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestion\administrator_network\pruebasipv4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="gestion\administrator_network\Changes_View\ChangesView.resx">
       <DependentUpon>ChangesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gestion\administrator_network\patching_switchs\Update_patching.resx">
+      <DependentUpon>Update_patching.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\pruebasipv4.resx">
       <DependentUpon>pruebasipv4.cs</DependentUpon>

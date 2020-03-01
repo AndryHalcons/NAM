@@ -496,5 +496,33 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 Bbdd_apply_simple(query);
             
         }
+        //Metodo que obtiene todos los campos de una columna y borra los duplicados (select DISTINCT)
+        //Los carga en un listbox (ideal para combobox PATCHING)
+        public static void Select_distinct(string tabla,string campo, ComboBox ListboxName)
+        {
+            string query = "call select_distinct('" + tabla + "','" + campo + "')";
+            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+            databaseConnection.Open();
+            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+            DataTable dt = new DataTable();
+            commandDatabase.Fill(dt);
+            ListboxName.DataSource = dt;
+            ListboxName.DisplayMember = campo;
+            ListboxName.ValueMember = campo;
+            databaseConnection.Close();
+        }
+        //Metodo que obtiene la fila solicitada en PATCHING y lo muestra en un datagridview
+        public static void Select_patching(string building,string floor,string closet,string panel,string panel_port, DataGridView Datagrid_Name)
+        {
+            string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + panel_port + "')";
+            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+            databaseConnection.Open();
+            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+            DataSet ds = new DataSet();
+            commandDatabase.Fill(ds, "patching");
+            Datagrid_Name.DataSource = ds;
+            Datagrid_Name.DataMember = "patching";
+            databaseConnection.Close();
+        }
     }
 }
