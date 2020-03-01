@@ -15,7 +15,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 {
     class Sentencias
     {
- 
+ //
         //*********** Comprueba que los parametros de conexion de la BBDD son correctas*************
         public static bool Validar_Conexion_BBDD()
         {
