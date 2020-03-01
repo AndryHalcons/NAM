@@ -15,30 +15,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
 {
     class Sentencias
     {
-
-        //*********** Aporta los datos de conexion a la BBDD desencriptandolos*************
-
-     
-        public static string bbdd_connection_data()
-
-        {
-
-            //string conexion = mysql_commands.bbdd_connection_data();
-            string conexion = "default";
-            if (GlobalParam.BBDD_Type == "MySQL")
-            {
-                conexion = mysql_commands.bbdd_connection_data();
-                return conexion;
-            }
-            if (GlobalParam.BBDD_Type == "SQLServer")
-            {
-                //conexion = sqlserver_commands.bbdd_connection_data();
-                //return conexion;
-            }         
-            return conexion;
-            
-
-        }
+ 
         //*********** Comprueba que los parametros de conexion de la BBDD son correctas*************
         public static bool Validar_Conexion_BBDD()
         {
@@ -100,23 +77,18 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         public static bool Bbdd_apply_two_fields_exact(string tabla,string campo1, string campo2,
             string datocampo1, string datocampo2)
         {
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere2fields('"+tabla+"','"+campo1+"','"+campo2+"','"+datocampo1+"','"+datocampo2+"')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
+            bool resultado = false;
+            if (GlobalParam.BBDD_Type == "MySQL")
             {
-                databaseConnection.Close();
-                return true;
+                resultado = mysql_commands.Bbdd_apply_two_fields_exact(tabla,campo1,campo2,datocampo1,datocampo2);
+                return resultado;
             }
-            else
+            if (GlobalParam.BBDD_Type == "SQLServer")
             {
-                databaseConnection.Close();
-                MessageBox.Show("Incorrect logging data");
-                return false;
+                //resultado = mysql_commands.Bbdd_apply_two_fields_exact(tabla, campo1, campo2, datocampo1, datocampo2);
+                //return resultado;
             }
+            return resultado;
         }
         //Metodo que Realiza un SELECT * ALL en las BBDD  
         //y  muestra el resultado en un DataGridView
@@ -239,169 +211,111 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         //Obtiene el dato de un campo de tipo INT
         public static int Dato_Campo_Int(string tabla, string NombreCampo, string DatoCampo, int PosicionCampo)
         {
-                MySqlCommand Query = new MySqlCommand();
-                MySqlConnection Conexion = new MySqlConnection();
-                MySqlDataReader consultar;
-                Conexion = new MySqlConnection();
-                Conexion.ConnectionString = bbdd_connection_data();
-                Conexion.Open();
-                Query.CommandText = "call simplyselectwhere('" + tabla + "','" + NombreCampo + "','" + DatoCampo + "')";
-                Query.Connection = Conexion;
-                consultar = Query.ExecuteReader();
-                consultar.Read();
-                int Rol = consultar.GetInt32(PosicionCampo);
-                Conexion.Close();
-                return Rol;
+            int resultado = 0;
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                resultado = mysql_commands.Dato_Campo_Int(tabla, NombreCampo, DatoCampo, PosicionCampo);
+                return resultado;
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //resultado = sqlserver_commands.Dato_Campo_Int(tabla, NombreCampo, DatoCampo, PosicionCampo);
+                //return resultado;
+            }
+            return resultado;
+     
         }
         //Obtiene el dato de un campo de tipo String,
         public static string Dato_Campo_String(string tabla, string NombreCampo, string DatoCampo, int PosicionCampo)
         {
-            MySqlCommand Query = new MySqlCommand();
-            MySqlConnection Conexion = new MySqlConnection();
-            MySqlDataReader consultar;
-            Conexion = new MySqlConnection();
-            Conexion.ConnectionString = bbdd_connection_data();
-            Conexion.Open();
-            Query.CommandText = "call simplyselectwhere('" + tabla + "','" + NombreCampo + "','" + DatoCampo + "')";
-            Query.Connection = Conexion;
-            consultar = Query.ExecuteReader();
-            consultar.Read();
-            string Rol = consultar.GetString(PosicionCampo);
-            Conexion.Close();
-            return Rol;
+            string resultado = "0";
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                resultado = mysql_commands.Dato_Campo_String(tabla,NombreCampo,DatoCampo,PosicionCampo);
+                return resultado;
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //resultado = sqlserver_commands.Dato_Campo_String(tabla, NombreCampo, DatoCampo, PosicionCampo);
+                //return resultado;
+            }       
+            return resultado;
         }
 
         //*******************************************************************************************//
 
         //**************Valida que una tabla existe *************************
         public static bool ValidadorTabla(string NombreTabla)
-        {
-            /*
+        {           
+            bool resultado = true;
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                //mysql_commands.ValidadorTabla(NombreTabla);
+                resultado = mysql_commands.ValidadorTabla(NombreTabla);
+                return resultado;
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //resultado = sqlserver_commands.ValidadorTabla(NombreTabla);
+                //return resultado;
             }
-            */
-            string query = "call table_exists('" + NombreTabla + "');";
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-                databaseConnection.Close();
-                return true;
-
-            }
-            else
-            {
-                databaseConnection.Close();
-                MessageBox.Show("Vlan " + NombreTabla + " does not exist");
-                return false;
-            }
-
+            return resultado;               
         }
         //Valida que una vlan existe Comprueba la id_vlan aportada con el campo Vlan de la tabla
         //Si el return es True es que el dato se encuentra previamente en la base de datos
         public static bool ValidarExistenciaVlan(string id_vlan)
         {
-            /*
+            
+            bool resultado = true;
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                //mysql_commands.ValidarExistenciaVlan(id_vlan);
+                resultado = mysql_commands.ValidarExistenciaVlan(id_vlan);
+                return resultado;
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //resultado = sqlserver_commands.ValidarExistenciaVlan(id_vlan);
+                //return resultado;
             }
-            */
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere('vlan_ipv4','Vlan','" + id_vlan + "')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-
-                MessageBox.Show("The Vlan already exists");
-                databaseConnection.Close();
-                return true;
-            }
-            else
-            {
-
-                databaseConnection.Close();
-                return false;
-            }
+            return resultado;
+                  
         }
         //Comprueba que el dato no esté en la tabla previamente sin mensaje
         //Devuelve True si el dato ya se encuentra previamente en la BBDD
         public static bool ValidarDatoExistente(string tabla, string campo, string Datoaportado)
         {
-            /*
+            
+            bool resultado = true;
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                //mysql_commands.ValidarDatoExistente(tabla, campo, Datoaportado);
+                resultado = mysql_commands.ValidarDatoExistente(tabla, campo, Datoaportado);
+                return resultado;
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //resultado = sqlserver_commands.ValidarDatoExistente(tabla, campo, Datoaportado);
+                //return resultado;
             }
-            */
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + Datoaportado + "')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-                databaseConnection.Close();
-                return true;
-            }
-            else
-            {
-                databaseConnection.Close();
-                return false;
-            }
+            return resultado;
+            
         }
         //Comprueba que el dato no esté en la tabla previamente con mensaje
         //Devuelve True si el dato ya se encuentra previamente en la BBDD
         public static bool ValidarDatoExistenteConMensaje(string tabla, string campo, string Datoaportado, string NombreCampoValidar)
         {
-            /*
+            
+            bool resultado = true;
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                //mysql_commands.ValidarDatoExistenteConMensaje(tabla, campo, Datoaportado, NombreCampoValidar);
+                resultado = mysql_commands.ValidarDatoExistenteConMensaje(tabla, campo, Datoaportado, NombreCampoValidar);
+                return resultado;
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-
+                //resultado = sqlserver_commands.ValidarDatoExistenteConMensaje(tabla, campo, Datoaportado, NombreCampoValidar);
+                //return resultado;
             }
-            */
-            MySqlConnection databaseConnection = new MySqlConnection(Sentencias.bbdd_connection_data());
-            databaseConnection.Open();
-            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + Datoaportado + "')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.Prepare();
-            var reader = commandDatabase.ExecuteReader();
-            if (reader.HasRows)
-            {
-                MessageBox.Show("The " + NombreCampoValidar + " already exists! ");
-                databaseConnection.Close();
-                return true;
-            }
-            else
-            {
-                databaseConnection.Close();
-                return false;
-            }
+            return resultado;
+            
         }
         /*Metodo que borra La Vlan en la tabla de Vlans y tambien borra la tabla IP asociada     
         * Lo hace en relacion a la BBDD que está usando la aplicacion, que se selecciona en

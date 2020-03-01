@@ -23,17 +23,22 @@ namespace NPMS
       
         private void Validar_credenciales_Click(object sender, EventArgs e)
         {
+            //Metodo que le indica al programa antes de iniciar que tipo de BBDD se va a usar
+            //Necesario para que se cargue el string de conexion de la BBDD correspondiente
             Common.Type_bbdd_connection_data();
+            //Variables que contienen los datos USUARIO y PASSWORD introducidos por el usuario
             string User = textBoxUser.Text.ToString();
             string Pass = SecureCommon.EncryptHash(textBoxPassword.Text.ToString());         
             //Esta parte valida la configuracion de acceso a la BBDD 
-            //bool ValidaAccesoBBDD = Common.EntryUsuarioBBDD();
+            //Si es true permite que se valide en la aplicacion
             bool ValidaAccesoBBDD = Sentencias.Validar_Conexion_BBDD();
             if (ValidaAccesoBBDD == true)
             {
+                //Valida que el usuario y contraseña son correctos y permite iniciar la aplicacion
                 bool ValidaAccesoAPP = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "Usuario", "Password", User, Pass);
                 if (ValidaAccesoAPP == true)
                 {
+                    //Obtiene el rol de el usuario
                     string Rol = Sentencias.Dato_Campo_String("usuarios", "Usuario", User, 2);
                     Gestion panelgestion = new Gestion(User,Rol);
                     this.Hide();
@@ -46,6 +51,7 @@ namespace NPMS
             
             
         }
+        //Abre el panel de configuracion de acceso a la BBDD
         private void Button_connection_settings_Click(object sender, EventArgs e)
         {
             bool ComprobarArchivoBBDD = Common.ArchivoConfBbdd();

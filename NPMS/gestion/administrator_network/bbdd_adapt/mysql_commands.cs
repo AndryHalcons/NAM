@@ -461,7 +461,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 if (protocolo == "vlan_ipv6")
                 {
                     string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
-                    string query = "CALL insert_ip_ipv4('Create','" + id_vlan + "'," +
+                    string query = "CALL insert_ip_ipv6('Create','" + id_vlan + "'," +
                         "'" + id_ip + "','" + id_Ubicacion + "','" + id_mac + "'," +
                         "'" + id_dns + "','" + id_Descripcion + "','" + id_hostnameR + "'," +
                         "'" + id_hostname + "','" + id_Tarea + "','" + GlobalParam.IDUser + "'," +
