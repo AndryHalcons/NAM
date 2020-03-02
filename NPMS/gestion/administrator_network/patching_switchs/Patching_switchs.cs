@@ -1,5 +1,4 @@
 ﻿using NPMS.gestion.administrator_network.CommonMethods;
-using NPMS.gestion.administrator_network.patching_switchs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,11 +42,6 @@ namespace NPMS.gestion.administrator_network
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Update_patching panel_update_patching = new Update_patching();
-            panel_update_patching.Show();
 
-        }
     }
 }

@@ -13,5 +13,6 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         public static string Vlan_IPv6_Select;
         public static string Vlan_IPv4_Select;
         public static string BBDD_Type;
+        public static string AppColor = "tan";
     }
 }

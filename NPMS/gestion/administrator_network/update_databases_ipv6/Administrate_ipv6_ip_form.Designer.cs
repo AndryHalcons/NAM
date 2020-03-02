@@ -123,7 +123,7 @@
             this.dataGridView_ipv4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_ipv4.BackgroundColor = System.Drawing.Color.Tan;
+            this.dataGridView_ipv4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.dataGridView_ipv4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_ipv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ipv4.GridColor = System.Drawing.Color.Tan;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(754, 426);
             this.Controls.Add(this.dataGridView_ipv4);
             this.Controls.Add(this.tableLayoutPanel1);

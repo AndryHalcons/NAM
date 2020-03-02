@@ -29,29 +29,20 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
             this.textBoxEstado = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.textBoxNormativa = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBoxClasificacion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxDispositivo = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.textBoxVsys = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBoxFirewall = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxEntorno = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxObservaciones = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBoxEquipos = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.textBoxTipoRed = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.textBoxTarea = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBoxDireccionRed = new System.Windows.Forms.TextBox();
@@ -59,13 +50,11 @@
             this.textBoxMascara = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxRangoFin = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBoxRangoInicio = new System.Windows.Forms.TextBox();
             this.Rango = new System.Windows.Forms.Label();
             this.textBoxVlan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.button_generate_data = new System.Windows.Forms.Button();
             this.textBoxAutomatic = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBoxGateway1 = new System.Windows.Forms.TextBox();
@@ -76,6 +65,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.button_apply_update_ipv4 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button_generate_data = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,18 +157,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1102, 549);
             this.tableLayoutPanel2.TabIndex = 12;
             // 
-            // label13
-            // 
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label13.Location = new System.Drawing.Point(548, 112);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(117, 32);
-            this.label13.TabIndex = 44;
-            this.label13.Text = "Estado";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxEstado
             // 
             this.textBoxEstado.Location = new System.Drawing.Point(673, 116);
@@ -178,19 +166,6 @@
             this.textBoxEstado.Size = new System.Drawing.Size(383, 28);
             this.textBoxEstado.TabIndex = 12;
             // 
-            // label14
-            // 
-            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label14.CausesValidation = false;
-            this.label14.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label14.Location = new System.Drawing.Point(548, 72);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(117, 32);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Normativa";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxNormativa
             // 
             this.textBoxNormativa.Location = new System.Drawing.Point(673, 76);
@@ -199,18 +174,6 @@
             this.textBoxNormativa.Name = "textBoxNormativa";
             this.textBoxNormativa.Size = new System.Drawing.Size(383, 28);
             this.textBoxNormativa.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label10.Location = new System.Drawing.Point(548, 36);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 32);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Clasificacion";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxClasificacion
             // 
@@ -242,19 +205,6 @@
             this.textBoxDispositivo.Size = new System.Drawing.Size(383, 28);
             this.textBoxDispositivo.TabIndex = 9;
             // 
-            // label15
-            // 
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label15.Font = new System.Drawing.Font("Yu Gothic", 8.35F, System.Drawing.FontStyle.Bold);
-            this.label15.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label15.Location = new System.Drawing.Point(548, 148);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(117, 36);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Vsys/Balanceador/otro";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxVsys
             // 
             this.textBoxVsys.Location = new System.Drawing.Point(673, 152);
@@ -263,18 +213,6 @@
             this.textBoxVsys.Name = "textBoxVsys";
             this.textBoxVsys.Size = new System.Drawing.Size(383, 28);
             this.textBoxVsys.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label5.Location = new System.Drawing.Point(548, 184);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 32);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "Firewall";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxFirewall
             // 
@@ -327,18 +265,6 @@
             this.textBoxObservaciones.Size = new System.Drawing.Size(383, 28);
             this.textBoxObservaciones.TabIndex = 16;
             // 
-            // label3
-            // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label3.Location = new System.Drawing.Point(548, 292);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 32);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Equipos";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxEquipos
             // 
             this.textBoxEquipos.Location = new System.Drawing.Point(673, 296);
@@ -347,18 +273,6 @@
             this.textBoxEquipos.Name = "textBoxEquipos";
             this.textBoxEquipos.Size = new System.Drawing.Size(383, 28);
             this.textBoxEquipos.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label7.Location = new System.Drawing.Point(548, 328);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 32);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Descripcion";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxDescripcion
             // 
@@ -379,32 +293,6 @@
             this.textBoxTipoRed.Name = "textBoxTipoRed";
             this.textBoxTipoRed.Size = new System.Drawing.Size(383, 28);
             this.textBoxTipoRed.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label1.Location = new System.Drawing.Point(548, 364);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 32);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Tipo de red";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label21.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label21.Location = new System.Drawing.Point(4, 400);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(145, 32);
-            this.label21.TabIndex = 40;
-            this.label21.Text = "Tarea";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxTarea
             // 
@@ -487,19 +375,6 @@
             this.textBoxRangoFin.TabIndex = 4;
             this.textBoxRangoFin.Text = "Automatic";
             // 
-            // label4
-            // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label4.Location = new System.Drawing.Point(4, 112);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 32);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Rango Inicio";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxRangoInicio
             // 
             this.textBoxRangoInicio.Enabled = false;
@@ -554,18 +429,6 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(383, 28);
             this.textBoxNombre.TabIndex = 2;
-            // 
-            // button_generate_data
-            // 
-            this.button_generate_data.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button_generate_data.Location = new System.Drawing.Point(4, 76);
-            this.button_generate_data.Margin = new System.Windows.Forms.Padding(4);
-            this.button_generate_data.Name = "button_generate_data";
-            this.button_generate_data.Size = new System.Drawing.Size(145, 32);
-            this.button_generate_data.TabIndex = 0;
-            this.button_generate_data.Text = "Generate Data";
-            this.button_generate_data.UseVisualStyleBackColor = true;
-            this.button_generate_data.Click += new System.EventHandler(this.Button_generate_data_Click);
             // 
             // textBoxAutomatic
             // 
@@ -674,11 +537,148 @@
             this.button_apply_update_ipv4.UseVisualStyleBackColor = true;
             this.button_apply_update_ipv4.Click += new System.EventHandler(this.Button_apply_update_ipv4_Click);
             // 
+            // label21
+            // 
+            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label21.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label21.Location = new System.Drawing.Point(4, 400);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(145, 32);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Tarea";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button_generate_data
+            // 
+            this.button_generate_data.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.button_generate_data.Location = new System.Drawing.Point(4, 76);
+            this.button_generate_data.Margin = new System.Windows.Forms.Padding(4);
+            this.button_generate_data.Name = "button_generate_data";
+            this.button_generate_data.Size = new System.Drawing.Size(145, 32);
+            this.button_generate_data.TabIndex = 0;
+            this.button_generate_data.Text = "Generate Data";
+            this.button_generate_data.UseVisualStyleBackColor = true;
+            this.button_generate_data.Click += new System.EventHandler(this.Button_generate_data_Click);
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label4.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label4.Location = new System.Drawing.Point(4, 112);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(145, 32);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Rango Inicio";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label7.Location = new System.Drawing.Point(548, 328);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 32);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Descripcion";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label3.Location = new System.Drawing.Point(548, 292);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 32);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Equipos";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label5.Location = new System.Drawing.Point(548, 184);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 32);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "Firewall";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label15.Font = new System.Drawing.Font("Yu Gothic", 8.35F, System.Drawing.FontStyle.Bold);
+            this.label15.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label15.Location = new System.Drawing.Point(548, 148);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(117, 36);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Vsys/Balanceador/otro";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label14.CausesValidation = false;
+            this.label14.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label14.Location = new System.Drawing.Point(548, 72);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(117, 32);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Normativa";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label13.Location = new System.Drawing.Point(548, 112);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(117, 32);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "Estado";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label10.Location = new System.Drawing.Point(548, 36);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 32);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Clasificacion";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label1.Location = new System.Drawing.Point(548, 364);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 32);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Tipo de red";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Insert_or_update_vlan_ipv4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(1124, 680);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);

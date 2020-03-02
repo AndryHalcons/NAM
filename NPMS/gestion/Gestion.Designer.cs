@@ -46,8 +46,8 @@
             this.textBoxFastDestination = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonFastNetworkFirewall = new System.Windows.Forms.Button();
-            this.dataGridViewFastNetworkFirewall = new System.Windows.Forms.DataGridView();
             this.checkBoxIPv6 = new System.Windows.Forms.CheckBox();
+            this.dataGridViewFastNetworkFirewall = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFastNetworkFirewall)).BeginInit();
@@ -301,21 +301,6 @@
             this.buttonFastNetworkFirewall.UseVisualStyleBackColor = true;
             this.buttonFastNetworkFirewall.Click += new System.EventHandler(this.ButtonFastNetworkFirewall_Click);
             // 
-            // dataGridViewFastNetworkFirewall
-            // 
-            this.dataGridViewFastNetworkFirewall.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewFastNetworkFirewall.BackgroundColor = System.Drawing.Color.Tan;
-            this.dataGridViewFastNetworkFirewall.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewFastNetworkFirewall.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFastNetworkFirewall.GridColor = System.Drawing.Color.Tan;
-            this.dataGridViewFastNetworkFirewall.Location = new System.Drawing.Point(416, 176);
-            this.dataGridViewFastNetworkFirewall.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewFastNetworkFirewall.Name = "dataGridViewFastNetworkFirewall";
-            this.dataGridViewFastNetworkFirewall.ReadOnly = true;
-            this.dataGridViewFastNetworkFirewall.Size = new System.Drawing.Size(639, 86);
-            this.dataGridViewFastNetworkFirewall.TabIndex = 14;
-            // 
             // checkBoxIPv6
             // 
             this.checkBoxIPv6.AutoSize = true;
@@ -326,11 +311,26 @@
             this.checkBoxIPv6.Text = "Select IPv6 Search";
             this.checkBoxIPv6.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewFastNetworkFirewall
+            // 
+            this.dataGridViewFastNetworkFirewall.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewFastNetworkFirewall.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.dataGridViewFastNetworkFirewall.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewFastNetworkFirewall.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFastNetworkFirewall.GridColor = System.Drawing.Color.Tan;
+            this.dataGridViewFastNetworkFirewall.Location = new System.Drawing.Point(416, 176);
+            this.dataGridViewFastNetworkFirewall.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewFastNetworkFirewall.Name = "dataGridViewFastNetworkFirewall";
+            this.dataGridViewFastNetworkFirewall.ReadOnly = true;
+            this.dataGridViewFastNetworkFirewall.Size = new System.Drawing.Size(639, 86);
+            this.dataGridViewFastNetworkFirewall.TabIndex = 14;
+            // 
             // Gestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(1076, 762);
             this.Controls.Add(this.dataGridViewFastNetworkFirewall);
             this.Controls.Add(this.tableLayoutPanel3);

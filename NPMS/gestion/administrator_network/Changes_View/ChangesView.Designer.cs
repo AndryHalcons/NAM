@@ -123,7 +123,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewLogs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridViewLogs.BackgroundColor = System.Drawing.Color.Tan;
+            this.dataGridViewLogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.dataGridViewLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLogs.GridColor = System.Drawing.Color.Tan;
@@ -133,11 +133,11 @@
             this.dataGridViewLogs.Size = new System.Drawing.Size(801, 376);
             this.dataGridViewLogs.TabIndex = 23;
             // 
-            // LogsApp
+            // ChangesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(808, 495);
             this.Controls.Add(this.dataGridViewLogs);
             this.Controls.Add(this.ButtonPatching);
@@ -148,7 +148,7 @@
             this.Controls.Add(this.buttonVlanIPv6);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "LogsApp";
+            this.Name = "ChangesView";
             this.Text = "LogsApp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).EndInit();

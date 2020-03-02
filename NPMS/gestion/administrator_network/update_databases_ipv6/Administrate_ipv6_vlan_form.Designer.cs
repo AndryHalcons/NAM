@@ -162,7 +162,7 @@
             this.dataGridView_ipv4_vlan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_ipv4_vlan.BackgroundColor = System.Drawing.Color.Tan;
+            this.dataGridView_ipv4_vlan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.dataGridView_ipv4_vlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_ipv4_vlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ipv4_vlan.GridColor = System.Drawing.Color.Tan;
@@ -178,7 +178,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(714, 478);
             this.Controls.Add(this.dataGridView_ipv4_vlan);
             this.Controls.Add(this.tableLayoutPanel1);

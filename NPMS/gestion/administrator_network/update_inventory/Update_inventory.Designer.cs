@@ -65,9 +65,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxSNDel = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.ButtonDelete = new System.Windows.Forms.Button();
-            this.textBoxWorderDel = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.textBoxWorderDel = new System.Windows.Forms.TextBox();
+            this.ButtonDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -487,10 +487,29 @@
             this.label17.Text = "SN";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label18
+            // 
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label18.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label18.Location = new System.Drawing.Point(4, 34);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(104, 32);
+            this.label18.TabIndex = 43;
+            this.label18.Text = "Work Order";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxWorderDel
+            // 
+            this.textBoxWorderDel.Location = new System.Drawing.Point(115, 37);
+            this.textBoxWorderDel.Name = "textBoxWorderDel";
+            this.textBoxWorderDel.Size = new System.Drawing.Size(197, 28);
+            this.textBoxWorderDel.TabIndex = 42;
+            // 
             // ButtonDelete
             // 
             this.ButtonDelete.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.ButtonDelete.Location = new System.Drawing.Point(4, 128);
+            this.ButtonDelete.Location = new System.Drawing.Point(4, 72);
             this.ButtonDelete.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonDelete.Name = "ButtonDelete";
             this.ButtonDelete.Size = new System.Drawing.Size(104, 36);
@@ -499,30 +518,11 @@
             this.ButtonDelete.UseVisualStyleBackColor = true;
             this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
-            // textBoxWorderDel
-            // 
-            this.textBoxWorderDel.Location = new System.Drawing.Point(118, 59);
-            this.textBoxWorderDel.Name = "textBoxWorderDel";
-            this.textBoxWorderDel.Size = new System.Drawing.Size(197, 28);
-            this.textBoxWorderDel.TabIndex = 42;
-            // 
-            // label18
-            // 
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label18.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label18.Location = new System.Drawing.Point(2, 59);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(104, 32);
-            this.label18.TabIndex = 43;
-            this.label18.Text = "Work Order";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Update_inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(752, 646);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
