@@ -42,6 +42,39 @@ namespace NPMS.gestion.administrator_network
             
         }
 
-
+        private void buttonInsert_Click(object sender, EventArgs e)
+        {
+            string in_building = BoxBuilding.Text.ToString();
+            string in_Floor = BoxFloor.Text.ToString();
+            string in_Closet = BoxCloset.Text.ToString();
+            string in_Panel = BoxPanel.Text.ToString();
+            string in_PanelPort = BoxPanelPort.Text.ToString();
+            string in_Stack = BoxStack.Text.ToString();
+            string in_Switch = BoxSwitch.Text.ToString();
+            string in_SwitchPort = BoxSwitchPort.Text.ToString();
+            string in_interface = BoxInterface.Text.ToString();
+            string in_link = BoxLink.Text.ToString();
+            string in_Speed = BoxSpeed.Text.ToString();
+            string in_Duplex = BoxDuplex.Text.ToString();
+            string in_Type = BoxType.Text.ToString();
+            string in_Vlan = BoxVlan.Text.ToString();
+            string in_Description = BoxDescription.Text.ToString();
+            string in_IP_Switch = BoxIPSwitch.Text.ToString();
+            bool Int_floor = Common.ValidadorInt(in_Floor, "Floor");
+            bool Vin_building = Common.ValidadorCamposVacios(in_building, "Building");
+            bool Vin_Floor = Common.ValidadorCamposVacios(in_Floor, "Floor");
+            bool Vin_Closet = Common.ValidadorCamposVacios(in_Closet, "Closet");
+            bool Vin_Panel = Common.ValidadorCamposVacios(in_Panel, "Panel");
+            bool Vin_PanelPort= Common.ValidadorCamposVacios(in_PanelPort, "Panel Port");
+            bool Vin_SwitchPort = Common.ValidadorCamposVacios(in_SwitchPort, "Switch Port");
+            bool Vin_IPSwitch = Common.ValidadorCamposVacios(in_IP_Switch, "IP Switch");
+            if (Int_floor == true && Vin_building == true && Vin_Floor == true && Vin_Closet == true 
+                && Vin_Panel == true && Vin_PanelPort == true && Vin_SwitchPort == true && Vin_IPSwitch == true)
+            {
+                Sentencias.Insert_Patching(in_building, in_Floor, in_Closet, in_Panel, in_PanelPort, in_Stack,
+                    in_Switch, in_SwitchPort, in_interface, in_link, in_Speed, in_Duplex,
+                    in_Type, in_Vlan, in_Description, in_IP_Switch);
+            }
+        }
     }
 }

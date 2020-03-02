@@ -524,5 +524,19 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             Datagrid_Name.DataMember = "patching";
             databaseConnection.Close();
         }
+        //Metodo que se encarga de hacer insert en patching PARCHEO        
+        public static void Insert_Patching(string building, string floor,string closet, string panel,
+            string panel_port,string stack,string switch_,string switch_port,string interface_,
+            string link, string speed,string duplex,string type_,string vlan,string description,
+            string ip_switch)
+        {
+            string query = "call insert_patching(' " + building + " ',' "+floor+" ',' " + closet + "',' " + panel + " '," +
+                "' " + panel_port + " ',' " + stack + " ',' " + switch_ + " ',' " + switch_port + " '," +
+                "' " + interface_ + " ',' " + link + " ',' " + speed + " ',' " + duplex + " '," +
+                "' " + type_ + " ',' " + vlan + " ',' " + description + " ',' " + ip_switch + " '," +
+                "' " + GlobalParam.IDUser + " ',' Create ')";
+            Bbdd_apply_simple(query);
+
+        }
     }
 }

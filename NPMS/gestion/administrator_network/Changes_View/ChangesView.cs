@@ -46,7 +46,7 @@ namespace NPMS.gestion.administrator_network.Logs
 
         private void ButtonPatching_Click(object sender, EventArgs e)
         {
-
+            Sentencias.Bbdd_apply_all_Desc_datagridView("log_patching", dataGridViewLogs);
         }
     }
 }

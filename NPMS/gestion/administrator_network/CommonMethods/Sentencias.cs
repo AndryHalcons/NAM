@@ -449,7 +449,23 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 //sqlserver_commands.Select_patching(building, floor, closet, panel, panel_port, Datagrid_Name);
             }
         }
-
+        //Metodo que se encarga de hacer insert en patching PARCHEO        
+        public static void Insert_Patching(string building, string floor, string closet, string panel,
+            string panel_port, string stack, string switch_, string switch_port, string interface_,
+            string link, string speed, string duplex, string type_, string vlan, string description,
+            string ip_switch)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Insert_Patching(building, floor, closet, panel, panel_port, stack, switch_,
+                    switch_port, interface_, link, speed, duplex, type_, vlan, description, ip_switch);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Insert_Patching(building, floor, closet, panel, panel_port, stack, switch_,
+                    //switch_port, interface_, link, speed, duplex, type_, vlan, description, ip_switch);
+            }
+        }
 
 
 
