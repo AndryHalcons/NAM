@@ -17,6 +17,17 @@ namespace NPMS.gestion.administrator_network
         {
             InitializeComponent();
             Sentencias.Select_distinct("patching", "Building",comboBoxBuilding);
+            Sentencias.Select_distinct("patching", "Building", comboBoxBuilding1);
+            Sentencias.Select_distinct("patching", "Building", comboBoxBuilding2);
+            Sentencias.Select_distinct("patching", "Floor", comboBoxDelFloor2);
+            Sentencias.Select_distinct("patching", "Building", comboBoxBuilding0);
+            Sentencias.Select_distinct("patching", "Floor", comboBoxFloor0);
+            Sentencias.Select_distinct("patching", "Closet", comboBoxCloset0);
+            Sentencias.Select_distinct("patching", "Panel", comboBoxPanel0);
+            Sentencias.Select_distinct("patching", "Panel_Port", comboBoxPanelPort0);
+            Sentencias.Select_distinct("patching", "Stack", comboBoxStack0);
+           
+
         }
 
         private void Button_Search_Click(object sender, EventArgs e)
@@ -75,6 +86,27 @@ namespace NPMS.gestion.administrator_network
                     in_Switch, in_SwitchPort, in_interface, in_link, in_Speed, in_Duplex,
                     in_Type, in_Vlan, in_Description, in_IP_Switch);
             }
+        }
+
+        private void buttonDeleteSimply_Click(object sender, EventArgs e)
+        {
+            string DS_building = comboBoxBuilding0.Text.ToString();
+            string DS_Floor = comboBoxFloor0.Text.ToString();
+            string DS_Closet = comboBoxCloset0.Text.ToString();
+            string DS_Panel = comboBoxPanel0.Text.ToString();
+            string DS_Stack = comboBoxPanelPort0.Text.ToString();
+            string DS_IPSwitch = textSimplyDelIPSwitch0.Text.ToString();
+            bool VDS_building = Common.ValidadorCamposVacios(DS_building, "Building");
+            bool VDS_Floor = Common.ValidadorCamposVacios(DS_Floor, "Floor");
+            bool VDS_Closet = Common.ValidadorCamposVacios(DS_Closet, "Closet");
+            bool VDS_Panel = Common.ValidadorCamposVacios(DS_Panel, "Panel");
+            bool VDS_IPSwitch = Common.ValidadorCamposVacios(DS_IPSwitch, "IP switch");
+            if (VDS_building == true && VDS_Floor == true && VDS_Closet == true && VDS_Panel == true
+                && VDS_IPSwitch == true)
+            {
+
+            }
+
         }
     }
 }

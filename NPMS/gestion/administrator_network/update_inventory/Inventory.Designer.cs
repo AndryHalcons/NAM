@@ -134,6 +134,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inventory";
             this.Text = "Inventory";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

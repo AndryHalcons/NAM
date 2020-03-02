@@ -42,8 +42,8 @@
             this.comboBoxBuilding = new System.Windows.Forms.ComboBox();
             this.dataGridView_patching = new System.Windows.Forms.DataGridView();
             this.tabControlDel = new System.Windows.Forms.TabControl();
-            this.TabControl = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TabSearch = new System.Windows.Forms.TabPage();
+            this.tabInsert = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
             this.BoxDescription = new System.Windows.Forms.TextBox();
@@ -78,47 +78,46 @@
             this.BoxSwitchPort = new System.Windows.Forms.TextBox();
             this.BoxPanel = new System.Windows.Forms.TextBox();
             this.BoxIPSwitch = new System.Windows.Forms.TextBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabDelete = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.comboBoxStack0 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPanel0 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPanelPort0 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCloset0 = new System.Windows.Forms.ComboBox();
+            this.comboBoxFloor0 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBuilding0 = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.buttonDeleteSimply = new System.Windows.Forms.Button();
+            this.textSimplyDelIPSwitch0 = new System.Windows.Forms.TextBox();
+            this.tabPDeleteAll = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.comboBoxBuilding2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDelFloor2 = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label30 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.comboBoxBuilding1 = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).BeginInit();
             this.tabControlDel.SuspendLayout();
-            this.TabControl.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.TabSearch.SuspendLayout();
+            this.tabInsert.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabDelete.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tabPDeleteAll.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // labeledificio
@@ -271,7 +270,7 @@
             this.dataGridView_patching.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_patching.Name = "dataGridView_patching";
             this.dataGridView_patching.ReadOnly = true;
-            this.dataGridView_patching.Size = new System.Drawing.Size(782, 244);
+            this.dataGridView_patching.Size = new System.Drawing.Size(782, 398);
             this.dataGridView_patching.TabIndex = 29;
             // 
             // tabControlDel
@@ -279,37 +278,38 @@
             this.tabControlDel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlDel.Controls.Add(this.TabControl);
-            this.tabControlDel.Controls.Add(this.tabPage2);
-            this.tabControlDel.Controls.Add(this.tabPage1);
+            this.tabControlDel.Controls.Add(this.TabSearch);
+            this.tabControlDel.Controls.Add(this.tabInsert);
+            this.tabControlDel.Controls.Add(this.tabDelete);
+            this.tabControlDel.Controls.Add(this.tabPDeleteAll);
             this.tabControlDel.Location = new System.Drawing.Point(2, 1);
             this.tabControlDel.Name = "tabControlDel";
             this.tabControlDel.SelectedIndex = 0;
-            this.tabControlDel.Size = new System.Drawing.Size(801, 411);
+            this.tabControlDel.Size = new System.Drawing.Size(801, 565);
             this.tabControlDel.TabIndex = 30;
             // 
-            // TabControl
+            // TabSearch
             // 
-            this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.TabControl.Controls.Add(this.tableLayoutPanel1);
-            this.TabControl.Controls.Add(this.dataGridView_patching);
-            this.TabControl.Location = new System.Drawing.Point(4, 26);
-            this.TabControl.Name = "TabControl";
-            this.TabControl.Padding = new System.Windows.Forms.Padding(3);
-            this.TabControl.Size = new System.Drawing.Size(793, 381);
-            this.TabControl.TabIndex = 0;
-            this.TabControl.Text = "Search";
+            this.TabSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.TabSearch.Controls.Add(this.tableLayoutPanel1);
+            this.TabSearch.Controls.Add(this.dataGridView_patching);
+            this.TabSearch.Location = new System.Drawing.Point(4, 26);
+            this.TabSearch.Name = "TabSearch";
+            this.TabSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.TabSearch.Size = new System.Drawing.Size(793, 535);
+            this.TabSearch.TabIndex = 0;
+            this.TabSearch.Text = "Search";
             // 
-            // tabPage2
+            // tabInsert
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.tabPage2.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(793, 381);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Insert";
+            this.tabInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.tabInsert.Controls.Add(this.tableLayoutPanel2);
+            this.tabInsert.Location = new System.Drawing.Point(4, 26);
+            this.tabInsert.Name = "tabInsert";
+            this.tabInsert.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInsert.Size = new System.Drawing.Size(793, 535);
+            this.tabInsert.TabIndex = 1;
+            this.tabInsert.Text = "Insert";
             // 
             // tableLayoutPanel2
             // 
@@ -690,57 +690,39 @@
             this.BoxIPSwitch.Size = new System.Drawing.Size(159, 28);
             this.BoxIPSwitch.TabIndex = 54;
             // 
-            // tabPage1
+            // tabDelete
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.tabPage1.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(793, 381);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Delete";
+            this.tabDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.tabDelete.Controls.Add(this.tableLayoutPanel3);
+            this.tabDelete.Location = new System.Drawing.Point(4, 26);
+            this.tabDelete.Name = "tabDelete";
+            this.tabDelete.Size = new System.Drawing.Size(793, 535);
+            this.tabDelete.TabIndex = 2;
+            this.tabDelete.Text = "Delete";
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 3, 6);
-            this.tableLayoutPanel3.Controls.Add(this.textBox2, 3, 5);
-            this.tableLayoutPanel3.Controls.Add(this.textBox3, 3, 4);
-            this.tableLayoutPanel3.Controls.Add(this.textBox4, 3, 3);
-            this.tableLayoutPanel3.Controls.Add(this.textBox5, 3, 2);
-            this.tableLayoutPanel3.Controls.Add(this.textBox6, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox7, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxStack0, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxPanel0, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxPanelPort0, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxCloset0, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxFloor0, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxBuilding0, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label22, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label25, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this.label26, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label27, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.label28, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label29, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label30, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label31, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label32, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label33, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label34, 2, 4);
-            this.tableLayoutPanel3.Controls.Add(this.label35, 2, 5);
-            this.tableLayoutPanel3.Controls.Add(this.label36, 2, 6);
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 8);
-            this.tableLayoutPanel3.Controls.Add(this.textBox8, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox9, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox10, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.textBox11, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.textBox12, 1, 5);
-            this.tableLayoutPanel3.Controls.Add(this.textBox15, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label23, 0, 6);
-            this.tableLayoutPanel3.Controls.Add(this.textBox14, 1, 6);
-            this.tableLayoutPanel3.Controls.Add(this.label21, 0, 7);
-            this.tableLayoutPanel3.Controls.Add(this.textBox16, 1, 7);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(43, 19);
+            this.tableLayoutPanel3.Controls.Add(this.label21, 0, 6);
+            this.tableLayoutPanel3.Controls.Add(this.buttonDeleteSimply, 0, 7);
+            this.tableLayoutPanel3.Controls.Add(this.textSimplyDelIPSwitch0, 1, 6);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(18, 13);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 9;
+            this.tableLayoutPanel3.RowCount = 8;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -749,71 +731,57 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(707, 343);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(368, 310);
             this.tableLayoutPanel3.TabIndex = 40;
             // 
-            // label21
+            // comboBoxStack0
             // 
-            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label21.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label21.Location = new System.Drawing.Point(4, 252);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(120, 36);
-            this.label21.TabIndex = 55;
-            this.label21.Text = "IP Switch";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBoxStack0.FormattingEnabled = true;
+            this.comboBoxStack0.Location = new System.Drawing.Point(131, 183);
+            this.comboBoxStack0.Name = "comboBoxStack0";
+            this.comboBoxStack0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxStack0.TabIndex = 59;
             // 
-            // textBox1
+            // comboBoxPanel0
             // 
-            this.textBox1.Location = new System.Drawing.Point(469, 219);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 28);
-            this.textBox1.TabIndex = 53;
+            this.comboBoxPanel0.FormattingEnabled = true;
+            this.comboBoxPanel0.Location = new System.Drawing.Point(131, 111);
+            this.comboBoxPanel0.Name = "comboBoxPanel0";
+            this.comboBoxPanel0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxPanel0.TabIndex = 57;
             // 
-            // textBox2
+            // comboBoxPanelPort0
             // 
-            this.textBox2.Location = new System.Drawing.Point(469, 183);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 28);
-            this.textBox2.TabIndex = 52;
+            this.comboBoxPanelPort0.FormattingEnabled = true;
+            this.comboBoxPanelPort0.Location = new System.Drawing.Point(131, 147);
+            this.comboBoxPanelPort0.Name = "comboBoxPanelPort0";
+            this.comboBoxPanelPort0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxPanelPort0.TabIndex = 58;
             // 
-            // textBox3
+            // comboBoxCloset0
             // 
-            this.textBox3.Location = new System.Drawing.Point(469, 147);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 28);
-            this.textBox3.TabIndex = 51;
+            this.comboBoxCloset0.FormattingEnabled = true;
+            this.comboBoxCloset0.Location = new System.Drawing.Point(131, 75);
+            this.comboBoxCloset0.Name = "comboBoxCloset0";
+            this.comboBoxCloset0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxCloset0.TabIndex = 41;
             // 
-            // textBox4
+            // comboBoxFloor0
             // 
-            this.textBox4.Location = new System.Drawing.Point(469, 111);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(159, 28);
-            this.textBox4.TabIndex = 50;
+            this.comboBoxFloor0.FormattingEnabled = true;
+            this.comboBoxFloor0.Location = new System.Drawing.Point(131, 39);
+            this.comboBoxFloor0.Name = "comboBoxFloor0";
+            this.comboBoxFloor0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxFloor0.TabIndex = 56;
             // 
-            // textBox5
+            // comboBoxBuilding0
             // 
-            this.textBox5.Location = new System.Drawing.Point(469, 75);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(159, 28);
-            this.textBox5.TabIndex = 49;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(469, 39);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(159, 28);
-            this.textBox6.TabIndex = 48;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(469, 3);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(159, 28);
-            this.textBox7.TabIndex = 47;
+            this.comboBoxBuilding0.FormattingEnabled = true;
+            this.comboBoxBuilding0.Location = new System.Drawing.Point(131, 3);
+            this.comboBoxBuilding0.Name = "comboBoxBuilding0";
+            this.comboBoxBuilding0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxBuilding0.TabIndex = 41;
             // 
             // label22
             // 
@@ -827,19 +795,6 @@
             this.label22.TabIndex = 24;
             this.label22.Text = "Building";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label23
-            // 
-            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label23.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label23.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label23.Location = new System.Drawing.Point(4, 216);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(120, 36);
-            this.label23.TabIndex = 31;
-            this.label23.Text = "Switch Port";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label25
             // 
@@ -905,164 +860,191 @@
             this.label29.Text = "Floor";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label30
+            // label21
             // 
-            this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label30.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label30.Location = new System.Drawing.Point(342, 0);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(120, 36);
-            this.label30.TabIndex = 25;
-            this.label30.Text = "Interface";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label21.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label21.Location = new System.Drawing.Point(4, 216);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(120, 36);
+            this.label21.TabIndex = 55;
+            this.label21.Text = "IP Switch";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonDeleteSimply
+            // 
+            this.buttonDeleteSimply.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonDeleteSimply.Location = new System.Drawing.Point(4, 256);
+            this.buttonDeleteSimply.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDeleteSimply.Name = "buttonDeleteSimply";
+            this.buttonDeleteSimply.Size = new System.Drawing.Size(119, 42);
+            this.buttonDeleteSimply.TabIndex = 23;
+            this.buttonDeleteSimply.Text = "Delete";
+            this.buttonDeleteSimply.UseVisualStyleBackColor = true;
+            this.buttonDeleteSimply.Click += new System.EventHandler(this.buttonDeleteSimply_Click);
+            // 
+            // textSimplyDelIPSwitch0
+            // 
+            this.textSimplyDelIPSwitch0.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textSimplyDelIPSwitch0.Location = new System.Drawing.Point(131, 219);
+            this.textSimplyDelIPSwitch0.Name = "textSimplyDelIPSwitch0";
+            this.textSimplyDelIPSwitch0.Size = new System.Drawing.Size(204, 28);
+            this.textSimplyDelIPSwitch0.TabIndex = 54;
+            // 
+            // tabPDeleteAll
+            // 
+            this.tabPDeleteAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.tabPDeleteAll.Controls.Add(this.tableLayoutPanel5);
+            this.tabPDeleteAll.Controls.Add(this.tableLayoutPanel4);
+            this.tabPDeleteAll.Controls.Add(this.label24);
+            this.tabPDeleteAll.Location = new System.Drawing.Point(4, 26);
+            this.tabPDeleteAll.Name = "tabPDeleteAll";
+            this.tabPDeleteAll.Size = new System.Drawing.Size(793, 535);
+            this.tabPDeleteAll.TabIndex = 3;
+            this.tabPDeleteAll.Text = "Delete All";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.label31, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.button2, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label32, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.comboBoxBuilding2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.comboBoxDelFloor2, 1, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(22, 196);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(258, 120);
+            this.tableLayoutPanel5.TabIndex = 30;
             // 
             // label31
             // 
             this.label31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label31.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label31.Location = new System.Drawing.Point(342, 36);
+            this.label31.Location = new System.Drawing.Point(4, 0);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(120, 36);
-            this.label31.TabIndex = 26;
-            this.label31.Text = "Link";
+            this.label31.TabIndex = 12;
+            this.label31.Text = "Building";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.button2.Location = new System.Drawing.Point(4, 71);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 34);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label32
             // 
             this.label32.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label32.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label32.Location = new System.Drawing.Point(342, 72);
+            this.label32.Location = new System.Drawing.Point(132, 0);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(120, 36);
-            this.label32.TabIndex = 27;
-            this.label32.Text = "Speed";
+            this.label32.TabIndex = 13;
+            this.label32.Text = "Delete Floor";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label33
+            // comboBoxBuilding2
             // 
-            this.label33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label33.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label33.Location = new System.Drawing.Point(342, 108);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(120, 36);
-            this.label33.TabIndex = 28;
-            this.label33.Text = "Duplex";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBoxBuilding2.FormattingEnabled = true;
+            this.comboBoxBuilding2.Location = new System.Drawing.Point(3, 39);
+            this.comboBoxBuilding2.Name = "comboBoxBuilding2";
+            this.comboBoxBuilding2.Size = new System.Drawing.Size(121, 25);
+            this.comboBoxBuilding2.TabIndex = 28;
             // 
-            // label34
+            // comboBoxDelFloor2
             // 
-            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label34.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label34.Location = new System.Drawing.Point(342, 144);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(120, 36);
-            this.label34.TabIndex = 29;
-            this.label34.Text = "Type";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBoxDelFloor2.FormattingEnabled = true;
+            this.comboBoxDelFloor2.Location = new System.Drawing.Point(131, 39);
+            this.comboBoxDelFloor2.Name = "comboBoxDelFloor2";
+            this.comboBoxDelFloor2.Size = new System.Drawing.Size(121, 25);
+            this.comboBoxDelFloor2.TabIndex = 29;
             // 
-            // label35
+            // tableLayoutPanel4
             // 
-            this.label35.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label35.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label35.Location = new System.Drawing.Point(342, 180);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(120, 36);
-            this.label35.TabIndex = 30;
-            this.label35.Text = "Vlan";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.label30, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxBuilding1, 0, 1);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(26, 60);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(135, 120);
+            this.tableLayoutPanel4.TabIndex = 29;
             // 
-            // label36
+            // label30
             // 
-            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label36.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label36.Location = new System.Drawing.Point(342, 216);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(120, 36);
-            this.label36.TabIndex = 32;
-            this.label36.Text = "Description";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label30.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label30.Location = new System.Drawing.Point(4, 0);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(120, 36);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Delete Building";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
             this.button1.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button1.Location = new System.Drawing.Point(4, 292);
+            this.button1.Location = new System.Drawing.Point(4, 71);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 42);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Insert";
+            this.button1.Size = new System.Drawing.Size(119, 34);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // comboBoxBuilding1
             // 
-            this.textBox8.Location = new System.Drawing.Point(131, 3);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(204, 28);
-            this.textBox8.TabIndex = 39;
+            this.comboBoxBuilding1.FormattingEnabled = true;
+            this.comboBoxBuilding1.Location = new System.Drawing.Point(3, 39);
+            this.comboBoxBuilding1.Name = "comboBoxBuilding1";
+            this.comboBoxBuilding1.Size = new System.Drawing.Size(121, 25);
+            this.comboBoxBuilding1.TabIndex = 28;
             // 
-            // textBox9
+            // label24
             // 
-            this.textBox9.Location = new System.Drawing.Point(131, 39);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(204, 28);
-            this.textBox9.TabIndex = 40;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(131, 75);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(204, 28);
-            this.textBox10.TabIndex = 41;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(131, 147);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(204, 28);
-            this.textBox11.TabIndex = 43;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(131, 183);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(204, 28);
-            this.textBox12.TabIndex = 44;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(131, 219);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(204, 28);
-            this.textBox14.TabIndex = 46;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(131, 111);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(204, 28);
-            this.textBox15.TabIndex = 42;
-            // 
-            // textBox16
-            // 
-            this.textBox16.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox16.Location = new System.Drawing.Point(131, 255);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(204, 28);
-            this.textBox16.TabIndex = 54;
+            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label24.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label24.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label24.Location = new System.Drawing.Point(58, 11);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(576, 36);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "Using it is dangerous";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Patching_switchs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.ClientSize = new System.Drawing.Size(801, 413);
+            this.ClientSize = new System.Drawing.Size(801, 567);
             this.Controls.Add(this.tabControlDel);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1073,13 +1055,16 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).EndInit();
             this.tabControlDel.ResumeLayout(false);
-            this.TabControl.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.TabSearch.ResumeLayout(false);
+            this.tabInsert.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tabDelete.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tabPDeleteAll.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1099,8 +1084,8 @@
         private System.Windows.Forms.ComboBox comboBoxBuilding;
         private System.Windows.Forms.DataGridView dataGridView_patching;
         private System.Windows.Forms.TabControl tabControlDel;
-        private System.Windows.Forms.TabPage TabControl;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage TabSearch;
+        private System.Windows.Forms.TabPage tabInsert;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox BoxDescription;
@@ -1135,38 +1120,34 @@
         private System.Windows.Forms.TextBox BoxPanel;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox BoxIPSwitch;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabDelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Button buttonDeleteSimply;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textSimplyDelIPSwitch0;
+        private System.Windows.Forms.TabPage tabPDeleteAll;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxBuilding1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox comboBoxBuilding2;
+        private System.Windows.Forms.ComboBox comboBoxDelFloor2;
+        private System.Windows.Forms.ComboBox comboBoxStack0;
+        private System.Windows.Forms.ComboBox comboBoxPanel0;
+        private System.Windows.Forms.ComboBox comboBoxPanelPort0;
+        private System.Windows.Forms.ComboBox comboBoxCloset0;
+        private System.Windows.Forms.ComboBox comboBoxFloor0;
+        private System.Windows.Forms.ComboBox comboBoxBuilding0;
     }
 }

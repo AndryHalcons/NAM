@@ -260,8 +260,8 @@ CREATE TABLE `npms`.`log_inventory` (
 
 CREATE TABLE `log_patching` (
   `Accion` VARCHAR(150) NULL,
-  `Building` varchar(45) NOT NULL,
-  `Floor` int(11) NOT NULL,
+  `Building` varchar(45) NULL,
+  `Floor` varchar(45) NULL,
   `Closet` varchar(45) DEFAULT NULL,
   `Panel` varchar(45) DEFAULT NULL,
   `Panel_Port` varchar(45) DEFAULT NULL,
