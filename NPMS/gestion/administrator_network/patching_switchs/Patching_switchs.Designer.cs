@@ -83,14 +83,12 @@
             this.tabDelete = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.textSimplyDelWorder0 = new System.Windows.Forms.TextBox();
-            this.comboBoxStack0 = new System.Windows.Forms.ComboBox();
             this.comboBoxPanel0 = new System.Windows.Forms.ComboBox();
             this.comboBoxPanelPort0 = new System.Windows.Forms.ComboBox();
             this.comboBoxCloset0 = new System.Windows.Forms.ComboBox();
             this.comboBoxFloor0 = new System.Windows.Forms.ComboBox();
             this.comboBoxBuilding0 = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -100,7 +98,19 @@
             this.label35 = new System.Windows.Forms.Label();
             this.buttonDeleteSimply = new System.Windows.Forms.Button();
             this.tabPDeleteAll = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.buttonDelCloset = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.comboBoxDelFloor3 = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.textBoxDelWorder3 = new System.Windows.Forms.TextBox();
+            this.labelDelClosetCheck = new System.Windows.Forms.Label();
+            this.comboBoxDelCloset3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBuilding3 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label31 = new System.Windows.Forms.Label();
             this.buttonDelFloor = new System.Windows.Forms.Button();
             this.comboBoxBuilding2 = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -116,18 +126,8 @@
             this.label33 = new System.Windows.Forms.Label();
             this.textBoxWorder1 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.buttonDelCloset = new System.Windows.Forms.Button();
-            this.comboBoxBuilding3 = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBoxDelWorder3 = new System.Windows.Forms.TextBox();
-            this.comboBoxDelFloor3 = new System.Windows.Forms.ComboBox();
-            this.labelDelClosetCheck = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.comboBoxDelCloset3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxStack0 = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).BeginInit();
             this.tabControlDel.SuspendLayout();
@@ -137,9 +137,9 @@
             this.tabDelete.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabPDeleteAll.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // labeledificio
@@ -209,7 +209,7 @@
             this.Button_Search.Margin = new System.Windows.Forms.Padding(4);
             this.Button_Search.Name = "Button_Search";
             this.Button_Search.Size = new System.Drawing.Size(119, 34);
-            this.Button_Search.TabIndex = 22;
+            this.Button_Search.TabIndex = 6;
             this.Button_Search.Text = "Search";
             this.Button_Search.UseVisualStyleBackColor = true;
             this.Button_Search.Click += new System.EventHandler(this.Button_Search_Click);
@@ -219,28 +219,28 @@
             this.textBoxFloor.Location = new System.Drawing.Point(131, 39);
             this.textBoxFloor.Name = "textBoxFloor";
             this.textBoxFloor.Size = new System.Drawing.Size(61, 28);
-            this.textBoxFloor.TabIndex = 24;
+            this.textBoxFloor.TabIndex = 2;
             // 
             // textBoxCloset
             // 
             this.textBoxCloset.Location = new System.Drawing.Point(200, 39);
             this.textBoxCloset.Name = "textBoxCloset";
             this.textBoxCloset.Size = new System.Drawing.Size(61, 28);
-            this.textBoxCloset.TabIndex = 25;
+            this.textBoxCloset.TabIndex = 3;
             // 
             // textBoxPanel
             // 
             this.textBoxPanel.Location = new System.Drawing.Point(269, 39);
             this.textBoxPanel.Name = "textBoxPanel";
             this.textBoxPanel.Size = new System.Drawing.Size(61, 28);
-            this.textBoxPanel.TabIndex = 26;
+            this.textBoxPanel.TabIndex = 4;
             // 
             // textBoxPortPanel
             // 
             this.textBoxPortPanel.Location = new System.Drawing.Point(338, 39);
             this.textBoxPortPanel.Name = "textBoxPortPanel";
             this.textBoxPortPanel.Size = new System.Drawing.Size(61, 28);
-            this.textBoxPortPanel.TabIndex = 27;
+            this.textBoxPortPanel.TabIndex = 5;
             // 
             // tableLayoutPanel1
             // 
@@ -275,9 +275,10 @@
             // 
             this.comboBoxBuilding.FormattingEnabled = true;
             this.comboBoxBuilding.Location = new System.Drawing.Point(3, 39);
+            this.comboBoxBuilding.MaxDropDownItems = 50;
             this.comboBoxBuilding.Name = "comboBoxBuilding";
             this.comboBoxBuilding.Size = new System.Drawing.Size(121, 25);
-            this.comboBoxBuilding.TabIndex = 28;
+            this.comboBoxBuilding.TabIndex = 1;
             // 
             // dataGridView_patching
             // 
@@ -788,15 +789,7 @@
             this.textSimplyDelWorder0.Location = new System.Drawing.Point(131, 255);
             this.textSimplyDelWorder0.Name = "textSimplyDelWorder0";
             this.textSimplyDelWorder0.Size = new System.Drawing.Size(204, 28);
-            this.textSimplyDelWorder0.TabIndex = 61;
-            // 
-            // comboBoxStack0
-            // 
-            this.comboBoxStack0.FormattingEnabled = true;
-            this.comboBoxStack0.Location = new System.Drawing.Point(131, 183);
-            this.comboBoxStack0.Name = "comboBoxStack0";
-            this.comboBoxStack0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxStack0.TabIndex = 59;
+            this.textSimplyDelWorder0.TabIndex = 57;
             // 
             // comboBoxPanel0
             // 
@@ -804,7 +797,7 @@
             this.comboBoxPanel0.Location = new System.Drawing.Point(131, 111);
             this.comboBoxPanel0.Name = "comboBoxPanel0";
             this.comboBoxPanel0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxPanel0.TabIndex = 57;
+            this.comboBoxPanel0.TabIndex = 53;
             // 
             // comboBoxPanelPort0
             // 
@@ -812,7 +805,7 @@
             this.comboBoxPanelPort0.Location = new System.Drawing.Point(131, 147);
             this.comboBoxPanelPort0.Name = "comboBoxPanelPort0";
             this.comboBoxPanelPort0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxPanelPort0.TabIndex = 58;
+            this.comboBoxPanelPort0.TabIndex = 54;
             // 
             // comboBoxCloset0
             // 
@@ -820,7 +813,7 @@
             this.comboBoxCloset0.Location = new System.Drawing.Point(131, 75);
             this.comboBoxCloset0.Name = "comboBoxCloset0";
             this.comboBoxCloset0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxCloset0.TabIndex = 41;
+            this.comboBoxCloset0.TabIndex = 52;
             // 
             // comboBoxFloor0
             // 
@@ -828,7 +821,7 @@
             this.comboBoxFloor0.Location = new System.Drawing.Point(131, 39);
             this.comboBoxFloor0.Name = "comboBoxFloor0";
             this.comboBoxFloor0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxFloor0.TabIndex = 56;
+            this.comboBoxFloor0.TabIndex = 51;
             // 
             // comboBoxBuilding0
             // 
@@ -836,7 +829,7 @@
             this.comboBoxBuilding0.Location = new System.Drawing.Point(131, 3);
             this.comboBoxBuilding0.Name = "comboBoxBuilding0";
             this.comboBoxBuilding0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxBuilding0.TabIndex = 41;
+            this.comboBoxBuilding0.TabIndex = 50;
             // 
             // label22
             // 
@@ -850,18 +843,6 @@
             this.label22.TabIndex = 24;
             this.label22.Text = "Building";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label25.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label25.Location = new System.Drawing.Point(4, 180);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(120, 36);
-            this.label25.TabIndex = 34;
-            this.label25.Text = "Stack";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
             // 
@@ -934,7 +915,7 @@
             this.textSimplyDelIPSwitch0.Location = new System.Drawing.Point(131, 219);
             this.textSimplyDelIPSwitch0.Name = "textSimplyDelIPSwitch0";
             this.textSimplyDelIPSwitch0.Size = new System.Drawing.Size(204, 28);
-            this.textSimplyDelIPSwitch0.TabIndex = 54;
+            this.textSimplyDelIPSwitch0.TabIndex = 56;
             // 
             // label35
             // 
@@ -956,7 +937,7 @@
             this.buttonDeleteSimply.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteSimply.Name = "buttonDeleteSimply";
             this.buttonDeleteSimply.Size = new System.Drawing.Size(119, 42);
-            this.buttonDeleteSimply.TabIndex = 23;
+            this.buttonDeleteSimply.TabIndex = 58;
             this.buttonDeleteSimply.Text = "Delete";
             this.buttonDeleteSimply.UseVisualStyleBackColor = true;
             this.buttonDeleteSimply.Click += new System.EventHandler(this.buttonDeleteSimply_Click);
@@ -973,6 +954,135 @@
             this.tabPDeleteAll.Size = new System.Drawing.Size(793, 535);
             this.tabPDeleteAll.TabIndex = 3;
             this.tabPDeleteAll.Text = "Delete All";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 4;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.Controls.Add(this.label36, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.buttonDelCloset, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label37, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.comboBoxDelFloor3, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label38, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label39, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.textBoxDelWorder3, 3, 1);
+            this.tableLayoutPanel6.Controls.Add(this.labelDelClosetCheck, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.comboBoxDelCloset3, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.comboBoxBuilding3, 0, 1);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(22, 74);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(596, 120);
+            this.tableLayoutPanel6.TabIndex = 34;
+            // 
+            // label36
+            // 
+            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label36.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label36.Location = new System.Drawing.Point(4, 0);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(120, 36);
+            this.label36.TabIndex = 12;
+            this.label36.Text = "Delete Building";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonDelCloset
+            // 
+            this.buttonDelCloset.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonDelCloset.Location = new System.Drawing.Point(4, 74);
+            this.buttonDelCloset.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDelCloset.Name = "buttonDelCloset";
+            this.buttonDelCloset.Size = new System.Drawing.Size(119, 34);
+            this.buttonDelCloset.TabIndex = 74;
+            this.buttonDelCloset.Text = "Delete Closet";
+            this.buttonDelCloset.UseVisualStyleBackColor = true;
+            this.buttonDelCloset.Click += new System.EventHandler(this.buttonDelCloset_Click);
+            // 
+            // label37
+            // 
+            this.label37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label37.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label37.Location = new System.Drawing.Point(132, 0);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(147, 36);
+            this.label37.TabIndex = 29;
+            this.label37.Text = "Floor";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxDelFloor3
+            // 
+            this.comboBoxDelFloor3.FormattingEnabled = true;
+            this.comboBoxDelFloor3.Location = new System.Drawing.Point(131, 39);
+            this.comboBoxDelFloor3.Name = "comboBoxDelFloor3";
+            this.comboBoxDelFloor3.Size = new System.Drawing.Size(148, 25);
+            this.comboBoxDelFloor3.TabIndex = 71;
+            // 
+            // label38
+            // 
+            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label38.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label38.Location = new System.Drawing.Point(442, 0);
+            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(154, 36);
+            this.label38.TabIndex = 31;
+            this.label38.Text = "Work Order";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label39
+            // 
+            this.label39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label39.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label39.Location = new System.Drawing.Point(287, 0);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(147, 36);
+            this.label39.TabIndex = 34;
+            this.label39.Text = "Closet";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxDelWorder3
+            // 
+            this.textBoxDelWorder3.Location = new System.Drawing.Point(441, 39);
+            this.textBoxDelWorder3.Name = "textBoxDelWorder3";
+            this.textBoxDelWorder3.Size = new System.Drawing.Size(155, 28);
+            this.textBoxDelWorder3.TabIndex = 73;
+            // 
+            // labelDelClosetCheck
+            // 
+            this.labelDelClosetCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDelClosetCheck.AutoSize = true;
+            this.labelDelClosetCheck.Location = new System.Drawing.Point(131, 70);
+            this.labelDelClosetCheck.Name = "labelDelClosetCheck";
+            this.labelDelClosetCheck.Size = new System.Drawing.Size(149, 50);
+            this.labelDelClosetCheck.TabIndex = 33;
+            this.labelDelClosetCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxDelCloset3
+            // 
+            this.comboBoxDelCloset3.FormattingEnabled = true;
+            this.comboBoxDelCloset3.Location = new System.Drawing.Point(286, 39);
+            this.comboBoxDelCloset3.Name = "comboBoxDelCloset3";
+            this.comboBoxDelCloset3.Size = new System.Drawing.Size(148, 25);
+            this.comboBoxDelCloset3.TabIndex = 72;
+            // 
+            // comboBoxBuilding3
+            // 
+            this.comboBoxBuilding3.FormattingEnabled = true;
+            this.comboBoxBuilding3.Location = new System.Drawing.Point(3, 39);
+            this.comboBoxBuilding3.Name = "comboBoxBuilding3";
+            this.comboBoxBuilding3.Size = new System.Drawing.Size(121, 25);
+            this.comboBoxBuilding3.TabIndex = 70;
             // 
             // tableLayoutPanel5
             // 
@@ -997,6 +1107,18 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(439, 120);
             this.tableLayoutPanel5.TabIndex = 31;
             // 
+            // label31
+            // 
+            this.label31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label31.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label31.Location = new System.Drawing.Point(4, 0);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(120, 36);
+            this.label31.TabIndex = 12;
+            this.label31.Text = "Building";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // buttonDelFloor
             // 
             this.buttonDelFloor.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
@@ -1004,7 +1126,7 @@
             this.buttonDelFloor.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDelFloor.Name = "buttonDelFloor";
             this.buttonDelFloor.Size = new System.Drawing.Size(119, 34);
-            this.buttonDelFloor.TabIndex = 22;
+            this.buttonDelFloor.TabIndex = 78;
             this.buttonDelFloor.Text = "Delete Floor";
             this.buttonDelFloor.UseVisualStyleBackColor = true;
             this.buttonDelFloor.Click += new System.EventHandler(this.buttonDelFloor_Click);
@@ -1015,7 +1137,7 @@
             this.comboBoxBuilding2.Location = new System.Drawing.Point(3, 39);
             this.comboBoxBuilding2.Name = "comboBoxBuilding2";
             this.comboBoxBuilding2.Size = new System.Drawing.Size(121, 25);
-            this.comboBoxBuilding2.TabIndex = 28;
+            this.comboBoxBuilding2.TabIndex = 75;
             // 
             // label32
             // 
@@ -1046,7 +1168,7 @@
             this.textBoxDelWorder2.Location = new System.Drawing.Point(286, 39);
             this.textBoxDelWorder2.Name = "textBoxDelWorder2";
             this.textBoxDelWorder2.Size = new System.Drawing.Size(149, 28);
-            this.textBoxDelWorder2.TabIndex = 30;
+            this.textBoxDelWorder2.TabIndex = 77;
             // 
             // comboBoxDelFloor2
             // 
@@ -1054,7 +1176,7 @@
             this.comboBoxDelFloor2.Location = new System.Drawing.Point(131, 39);
             this.comboBoxDelFloor2.Name = "comboBoxDelFloor2";
             this.comboBoxDelFloor2.Size = new System.Drawing.Size(148, 25);
-            this.comboBoxDelFloor2.TabIndex = 32;
+            this.comboBoxDelFloor2.TabIndex = 76;
             // 
             // labelDelFloorCheck
             // 
@@ -1119,7 +1241,7 @@
             this.buttonDelBuilding.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDelBuilding.Name = "buttonDelBuilding";
             this.buttonDelBuilding.Size = new System.Drawing.Size(119, 34);
-            this.buttonDelBuilding.TabIndex = 22;
+            this.buttonDelBuilding.TabIndex = 81;
             this.buttonDelBuilding.Text = "Delete Building";
             this.buttonDelBuilding.UseVisualStyleBackColor = true;
             this.buttonDelBuilding.Click += new System.EventHandler(this.buttonDelBuilding_Click);
@@ -1130,7 +1252,7 @@
             this.comboBoxBuilding1.Location = new System.Drawing.Point(3, 39);
             this.comboBoxBuilding1.Name = "comboBoxBuilding1";
             this.comboBoxBuilding1.Size = new System.Drawing.Size(121, 25);
-            this.comboBoxBuilding1.TabIndex = 28;
+            this.comboBoxBuilding1.TabIndex = 79;
             // 
             // label33
             // 
@@ -1149,7 +1271,7 @@
             this.textBoxWorder1.Location = new System.Drawing.Point(131, 39);
             this.textBoxWorder1.Name = "textBoxWorder1";
             this.textBoxWorder1.Size = new System.Drawing.Size(149, 28);
-            this.textBoxWorder1.TabIndex = 30;
+            this.textBoxWorder1.TabIndex = 80;
             // 
             // label24
             // 
@@ -1164,146 +1286,26 @@
             this.label24.Text = "Using it is dangerous";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel6
+            // comboBoxStack0
             // 
-            this.tableLayoutPanel6.ColumnCount = 4;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.Controls.Add(this.label36, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonDelCloset, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label37, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.comboBoxDelFloor3, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label38, 3, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label39, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.textBoxDelWorder3, 3, 1);
-            this.tableLayoutPanel6.Controls.Add(this.labelDelClosetCheck, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.comboBoxDelCloset3, 2, 1);
-            this.tableLayoutPanel6.Controls.Add(this.comboBoxBuilding3, 0, 1);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(22, 74);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(596, 120);
-            this.tableLayoutPanel6.TabIndex = 34;
+            this.comboBoxStack0.FormattingEnabled = true;
+            this.comboBoxStack0.Location = new System.Drawing.Point(131, 183);
+            this.comboBoxStack0.Name = "comboBoxStack0";
+            this.comboBoxStack0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxStack0.TabIndex = 55;
             // 
-            // label36
+            // label25
             // 
-            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label36.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label36.Location = new System.Drawing.Point(4, 0);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(120, 36);
-            this.label36.TabIndex = 12;
-            this.label36.Text = "Delete Building";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonDelCloset
-            // 
-            this.buttonDelCloset.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.buttonDelCloset.Location = new System.Drawing.Point(4, 74);
-            this.buttonDelCloset.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDelCloset.Name = "buttonDelCloset";
-            this.buttonDelCloset.Size = new System.Drawing.Size(119, 34);
-            this.buttonDelCloset.TabIndex = 22;
-            this.buttonDelCloset.Text = "Delete Closet";
-            this.buttonDelCloset.UseVisualStyleBackColor = true;
-            this.buttonDelCloset.Click += new System.EventHandler(this.buttonDelCloset_Click);
-            // 
-            // comboBoxBuilding3
-            // 
-            this.comboBoxBuilding3.FormattingEnabled = true;
-            this.comboBoxBuilding3.Location = new System.Drawing.Point(3, 39);
-            this.comboBoxBuilding3.Name = "comboBoxBuilding3";
-            this.comboBoxBuilding3.Size = new System.Drawing.Size(121, 25);
-            this.comboBoxBuilding3.TabIndex = 28;
-            // 
-            // label37
-            // 
-            this.label37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label37.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label37.Location = new System.Drawing.Point(132, 0);
-            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(147, 36);
-            this.label37.TabIndex = 29;
-            this.label37.Text = "Floor";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label38
-            // 
-            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label38.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label38.Location = new System.Drawing.Point(442, 0);
-            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(154, 36);
-            this.label38.TabIndex = 31;
-            this.label38.Text = "Work Order";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxDelWorder3
-            // 
-            this.textBoxDelWorder3.Location = new System.Drawing.Point(441, 39);
-            this.textBoxDelWorder3.Name = "textBoxDelWorder3";
-            this.textBoxDelWorder3.Size = new System.Drawing.Size(155, 28);
-            this.textBoxDelWorder3.TabIndex = 30;
-            // 
-            // comboBoxDelFloor3
-            // 
-            this.comboBoxDelFloor3.FormattingEnabled = true;
-            this.comboBoxDelFloor3.Location = new System.Drawing.Point(131, 39);
-            this.comboBoxDelFloor3.Name = "comboBoxDelFloor3";
-            this.comboBoxDelFloor3.Size = new System.Drawing.Size(148, 25);
-            this.comboBoxDelFloor3.TabIndex = 32;
-            // 
-            // labelDelClosetCheck
-            // 
-            this.labelDelClosetCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDelClosetCheck.AutoSize = true;
-            this.labelDelClosetCheck.Location = new System.Drawing.Point(131, 70);
-            this.labelDelClosetCheck.Name = "labelDelClosetCheck";
-            this.labelDelClosetCheck.Size = new System.Drawing.Size(149, 50);
-            this.labelDelClosetCheck.TabIndex = 33;
-            this.labelDelClosetCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label31
-            // 
-            this.label31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label31.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label31.Location = new System.Drawing.Point(4, 0);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(120, 36);
-            this.label31.TabIndex = 12;
-            this.label31.Text = "Building";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label39
-            // 
-            this.label39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label39.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label39.Location = new System.Drawing.Point(287, 0);
-            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(147, 36);
-            this.label39.TabIndex = 34;
-            this.label39.Text = "Closet";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxDelCloset3
-            // 
-            this.comboBoxDelCloset3.FormattingEnabled = true;
-            this.comboBoxDelCloset3.Location = new System.Drawing.Point(286, 39);
-            this.comboBoxDelCloset3.Name = "comboBoxDelCloset3";
-            this.comboBoxDelCloset3.Size = new System.Drawing.Size(148, 25);
-            this.comboBoxDelCloset3.TabIndex = 35;
+            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label25.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label25.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label25.Location = new System.Drawing.Point(4, 180);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(120, 36);
+            this.label25.TabIndex = 34;
+            this.label25.Text = "Stack";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Patching_switchs
             // 
@@ -1329,12 +1331,12 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tabPDeleteAll.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1393,7 +1395,6 @@
         private System.Windows.Forms.TabPage tabDelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
@@ -1407,7 +1408,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button buttonDelBuilding;
         private System.Windows.Forms.ComboBox comboBoxBuilding1;
-        private System.Windows.Forms.ComboBox comboBoxStack0;
         private System.Windows.Forms.ComboBox comboBoxPanel0;
         private System.Windows.Forms.ComboBox comboBoxPanelPort0;
         private System.Windows.Forms.ComboBox comboBoxCloset0;
@@ -1440,5 +1440,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.ComboBox comboBoxDelCloset3;
+        private System.Windows.Forms.ComboBox comboBoxStack0;
+        private System.Windows.Forms.Label label25;
     }
 }

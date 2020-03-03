@@ -556,5 +556,14 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             string query = "call delete_all_closet('Delete',' " + GlobalParam.IDUser + " ','" + building + "','" + worder + "','" + floor + "','" + closet + "')";
             Bbdd_apply_simple(query);
         }
+
+        //Borra una fila de patching (simply del)
+        public static void Delete_field_patching(string building, string floor, string closet,
+            string Panel, string Panel_port,string stack, string IP_switch,string worder)
+        {
+            string query = "call delete_field_patching('Delete', '" + GlobalParam.IDUser + " ' ,'" + worder + "','" + building + "','" + floor + "','" + closet + "','" + Panel + "','" + Panel_port + "','" + stack + "','" + IP_switch + "')";
+            Bbdd_apply_simple(query);
+        }
     }
 }
+

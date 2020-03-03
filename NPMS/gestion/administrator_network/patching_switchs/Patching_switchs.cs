@@ -25,7 +25,7 @@ namespace NPMS.gestion.administrator_network
             Sentencias.Select_distinct("patching", "Closet", comboBoxCloset0);
             Sentencias.Select_distinct("patching", "Panel", comboBoxPanel0);
             Sentencias.Select_distinct("patching", "Panel_Port", comboBoxPanelPort0);
-            Sentencias.Select_distinct("patching", "Stack", comboBoxStack0);
+            Sentencias.Select_distinct("patching", "Stack", comboBoxStack0);       
             Sentencias.Select_distinct("patching", "Building", comboBoxBuilding3);
             Sentencias.Select_distinct("patching", "Floor", comboBoxDelFloor3);
             Sentencias.Select_distinct("patching", "Closet", comboBoxDelCloset3);
@@ -45,14 +45,19 @@ namespace NPMS.gestion.administrator_network
             bool Vcloset = Common.ValidadorCamposVacios_SinMensaje(closet);
             bool Vpanel = Common.ValidadorCamposVacios_SinMensaje(panel);
             bool Vport_panel = Common.ValidadorCamposVacios_SinMensaje(port_panel);
-            if (Vbuilding == false | Vfloor == false | Vcloset == false | Vpanel == false | Vport_panel == false)
+            if (Vbuilding == true && (Vfloor == false | Vcloset == false | Vpanel == false | Vport_panel == false))
+            {
+                Sentencias.Bbdd_apply_where_datagridView("patching", "Building", building, dataGridView_patching);
+            }
+            else if (Vbuilding == false | Vfloor == false | Vcloset == false | Vpanel == false | Vport_panel == false)
             {
                 Sentencias.Bbdd_apply_all_datagridView("patching", dataGridView_patching);
-            }
+            }        
             else
             {
                 Sentencias.Select_patching(building, floor, closet, panel, port_panel, dataGridView_patching);
             }
+
             
         }
 
@@ -100,13 +105,16 @@ namespace NPMS.gestion.administrator_network
             string DS_Floor = comboBoxFloor0.Text.ToString();
             string DS_Closet = comboBoxCloset0.Text.ToString();
             string DS_Panel = comboBoxPanel0.Text.ToString();
-            string DS_Stack = comboBoxPanelPort0.Text.ToString();
+            string DS_Panel_port = comboBoxPanelPort0.Text.ToString();
+            string DS_Stack = comboBoxStack0.Text.ToString();
             string DS_IPSwitch = textSimplyDelIPSwitch0.Text.ToString();
             string DS_Worder = textSimplyDelWorder0.Text.ToString();                
             bool VDS_building = Common.ValidadorCamposVacios(DS_building, "Building");
             bool VDS_Floor = Common.ValidadorCamposVacios(DS_Floor, "Floor");
             bool VDS_Closet = Common.ValidadorCamposVacios(DS_Closet, "Closet");
             bool VDS_Panel = Common.ValidadorCamposVacios(DS_Panel, "Panel");
+            bool VDS_Panel_port = Common.ValidadorCamposVacios(DS_Panel_port, "Panel");
+            bool VDS_Stack = Common.ValidadorCamposVacios(DS_Stack, "Stack");
             bool VDS_IPSwitch = Common.ValidadorCamposVacios(DS_IPSwitch, "IP switch");
             bool Vexists_IPSwitch = Sentencias.ValidarDatoExistente("patching", "IP_Switch", DS_IPSwitch);
             bool VDS_Worder = Common.ValidadorCamposVacios(DS_Worder, "Work Order");
@@ -114,9 +122,10 @@ namespace NPMS.gestion.administrator_network
             {
                 MessageBox.Show("The IP Switch no exists! ");
             }
-            if (VDS_building == true && VDS_Floor == true && VDS_Closet == true && VDS_Panel == true
-                && VDS_IPSwitch == true && VDS_Worder == true && Vexists_IPSwitch == true)
+            if (VDS_building == true && VDS_Floor == true && VDS_Closet == true && VDS_Panel == true && VDS_Panel_port == true
+                && VDS_Stack == true && VDS_IPSwitch == true && VDS_Worder == true && Vexists_IPSwitch == true)
             {
+                Sentencias.Delete_field_patching(DS_building, DS_Floor, DS_Closet, DS_Panel, DS_Panel_port,DS_Stack, DS_IPSwitch, DS_Worder);
 
             }
 

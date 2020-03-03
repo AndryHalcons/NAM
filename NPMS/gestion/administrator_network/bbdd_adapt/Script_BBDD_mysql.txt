@@ -962,9 +962,9 @@ DELIMITER ;
 /*********************Procedure que borra field (fila) patching (parcheo)***************************/
 
 DELIMITER $$
-CREATE  PROCEDURE `delete_field_patching`(IN VarAccion Varchar(20), 
-IN VarUsuario varchar(20) ,IN Building varchar(50),
-IN VarTarea varchar(50),IN Floor varchar(50),IN Closet varchar(50)
+CREATE PROCEDURE `delete_field_patching`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN VarTarea varchar(50),
+IN Building varchar(50),IN Floor varchar(50),IN Closet varchar(50)
 ,IN Panel varchar(50),IN Panel_port varchar(50),IN Stack varchar(50),IN IP_switch varchar(50))
 BEGIN
   SET @s = CONCAT("INSERT INTO `npms`.`log_patching` 
@@ -992,3 +992,4 @@ and `Panel` = '",Panel,"' and `Panel_Port` = '",Panel_port,"' and `Stack` = '",S
     DEALLOCATE PREPARE stmt; 
 END$$
 DELIMITER ;
+

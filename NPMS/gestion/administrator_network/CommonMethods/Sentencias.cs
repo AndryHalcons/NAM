@@ -505,6 +505,19 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
 
         }
+        //Borra una fila de patching (simply del)
+        public static void Delete_field_patching(string building, string floor, string closet,
+            string Panel, string Panel_port,string stack, string IP_switch, string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Delete_field_patching(building, floor, closet, Panel, Panel_port,stack, IP_switch, worder);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_field_patching(building, floor, closet, Panel, Panel_port, IP_switch, worder);
+            }
+        }
 
 
 
