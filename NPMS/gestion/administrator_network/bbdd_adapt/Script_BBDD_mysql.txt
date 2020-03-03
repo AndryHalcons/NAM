@@ -1,6 +1,8 @@
 /* --------------Creacion Esquema--------------- */
 CREATE SCHEMA `npms`;
 
+/* --------------eliminar modo seguro--------------- */
+SET SQL_SAFE_UPDATES = 0;
 /* --------------Creacion tabla vlan_ipv4--------------- */
 
 CREATE TABLE `npms`.`vlan_ipv4` (
@@ -119,8 +121,9 @@ CREATE TABLE `patching` (
   `Vlan` varchar(45) DEFAULT NULL,
   `Description` varchar(45) DEFAULT NULL,
   `IP_Switch` varchar(45) DEFAULT NULL,
-    `ID` INT NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (`ID`)
+  `WORK_ORDER` varchar(150) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`,`Building`)
 ) 
 
 
@@ -277,6 +280,7 @@ CREATE TABLE `log_patching` (
   `Description` varchar(45) DEFAULT NULL,
   `IP_Switch` varchar(45) DEFAULT NULL,
   `User` VARCHAR(150) NULL,
+  `WORK_ORDER` varchar(150) DEFAULT NULL,
   `Date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
    ON UPDATE CURRENT_TIMESTAMP,
     `ID` INT NOT NULL AUTO_INCREMENT,
@@ -623,32 +627,42 @@ DELIMITER ;
 /*********************Procedure insert Patching Parcheo***************************/
 
 DELIMITER $$
-CREATE PROCEDURE `insert_inventory`(in accion varchar(80),
-in hostname varchar(80),in dns varchar(80),in comments varchar(80),in ip varchar(80),
-in sn varchar(80),in nombre varchar(80),in manufacturer varchar(80),
-in location varchar(80),in environment varchar(80),in domain varchar(80)
-,in contact varchar(80),in aditionalinfo varchar(80),in ports varchar(80)
-,in other1 varchar(80),in other2 varchar(80),in worder varchar(80),in usuario varchar(80))
+CREATE PROCEDURE `insert_patching`(in Building varchar(30),
+in Floor varchar(30),in Closet varchar(30),in Panel varchar(30),in Panel_Port varchar(30),
+in Stack varchar(30),in Switch varchar(30),in Switch_Port varchar(30),
+in Interfaz varchar(30),in Link varchar(30),in Speed varchar(30)
+,in Duplex varchar(30),in Type_ varchar(30),in Vlan varchar(30)
+,in Description_ varchar(30),in IP_Switch varchar(30)
+,in User_ varchar(30),in workOrder varchar(30),in Accion_ varchar(30))
 BEGIN
-SET @s = CONCAT("INSERT INTO `npms`.`inventory` 
-(`HOSTNAME`, `DNS`, `COMMENTS`, `IP`, `SN`, `NAME`, 
-`MANUFACTURER`, `LOCATION`, `ENVIRONMENT`, `DOMAIN`, `CONTACT_PROPERTY`, 
-`ADITIONAL_INFO`, `PORTS`, `OTHER_1`, `OTHER_2`, `WORK_ORDER`, `USER`) 
-VALUES 
-('",hostname,"', '",dns,"', '",comments,"', '",ip,"', '",sn,"', '",nombre,"', 
-'",manufacturer,"', '",location,"', '",environment,"', '",domain,"', '",contact,"', 
-'",aditionalinfo,"', '",ports,"', '",other1,"', '",other2,"', '",worder,"', '",usuario,"');");
+SET @s = CONCAT("INSERT INTO `npms`.`patching` 
+(`Building`, `Floor`, `Closet`, `Panel`, 
+`Panel_Port`, `Stack`, `Switch`, `Switch_Port`, 
+`Interfaz`, `Link`, `Speed`, `Duplex`, 
+`Type`, `Vlan`,`Description`, 
+`IP_Switch`,`WORK_ORDER`) 
+ VALUES ('",Building,"', '",Floor,"', '",Closet,"', '",Panel,"', 
+ '",Panel_Port,"', '",Stack,"', '",Switch,"', '",Switch_Port,"', 
+ '",Interfaz,"', '",Link,"', '",Speed,"', '",Duplex,"', 
+ '",Type_,"', '",Vlan,"', '",Description_,"', 
+ '",IP_Switch,"', '",workOrder,"');
+
+");
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;   
-SET @b =  CONCAT("INSERT INTO `npms`.`log_inventory` 
-(`ACTION`, `HOSTNAME`, `DNS`, `COMMENTS`, `IP`, `SN`, `NAME`, 
-`MANUFACTURER`, `LOCATION`, `ENVIRONMENT`, `DOMAIN`, `CONTACT_PROPERTY`, 
-`ADITIONAL_INFO`, `PORTS`, `OTHER_1`, `OTHER_2`, `WORK_ORDER`, `USER`) 
-VALUES 
-('",accion,"', '",hostname,"', '",dns,"', '",comments,"', '",ip,"', '",sn,"', '",nombre,"', 
-'",manufacturer,"', '",location,"', '",environment,"', '",domain,"', '",contact,"', 
-'",aditionalinfo,"', '",ports,"', '",other1,"', '",other2,"', '",worder,"', '",usuario,"');");
+SET @b = CONCAT("INSERT INTO `npms`.`log_patching` 
+(`Accion`, `Building`, `Floor`, `Closet`,
+ `Panel`, `Panel_Port`, `Stack`, `Switch`,
+ `Switch_Port`, `Interfaz`, `Link`, `Speed`,
+ `Duplex`, `Type`, `Vlan`, `Description`, 
+ `IP_Switch`, `User`,`WORK_ORDER`) 
+ VALUES ('",Accion_,"', '",Building,"', '",Floor,"', '",Closet,"',
+ '",Panel,"', '",Panel_Port,"', '",Stack,"', '",Switch,"', 
+ '",Switch_Port,"', '",Interfaz,"', '",Link,"', '",Speed,"', 
+ '",Duplex,"', '",Type_,"', '",Vlan,"', '",Description_,"', 
+ '",IP_Switch,"', '",User_,"','",workOrder,"');
+");
     PREPARE stmt FROM @b;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt; 
@@ -858,5 +872,123 @@ and panel = '",panel,"' and Panel_port = '",port_panel,"';");
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;   
+END$$
+DELIMITER ;
+
+
+/*********************Procedure que borra building entero (edificio delete)(parcheo)***************************/
+DELIMITER $$
+CREATE PROCEDURE `delete_all_building`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN Building varchar(50),IN VarTarea varchar(50))
+BEGIN
+  SET @s = CONCAT("INSERT INTO `npms`.`log_patching` 
+(`Accion`, `Building`, `Floor`, `Closet`,
+ `Panel`, `Panel_Port`, `Stack`, `Switch`,
+ `Switch_Port`, `Interfaz`, `Link`, `Speed`,
+ `Duplex`, `Type`, `Vlan`, `Description`, 
+ `IP_Switch`, `User`,`WORK_ORDER`)  
+VALUES ('Delete', '",Building,"', 'ALL', 'ALL',
+ 'ALL', 'ALL', 'ALL', 'ALL', 
+ 'ALL', 'ALL', 'ALL', 'ALL', 
+ 'ALL', 'ALL', 'ALL', 'ALL', 
+ 'ALL', '",VarUsuario,"', '",VarTarea,"');");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ SET @s2 = CONCAT("DELETE FROM `npms`.`patching` WHERE Building = '",Building,"';");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+END$$
+DELIMITER ;
+
+/*********************Procedure que borra Floor (planta) entero en patching (floor delete)(parcheo)***************************/
+DELIMITER $$
+CREATE PROCEDURE `delete_all_floor`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN Building varchar(50),IN VarTarea varchar(50),IN Floor varchar(50))
+BEGIN
+  SET @s = CONCAT("INSERT INTO `npms`.`log_patching` 
+(`Accion`, `Building`, `Floor`, `Closet`,
+ `Panel`, `Panel_Port`, `Stack`, `Switch`,
+ `Switch_Port`, `Interfaz`, `Link`, `Speed`,
+ `Duplex`, `Type`, `Vlan`, `Description`, 
+ `IP_Switch`, `User`,`WORK_ORDER`)  
+VALUES ('",VarAccion,"', '",Building,"', '",Floor,"', 'Floor_ALL',
+ 'Floor_ALL', 'Floor_ALL', 'Floor_ALL', 'Floor_ALL', 
+ 'Floor_ALL', 'Floor_ALL', 'Floor_ALL', 'Floor_ALL', 
+ 'Floor_ALL', 'Floor_ALL', 'Floor_ALL', 'Floor_ALL', 
+ 'Floor_ALL', '",VarUsuario,"', '",VarTarea,"');
+");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ SET @s2 = CONCAT("DELETE FROM `npms`.`patching` WHERE (`Building` = '",Building,"' and `Floor` = '",Floor,"' );");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+END$$
+DELIMITER ;
+
+
+/*********************Procedure que borra Closet (Armario) entero en patching (floor delete)(parcheo)***************************/
+
+
+DELIMITER $$
+CREATE PROCEDURE `delete_all_closet`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN Building varchar(50),IN VarTarea varchar(50),IN Floor varchar(50),IN Closet varchar(50))
+BEGIN
+  SET @s = CONCAT("INSERT INTO `npms`.`log_patching` 
+(`Accion`, `Building`, `Floor`, `Closet`,
+ `Panel`, `Panel_Port`, `Stack`, `Switch`,
+ `Switch_Port`, `Interfaz`, `Link`, `Speed`,
+ `Duplex`, `Type`, `Vlan`, `Description`, 
+ `IP_Switch`, `User`,`WORK_ORDER`)  
+VALUES ('",VarAccion,"', '",Building,"', '",Floor,"', '",Closet,"',
+ 'Closet_All', 'Closet_All', 'Closet_All', 'Closet_All', 
+ 'Closet_All', 'Closet_All', 'Closet_All', 'Closet_All', 
+ 'Closet_All', 'Closet_All', 'Closet_All', 'Closet_All', 
+ 'Closet_All', '",VarUsuario,"', '",VarTarea,"');
+");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ SET @s2 = CONCAT("DELETE FROM `npms`.`patching` WHERE (`Building` = '",Building,"' and `Floor` = '",Floor,"' and `Closet` = '",Closet,"' );");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
+END$$
+DELIMITER ;
+
+/*********************Procedure que borra field (fila) patching (parcheo)***************************/
+
+DELIMITER $$
+CREATE  PROCEDURE `delete_field_patching`(IN VarAccion Varchar(20), 
+IN VarUsuario varchar(20) ,IN Building varchar(50),
+IN VarTarea varchar(50),IN Floor varchar(50),IN Closet varchar(50)
+,IN Panel varchar(50),IN Panel_port varchar(50),IN Stack varchar(50),IN IP_switch varchar(50))
+BEGIN
+  SET @s = CONCAT("INSERT INTO `npms`.`log_patching` 
+(`Building`, `Floor`, `Closet`,
+ `Panel`, `Panel_Port`, `Stack`, `Switch`,
+ `Switch_Port`, `Interfaz`, `Link`, `Speed`,
+ `Duplex`, `Type`, `Vlan`, `Description`, 
+ `IP_Switch`)  
+select `Building`, `Floor`, `Closet`,
+ `Panel`, `Panel_Port`, `Stack`, `Switch`,
+ `Switch_Port`, `Interfaz`, `Link`, `Speed`,
+ `Duplex`, `Type`, `Vlan`, `Description`, 
+ `IP_Switch`
+from `patching` where (`Building` = '",Building,"' and `Floor` = '",Floor,"' and `Closet` = '",Closet,"'
+and `Panel` = '",Panel,"' and `Panel_Port` = '",Panel_port,"' and `Stack` = '",Stack,"' and `IP_Switch` = '",IP_switch,"' );");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+SET @max_id = (SELECT MAX(ID) FROM log_patching);
+UPDATE `npms`.`log_patching` SET `Accion` = VarAccion, `WORK_ORDER` = VarTarea, `User` = VarUsuario WHERE `ID` = @max_id; 
+ SET @s2 = CONCAT("DELETE FROM `npms`.`patching` where (`Building` = '",Building,"' and `Floor` = '",Floor,"' and `Closet` = '",Closet,"'
+and `Panel` = '",Panel,"' and `Panel_Port` = '",Panel_port,"' and `Stack` = '",Stack,"' and `IP_Switch` = '",IP_switch,"' );");
+    PREPARE stmt FROM @s2;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt; 
 END$$
 DELIMITER ;

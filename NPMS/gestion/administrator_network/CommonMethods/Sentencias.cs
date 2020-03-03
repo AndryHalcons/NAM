@@ -453,34 +453,76 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         public static void Insert_Patching(string building, string floor, string closet, string panel,
             string panel_port, string stack, string switch_, string switch_port, string interface_,
             string link, string speed, string duplex, string type_, string vlan, string description,
-            string ip_switch)
+            string ip_switch,string workOrder)
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
                 mysql_commands.Insert_Patching(building, floor, closet, panel, panel_port, stack, switch_,
-                    switch_port, interface_, link, speed, duplex, type_, vlan, description, ip_switch);
+                    switch_port, interface_, link, speed, duplex, type_, vlan, description, ip_switch,workOrder);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
                 //sqlserver_commands.Insert_Patching(building, floor, closet, panel, panel_port, stack, switch_,
-                    //switch_port, interface_, link, speed, duplex, type_, vlan, description, ip_switch);
+                //switch_port, interface_, link, speed, duplex, type_, vlan, description, ip_switch,workOrder);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        //metodo que borra el parcheo de un edificio entero
+        public static void Delete_patching_building(string building,string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Delete_patching_building(building, worder);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_patching_building(building, worder);
+            }
+        }
+        //Borra una planta entera de un edificio (floor)
+        public static void Delete_all_floor(string building, string worder, string floor)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Delete_all_floor(building, worder, floor);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_all_floor(building, worder, floor);
+            }
 
         }
+        //Borra un armario entero de un edificio (floor)
+        public static void Delete_all_closet(string building, string floor, string closet, string worder)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Delete_all_closet(building, floor, closet, worder);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Delete_all_closet(building, worder, floor, closet);
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }

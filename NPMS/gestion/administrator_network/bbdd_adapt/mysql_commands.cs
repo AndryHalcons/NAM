@@ -528,15 +528,33 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         public static void Insert_Patching(string building, string floor,string closet, string panel,
             string panel_port,string stack,string switch_,string switch_port,string interface_,
             string link, string speed,string duplex,string type_,string vlan,string description,
-            string ip_switch)
+            string ip_switch,string workOrder)
         {
             string query = "call insert_patching(' " + building + " ',' "+floor+" ',' " + closet + "',' " + panel + " '," +
                 "' " + panel_port + " ',' " + stack + " ',' " + switch_ + " ',' " + switch_port + " '," +
                 "' " + interface_ + " ',' " + link + " ',' " + speed + " ',' " + duplex + " '," +
                 "' " + type_ + " ',' " + vlan + " ',' " + description + " ',' " + ip_switch + " '," +
-                "' " + GlobalParam.IDUser + " ',' Create ')";
+                "' " + GlobalParam.IDUser + " ',' " + workOrder + " ',' Create ')";
             Bbdd_apply_simple(query);
 
+        }
+        //metodo que borra el parcheo de un edificio entero
+        public static void Delete_patching_building(string building, string worder)
+        {
+            string query = "call delete_all_building('Delete',' " + GlobalParam.IDUser + " ','" + building + "','" + worder + "')";
+            Bbdd_apply_simple(query);
+        }
+        //Borra una planta entera de un edificio (floor)
+        public static void Delete_all_floor(string building, string worder,string floor)
+        {
+            string query = "call delete_all_floor('Delete',' " + GlobalParam.IDUser + " ','" + building + "','" + worder + "','" + floor + "')";
+            Bbdd_apply_simple(query);
+        }
+        //Borra un armario entero de un edificio (floor)
+        public static void Delete_all_closet(string building, string floor, string closet,string worder)
+        {
+            string query = "call delete_all_closet('Delete',' " + GlobalParam.IDUser + " ','" + building + "','" + worder + "','" + floor + "','" + closet + "')";
+            Bbdd_apply_simple(query);
         }
     }
 }
