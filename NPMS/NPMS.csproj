@@ -202,7 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_commands.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_imports.cs" />
     <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_commands.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_imports.cs" />
     <Compile Include="gestion\administrator_network\Changes_View\ChangesView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -22,33 +22,60 @@ namespace NPMS.gestion.administrator_network
             listBoxVlan.SelectedIndex = 0;
             listBoxIP.SelectedIndex = 0;
         }
-
+        // Esta parte selecciona los EXCEL
+        //
+        //
         private void ButtonAbrirExcelVlan_Click(object sender, EventArgs e)
         {
-            /*
+            
             OpenFileDialog Dialogo = new OpenFileDialog();
             Dialogo.Title = "Open Excel File";
             Dialogo.Filter = "Excel Files | *.xls;*xlsx";
             Dialogo.InitialDirectory = @"C:\";
             if (Dialogo.ShowDialog()== DialogResult.OK)
             {
-                labelExcelNameVlan.Text = Dialogo.FileName;
+                labelVlan.Text = Dialogo.FileName;
             }
-            */
+            
         }
         private void ButtonAbrirExcelIp_Click(object sender, EventArgs e)
         {
-            /*
+            
             OpenFileDialog Dialogo = new OpenFileDialog();
             Dialogo.Title = "Open Excel File";
             Dialogo.Filter = "Excel Files | *.xls;*xlsx";
             Dialogo.InitialDirectory = @"C:\";
             if (Dialogo.ShowDialog() == DialogResult.OK)
             {
-                labelExcelNameIP.Text = Dialogo.FileName;
+                labelIP.Text = Dialogo.FileName;
             }
-            */
+            
         }
+        private void ButtonOpenExcelInventory_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog Dialogo = new OpenFileDialog();
+            Dialogo.Title = "Open Excel File";
+            Dialogo.Filter = "Excel Files | *.xls;*xlsx";
+            Dialogo.InitialDirectory = @"C:\";
+            if (Dialogo.ShowDialog() == DialogResult.OK)
+            {
+                labelInventory.Text = Dialogo.FileName;
+            }
+        }
+        private void ButtonOpenExcelPatching_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog Dialogo = new OpenFileDialog();
+            Dialogo.Title = "Open Excel File";
+            Dialogo.Filter = "Excel Files | *.xls;*xlsx";
+            Dialogo.InitialDirectory = @"C:\";
+            if (Dialogo.ShowDialog() == DialogResult.OK)
+            {
+                labelPatching.Text = Dialogo.FileName;
+            }    
+        }
+
+        //Esta parte importa los datos
 
         private void ButtonProcesarExcelVlan_Click(object sender, EventArgs e)
         { 
@@ -135,7 +162,72 @@ namespace NPMS.gestion.administrator_network
             
         }
 
-        
-        
+        private void ButtonProcessExcelIp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonProcessExcelInventory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonProcessExcelPatching_Click(object sender, EventArgs e)
+        {
+
+            /////////////MYSQL///////////////////////
+            string connectString = bbdd_adapt.mysql_commands.bbdd_connection_data();
+            MySqlConnection conn = new MySqlConnection(connectString);
+            conn.Open();
+            MySqlCommand comm = conn.CreateCommand();
+            comm.CommandText = "INSERT INTO `npms`.`patching` (`Building`, `Floor`, `Closet`, `Panel`, `Panel_Port`, `Stack`, `Switch`, `Switch_Port`, `Interfaz`, `Link`, `Speed`, `Duplex`, `Type`, `Vlan`, `Description`, `IP_Switch`) " +
+                "VALUES ('@building', '@floor', '@closet', '@panel', '@panel_port', '@stack', '@switch', '@switch_port', '@interfaz', '@link', '@speed', '@duplex', '@type', '@vlan', '@description', '@ip_switch');";
+            ////////////////EXCEL/////////////////
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@labelPatching.Text);
+            Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            Excel.Range range = xlWorksheet.UsedRange;
+            int rows = range.Rows.Count;
+            int cols = range.Columns.Count;
+            int marcador = rows;
+            for (int i = 2; i <= rows; i++)
+            {
+             marcador = marcador - 1;
+                labelCountPatching.Text = marcador.ToString();
+             string building = range.Cells[i, 1].Value2.ToString();
+             string floor =  range.Cells[i, 2].Value2.ToString();
+             string closet = range.Cells[i, 3].Value2.ToString();
+             string panel = range.Cells[i, 4].Value2.ToString();
+             string panel_port = range.Cells[i, 5].Value2.ToString();
+             string stack = range.Cells[i, 6].Value2.ToString();
+             string switch_ = range.Cells[i, 7].Value2.ToString();
+             string switchport = range.Cells[i, 8].Value2.ToString();
+             string interfaz = range.Cells[i, 9].Value2.ToString();
+             string link = range.Cells[i, 10].Value2.ToString();
+             string speed = range.Cells[i, 11].Value2.ToString();
+             string duplex =  range.Cells[i, 12].Value2.ToString();
+             string type =  range.Cells[i, 13].Value2.ToString();
+             string vlan =   range.Cells[i, 14].Value2.ToString();
+             string description = range.Cells[i, 15].Value2.ToString();
+             string ip_switch = range.Cells[i, 16].Value2.ToString();
+                comm.CommandText = "INSERT INTO `npms`.`patching` (`Building`, `Floor`, `Closet`, `Panel`, `Panel_Port`, `Stack`, `Switch`, `Switch_Port`, `Interfaz`, `Link`, `Speed`, `Duplex`, `Type`, `Vlan`, `Description`, `IP_Switch`) " +
+                "VALUES ('" + building + "', '" + floor + "', '" + closet + "', '" + panel + "'," +
+                " '" + panel_port + "', '" + stack + "', '" + switch_ + "', '" + switchport + "'," +
+                " '" + interfaz + "', '" + link + "', '" + speed + "', '" + duplex + "'," +
+                " '" + type + "', '" + vlan + "', '" + description + "', '" + ip_switch + "');";
+                comm.ExecuteNonQuery();
+            }
+            /////////////////CLOSE EXCEL/////////////////
+            Marshal.ReleaseComObject(range);
+            Marshal.ReleaseComObject(xlWorksheet);
+            xlWorkbook.Close();
+            Marshal.ReleaseComObject(xlWorkbook);
+            xlApp.Quit();
+            Marshal.ReleaseComObject(xlApp);
+            /////////////CLOSE DATABASE//////////
+            conn.Close();
+            MessageBox.Show("Import Completed");
+            
+        }
     }
 }
