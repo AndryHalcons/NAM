@@ -16,45 +16,41 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
 {
     class mysql_imports
     {
-        private void ButtonProcessExcelPatching_Click(object sender, EventArgs e)
+        public static void Import_Patching(Label url_Excel, Label labelCount)
         {
-            //
-            
-            /////////////MYSQL///////////////////////
-            string connectString = bbdd_adapt.mysql_commands.bbdd_connection_data();
-            MySqlConnection conn = new MySqlConnection(connectString);
-            conn.Open();
-            MySqlCommand comm = conn.CreateCommand();
-            comm.CommandText = "INSERT INTO `npms`.`patching` (`Building`, `Floor`, `Closet`, `Panel`, `Panel_Port`, `Stack`, `Switch`, `Switch_Port`, `Interfaz`, `Link`, `Speed`, `Duplex`, `Type`, `Vlan`, `Description`, `IP_Switch`) " +
-                "VALUES ('@building', '@floor', '@closet', '@panel', '@panel_port', '@stack', '@switch', '@switch_port', '@interfaz', '@link', '@speed', '@duplex', '@type', '@vlan', '@description', '@ip_switch');";
-            ////////////////EXCEL/////////////////
+           
+            ////////////////OPEN EXCEL/////////////////
             Excel.Application xlApp = new Excel.Application();
-            string variabletapaerrores = "aqui va el @label.txt con @";
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(variabletapaerrores);
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@url_Excel.Text);
             Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Excel.Range range = xlWorksheet.UsedRange;
             int rows = range.Rows.Count;
             int cols = range.Columns.Count;
-            for (int i = 2; i <= rows; i++)
+            int marcador = rows;
+            string workOrder = "" + GlobalParam.IDUser + "_Import_Data";
+            for (int i = 1; i <= rows; i++)
             {
-                comm.Parameters.Clear();
-                comm.Parameters.AddWithValue("@building", range.Cells[i, 1].Value2.ToString());
-                comm.Parameters.AddWithValue("@floor", range.Cells[i, 2].Value2.ToString());
-                comm.Parameters.AddWithValue("@closet", range.Cells[i, 3].Value2.ToString());
-                comm.Parameters.AddWithValue("@panel", range.Cells[i, 4].Value2.ToString());
-                comm.Parameters.AddWithValue("@panel_port", range.Cells[i, 5].Value2.ToString());
-                comm.Parameters.AddWithValue("@stack", range.Cells[i, 6].Value2.ToString());
-                comm.Parameters.AddWithValue("@switch", range.Cells[i, 7].Value2.ToString());
-                comm.Parameters.AddWithValue("@switch_port", range.Cells[i, 8].Value2.ToString());
-                comm.Parameters.AddWithValue("@interfaz", range.Cells[i, 9].Value2.ToString());
-                comm.Parameters.AddWithValue("@link", range.Cells[i, 10].Value2.ToString());
-                comm.Parameters.AddWithValue("@speed", range.Cells[i, 11].Value2.ToString());
-                comm.Parameters.AddWithValue("@duplex", range.Cells[i, 12].Value2.ToString());
-                comm.Parameters.AddWithValue("@type", range.Cells[i, 13].Value2.ToString());
-                comm.Parameters.AddWithValue("@vlan", range.Cells[i, 14].Value2.ToString());
-                comm.Parameters.AddWithValue("@description", range.Cells[i, 15].Value2.ToString());
-                comm.Parameters.AddWithValue("@ip_Switch", range.Cells[i, 16].Value2.ToString());
-                comm.ExecuteNonQuery();
+                marcador = marcador - 1;
+                labelCount.Text = marcador.ToString();
+                string building = range.Cells[i, 1].Value2.ToString();
+                string floor = range.Cells[i, 2].Value2.ToString();
+                string closet = range.Cells[i, 3].Value2.ToString();
+                string panel = range.Cells[i, 4].Value2.ToString();
+                string panel_port = range.Cells[i, 5].Value2.ToString();
+                string stack = range.Cells[i, 6].Value2.ToString();
+                string switch_ = range.Cells[i, 7].Value2.ToString();
+                string switchport = range.Cells[i, 8].Value2.ToString();
+                string interfaz = range.Cells[i, 9].Value2.ToString();
+                string link = range.Cells[i, 10].Value2.ToString();
+                string speed = range.Cells[i, 11].Value2.ToString();
+                string duplex = range.Cells[i, 12].Value2.ToString();
+                string type = range.Cells[i, 13].Value2.ToString();
+                string vlan = range.Cells[i, 14].Value2.ToString();
+                string description = range.Cells[i, 15].Value2.ToString();
+                string ip_switch = range.Cells[i, 16].Value2.ToString();
+                //////////BBDD INSERT///////////////////////////
+                Sentencias.Insert_Patching(building, floor, closet, panel, panel_port, stack, switch_,
+                        switchport, interfaz, link, speed, duplex, type, vlan, description, ip_switch, workOrder);
             }
             /////////////////CLOSE EXCEL/////////////////
             Marshal.ReleaseComObject(range);
@@ -63,10 +59,114 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             Marshal.ReleaseComObject(xlWorkbook);
             xlApp.Quit();
             Marshal.ReleaseComObject(xlApp);
-            /////////////CLOSE DATABASE//////////
-            conn.Close();
-            MessageBox.Show("importado ...o eso creo");
+            MessageBox.Show("Import Completed");
 
+        
+         }
+        public static void Import_Inventory(Label url_Excel, Label labelCount)
+        {
+            ////////////////OPEN EXCEL/////////////////
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@url_Excel.Text);
+            Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            Excel.Range range = xlWorksheet.UsedRange;
+            int rows = range.Rows.Count;
+            int cols = range.Columns.Count;
+            int marcador = rows;
+            string workOrder = "" + GlobalParam.IDUser + "_Import_Data";
+            for (int i = 1; i <= rows; i++)
+            {
+                marcador = marcador - 1;
+                labelCount.Text = marcador.ToString();
+                string hostname = range.Cells[i, 1].Value2.ToString();
+                string dns = range.Cells[i, 2].Value2.ToString();
+                string comments = range.Cells[i, 3].Value2.ToString();
+                string ip = range.Cells[i, 4].Value2.ToString();
+                string sn = range.Cells[i, 5].Value2.ToString();
+                string name = range.Cells[i, 6].Value2.ToString();
+                string manufacturer = range.Cells[i, 7].Value2.ToString();
+                string location = range.Cells[i, 8].Value2.ToString();
+                string environment = range.Cells[i, 9].Value2.ToString();
+                string domain = range.Cells[i, 10].Value2.ToString();
+                string contact = range.Cells[i, 11].Value2.ToString();
+                string aditional_info = range.Cells[i, 12].Value2.ToString();
+                string ports = range.Cells[i, 13].Value2.ToString();
+                string other1 = range.Cells[i, 14].Value2.ToString();
+                string other2 = range.Cells[i, 15].Value2.ToString();
+                //////////BBDD INSERT///////////////////////////
+                Sentencias.Insert_inventory(hostname, dns, comments, ip, sn, name, manufacturer,
+                    location, environment, domain, contact, aditional_info, ports, other1, other2,
+                    workOrder);
+            }
+            /////////////////CLOSE EXCEL/////////////////
+            Marshal.ReleaseComObject(range);
+            Marshal.ReleaseComObject(xlWorksheet);
+            xlWorkbook.Close();
+            Marshal.ReleaseComObject(xlWorkbook);
+            xlApp.Quit();
+            Marshal.ReleaseComObject(xlApp);
+            MessageBox.Show("Import Completed");
+        }
+
+
+
+        public static void Import_Vlan_IPv4(Label url_Excel, Label labelCount)
+        {
+          
+            ////////////////OPEN EXCEL/////////////////
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@url_Excel.Text);
+            Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            Excel.Range range = xlWorksheet.UsedRange;
+            int rows = range.Rows.Count;
+            int cols = range.Columns.Count;
+            int marcador = rows;
+            string workOrder = "" + GlobalParam.IDUser + "_Import_Data";          
+            for (int i = 2; i <= rows; i++)
+            {
+                marcador = marcador - 1;
+                labelCount.Text = marcador.ToString();
+                string id_vlan = range.Cells[i, 1].Value2.ToString();
+                string id_nombre_vlan = range.Cells[i, 2].Value2.ToString();
+                string id_Ubicacion = range.Cells[i, 3].Value2.ToString();
+                string id_Vsys = range.Cells[i, 4].Value2.ToString();
+                string id_Descripcion = range.Cells[i, 5].Value2.ToString();
+                string id_DireccionRed = range.Cells[i, 6].Value2.ToString();
+                string id_RangoInicio = range.Cells[i, 7].Value2.ToString();
+                string id_RangoFin = range.Cells[i, 8].Value2.ToString();
+                string id_Mascara = range.Cells[i, 9].Value2.ToString();
+                string id_Gateway1 = range.Cells[i, 10].Value2.ToString();
+                string id_Gateway2 = range.Cells[i, 11].Value2.ToString();
+                string id_Gateway3 = range.Cells[i, 12].Value2.ToString();
+                string id_Observaciones = range.Cells[i, 13].Value2.ToString();
+                string id_Dispositivo = range.Cells[i, 14].Value2.ToString();
+                string id_Firewall = range.Cells[i, 15].Value2.ToString();
+                string id_Entorno = range.Cells[i, 16].Value2.ToString();
+                string id_Normativa = range.Cells[i, 17].Value2.ToString();
+                string id_Estado = range.Cells[i, 18].Value2.ToString();
+                string id_TipoRed = range.Cells[i, 19].Value2.ToString();
+                string id_Equipos = range.Cells[i, 20].Value2.ToString();
+                string id_Clasificacion = range.Cells[i, 21].Value2.ToString();
+                //////////BBDD INSERT///////////////////////////
+               
+                    Sentencias.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                     id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
+                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
+                     id_Equipos, id_Clasificacion, workOrder);
+                
+     
+
+                
+            }
+            /////////////////CLOSE EXCEL/////////////////
+            Marshal.ReleaseComObject(range);
+            Marshal.ReleaseComObject(xlWorksheet);
+            xlWorkbook.Close();
+            Marshal.ReleaseComObject(xlWorkbook);
+            xlApp.Quit();
+            Marshal.ReleaseComObject(xlApp);
+            MessageBox.Show("Import Completed");
         }
     }
 }

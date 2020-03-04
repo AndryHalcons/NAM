@@ -334,7 +334,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         }
         //Método que se encarga de añadir la Vlan  creada a la base de datos
         //el procedure invocado también crea la tabla de rango ip correspondiente al a vlan
-        public static void Insert_vlan(string protocolo, string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
+        public static void Insert_vlan_IPv4(string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
          string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
@@ -342,7 +342,31 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                mysql_commands.Insert_vlan(protocolo, tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                mysql_commands.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                     id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
+                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
+                     id_Equipos, id_Clasificacion, id_Tarea);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                /* sqlserver_commands.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
+                      id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
+                      id_Equipos, id_Clasificacion, id_Tarea);
+                      */
+            }
+        }
+        public static void Insert_vlan_IPv6(string protocolo, string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
+         string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
+         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
+         string id_Equipos, string id_Clasificacion, string id_Tarea)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Insert_vlan_IPv6(tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
                      id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
@@ -364,7 +388,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
          * que se selecciona en
          * Settings.cs
          */
-                public static void Delete_ip(string protocolo, string id_vlan, string id_tarea, string id_ip)
+        public static void Delete_ip(string protocolo, string id_vlan, string id_tarea, string id_ip)
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
@@ -518,7 +542,51 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 //sqlserver_commands.Delete_field_patching(building, floor, closet, Panel, Panel_port, IP_switch, worder);
             }
         }
+        // ******************* SECCION IMPORTACION *************************************//
+        // ******************* SECCION IMPORTACION *************************************//
+        // ******************* SECCION IMPORTACION *************************************//
+        // ******************* SECCION IMPORTACION *************************************//       
+        public static void Import_Patching(Label url_Excel,Label labelCount)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_imports.Import_Patching(url_Excel, labelCount);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
 
+            }
+        }
+        public static void Import_Inventory(Label url_Excel, Label labelCount)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_imports.Import_Inventory(url_Excel, labelCount);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+        }
+        public static void Import_Vlan(Label url_Excel, Label labelCount, string protocolo)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                if (protocolo == "IPv4")
+                {
+                    mysql_imports.Import_Vlan_IPv4(url_Excel, labelCount);
+                }
+                if (protocolo == "IPv6")
+                {
+                    //mysql_imports.Import_Vlan_IPv4(url_Excel, labelCount);
+                }
+
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+        }
 
 
 

@@ -69,8 +69,10 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 commandDatabase.CommandText = query;
                 commandDatabase.ExecuteNonQuery();
                 databaseConnection.Close();
+            
         }
-        
+       
+
 
         //Metodo que hace un select en la BBDD recuperando solamente dos columnas que 
         //mostrará en un Datagridview
@@ -406,22 +408,25 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         //Método que se encarga de añadir la Vlan  creada a la base de datos
         //el procedure invocado también crea la tabla de rango ip correspondiente al a vlan
 
-        public static void Insert_vlan(string protocolo, string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
+        public static void Insert_vlan_IPv4(string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
+         string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
+         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
+         string id_Equipos, string id_Clasificacion, string id_Tarea)
+        {    
+           string query = "Call insert_vlan_ipv4('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Gateway2 + "','" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
+           Bbdd_apply_simple(query);               
+        }
+        public static void Insert_vlan_IPv6(string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
          string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
-                if (protocolo == "IPv4")
-                {
-                    string query = "Call insert_vlan_ipv4('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Gateway2 + "','" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
-                    Bbdd_apply_simple(query);
-                }
-                if (protocolo == "IPv6")
-                {
-                    string query = "Call insert_vlan_ipv6('" + tabla + "','" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Gateway2 + "','" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
-                    Bbdd_apply_simple(query);
-                }
+
+           string query = "Call insert_vlan_ipv6('" + tabla + "','" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Gateway2 + "','" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
+           Bbdd_apply_simple(query);
+            
         }
 
 
@@ -564,6 +569,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             string query = "call delete_field_patching('Delete', '" + GlobalParam.IDUser + " ' ,'" + worder + "','" + building + "','" + floor + "','" + closet + "','" + Panel + "','" + Panel_port + "','" + stack + "','" + IP_switch + "')";
             Bbdd_apply_simple(query);
         }
+
+
     }
 }
 
