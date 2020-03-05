@@ -32,7 +32,7 @@ namespace NPMS.administrate_network
         // Si el campo vlan no es de tipo entero, o no tiene valor, no permite abrir el form
         private void button_Update_IP_Data_Click(object sender, EventArgs e)
         {
-            GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
+            GlobalParam.Vlan_IPv4_in_IP_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool VClan = Common.ValidadorCamposVacios(textBox_Vlan.Text, "Vlan");
             bool ComprobarExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
@@ -52,12 +52,12 @@ namespace NPMS.administrate_network
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
-            GlobalParam.Vlan_IPv4_Select = textBox_Vlan.Text;
+            GlobalParam.Vlan_IPv4_in_IP_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             if (VVlan == true && ValidaExistencia == true)
             {
-                Sentencias.Bbdd_apply_all_datagridView(textBox_Vlan.Text, dataGridView_ipv4);
+                Sentencias.Select_all_ip("IPv4",textBox_Vlan.Text, dataGridView_ipv4);
             }
                         
 

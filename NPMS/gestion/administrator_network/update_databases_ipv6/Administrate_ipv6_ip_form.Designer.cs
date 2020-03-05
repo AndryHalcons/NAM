@@ -80,7 +80,7 @@
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(122, 38);
             this.button_search.TabIndex = 7;
-            this.button_search.Text = "IP USED";
+            this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.Button_search_Click);
             // 

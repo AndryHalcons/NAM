@@ -21,7 +21,7 @@ namespace NPMS.gestion.administrator_network.Logs
 
         private void buttonIP_IPv4_Click(object sender, EventArgs e)
         {
-            Sentencias.Bbdd_apply_all_Desc_datagridView("log_ip_ipv4", dataGridViewLogs);
+            Sentencias.Select_all_ip_desc("IPv4","log_ip_ipv4", dataGridViewLogs);
         }
 
         private void buttonVlanIPv4_Click(object sender, EventArgs e)

@@ -114,6 +114,19 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 return false;
             }
         }
+        //Metodo que Realiza el procedure que se le diga
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_simply_all_datagridView(string tabla, string query, DataGridView Datagrid_Name)
+        {
+            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+            databaseConnection.Open();
+            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+            DataSet ds = new DataSet();
+            commandDatabase.Fill(ds, tabla);
+            Datagrid_Name.DataSource = ds;
+            Datagrid_Name.DataMember = tabla;
+            databaseConnection.Close();
+        }
         //Metodo que Realiza un SELECT * ALL en las BBDD  
         //y  muestra el resultado en un DataGridView
         public static void Bbdd_apply_all_datagridView(string tabla, DataGridView Datagrid_Name)
@@ -410,25 +423,57 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
 
         public static void Insert_vlan_IPv4(string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
-         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Broadcast, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {    
-           string query = "Call insert_vlan_ipv4('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Gateway2 + "','" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
+           string query = "Call Create_vlan_ipv4('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Broadcast + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
            Bbdd_apply_simple(query);               
         }
         public static void Insert_vlan_IPv6(string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
-         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Broadcast, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
 
-           string query = "Call insert_vlan_ipv6('" + tabla + "','" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Gateway2 + "','" + id_Gateway3 + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
-           Bbdd_apply_simple(query);
+            string query = "Call insert_vlan_ipv6('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + id_Broadcast + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
+            Bbdd_apply_simple(query);
             
         }
+        // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip(string protocolo, string id_vlan,DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_ip('"+id_vlan+"','IP');";
+                Bbdd_simply_all_datagridView(id_vlan,query,Name_datagrid);
 
+            }
+            if (protocolo == "IPv6")
+            {
+                string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
+                string query = "call select_ipv6_ip('" + FormatoVlanIPv6 + "','IP');";
+                Bbdd_apply_simple(query);
+            }
+        }
+        // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
+        //Muestra los resultados en orden invertido (logs)
+        public static void Select_all_ip_desc(string protocolo, string id_vlan, DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_ip_desc('" + id_vlan + "','IP');";
+                Bbdd_simply_all_datagridView(id_vlan, query, Name_datagrid);
+
+            }
+            if (protocolo == "IPv6")
+            {
+                string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
+                string query = "call select_ipv6_ip_desc('" + FormatoVlanIPv6 + "','IP');";
+                Bbdd_apply_simple(query);
+            }
+        }
 
         /*Metodo que se encarga del (Delete/Liberar IP) sobre las tablas ip en la base de datos
          * segun el protoclo (IPv4/IPv6) y en relacion a la BBDD que está usando la aplicacion, 

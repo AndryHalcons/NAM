@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using NPMS.gestion.administrator_network.CommonMethods;
 using Excel = Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
+using System.Net;
 
 namespace NPMS.gestion.administrator_network.bbdd_adapt
 {
@@ -132,26 +133,27 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 string id_Vsys = range.Cells[i, 4].Value2.ToString();
                 string id_Descripcion = range.Cells[i, 5].Value2.ToString();
                 string id_DireccionRed = range.Cells[i, 6].Value2.ToString();
-                string id_RangoInicio = range.Cells[i, 7].Value2.ToString();
-                string id_RangoFin = range.Cells[i, 8].Value2.ToString();
-                string id_Mascara = range.Cells[i, 9].Value2.ToString();
-                string id_Gateway1 = range.Cells[i, 10].Value2.ToString();
-                string id_Gateway2 = range.Cells[i, 11].Value2.ToString();
-                string id_Gateway3 = range.Cells[i, 12].Value2.ToString();
-                string id_Observaciones = range.Cells[i, 13].Value2.ToString();
-                string id_Dispositivo = range.Cells[i, 14].Value2.ToString();
-                string id_Firewall = range.Cells[i, 15].Value2.ToString();
-                string id_Entorno = range.Cells[i, 16].Value2.ToString();
-                string id_Normativa = range.Cells[i, 17].Value2.ToString();
-                string id_Estado = range.Cells[i, 18].Value2.ToString();
-                string id_TipoRed = range.Cells[i, 19].Value2.ToString();
-                string id_Equipos = range.Cells[i, 20].Value2.ToString();
-                string id_Clasificacion = range.Cells[i, 21].Value2.ToString();
+                string id_Gateway1 = range.Cells[i, 7].Value2.ToString();
+                string id_Observaciones = range.Cells[i, 8].Value2.ToString();
+                string id_Dispositivo = range.Cells[i, 9].Value2.ToString();
+                string id_Firewall = range.Cells[i, 10].Value2.ToString();
+                string id_Entorno = range.Cells[i, 11].Value2.ToString();
+                string id_Normativa = range.Cells[i, 12].Value2.ToString();
+                string id_Estado = range.Cells[i, 13].Value2.ToString();
+                string id_TipoRed = range.Cells[i, 14].Value2.ToString();
+                string id_Equipos = range.Cells[i, 15].Value2.ToString();
+                string id_Clasificacion = range.Cells[i, 16].Value2.ToString();
                 //////////BBDD INSERT///////////////////////////
-               
-                    Sentencias.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                ///
+                IPNetwork ipnetwork = IPNetwork.Parse(id_DireccionRed);
+                string id_Mascara = Convert.ToString(ipnetwork.Netmask);
+                string id_RangoInicio = Convert.ToString(ipnetwork.FirstUsable);
+                string id_RangoFin = Convert.ToString(ipnetwork.LastUsable);               
+                string id_Broadcast = Convert.ToString(ipnetwork.Broadcast);
+
+                Sentencias.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
-                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Broadcast, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
                      id_Equipos, id_Clasificacion, workOrder);
                 

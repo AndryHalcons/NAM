@@ -201,21 +201,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_commands.cs" />
-    <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_imports.cs" />
-    <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_commands.cs" />
-    <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_imports.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\mysql_commands.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\mysql_imports.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_scripts\sqlserver_commands.cs" />
+    <Compile Include="gestion\administrator_network\bbdd_adapt\sqlserver_scripts\sqlserver_imports.cs" />
     <Compile Include="gestion\administrator_network\Changes_View\ChangesView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gestion\administrator_network\Changes_View\ChangesView.Designer.cs">
       <DependentUpon>ChangesView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gestion\administrator_network\pruebasipv4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gestion\administrator_network\pruebasipv4.Designer.cs">
-      <DependentUpon>pruebasipv4.cs</DependentUpon>
     </Compile>
     <Compile Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_vlan_form.cs">
       <SubType>Form</SubType>
@@ -335,9 +329,6 @@
     <EmbeddedResource Include="gestion\administrator_network\Changes_View\ChangesView.resx">
       <DependentUpon>ChangesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion\administrator_network\pruebasipv4.resx">
-      <DependentUpon>pruebasipv4.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="gestion\administrator_network\update_databases_ipv6\Administrate_ipv6_vlan_form.resx">
       <DependentUpon>Administrate_ipv6_vlan_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,9 +430,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gestion\administrator_network\bbdd_adapt\Script_BBDD_mysql.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\AvatarUsuario.png" />
   </ItemGroup>
   <ItemGroup>
@@ -477,7 +465,51 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="gestion\administrator_network\bbdd_adapt\Script_BBDD_sqlserver.txt" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\antique\Script_BBDD_mysql.txt" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Create_users.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Delete_simply_where_field.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\inventory\Delete_inventory_update_log.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\inventory\Insert_inventory.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\patching\Delete_all_building.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\patching\Delete_all_closet.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\patching\Delete_all_floor.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\patching\Delete_field_patching.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\patching\Insert_patching.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\patching\Select_patching.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Search_table_exists.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Search_vlan_for_Fast_firewall.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Search_vlan_for_IP.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_all_order_desc.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_distinct.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_select_where_like.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_simply_all.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_simply_from_field.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_view2fields.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Select_where_2_fields.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\General\Update_simply_where.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Create_vlan_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Delete_vlan_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Insert_IP_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Rellenar_tabla_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Select_ip_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\antique\Script_BBDD_mysql_procedures.txt" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Select_ip_ipv4_desc.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\procedures\vlan_ip\Update_Free_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Create_Schema.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_inventory.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_inventory_logs.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_ip_ipv4_.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_ip_ipv4_logs.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_ip_ipv6_.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_ip_ipv6_logs.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\table_patching.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_patching_logs.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_users.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_vlan_ipv4.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_vlan_ipv4_logs.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_vlan_ipv6.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\tables\Table_vlan_ipv6_logs.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\sqlserver_scripts\Script_BBDD_sqlserver.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

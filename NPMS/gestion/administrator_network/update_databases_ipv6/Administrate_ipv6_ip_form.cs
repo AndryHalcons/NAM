@@ -31,7 +31,7 @@ namespace NPMS.administrate_network
         // Si el campo vlan no es de tipo entero, o no tiene valor, no permite abrir el form
         private void Button_Update_IP_Data_Click(object sender, EventArgs e)
         {
-            GlobalParam.Vlan_IPv6_Select = textBox_Vlan.Text;
+            GlobalParam.Vlan_IPv6_in_IP_Select = textBox_Vlan.Text;
             string VlanAdaptada = "ipv6_" + textBox_Vlan.Text + "";
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool VClan = Common.ValidadorCamposVacios(textBox_Vlan.Text, "Vlan");

@@ -118,7 +118,7 @@
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(122, 38);
             this.button_search.TabIndex = 7;
-            this.button_search.Text = "IP USED";
+            this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
@@ -128,7 +128,7 @@
             this.button_Update_IP_Data.Location = new System.Drawing.Point(209, 43);
             this.button_Update_IP_Data.Margin = new System.Windows.Forms.Padding(4);
             this.button_Update_IP_Data.Name = "button_Update_IP_Data";
-            this.button_Update_IP_Data.Size = new System.Drawing.Size(248, 38);
+            this.button_Update_IP_Data.Size = new System.Drawing.Size(245, 38);
             this.button_Update_IP_Data.TabIndex = 8;
             this.button_Update_IP_Data.Text = "Update To Row IP Data";
             this.button_Update_IP_Data.UseVisualStyleBackColor = true;

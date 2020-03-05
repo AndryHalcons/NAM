@@ -38,7 +38,6 @@
             this.buttonUserManagement = new System.Windows.Forms.Button();
             this.inventory = new System.Windows.Forms.Button();
             this.patching_switchs = new System.Windows.Forms.Button();
-            this.buttonPruebas = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -117,7 +116,6 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonUserManagement, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.inventory, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.patching_switchs, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.buttonPruebas, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -197,18 +195,6 @@
             this.patching_switchs.Text = "Patching Switchs";
             this.patching_switchs.UseVisualStyleBackColor = true;
             this.patching_switchs.Click += new System.EventHandler(this.patching_switchs_Click);
-            // 
-            // buttonPruebas
-            // 
-            this.buttonPruebas.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.buttonPruebas.Location = new System.Drawing.Point(4, 108);
-            this.buttonPruebas.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonPruebas.Name = "buttonPruebas";
-            this.buttonPruebas.Size = new System.Drawing.Size(287, 35);
-            this.buttonPruebas.TabIndex = 18;
-            this.buttonPruebas.Text = "Pruebas VLAN IPv4";
-            this.buttonPruebas.UseVisualStyleBackColor = true;
-            this.buttonPruebas.Click += new System.EventHandler(this.buttonPruebas_Click);
             // 
             // label1
             // 
@@ -367,7 +353,6 @@
         private System.Windows.Forms.Button buttonImportData;
         private System.Windows.Forms.Button inventory;
         private System.Windows.Forms.Button patching_switchs;
-        private System.Windows.Forms.Button buttonPruebas;
         private System.Windows.Forms.CheckBox checkBoxIPv6;
     }
 }

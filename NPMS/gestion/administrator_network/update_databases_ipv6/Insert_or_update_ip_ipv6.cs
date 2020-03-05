@@ -16,7 +16,7 @@ namespace NPMS.gestion.administrator_network.update_databases
         //Guardar nuevos datos sobre una ip
         private void Button_apply_insert_ipv4_Click_1(object sender, EventArgs e)
         {
-            string id_vlan = GlobalParam.Vlan_IPv6_Select;
+            string id_vlan = GlobalParam.Vlan_IPv6_in_IP_Select;
             bool Vip_ip = Common.ValidadorIP(textBoxIp.Text, "IP");
             bool VC_ip = Common.ValidadorCamposVacios(textBoxIp.Text, "IP");
             bool VC_tarea = Common.ValidadorCamposVacios(textBoxTarea.Text, "Tarea");
@@ -42,9 +42,6 @@ namespace NPMS.gestion.administrator_network.update_databases
                 }
                 
             }
-            //string tabla, string campo, string Datoaportado, string NombreCampoValidar
-
-
         }
 
         private void ButtonApplyDel_Click(object sender, EventArgs e)
@@ -56,7 +53,7 @@ namespace NPMS.gestion.administrator_network.update_databases
             if (Vid_ip == true && VC_ip == true && V_tarea == true)
             {
                 string id_tarea = textBoxTareaDel.Text.ToString();
-                string id_vlan = GlobalParam.Vlan_IPv6_Select;
+                string id_vlan = GlobalParam.Vlan_IPv6_in_IP_Select;
                 string id_ip = textBoxSelectIpDel.Text.ToString();
                 string protocolo = "IPv6";
                 Sentencias.Delete_ip(protocolo, id_vlan, id_tarea, id_ip);

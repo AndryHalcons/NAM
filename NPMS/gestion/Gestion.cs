@@ -87,11 +87,7 @@ namespace NPMS
             Patching_switchs panel_patching_switchs = new Patching_switchs();
             panel_patching_switchs.Show();
         }
-        private void buttonPruebas_Click(object sender, EventArgs e)
-        {
-            pruebas_ipv4 panel_pruebas = new pruebas_ipv4();
-            panel_pruebas.Show();
-        }
+
         private void ButtonFastNetworkFirewall_Click(object sender, EventArgs e)
         {
             string source = textBoxFastSource.Text;

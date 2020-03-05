@@ -336,7 +336,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         //el procedure invocado también crea la tabla de rango ip correspondiente al a vlan
         public static void Insert_vlan_IPv4(string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
-         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Broadcast, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
@@ -344,23 +344,23 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             {
                 mysql_commands.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
-                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Broadcast, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
                      id_Equipos, id_Clasificacion, id_Tarea);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
-                /* sqlserver_commands.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
-                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
-                      id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
-                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
-                      id_Equipos, id_Clasificacion, id_Tarea);
-                      */
+               /*  mysql_commands.Insert_vlan_IPv4(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                    id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
+                    id_Broadcast id_Observaciones, id_Dispositivo,
+                    id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
+                    id_Equipos, id_Clasificacion, id_Tarea);
+                    */
             }
         }
         public static void Insert_vlan_IPv6(string protocolo, string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
-         string id_Gateway2, string id_Gateway3, string id_Observaciones, string id_Dispositivo,
+         string id_Broadcast, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
@@ -368,7 +368,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             {
                 mysql_commands.Insert_vlan_IPv6(tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
-                     id_Gateway2, id_Gateway3, id_Observaciones, id_Dispositivo,
+                     id_Broadcast, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
                      id_Equipos, id_Clasificacion, id_Tarea);
             }
@@ -381,7 +381,31 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                      id_Equipos, id_Clasificacion, id_Tarea);*/
             }
         }
-
+        // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip(string protocolo, string id_vlan, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_all_ip(protocolo, id_vlan,Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_all_ip(protocolo, id_vlan, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
+        //Muestra los resultados en orden invertido (logs)
+        public static void Select_all_ip_desc(string protocolo, string tabla, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_all_ip_desc(protocolo, tabla, Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_all_ip(protocolo, id_vlan, Name_datagrid);
+            }
+        }
 
         /*Metodo que se encarga del (Delete/Liberar IP) sobre las tablas ip en la base de datos
          * segun el protoclo (IPv4/IPv6) y en relacion a la BBDD que está usando la aplicacion, 
