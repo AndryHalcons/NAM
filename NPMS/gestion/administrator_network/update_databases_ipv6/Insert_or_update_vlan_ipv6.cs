@@ -70,7 +70,6 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_DireccionRed = textBoxDireccionRed.Text.ToString();
                 string id_Ubicacion = textBoxUbicacion.Text.ToString();
                 string id_Gateway1 = textBoxGateway1.Text.ToString();
-                string id_Broadcast = textBoxGateway2.Text.ToString();
                 string id_TipoRed = textBoxTipoRed.Text.ToString();
                 string id_Dispositivo = textBoxDispositivo.Text.ToString();
                 string id_Clasificacion = textBoxClasificacion.Text.ToString();
@@ -84,13 +83,12 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
                 string id_Tarea = textBoxTarea.Text.ToString();
                 bool Exists_Vlan = Sentencias.ValidarExistenciaVlan(id_vlan);
-                string tabla = "ipv6_" + id_vlan + "";
-                string protocolo = "IPv6";
+                string tablaFormat = "ipv6_" + id_vlan + "";
                 if (Exists_Vlan == false)
                 {
-                     Sentencias.Insert_vlan_IPv6(protocolo,tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                     Sentencias.Insert_vlan_IPv6(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
-                     id_Broadcast, id_Observaciones, id_Dispositivo,
+                     tablaFormat, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
                      id_Equipos, id_Clasificacion, id_Tarea);
                      this.Close();

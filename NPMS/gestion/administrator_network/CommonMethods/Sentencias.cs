@@ -358,17 +358,17 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                     */
             }
         }
-        public static void Insert_vlan_IPv6(string protocolo, string tabla, string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
+        public static void Insert_vlan_IPv6( string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
-         string id_Broadcast, string id_Observaciones, string id_Dispositivo,
+         string tablaFormat, string id_Observaciones, string id_Dispositivo,
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                mysql_commands.Insert_vlan_IPv6(tabla, id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
+                mysql_commands.Insert_vlan_IPv6(id_vlan, id_nombre_vlan, id_Ubicacion, id_Vsys, id_Descripcion,
                      id_DireccionRed, id_RangoInicio, id_RangoFin, id_Mascara, id_Gateway1,
-                     id_Broadcast, id_Observaciones, id_Dispositivo,
+                     tablaFormat, id_Observaciones, id_Dispositivo,
                      id_Firewall, id_Entorno, id_Normativa, id_Estado, id_TipoRed,
                      id_Equipos, id_Clasificacion, id_Tarea);
             }
