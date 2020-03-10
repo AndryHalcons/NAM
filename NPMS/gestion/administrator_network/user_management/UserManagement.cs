@@ -31,7 +31,7 @@ namespace NPMS.gestion.administrator_network
             listBoxRol.SelectedIndex = 0;         
             bool BUser = Common.ValidadorCamposVacios(textBoxAddName.Text, "User");
             bool BPass = Common.ValidadorCamposVacios(textBoxAddPassword.Text, "Password");
-            bool Euser = Sentencias.ValidarDatoExistente("usuarios", "Usuario", textBoxAddName.Text);
+            bool Euser = Sentencias.ValidarDatoExistente("usuarios", "User", textBoxAddName.Text);
             string rol = listBoxRol.SelectedItem.ToString();
             string EncryptUser = textBoxAddName.Text;
             string EncryptPass = SecureCommon.EncryptHash(textBoxAddPassword.Text);
@@ -54,14 +54,14 @@ namespace NPMS.gestion.administrator_network
         private void ButtonDelUser_Click(object sender, EventArgs e)
         {
             bool BUser = Common.ValidadorCamposVacios(textBoxDelUser.Text, "User");
-            bool ComprobarExistencia = Sentencias.ValidarDatoExistente("usuarios", "Usuario", textBoxDelUser.Text);
+            bool ComprobarExistencia = Sentencias.ValidarDatoExistente("usuarios", "User", textBoxDelUser.Text);
             if (ComprobarExistencia == false)
             {
                 MessageBox.Show("Username does not exist!");
             }
             if (BUser == true && ComprobarExistencia == true)
             {
-                Sentencias.Bbdd_apply_where_delete("usuarios", "Usuario",textBoxDelUser.Text);
+                Sentencias.Bbdd_apply_where_delete("usuarios", "User", textBoxDelUser.Text);
             }
             DatagridUser();
             textBoxDelUser.Text = null;
@@ -76,7 +76,7 @@ namespace NPMS.gestion.administrator_network
             string usuario = GlobalParam.IDUser;
             bool Boldpass = Common.ValidadorCamposVacios(oldpass, "Old password");
             bool Bnewpass = Common.ValidadorCamposVacios(newpass, "New password");
-            bool ValidarOldPass = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "Usuario", "Password", usuario, Enoldpass);
+            bool ValidarOldPass = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "User", "Password", usuario, Enoldpass);
             if (Boldpass == true && Bnewpass == true && ValidarOldPass == true)
             {
                 Sentencias.Bbdd_apply_where_update("usuarios", "Password", "Usuario", Enewpass, usuario);

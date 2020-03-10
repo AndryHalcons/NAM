@@ -71,23 +71,22 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 databaseConnection.Close();
             
         }
-       
 
-
-        //Metodo que hace un select en la BBDD recuperando solamente dos columnas que 
-        //mostrará en un Datagridview
-        public static void Bbdd_apply_2fields_datagridView(string tabla, string campo1, string campo2, DataGridView Datagrid_Name)
+        //Metodo que Realiza el procedure que se le diga
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_simply_all_datagridView(string tabla, string query, DataGridView Datagrid_Name)
         {
-                string query = "call simplyselect_view2fields('" + tabla + "','" + campo1 + "','" + campo2 + "');";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                commandDatabase.Fill(ds, tabla);
-                Datagrid_Name.DataSource = ds;
-                Datagrid_Name.DataMember = tabla;
-                databaseConnection.Close();
+            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
+            databaseConnection.Open();
+            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+            DataSet ds = new DataSet();
+            commandDatabase.Fill(ds, tabla);
+            Datagrid_Name.DataSource = ds;
+            Datagrid_Name.DataMember = tabla;
+            databaseConnection.Close();
         }
+  
+
         //Metodo que obtiene una fila y valida que existe buscando que una fila tenga
         //dos campos especificos con el contenido exacto
         //Valida las credenciales de usuario a nivel de Aplicacion (LOGGING)
@@ -114,158 +113,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 return false;
             }
         }
-        //Metodo que Realiza el procedure que se le diga
-        //y  muestra el resultado en un DataGridView
-        public static void Bbdd_simply_all_datagridView(string tabla, string query, DataGridView Datagrid_Name)
-        {
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-            DataSet ds = new DataSet();
-            commandDatabase.Fill(ds, tabla);
-            Datagrid_Name.DataSource = ds;
-            Datagrid_Name.DataMember = tabla;
-            databaseConnection.Close();
-        }
-        //Metodo que Realiza un SELECT * ALL en las BBDD  
-        //y  muestra el resultado en un DataGridView
-        public static void Bbdd_apply_all_datagridView(string tabla, DataGridView Datagrid_Name)
-        {
-                string query = "call simplyselectall('" + tabla + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                commandDatabase.Fill(ds, tabla);
-                Datagrid_Name.DataSource = ds;
-                Datagrid_Name.DataMember = tabla;
-                databaseConnection.Close();
-        }
-        //Metodo que Realiza un SELECT * ALL en las BBDD con ORDER DESC 
-        //y  muestra el resultado en un DataGridView (IDEAL PARA LOGS)
-        public static void Bbdd_apply_all_Desc_datagridView(string tabla, DataGridView Datagrid_Name)
-        {
-                string query = "call simplyselectallorderdesc('" + tabla + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                commandDatabase.Fill(ds, tabla);
-                Datagrid_Name.DataSource = ds;
-                Datagrid_Name.DataMember = tabla;
-                databaseConnection.Close();           
-        }
-        //Metodo que Realiza las consultas en las BBDD filtrando por el valor EXACTO de un campo 
-        //y  muestra el resultado en un DataGridView
-        public static void Bbdd_apply_where_datagridView(string tabla, string campo, string datocampo, DataGridView Datagrid_Name)
-        {
-                string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + datocampo + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                commandDatabase.Fill(ds, tabla);
-                Datagrid_Name.DataSource = ds;
-                Datagrid_Name.DataMember = tabla;
-                databaseConnection.Close();
-        }
-        //Metodo que Realiza las consultas en las BBDD filtrando por el valor "LIKE" (CADENA) de un campo 
-        //y  muestra el resultado en un DataGridView
-        public static void Bbdd_apply_wherelike_datagridView(string tabla, string campo, string datocampo, DataGridView Datagrid_Name)
-        {
-                string query = "call simplyselectwherelike('" + tabla + "','" + campo + "','" + datocampo + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                commandDatabase.Fill(ds, tabla);
-                Datagrid_Name.DataSource = ds;
-                Datagrid_Name.DataMember = tabla;
-                databaseConnection.Close();
-        }
-        //Metodo que encuentra la vlan correspondiente a una IP y la muestra en un DATAGRIDVIEW
-        public static void Bbdd_apply_search_vlan_for_IP(string tabla, string IP, string campoMenor, string campoMayor, DataGridView Datagrid_Name)
-        {
-                string query = "call search_vlan_for_IP('" + tabla + "','" + IP + "','" + campoMenor + "','" + campoMayor + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                DataSet ds = new DataSet();
-                commandDatabase.Fill(ds, tabla);
-                Datagrid_Name.DataSource = ds;
-                Datagrid_Name.DataMember = tabla;
-                databaseConnection.Close();
-        }
-
-        //Metodo que encuentra la vlan correspondiente a una IP origen y una IP destino
-        //y la muestra en un DATAGRIDVIEW (FAST FIREWALL)
-        public static void Bbdd_apply_search_vlan_for_Fast_Firewall(string protocolo, string IPorigen, string IPdestino, DataGridView Datagrid_Name)
-        {
-                if (protocolo == "IPv4")
-                {
-                    string query = "call search_vlan_for_Fast_Firewall('vlan_ipv4','" + IPorigen + "','" + IPdestino + "')";
-                    MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                    databaseConnection.Open();
-                    MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                    DataSet ds = new DataSet();
-                    commandDatabase.Fill(ds, "vlan_ipv4");
-                    Datagrid_Name.DataSource = ds;
-                    Datagrid_Name.DataMember = "vlan_ipv4";
-                    databaseConnection.Close();
-                }
-                if (protocolo == "IPv6")
-                {
-                    string query = "call search_vlan_for_Fast_Firewall('vlan_ipv6','" + IPorigen + "','" + IPdestino + "')";
-                    MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                    databaseConnection.Open();
-                    MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-                    DataSet ds = new DataSet();
-                    commandDatabase.Fill(ds, "vlan_ipv6");
-                    Datagrid_Name.DataSource = ds;
-                    Datagrid_Name.DataMember = "vlan_ipv6";
-                    databaseConnection.Close();
-                }
-        }
-        //Metodo que inserta en la tabla usuarios los campos correpondientes (usuario,pass,rol)
-        public static void Bbdd_apply_create_user(string user, string pass, string rol)
-
-        {
-
-                string query = "call create_user('" + user + "','" + pass + "','" + rol + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-                commandDatabase.CommandText = query;
-                commandDatabase.ExecuteNonQuery();
-                databaseConnection.Close();
-        }
-        //Metodo que borra una fila que tenga un campo cuyo valor sea exacto al indicado (Borrar usuarios)
-        public static void Bbdd_apply_where_delete(string tabla, string campo, string datocampo)
-
-        {
-                string query = "call simply_delete_where('" + tabla + "','" + campo + "','" + datocampo + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-                commandDatabase.CommandText = query;
-                commandDatabase.ExecuteNonQuery();
-                databaseConnection.Close();
-        }
-        //Metodo que actualiza el campo1  al indicado ,siempre que el campo2 del usuario sea exacto al existente.
-        //Example (Actualizar el campo "Password (datocampo1)" del usuario "x" (datocampo2)
-        public static void Bbdd_apply_where_update(string tabla, string campo1, string campo2,
-            string datocampo1, string datocampo2)
-
-        {
-                string query = "call symply_where_update('" + tabla + "','" + campo1 + "','" + campo2 + "'" +
-                    ",'" + datocampo1 + "','" + datocampo2 + "')";
-                MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-                databaseConnection.Open();
-                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-                commandDatabase.CommandText = query;
-                commandDatabase.ExecuteNonQuery();
-                databaseConnection.Close();
-        }
+      
 
         //Obtiene el dato de un campo de tipo INT
         public static int Dato_Campo_Int(string tabla, string NombreCampo, string DatoCampo, int PosicionCampo)
@@ -397,6 +245,93 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
         }
 
+
+        //Metodo que hace un select en la BBDD recuperando solamente dos columnas que 
+        //mostrará en un Datagridview
+        public static void Bbdd_apply_2fields_datagridView(string tabla, string campo1, string campo2, DataGridView Datagrid_Name)
+        {
+            string query = "call simplyselect_view2fields('" + tabla + "','" + campo1 + "','" + campo2 + "');";
+            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+        }
+
+        //Metodo que Realiza un SELECT * ALL en las BBDD  
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_all_datagridView(string tabla, DataGridView Datagrid_Name)
+        {
+            string query = "call simplyselectall('" + tabla + "')";
+            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+        }
+        //Metodo que Realiza un SELECT * ALL en las BBDD con ORDER DESC 
+        //y  muestra el resultado en un DataGridView (IDEAL PARA LOGS)
+        public static void Bbdd_apply_all_Desc_datagridView(string tabla, DataGridView Datagrid_Name)
+        {
+            string query = "call simplyselectallorderdesc('" + tabla + "')";
+            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+        }
+        //Metodo que Realiza las consultas en las BBDD filtrando por el valor EXACTO de un campo 
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_where_datagridView(string tabla, string campo, string datocampo, DataGridView Datagrid_Name)
+        {
+            string query = "call simplyselectwhere('" + tabla + "','" + campo + "','" + datocampo + "')";
+            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+        }
+        //Metodo que Realiza las consultas en las BBDD filtrando por el valor "LIKE" (CADENA) de un campo 
+        //y  muestra el resultado en un DataGridView
+        public static void Bbdd_apply_wherelike_datagridView(string tabla, string campo, string datocampo, DataGridView Datagrid_Name)
+        {
+            string query = "call simplyselectwherelike('" + tabla + "','" + campo + "','" + datocampo + "')";
+            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+        }
+        //Metodo que encuentra la vlan correspondiente a una IP y la muestra en un DATAGRIDVIEW
+        public static void Bbdd_apply_search_vlan_for_IP(string tabla, string IP, string campoMenor, string campoMayor, DataGridView Datagrid_Name)
+        {
+            string query = "call search_vlan_for_IP('" + tabla + "','" + IP + "','" + campoMenor + "','" + campoMayor + "')";
+            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+        }
+
+        //Metodo que encuentra la vlan correspondiente a una IP origen y una IP destino
+        //y la muestra en un DATAGRIDVIEW (FAST FIREWALL)
+        public static void Bbdd_apply_search_vlan_for_Fast_Firewall(string protocolo, string IPorigen, string IPdestino, DataGridView Datagrid_Name)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call search_vlan_for_Fast_Firewall('vlan_ipv4','" + IPorigen + "','" + IPdestino + "')";
+                Bbdd_simply_all_datagridView("vlan_ipv4", query, Datagrid_Name);
+            }
+            if (protocolo == "IPv6")
+            {
+                string query = "call search_vlan_for_Fast_Firewall('vlan_ipv6','" + IPorigen + "','" + IPdestino + "')";
+                Bbdd_simply_all_datagridView("vlan_ipv6", query, Datagrid_Name);
+            }
+        }
+
+
+        //Metodo que inserta en la tabla usuarios los campos correpondientes (usuario,pass,rol)
+        public static void Bbdd_apply_create_user(string user, string pass, string rol)
+
+        {
+
+            string query = "call create_user('" + user + "','" + pass + "','" + rol + "')";
+            Bbdd_apply_simple(query);
+        }
+        //Metodo que borra una fila que tenga un campo cuyo valor sea exacto al indicado (Borrar usuarios)
+        public static void Bbdd_apply_where_delete(string tabla, string campo, string datocampo)
+
+        {
+            string query = "call simply_delete_where('" + tabla + "','" + campo + "','" + datocampo + "')";
+            Bbdd_apply_simple(query);
+        }
+        //Metodo que actualiza el campo1  al indicado ,siempre que el campo2 del usuario sea exacto al existente.
+        //Example (Actualizar el campo "Password (datocampo1)" del usuario "x" (datocampo2)
+        public static void Bbdd_apply_where_update(string tabla, string campo1, string campo2,
+            string datocampo1, string datocampo2)
+
+        {
+            string query = "call symply_where_update('" + tabla + "','" + campo1 + "','" + campo2 + "'" +
+                ",'" + datocampo1 + "','" + datocampo2 + "')";
+            Bbdd_apply_simple(query);
+        }
+
         /*Metodo que borra La Vlan en la tabla de Vlans y tambien borra la tabla IP asociada     
         * Lo hace en relacion a la BBDD que está usando la aplicacion, que se selecciona en
         * Settings.cs
@@ -454,7 +389,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             {
                 string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
                 string query = "call select_ipv6_ip('" + FormatoVlanIPv6 + "','IP');";
-                Bbdd_apply_simple(query);
+                Bbdd_simply_all_datagridView(id_vlan, query, Name_datagrid);
             }
         }
         // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
@@ -565,14 +500,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         public static void Select_patching(string building,string floor,string closet,string panel,string panel_port, DataGridView Datagrid_Name)
         {
             string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + panel_port + "')";
-            MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
-            databaseConnection.Open();
-            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
-            DataSet ds = new DataSet();
-            commandDatabase.Fill(ds, "patching");
-            Datagrid_Name.DataSource = ds;
-            Datagrid_Name.DataMember = "patching";
-            databaseConnection.Close();
+            Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+
         }
         //Metodo que se encarga de hacer insert en patching PARCHEO        
         public static void Insert_Patching(string building, string floor,string closet, string panel,

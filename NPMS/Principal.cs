@@ -35,11 +35,11 @@ namespace NPMS
             if (ValidaAccesoBBDD == true)
             {
                 //Valida que el usuario y contraseña son correctos y permite iniciar la aplicacion
-                bool ValidaAccesoAPP = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "Usuario", "Password", User, Pass);
+                bool ValidaAccesoAPP = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "User", "Password", User, Pass);
                 if (ValidaAccesoAPP == true)
                 {
                     //Obtiene el rol de el usuario
-                    string Rol = Sentencias.Dato_Campo_String("usuarios", "Usuario", User, 2);
+                    string Rol = Sentencias.Dato_Campo_String("usuarios", "User", User, 2);
                     Gestion panelgestion = new Gestion(User,Rol);
                     this.Hide();
                     panelgestion.ShowDialog();

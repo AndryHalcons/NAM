@@ -26,7 +26,7 @@ namespace NPMS
             // Genera las variables globales que indican el usuario logueado y su rol
             //Necesario para indicar quien realiza las modificaciones en la BBDD desde la app
             InitializeComponent();
-            string rol_usuario = Sentencias.Dato_Campo_String("usuarios", "Usuario", user_dat, 2);
+            string rol_usuario = Sentencias.Dato_Campo_String("usuarios", "User", user_dat, 2);
             GlobalParam.IDUser = user_dat;
             GlobalParam.IDRol = rol_usuario;
         }          

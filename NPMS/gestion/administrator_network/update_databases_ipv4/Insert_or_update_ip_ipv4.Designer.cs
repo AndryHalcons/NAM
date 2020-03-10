@@ -31,13 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxIp = new System.Windows.Forms.TextBox();
-            this.button_apply_insert_ipv4 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBoxDns = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label_vlan_prueba = new System.Windows.Forms.Label();
             this.textBoxMac = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,19 +40,24 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.textBoxHostnameR = new System.Windows.Forms.TextBox();
-            this.textBoxTarea = new System.Windows.Forms.TextBox();
-            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button_apply_insert_ipv4 = new System.Windows.Forms.Button();
+            this.textBoxTarea = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label_vlan_prueba = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxTareaDel = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.labelConfirmDel = new System.Windows.Forms.Label();
             this.buttonApplyDel = new System.Windows.Forms.Button();
             this.textBoxSelectIpDel = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -117,19 +117,6 @@
             this.textBoxIp.Size = new System.Drawing.Size(321, 28);
             this.textBoxIp.TabIndex = 1;
             // 
-            // button_apply_insert_ipv4
-            // 
-            this.button_apply_insert_ipv4.BackColor = System.Drawing.Color.White;
-            this.button_apply_insert_ipv4.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button_apply_insert_ipv4.Location = new System.Drawing.Point(110, 356);
-            this.button_apply_insert_ipv4.Margin = new System.Windows.Forms.Padding(4);
-            this.button_apply_insert_ipv4.Name = "button_apply_insert_ipv4";
-            this.button_apply_insert_ipv4.Size = new System.Drawing.Size(323, 37);
-            this.button_apply_insert_ipv4.TabIndex = 9;
-            this.button_apply_insert_ipv4.Text = "Create";
-            this.button_apply_insert_ipv4.UseVisualStyleBackColor = false;
-            this.button_apply_insert_ipv4.Click += new System.EventHandler(this.Button_apply_insert_ipv4_Click_1);
-            // 
             // label9
             // 
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -142,18 +129,6 @@
             this.label9.Text = "DNS";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label1.Location = new System.Drawing.Point(4, 320);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 32);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Vlan";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxDns
             // 
             this.textBoxDns.Location = new System.Drawing.Point(110, 72);
@@ -162,45 +137,6 @@
             this.textBoxDns.Name = "textBoxDns";
             this.textBoxDns.Size = new System.Drawing.Size(321, 28);
             this.textBoxDns.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label14.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label14.Location = new System.Drawing.Point(4, 248);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 32);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Work Order";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label10.Location = new System.Drawing.Point(4, 284);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 32);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Description";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_vlan_prueba
-            // 
-            this.label_vlan_prueba.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_vlan_prueba.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label_vlan_prueba.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label_vlan_prueba.Location = new System.Drawing.Point(110, 320);
-            this.label_vlan_prueba.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_vlan_prueba.Name = "label_vlan_prueba";
-            this.label_vlan_prueba.Size = new System.Drawing.Size(325, 32);
-            this.label_vlan_prueba.TabIndex = 30;
-            this.label_vlan_prueba.Text = "Vlan Selected";
-            this.label_vlan_prueba.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxMac
             // 
@@ -253,7 +189,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 32);
             this.label12.TabIndex = 25;
-            this.label12.Text = "Hostname revisado";
+            this.label12.Text = "R Hostname";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxUbicacion
@@ -273,24 +209,6 @@
             this.textBoxHostnameR.Name = "textBoxHostnameR";
             this.textBoxHostnameR.Size = new System.Drawing.Size(321, 28);
             this.textBoxHostnameR.TabIndex = 5;
-            // 
-            // textBoxTarea
-            // 
-            this.textBoxTarea.Location = new System.Drawing.Point(110, 252);
-            this.textBoxTarea.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTarea.MaxLength = 149;
-            this.textBoxTarea.Name = "textBoxTarea";
-            this.textBoxTarea.Size = new System.Drawing.Size(321, 28);
-            this.textBoxTarea.TabIndex = 7;
-            // 
-            // textBoxDescripcion
-            // 
-            this.textBoxDescripcion.Location = new System.Drawing.Point(110, 288);
-            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxDescripcion.MaxLength = 149;
-            this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(321, 28);
-            this.textBoxDescripcion.TabIndex = 8;
             // 
             // label5
             // 
@@ -315,6 +233,88 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "IP";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label14.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label14.Location = new System.Drawing.Point(4, 248);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 32);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Work Order";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button_apply_insert_ipv4
+            // 
+            this.button_apply_insert_ipv4.BackColor = System.Drawing.Color.White;
+            this.button_apply_insert_ipv4.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.button_apply_insert_ipv4.Location = new System.Drawing.Point(110, 356);
+            this.button_apply_insert_ipv4.Margin = new System.Windows.Forms.Padding(4);
+            this.button_apply_insert_ipv4.Name = "button_apply_insert_ipv4";
+            this.button_apply_insert_ipv4.Size = new System.Drawing.Size(323, 37);
+            this.button_apply_insert_ipv4.TabIndex = 9;
+            this.button_apply_insert_ipv4.Text = "Create";
+            this.button_apply_insert_ipv4.UseVisualStyleBackColor = false;
+            this.button_apply_insert_ipv4.Click += new System.EventHandler(this.Button_apply_insert_ipv4_Click_1);
+            // 
+            // textBoxTarea
+            // 
+            this.textBoxTarea.Location = new System.Drawing.Point(110, 252);
+            this.textBoxTarea.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTarea.MaxLength = 149;
+            this.textBoxTarea.Name = "textBoxTarea";
+            this.textBoxTarea.Size = new System.Drawing.Size(321, 28);
+            this.textBoxTarea.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label10.Location = new System.Drawing.Point(4, 284);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 32);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Description";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxDescripcion
+            // 
+            this.textBoxDescripcion.Location = new System.Drawing.Point(110, 288);
+            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDescripcion.MaxLength = 149;
+            this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.Size = new System.Drawing.Size(321, 28);
+            this.textBoxDescripcion.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label1.Location = new System.Drawing.Point(4, 320);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 32);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Vlan";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_vlan_prueba
+            // 
+            this.label_vlan_prueba.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_vlan_prueba.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label_vlan_prueba.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label_vlan_prueba.Location = new System.Drawing.Point(110, 320);
+            this.label_vlan_prueba.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_vlan_prueba.Name = "label_vlan_prueba";
+            this.label_vlan_prueba.Size = new System.Drawing.Size(325, 32);
+            this.label_vlan_prueba.TabIndex = 30;
+            this.label_vlan_prueba.Text = "Vlan Selected";
+            this.label_vlan_prueba.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -376,18 +376,6 @@
             this.textBoxTareaDel.Size = new System.Drawing.Size(204, 28);
             this.textBoxTareaDel.TabIndex = 11;
             // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label6.Location = new System.Drawing.Point(4, 40);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 32);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Select IP";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // labelConfirmDel
             // 
             this.labelConfirmDel.AutoSize = true;
@@ -417,6 +405,18 @@
             this.textBoxSelectIpDel.Name = "textBoxSelectIpDel";
             this.textBoxSelectIpDel.Size = new System.Drawing.Size(204, 28);
             this.textBoxSelectIpDel.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label6.Location = new System.Drawing.Point(4, 40);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 32);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Select IP";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 

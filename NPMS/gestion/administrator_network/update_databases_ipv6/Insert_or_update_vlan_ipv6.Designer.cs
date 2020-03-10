@@ -58,10 +58,6 @@
             this.textBoxAutomatic = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBoxGateway1 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBoxGateway2 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBoxGateway3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.button_apply_update_ipv4 = new System.Windows.Forms.Button();
@@ -76,7 +72,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ProBar_Gen_ipv6 = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +97,6 @@
             this.tableLayoutPanel2.Controls.Add(this.textBoxEquipos, 3, 9);
             this.tableLayoutPanel2.Controls.Add(this.textBoxDescripcion, 3, 11);
             this.tableLayoutPanel2.Controls.Add(this.textBoxTipoRed, 3, 12);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxTarea, 1, 14);
             this.tableLayoutPanel2.Controls.Add(this.label17, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.textBoxDireccionRed, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label16, 0, 5);
@@ -117,14 +111,6 @@
             this.tableLayoutPanel2.Controls.Add(this.textBoxAutomatic, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label18, 0, 8);
             this.tableLayoutPanel2.Controls.Add(this.textBoxGateway1, 1, 8);
-            this.tableLayoutPanel2.Controls.Add(this.label19, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxGateway2, 1, 9);
-            this.tableLayoutPanel2.Controls.Add(this.label20, 0, 11);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxGateway3, 1, 11);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 12);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxUbicacion, 1, 12);
-            this.tableLayoutPanel2.Controls.Add(this.button_apply_update_ipv4, 0, 15);
-            this.tableLayoutPanel2.Controls.Add(this.label21, 0, 14);
             this.tableLayoutPanel2.Controls.Add(this.button_generate_data, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label7, 2, 11);
@@ -135,10 +121,15 @@
             this.tableLayoutPanel2.Controls.Add(this.label13, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.label10, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 2, 12);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 9);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxUbicacion, 1, 9);
+            this.tableLayoutPanel2.Controls.Add(this.label21, 0, 11);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxTarea, 1, 11);
+            this.tableLayoutPanel2.Controls.Add(this.button_apply_update_ipv4, 0, 12);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(16, 16);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 16;
+            this.tableLayoutPanel2.RowCount = 13;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -152,10 +143,8 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1102, 549);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1102, 423);
             this.tableLayoutPanel2.TabIndex = 12;
             // 
             // textBoxEstado
@@ -297,7 +286,7 @@
             // 
             // textBoxTarea
             // 
-            this.textBoxTarea.Location = new System.Drawing.Point(157, 404);
+            this.textBoxTarea.Location = new System.Drawing.Point(157, 332);
             this.textBoxTarea.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTarea.MaxLength = 149;
             this.textBoxTarea.Name = "textBoxTarea";
@@ -462,54 +451,12 @@
             this.textBoxGateway1.Size = new System.Drawing.Size(383, 28);
             this.textBoxGateway1.TabIndex = 8;
             // 
-            // label19
-            // 
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label19.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label19.Location = new System.Drawing.Point(4, 292);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(145, 32);
-            this.label19.TabIndex = 37;
-            this.label19.Text = "Gateway 2";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxGateway2
-            // 
-            this.textBoxGateway2.Location = new System.Drawing.Point(157, 296);
-            this.textBoxGateway2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxGateway2.MaxLength = 60;
-            this.textBoxGateway2.Name = "textBoxGateway2";
-            this.textBoxGateway2.Size = new System.Drawing.Size(383, 28);
-            this.textBoxGateway2.TabIndex = 9;
-            // 
-            // label20
-            // 
-            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label20.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label20.Location = new System.Drawing.Point(4, 328);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(145, 32);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "Gateway 3";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxGateway3
-            // 
-            this.textBoxGateway3.Location = new System.Drawing.Point(157, 332);
-            this.textBoxGateway3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxGateway3.MaxLength = 60;
-            this.textBoxGateway3.Name = "textBoxGateway3";
-            this.textBoxGateway3.Size = new System.Drawing.Size(383, 28);
-            this.textBoxGateway3.TabIndex = 10;
-            // 
             // label9
             // 
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label9.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label9.Location = new System.Drawing.Point(4, 364);
+            this.label9.Location = new System.Drawing.Point(4, 292);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(145, 32);
@@ -519,7 +466,7 @@
             // 
             // textBoxUbicacion
             // 
-            this.textBoxUbicacion.Location = new System.Drawing.Point(157, 368);
+            this.textBoxUbicacion.Location = new System.Drawing.Point(157, 296);
             this.textBoxUbicacion.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUbicacion.MaxLength = 149;
             this.textBoxUbicacion.Name = "textBoxUbicacion";
@@ -529,7 +476,7 @@
             // button_apply_update_ipv4
             // 
             this.button_apply_update_ipv4.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button_apply_update_ipv4.Location = new System.Drawing.Point(4, 440);
+            this.button_apply_update_ipv4.Location = new System.Drawing.Point(4, 368);
             this.button_apply_update_ipv4.Margin = new System.Windows.Forms.Padding(4);
             this.button_apply_update_ipv4.Name = "button_apply_update_ipv4";
             this.button_apply_update_ipv4.Size = new System.Drawing.Size(145, 51);
@@ -543,7 +490,7 @@
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label21.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label21.Location = new System.Drawing.Point(4, 400);
+            this.label21.Location = new System.Drawing.Point(4, 328);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(145, 32);
@@ -675,22 +622,13 @@
             this.label1.Text = "Tipo de red";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ProBar_Gen_ipv6
-            // 
-            this.ProBar_Gen_ipv6.Location = new System.Drawing.Point(173, 583);
-            this.ProBar_Gen_ipv6.Name = "ProBar_Gen_ipv6";
-            this.ProBar_Gen_ipv6.Size = new System.Drawing.Size(308, 23);
-            this.ProBar_Gen_ipv6.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.ProBar_Gen_ipv6.TabIndex = 53;
-            // 
             // Insert_or_update_vlan_ipv6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.ClientSize = new System.Drawing.Size(1124, 680);
+            this.ClientSize = new System.Drawing.Size(1124, 450);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.ProBar_Gen_ipv6);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
@@ -729,13 +667,9 @@
         private System.Windows.Forms.TextBox textBoxMascara;
         private System.Windows.Forms.TextBox textBoxDireccionRed;
         private System.Windows.Forms.TextBox textBoxGateway1;
-        private System.Windows.Forms.TextBox textBoxGateway2;
         private System.Windows.Forms.TextBox textBoxNormativa;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBoxEstado;
-        private System.Windows.Forms.TextBox textBoxGateway3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -753,6 +687,5 @@
         private System.Windows.Forms.TextBox textBoxAutomatic;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBoxTarea;
-        private System.Windows.Forms.ProgressBar ProBar_Gen_ipv6;
     }
 }

@@ -1,5 +1,5 @@
 ﻿DELIMITER $$
-CREATE PROCEDURE `Create_vlan_ipv6`(in id_vlan varchar(30),
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Create_vlan_ipv6`(in id_vlan varchar(30),
 in id_nombre_vlan varchar(100),in id_Ubicacion varchar(100),in id_Vsys varchar(100),
 in id_Descripcion varchar(150),in id_DireccionRed varchar(150),in id_RangoInicio varchar(150),
 in id_RangoFin varchar(150),in id_Mascara varchar(150),
@@ -59,15 +59,10 @@ UNIQUE KEY `ID_UNIQUE` (`ID`)
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt; 
 /* //////////////// Rellenar tabla ip ////////////////// */
-call rellenar_tabla_ip_ipv6(id_RangoInicio,id_RangoFin,id_vlan,formateo_vlan);
-
-   set @ingate1 = CONCAT("UPDATE `npms`.`",formateo_vlan,"` SET `Ubicacion` = 'gateway1', 
-   `Mac` = 'Gateway1', 
-   `DNS` = 'Gateway1', 
-   `Descripcion` = 'Gateway1', 
-   `Hostname_revisado` = 'Gateway1', 
-   `Hostname` = 'Gateway1' 
-   WHERE (`IP` = '",gateway_aton,"');");
+   set @ingate1 = CONCAT("INSERT INTO `npms`.`",formateo_vlan,"` 
+   (`Vlan`, `IP`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+   VALUES ('" , id_vlan , "', '" , id_Gateway1 , "', 'Gateway', 
+   'Gateway', 'Gateway', 'Gateway', 'Gateway', 'Gateway', '" , id_Tarea , "', '" , id_Usuario , "');");
     PREPARE stmt FROM @ingate1;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt; 

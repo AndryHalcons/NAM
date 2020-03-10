@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox_Ip = new System.Windows.Forms.TextBox();
             this.label_Ip_octets = new System.Windows.Forms.Label();
@@ -38,6 +41,28 @@
             this.textBox_Vlan = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_ipv4_vlan = new System.Windows.Forms.DataGridView();
+            this.Vlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vsys = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion_red = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rango_ip_inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rango_ip_fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mascara = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gateway = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dispositivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Firewall = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Entorno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Normativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_de_red = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equipos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tarea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ipv4_vlan)).BeginInit();
             this.SuspendLayout();
@@ -162,16 +187,239 @@
             this.dataGridView_ipv4_vlan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_ipv4_vlan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView_ipv4_vlan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.dataGridView_ipv4_vlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView_ipv4_vlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ipv4_vlan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridView_ipv4_vlan.Location = new System.Drawing.Point(16, 199);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ipv4_vlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_ipv4_vlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Vlan,
+            this.Nombre,
+            this.Ubicacion,
+            this.Vsys,
+            this.Descripcion,
+            this.Direccion_red,
+            this.Rango_ip_inicio,
+            this.Rango_ip_fin,
+            this.Mascara,
+            this.Gateway,
+            this.Observaciones,
+            this.Dispositivo,
+            this.Firewall,
+            this.Entorno,
+            this.Normativa,
+            this.Estado,
+            this.tipo_de_red,
+            this.Equipos,
+            this.Clasificacion,
+            this.Tarea,
+            this.Usuario,
+            this.Fecha});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_ipv4_vlan.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_ipv4_vlan.EnableHeadersVisualStyles = false;
+            this.dataGridView_ipv4_vlan.GridColor = System.Drawing.Color.Tan;
+            this.dataGridView_ipv4_vlan.Location = new System.Drawing.Point(2, 202);
             this.dataGridView_ipv4_vlan.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_ipv4_vlan.Name = "dataGridView_ipv4_vlan";
             this.dataGridView_ipv4_vlan.ReadOnly = true;
-            this.dataGridView_ipv4_vlan.Size = new System.Drawing.Size(737, 324);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ipv4_vlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView_ipv4_vlan.Size = new System.Drawing.Size(751, 332);
             this.dataGridView_ipv4_vlan.TabIndex = 11;
+            // 
+            // Vlan
+            // 
+            this.Vlan.DataPropertyName = "Vlan";
+            this.Vlan.HeaderText = "Vlan";
+            this.Vlan.Name = "Vlan";
+            this.Vlan.ReadOnly = true;
+            this.Vlan.Width = 62;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Name";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 71;
+            // 
+            // Ubicacion
+            // 
+            this.Ubicacion.DataPropertyName = "Ubicacion";
+            this.Ubicacion.HeaderText = "Location";
+            this.Ubicacion.Name = "Ubicacion";
+            this.Ubicacion.ReadOnly = true;
+            this.Ubicacion.Width = 89;
+            // 
+            // Vsys
+            // 
+            this.Vsys.DataPropertyName = "Vsys/balanceador/otro";
+            this.Vsys.HeaderText = "Vsys";
+            this.Vsys.Name = "Vsys";
+            this.Vsys.ReadOnly = true;
+            this.Vsys.Width = 63;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Description";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 107;
+            // 
+            // Direccion_red
+            // 
+            this.Direccion_red.DataPropertyName = "Direccion_red";
+            this.Direccion_red.HeaderText = "Network";
+            this.Direccion_red.Name = "Direccion_red";
+            this.Direccion_red.ReadOnly = true;
+            this.Direccion_red.Width = 87;
+            // 
+            // Rango_ip_inicio
+            // 
+            this.Rango_ip_inicio.DataPropertyName = "Rango_ip_inicio";
+            this.Rango_ip_inicio.HeaderText = "Initial Range";
+            this.Rango_ip_inicio.Name = "Rango_ip_inicio";
+            this.Rango_ip_inicio.ReadOnly = true;
+            this.Rango_ip_inicio.Width = 115;
+            // 
+            // Rango_ip_fin
+            // 
+            this.Rango_ip_fin.DataPropertyName = "Rango_ip_fin";
+            this.Rango_ip_fin.HeaderText = "Finish Range";
+            this.Rango_ip_fin.Name = "Rango_ip_fin";
+            this.Rango_ip_fin.ReadOnly = true;
+            this.Rango_ip_fin.Width = 117;
+            // 
+            // Mascara
+            // 
+            this.Mascara.DataPropertyName = "Mascara";
+            this.Mascara.HeaderText = "Mask";
+            this.Mascara.Name = "Mascara";
+            this.Mascara.ReadOnly = true;
+            this.Mascara.Width = 67;
+            // 
+            // Gateway
+            // 
+            this.Gateway.DataPropertyName = "Gateway";
+            this.Gateway.HeaderText = "Gateway";
+            this.Gateway.Name = "Gateway";
+            this.Gateway.ReadOnly = true;
+            this.Gateway.Width = 90;
+            // 
+            // Observaciones
+            // 
+            this.Observaciones.DataPropertyName = "Observaciones";
+            this.Observaciones.HeaderText = "Observations";
+            this.Observaciones.Name = "Observaciones";
+            this.Observaciones.ReadOnly = true;
+            this.Observaciones.Width = 118;
+            // 
+            // Dispositivo
+            // 
+            this.Dispositivo.DataPropertyName = "Dispositivo";
+            this.Dispositivo.HeaderText = "Device";
+            this.Dispositivo.Name = "Dispositivo";
+            this.Dispositivo.ReadOnly = true;
+            this.Dispositivo.Width = 77;
+            // 
+            // Firewall
+            // 
+            this.Firewall.DataPropertyName = "Firewall";
+            this.Firewall.HeaderText = "Firewall";
+            this.Firewall.Name = "Firewall";
+            this.Firewall.ReadOnly = true;
+            this.Firewall.Width = 85;
+            // 
+            // Entorno
+            // 
+            this.Entorno.DataPropertyName = "Entorno";
+            this.Entorno.HeaderText = "Environment";
+            this.Entorno.Name = "Entorno";
+            this.Entorno.ReadOnly = true;
+            this.Entorno.Width = 114;
+            // 
+            // Normativa
+            // 
+            this.Normativa.DataPropertyName = "Normativa";
+            this.Normativa.HeaderText = "Normative";
+            this.Normativa.Name = "Normativa";
+            this.Normativa.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "State";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 68;
+            // 
+            // tipo_de_red
+            // 
+            this.tipo_de_red.DataPropertyName = "Tipo_de_red";
+            this.tipo_de_red.HeaderText = "Network Type";
+            this.tipo_de_red.Name = "tipo_de_red";
+            this.tipo_de_red.ReadOnly = true;
+            this.tipo_de_red.Width = 122;
+            // 
+            // Equipos
+            // 
+            this.Equipos.DataPropertyName = "Equipos";
+            this.Equipos.HeaderText = "Equipment";
+            this.Equipos.Name = "Equipos";
+            this.Equipos.ReadOnly = true;
+            this.Equipos.Width = 102;
+            // 
+            // Clasificacion
+            // 
+            this.Clasificacion.DataPropertyName = "Clasificacion";
+            this.Clasificacion.HeaderText = "Classification";
+            this.Clasificacion.Name = "Clasificacion";
+            this.Clasificacion.ReadOnly = true;
+            this.Clasificacion.Width = 121;
+            // 
+            // Tarea
+            // 
+            this.Tarea.DataPropertyName = "Tarea";
+            this.Tarea.HeaderText = "Work Order";
+            this.Tarea.Name = "Tarea";
+            this.Tarea.ReadOnly = true;
+            this.Tarea.Width = 105;
+            // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "Usuario";
+            this.Usuario.HeaderText = "User";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Width = 63;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Date";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 64;
             // 
             // Administrate_ipv4_vlan_form
             // 
@@ -207,5 +455,27 @@
         private System.Windows.Forms.Button button_Update_IP_Data;
         private System.Windows.Forms.Button buttonDeleteVlan;
         private System.Windows.Forms.DataGridView dataGridView_ipv4_vlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ubicacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vsys;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion_red;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rango_ip_inicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rango_ip_fin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mascara;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gateway;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dispositivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Firewall;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Entorno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Normativa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_de_red;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equipos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Clasificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tarea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
     }
 }
