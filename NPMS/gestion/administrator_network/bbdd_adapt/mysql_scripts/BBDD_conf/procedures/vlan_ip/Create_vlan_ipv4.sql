@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Create_vlan_ipv4`(in id_vlan varchar(30),
+CREATE PROCEDURE `Create_vlan_ipv4`(in id_vlan varchar(30),
 in id_nombre_vlan varchar(100),in id_Ubicacion varchar(100),in id_Vsys varchar(100),
 in id_Descripcion varchar(100),in id_DireccionRed varchar(100),in id_RangoInicio varchar(100),
 in id_RangoFin varchar(100),in id_Mascara varchar(100),
@@ -13,7 +13,12 @@ BEGIN
 declare gateway_aton varchar(50);
 set gateway_aton = inet_aton(id_Gateway1);
 /*************insertar datos en tabla VLAN  *************/
-SET @s = CONCAT("INSERT INTO `npms`.`vlan_ipv4` (`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
+SET @s = CONCAT("INSERT INTO `npms`.`vlan_ipv4` (`Vlan`, `Name`, `Location`, 
+`Vsys/balancer/other`, `Description`, `Network`,
+`Initial_Range`, `Final_Range`, `Mask`, `Gateway`,
+`Observations`, `Device`, `Firewall`, `Environment`, 
+`Normative`,`Status`, `Network_Type`, `Equipment`, `Classification`, 
+`Work_Order`, `User`)" ,
 "VALUES('" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
 '" , id_Descripcion , "','" , id_DireccionRed , "','" , id_RangoInicio , "','" , id_RangoFin , "',
 '" , id_Mascara , "',' " , id_Gateway1 , "','" , id_Observaciones , "','" , id_Dispositivo , "',
@@ -24,7 +29,12 @@ SET @s = CONCAT("INSERT INTO `npms`.`vlan_ipv4` (`Vlan`, `Nombre`, `Ubicacion`, 
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;  
 /********* SENTENCIA RELLENAR LOGS****************/
-SET @log = CONCAT("INSERT INTO `npms`.`log_vlan_ipv4` (`Accion`,`Vlan`, `Nombre`, `Ubicacion`, `Vsys/balanceador/otro`, `Descripcion`, `Direccion_red`,`Rango_ip_inicio`, `Rango_ip_fin`, `Mascara`, `Gateway`,`Observaciones`, `Dispositivo`, `Firewall`, `Entorno`, `Normativa`,`Estado`, `Tipo_de_red`, `Equipos`, `Clasificacion`, `Tarea`, `Usuario`)" ,
+SET @log = CONCAT("INSERT INTO `npms`.`log_vlan_ipv4` (`Action`,`Vlan`, `Name`, 
+`Location`, `Vsys/balancer/other`, `Description`, 
+`Network`,`Initial_Range`, `Final_Range`, 
+`Mask`, `Gateway`,`Observations`, `Device`, 
+`Firewall`, `Environment`, `Normative`,`Status`, `Network_Type`, 
+`Equipment`, `Classification`, `Work_Order`, `User`)" ,
 "VALUES('Create','" , id_vlan , "','" , id_nombre_vlan , "','" , id_Ubicacion , "','" , id_Vsys , "',
 '" , id_Descripcion , "','" , id_DireccionRed , "','" , id_RangoInicio , "','" , id_RangoFin , "',
 '" , id_Mascara , "',' " , id_Gateway1 , "','" , id_Observaciones , "','" , id_Dispositivo , "',
@@ -41,15 +51,15 @@ CREATE TABLE `",id_vlan,"` (
 `ID` int(11) NOT NULL AUTO_INCREMENT,
 `Vlan` int(11) NOT NULL,
 `IP` varchar(30) NOT NULL,
-`Ubicacion` varchar(150) DEFAULT NULL,
+`Location` varchar(150) DEFAULT NULL,
 `Mac` varchar(30) DEFAULT NULL,
 `DNS` varchar(150) DEFAULT NULL,
-`Descripcion` varchar(150) DEFAULT NULL,
-`Hostname_revisado` varchar(150) DEFAULT NULL,
+`Description` varchar(150) DEFAULT NULL,
+`Revised_Hostname` varchar(150) DEFAULT NULL,
 `Hostname` varchar(150) DEFAULT NULL,
-`Fecha_modificacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-`Tarea` varchar(150) DEFAULT NULL,
-`usuario` varchar(150) DEFAULT NULL,
+`Date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`Work_Order` varchar(150) DEFAULT NULL,
+`User` varchar(150) DEFAULT NULL,
 PRIMARY KEY (`ID`,`IP`),
 UNIQUE KEY `IP_UNIQUE` (`IP`),
 UNIQUE KEY `ID_UNIQUE` (`ID`)
@@ -60,11 +70,11 @@ UNIQUE KEY `ID_UNIQUE` (`ID`)
 /* //////////////// Rellenar tabla ip ////////////////// */
 call rellenar_tabla_ip_ipv4(id_RangoInicio,Broadcast,id_vlan);
 
-   set @ingate1 = CONCAT("UPDATE `npms`.`",id_vlan,"` SET `Ubicacion` = 'gateway1', 
+   set @ingate1 = CONCAT("UPDATE `npms`.`",id_vlan,"` SET `Location` = 'gateway1', 
    `Mac` = 'Gateway1', 
    `DNS` = 'Gateway1', 
-   `Descripcion` = 'Gateway1', 
-   `Hostname_revisado` = 'Gateway1', 
+   `Description` = 'Gateway1', 
+   `Revised_Hostname` = 'Gateway1', 
    `Hostname` = 'Gateway1' 
    WHERE (`IP` = '",gateway_aton,"');");
     PREPARE stmt FROM @ingate1;

@@ -21,6 +21,7 @@ namespace NPMS.administrate_network
         {           
             //textBoxUsuarioLog.Text = Usuario;
             InitializeComponent();
+            comboBoxSearchVlan.SelectedIndex = 0;
         }
       
         private void Button_search_Click(object sender, EventArgs e)
@@ -30,30 +31,32 @@ namespace NPMS.administrate_network
 
         public void Consulta_all()
         {
-            bool Bdata_IpOctets = Common.ValidadorCamposVacios_SinMensaje(textBox_Ip.Text);
-            bool Bdata_vlan = Common.ValidadorCamposVacios_SinMensaje(textBox_Vlan.Text);
-            string source = textBox_Ip.Text.ToString();
-            string data_Vlan = textBox_Vlan.Text.ToString();
-
-            
-            if (Bdata_IpOctets == true && Bdata_vlan == true)
-            {
-                MessageBox.Show("You cannot search in two fields at the same time");
-            }
-            
-            if (Bdata_IpOctets == true && Bdata_vlan == false)
-            {
-                Sentencias.Bbdd_apply_search_vlan_for_IP("vlan_ipv4", source, "Rango_ip_inicio", "Rango_ip_fin", dataGridView_ipv4_vlan);
-            }
-            if (Bdata_IpOctets == false && Bdata_vlan == true)
-            {
-                Sentencias.Bbdd_apply_where_datagridView("vlan_ipv4", "Vlan", data_Vlan, dataGridView_ipv4_vlan);
-            }
-            if (Bdata_IpOctets == false && Bdata_vlan == false)
+            string CampoSeleccionado = comboBoxSearchVlan.SelectedItem.ToString();
+            string datocampo = textBoxStringSearch.Text.ToString();
+            if (CampoSeleccionado == "ALL")
             {
                 Sentencias.Bbdd_apply_all_datagridView("vlan_ipv4", dataGridView_ipv4_vlan);
             }
- 
+            else
+            {
+                if (checkBoxStringSearch.Checked == true)
+                {
+                    Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                }
+                else
+                {
+                    if (CampoSeleccionado == "Date")
+                    {
+                        Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                    }
+                    else
+                    {
+                        Sentencias.Bbdd_apply_where_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                    }
+
+                }
+            }
+
         }
         private void Button_Update_IP_Data_Click(object sender, EventArgs e)
         {

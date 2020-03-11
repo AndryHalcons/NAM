@@ -1,6 +1,6 @@
-/* --------------Creacion tabla logs IPv6--------------- */
+/* --------------Creacion tabla logs IPv4--------------- */
 
- CREATE TABLE `log_ip_ipv6` (
+CREATE TABLE `log_ip_ipv6` (
   `ID` INT(20) NOT NULL AUTO_INCREMENT,
   `IP` varchar(30) NOT NULL,
   `Accion` varchar(45) DEFAULT NULL,

@@ -44,17 +44,17 @@ namespace NPMS.gestion.administrator_network.update_databases
         private void Button_apply_update_ipv4_Click(object sender, EventArgs e)
         {
 
-            bool BredNetwork = Sentencias.ValidarDatoExistenteConMensaje("vlan_ipv4", "Direccion_red", textBoxDireccionRed.Text, "Network");
+            bool BredNetwork = Sentencias.ValidarDatoExistenteConMensaje("vlan_ipv4", "Network", textBoxDireccionRed.Text, "Network");
             bool VVlan = Common.ValidadorInt(textBoxVlan.Text, "Vlan");
             bool CVlan = Common.ValidadorCamposVacios(textBoxVlan.Text, "Vlan");
-            bool CNombreVlan = Common.ValidadorCamposVacios(textBoxNombre.Text,"Nombre");
-            bool CRangoInicio = Common.ValidadorCamposVacios(textBoxRangoInicio.Text, "Rango Inicio");
-            bool CRangoFin = Common.ValidadorCamposVacios(textBoxRangoFin.Text, "Rango Fin");
-            bool CMascara = Common.ValidadorCamposVacios(textBoxMascara.Text, "Mascara");
-            bool CDireccionRed = Common.ValidadorCamposVacios(textBoxDireccionRed.Text, "Direccion de Red");
-            bool CUbicacion = Common.ValidadorCamposVacios(textBoxUbicacion.Text, "Ubicacion");
+            bool CNombreVlan = Common.ValidadorCamposVacios(textBoxNombre.Text, "Name");
+            bool CRangoInicio = Common.ValidadorCamposVacios(textBoxRangoInicio.Text, "Initial_Range");
+            bool CRangoFin = Common.ValidadorCamposVacios(textBoxRangoFin.Text, "Final_Range");
+            bool CMascara = Common.ValidadorCamposVacios(textBoxMascara.Text, "Mask");
+            bool CDireccionRed = Common.ValidadorCamposVacios(textBoxDireccionRed.Text, "Network");
+            bool CUbicacion = Common.ValidadorCamposVacios(textBoxUbicacion.Text, "Location");
             bool CGateway1 = Common.ValidadorCamposVacios(textBoxGateway1.Text, "Gateway 1");
-            bool CTarea = Common.ValidadorCamposVacios(textBoxTarea.Text, "Tarea");
+            bool CTarea = Common.ValidadorCamposVacios(textBoxTarea.Text, "Work_Order");
             
 
             if (VVlan == true && CVlan == true && CNombreVlan == true && CRangoInicio == true |

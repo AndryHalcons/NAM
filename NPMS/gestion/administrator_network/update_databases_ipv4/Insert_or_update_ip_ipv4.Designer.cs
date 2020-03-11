@@ -182,14 +182,17 @@
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label12.Image = global::NPMS.Properties.Resources.botonNaranja;
             this.label12.Location = new System.Drawing.Point(4, 176);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 32);
+            this.label12.Size = new System.Drawing.Size(98, 36);
             this.label12.TabIndex = 25;
-            this.label12.Text = "R Hostname";
+            this.label12.Text = "Revised Hostname";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxUbicacion
