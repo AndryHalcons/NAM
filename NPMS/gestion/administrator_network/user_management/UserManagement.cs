@@ -22,7 +22,7 @@ namespace NPMS.gestion.administrator_network
         private void DatagridUser()
         {
 
-            Sentencias.Bbdd_apply_2fields_datagridView("usuarios", "Usuario", "Nivel", dataGridViewUsers);
+            Sentencias.Bbdd_apply_2fields_datagridView("usuarios", "User", "Rol", dataGridViewUsers);
 
         }
         //Este método crea los nuevos usuarios de la aplicacion
@@ -40,10 +40,7 @@ namespace NPMS.gestion.administrator_network
                 MessageBox.Show("User already exist!");
             }
             if (BUser == true && BPass == true && Euser == false )
-            {
-                
-                //string query = "INSERT INTO `npms`.`usuarios` (`Usuario`, `Password`, `Nivel`) " +"VALUES ('"+EncryptUser+"', '"+EncryptPass+"', '"+rol+"');";
-                //Sentencias.Bbdd_apply_simple(query);
+            {              
                 Sentencias.Bbdd_apply_create_user(EncryptUser, EncryptPass, rol);
             }
             DatagridUser();
@@ -79,7 +76,7 @@ namespace NPMS.gestion.administrator_network
             bool ValidarOldPass = Sentencias.Bbdd_apply_two_fields_exact("usuarios", "User", "Password", usuario, Enoldpass);
             if (Boldpass == true && Bnewpass == true && ValidarOldPass == true)
             {
-                Sentencias.Bbdd_apply_where_update("usuarios", "Password", "Usuario", Enewpass, usuario);
+                Sentencias.Bbdd_apply_where_update("usuarios", "Password", "User", Enewpass, usuario);
             }
             textBoxOldPassword.Text = null;
             textBoxNewPassword.Text = null;
