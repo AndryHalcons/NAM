@@ -2,7 +2,7 @@
   /*----------------------------Creacion tabla logs parcheo Patching------------------------*/
 
 CREATE TABLE `log_patching` (
-  `Accion` VARCHAR(150) NULL,
+  `Action` VARCHAR(150) NULL,
   `Building` varchar(45) NULL,
   `Floor` varchar(45) NULL,
   `Closet` varchar(45) DEFAULT NULL,

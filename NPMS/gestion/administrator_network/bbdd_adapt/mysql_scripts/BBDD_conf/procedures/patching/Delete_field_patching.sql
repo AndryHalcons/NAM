@@ -23,7 +23,7 @@ and `Panel` = '",Panel,"' and `Panel_Port` = '",Panel_port,"' and `Stack` = '",S
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
 SET @max_id = (SELECT MAX(ID) FROM log_patching);
-UPDATE `npms`.`log_patching` SET `Accion` = VarAccion, `WORK_ORDER` = VarTarea, `User` = VarUsuario WHERE `ID` = @max_id; 
+UPDATE `npms`.`log_patching` SET `Action` = VarAccion, `WORK_ORDER` = VarTarea, `User` = VarUsuario WHERE `ID` = @max_id; 
  SET @s2 = CONCAT("DELETE FROM `npms`.`patching` where (`Building` = '",Building,"' and `Floor` = '",Floor,"' and `Closet` = '",Closet,"'
 and `Panel` = '",Panel,"' and `Panel_Port` = '",Panel_port,"' and `Stack` = '",Stack,"' and `IP_Switch` = '",IP_switch,"' );");
     PREPARE stmt FROM @s2;

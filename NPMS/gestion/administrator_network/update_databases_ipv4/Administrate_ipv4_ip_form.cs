@@ -26,7 +26,8 @@ namespace NPMS.administrate_network
         {
  
             InitializeComponent();
-            
+            comboBoxSearchIP.SelectedIndex = 0;
+
         }
         //Valida que el campo Vlan tiene un valor y abre el form Insert_or_update_ip_ipv4
         // Si el campo vlan no es de tipo entero, o no tiene valor, no permite abrir el form
@@ -40,7 +41,7 @@ namespace NPMS.administrate_network
             {
                 string ValorVlan = textBox_Vlan.Text.ToString();
                 Insert_or_update_ip_ipv4 panel_update_ip_ipv4 = new Insert_or_update_ip_ipv4(ValorVlan);
-                panel_update_ip_ipv4.Show();
+                panel_update_ip_ipv4.ShowDialog();
             }
         }
         //Boton de consulta
@@ -55,14 +56,27 @@ namespace NPMS.administrate_network
             GlobalParam.Vlan_IPv4_in_IP_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
+            string CampoSeleccionado = comboBoxSearchIP.SelectedItem.ToString();
+            string datocampo = textBoxStringSearch.Text.ToString();
             if (VVlan == true && ValidaExistencia == true)
             {
-                Sentencias.Select_all_ip("IPv4",textBox_Vlan.Text, dataGridView_ipv4);
-            }
-                        
-
-        }
-
-    
+                //Sentencias.Select_all_ip("IPv4",textBox_Vlan.Text, dataGridView_ipv4);
+                if (CampoSeleccionado == "ALL")
+                {
+                    Sentencias.Select_all_ip("IPv4", textBox_Vlan.Text, dataGridView_ipv4);
+                }
+                else
+                {
+                    if (CampoSeleccionado == "IP")
+                    {
+                        Sentencias.Select_all_ip_like_logs("IPv4",textBox_Vlan.Text, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                    }
+                    else
+                    {
+                        Sentencias.Select_all_ip_like_others_fields_logs("IPv4",textBox_Vlan.Text, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                    }
+                }
+            }                     
+        }   
     }
 }

@@ -61,13 +61,13 @@ namespace NPMS.administrate_network
         private void Button_Update_IP_Data_Click(object sender, EventArgs e)
         {
             Insert_or_update_vlan_ipv4 panel_update_ipv4_vlan = new Insert_or_update_vlan_ipv4();
-            panel_update_ipv4_vlan.Show();
+            panel_update_ipv4_vlan.ShowDialog();
         }
 
         private void ButtonDeleteVlan_Click(object sender, EventArgs e)
         {
             Delete_vlan_ipv4 panel_delete_vlan_ipv4 = new Delete_vlan_ipv4();
-            panel_delete_vlan_ipv4.Show();
+            panel_delete_vlan_ipv4.ShowDialog();
         }
     }
     

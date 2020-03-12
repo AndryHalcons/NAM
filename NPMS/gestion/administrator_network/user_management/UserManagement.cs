@@ -58,7 +58,7 @@ namespace NPMS.gestion.administrator_network
             }
             if (BUser == true && ComprobarExistencia == true)
             {
-                Sentencias.Bbdd_apply_where_delete("usuarios", "User", textBoxDelUser.Text);
+                Sentencias.Bbdd_apply_delete_user(textBoxDelUser.Text);
             }
             DatagridUser();
             textBoxDelUser.Text = null;

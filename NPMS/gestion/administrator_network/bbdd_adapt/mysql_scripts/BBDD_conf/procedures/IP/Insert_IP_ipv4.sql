@@ -22,7 +22,7 @@ WHERE (`IP` = '",ip_aton,"');
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;   
 SET @b = CONCAT("INSERT INTO `npms`.`log_ip_ipv4` 
-(`IP`, `Accion`, `Vlan`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
+(`IP`, `Action`, `Vlan`, `Ubicacion`, `Mac`, `DNS`, `Descripcion`, `Hostname_revisado`, `Hostname`, `Tarea`, `usuario`) 
 VALUES ('",ip_aton,"', '",id_accion,"', '",id_vlan,"','",id_Ubicacion,"',
 '",id_mac,"', '",id_dns,"', '",id_Descripcion,"', '",id_hostnameR,"', '",id_hostname,"', 
 '",id_Tarea,"', '",id_usuario,"');

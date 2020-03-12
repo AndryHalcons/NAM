@@ -39,6 +39,7 @@
             // 
             // comboBoxInventario
             // 
+            this.comboBoxInventario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxInventario.FormattingEnabled = true;
             this.comboBoxInventario.Items.AddRange(new object[] {
             "ALL",

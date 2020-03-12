@@ -180,6 +180,19 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 //sqlserver_commands.Bbdd_apply_create_user(user, pass, rol);
             }
         }
+        //Metodo que Borra en la tabla usuarios los campos correpondientes (usuario,pass,rol)
+        public static void Bbdd_apply_delete_user(string user)
+
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Bbdd_apply_delete_user(user);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Bbdd_apply_delete_user(user);
+            }
+        }
         //Metodo que borra una fila que tenga un campo cuyo valor sea exacto al indicado (Borrar usuarios)
         public static void Bbdd_apply_where_delete(string tabla, string campo, string datocampo)
 
@@ -391,6 +404,56 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
                 //sqlserver_commands.Select_all_ip(protocolo, id_vlan, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select wherE like DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip_like(string protocolo, string tabla,string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_all_ip_like(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_all_ip_like(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select wherE like DESconvirtiendo las IP guaradas en iner_aton 
+        //(añade campo action)
+        public static void Select_all_ip_like_logs(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_all_ip_like_logs(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_all_ip_like_logs(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select wherE like en cualquier campo que no sea IP DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip_like_others_fields(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_all_ip_like_others_fields(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_all_ip_like_others_fields(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select wherE like en cualquier campo que no sea IP DESconvirtiendo las IP guaradas en iner_aton
+        //añade campo action)
+        public static void Select_all_ip_like_others_fields_logs(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.Select_all_ip_like_others_fields_logs(protocolo, tabla, campo, datocampo, Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //mysql_commands.Select_all_ip_like_others_fields_logs(protocolo, tabla, campo, datocampo, Name_datagrid);
             }
         }
         // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton

@@ -26,7 +26,7 @@ SET @s = CONCAT("INSERT INTO `npms`.`patching`
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;   
 SET @b = CONCAT("INSERT INTO `npms`.`log_patching` 
-(`Accion`, `Building`, `Floor`, `Closet`,
+(`Action`, `Building`, `Floor`, `Closet`,
  `Panel`, `Panel_Port`, `Stack`, `Switch`,
  `Switch_Port`, `Interfaz`, `Link`, `Speed`,
  `Duplex`, `Type`, `Vlan`, `Description`, 

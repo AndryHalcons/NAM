@@ -13,6 +13,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
 {
     class mysql_commands
     {
+        //obtiene los datos de conexion a la BBDD encriptados en un archivo oculto del sistema
         public static string bbdd_connection_data()
         {
             StreamReader sr = File.OpenText(Common.ruta_ArchivoConfBbdd);
@@ -304,19 +305,20 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 Bbdd_simply_all_datagridView("vlan_ipv6", query, Datagrid_Name);
             }
         }
-
-
         //Metodo que inserta en la tabla usuarios los campos correpondientes (usuario,pass,rol)
         public static void Bbdd_apply_create_user(string user, string pass, string rol)
-
         {
-
-            string query = "call create_user('" + user + "','" + pass + "','" + rol + "')";
+            string query = "call create_user('" + user + "','" + pass + "','" + rol + "','" + GlobalParam.IDUser + "')";
+            Bbdd_apply_simple(query);
+        }
+        //Metodo que inserta en la tabla usuarios los campos correpondientes (usuario,pass,rol)
+        public static void Bbdd_apply_delete_user(string user)
+        {
+            string query = "call delete_user('Delete','" + user + "','" + GlobalParam.IDUser + "')";
             Bbdd_apply_simple(query);
         }
         //Metodo que borra una fila que tenga un campo cuyo valor sea exacto al indicado (Borrar usuarios)
         public static void Bbdd_apply_where_delete(string tabla, string campo, string datocampo)
-
         {
             string query = "call simply_delete_where('" + tabla + "','" + campo + "','" + datocampo + "')";
             Bbdd_apply_simple(query);
@@ -325,7 +327,6 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         //Example (Actualizar el campo "Password (datocampo1)" del usuario "x" (datocampo2)
         public static void Bbdd_apply_where_update(string tabla, string campo1, string campo2,
             string datocampo1, string datocampo2)
-
         {
             string query = "call symply_where_update('" + tabla + "','" + campo1 + "','" + campo2 + "'" +
                 ",'" + datocampo1 + "','" + datocampo2 + "')";
@@ -352,10 +353,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                     Bbdd_apply_simple(query);
                 }           
         }
-
         //Método que se encarga de añadir la Vlan  creada a la base de datos
         //el procedure invocado también crea la tabla de rango ip correspondiente al a vlan
-
         public static void Insert_vlan_IPv4(string id_vlan, string id_nombre_vlan, string id_Ubicacion, string id_Vsys, string id_Descripcion,
          string id_DireccionRed, string id_RangoInicio, string id_RangoFin, string id_Mascara, string id_Gateway1,
          string id_Broadcast, string id_Observaciones, string id_Dispositivo,
@@ -371,10 +370,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
          string id_Firewall, string id_Entorno, string id_Normativa, string id_Estado, string id_TipoRed,
          string id_Equipos, string id_Clasificacion, string id_Tarea)
         {
-
             string query = "Call Create_vlan_ipv6('" + id_vlan + "','" + id_nombre_vlan + "','" + id_Ubicacion + "','" + id_Vsys + "','" + id_Descripcion + "','" + id_DireccionRed + "','" + id_RangoInicio + "','" + id_RangoFin + "','" + id_Mascara + "','" + id_Gateway1 + "','" + tablaFormat + "','" + id_Observaciones + "','" + id_Dispositivo + "','" + id_Firewall + "','" + id_Entorno + "','" + id_Normativa + "',' " + id_Estado + "','" + id_TipoRed + "','" + id_Equipos + "','" + id_Clasificacion + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
-            Bbdd_apply_simple(query);
-            
+            Bbdd_apply_simple(query);           
         }
         // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
         public static void Select_all_ip(string protocolo, string id_vlan,DataGridView Name_datagrid)
@@ -390,6 +387,70 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
                 string query = "call select_ipv6_ip('" + FormatoVlanIPv6 + "','IP');";
                 Bbdd_simply_all_datagridView(id_vlan, query, Name_datagrid);
+            }
+        }
+
+
+        // Metodo que hace un select wherE campo  IP like DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip_like(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_ip_like('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+
+            }
+            if (protocolo == "IPv6")
+            {
+                string query = "call select_ipv4_ip_like('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select wherE campo  IP like DESconvirtiendo las IP guaradas en iner_aton 
+        //(añade campo action)
+        public static void Select_all_ip_like_logs(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_ip_like_logs('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+
+            }
+            if (protocolo == "IPv6")
+            {
+                string query = "call select_ipv4_ip_like_logs('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+            }
+        }
+
+        // Metodo que hace un select wherE like en cualquier campo que no sea IP DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip_like_others_fields(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_ip_like_other_fields('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+
+            }
+            if (protocolo == "IPv6")
+            {
+                string query = "call select_ipv4_ip_like_other_fields('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select wherE like en cualquier campo que no sea IP DESconvirtiendo las IP guaradas en iner_aton
+        public static void Select_all_ip_like_others_fields_logs(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_ip_like_other_fields_logs('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
+
+            }
+            if (protocolo == "IPv6")
+            {
+                string query = "call select_ipv4_ip_like_other_fields_logs('" + tabla + "','" + campo + "','" + datocampo + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
             }
         }
         // Metodo que hace un select all DESconvirtiendo las IP guaradas en iner_aton
@@ -435,13 +496,11 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         {
                 if (protocolo == "IPv4")
                 {
-
                     string query = "CALL insert_ip_ipv4('Create','" + id_vlan + "'," +
                         "'" + id_ip + "','" + id_Ubicacion + "','" + id_mac + "'," +
                         "'" + id_dns + "','" + id_Descripcion + "','" + id_hostnameR + "'," +
                         "'" + id_hostname + "','" + id_Tarea + "','" + GlobalParam.IDUser + "')";
                     Bbdd_apply_simple(query);
-
                 }
                 if (protocolo == "vlan_ipv6")
                 {
@@ -467,10 +526,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                     "'" + environment + "','" + domain + "','" + contact + "'," +
                     "'" + aditional_info + "','" + ports + "','" + other1 + "'," +
                     "'" + other2 + "','" + worder + "','" + GlobalParam.IDUser + "') ";
-
-                Bbdd_apply_simple(query);
-            
-
+                Bbdd_apply_simple(query);           
         }
         //Metodo que se encarga de BORRAR un  dispositivo en el inventario 
         //ejecuta la sentencia según  el tipo de base de datos
@@ -478,8 +534,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         {
                 string query = "call update_inventory_log('Delete','" + GlobalParam.IDUser + "'," +
                     "'" + SN + "','" + worder + "')";
-                Bbdd_apply_simple(query);
-            
+                Bbdd_apply_simple(query);           
         }
         //Metodo que obtiene todos los campos de una columna y borra los duplicados (select DISTINCT)
         //Los carga en un listbox (ideal para combobox PATCHING)
@@ -501,7 +556,6 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         {
             string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + panel_port + "')";
             Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
-
         }
         //Metodo que se encarga de hacer insert en patching PARCHEO        
         public static void Insert_Patching(string building, string floor,string closet, string panel,
@@ -515,7 +569,6 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 "' " + type_ + " ',' " + vlan + " ',' " + description + " ',' " + ip_switch + " '," +
                 "' " + GlobalParam.IDUser + " ',' " + workOrder + " ',' Create ')";
             Bbdd_apply_simple(query);
-
         }
         //metodo que borra el parcheo de un edificio entero
         public static void Delete_patching_building(string building, string worder)
@@ -535,7 +588,6 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             string query = "call delete_all_closet('Delete',' " + GlobalParam.IDUser + " ','" + building + "','" + worder + "','" + floor + "','" + closet + "')";
             Bbdd_apply_simple(query);
         }
-
         //Borra una fila de patching (simply del)
         public static void Delete_field_patching(string building, string floor, string closet,
             string Panel, string Panel_port,string stack, string IP_switch,string worder)

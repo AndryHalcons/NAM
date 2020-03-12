@@ -25,7 +25,8 @@ namespace NPMS.administrate_network
         {
  
             InitializeComponent();
-            
+            comboBoxSearchIP.SelectedIndex = 0;
+
         }     
         //Valida que el campo Vlan tiene un valor y abre el form Insert_or_update_ip_ipv4
         // Si el campo vlan no es de tipo entero, o no tiene valor, no permite abrir el form
@@ -40,7 +41,7 @@ namespace NPMS.administrate_network
             {
                 string ValorVlan = textBox_Vlan.Text.ToString();
                 Insert_or_update_ip_ipv6 panel_update_ip_ipv6 = new Insert_or_update_ip_ipv6(ValorVlan);
-                panel_update_ip_ipv6.Show();
+                panel_update_ip_ipv6.ShowDialog();
             }
            
         }
@@ -52,15 +53,30 @@ namespace NPMS.administrate_network
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
-            bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             string VlanAdaptada = "ipv6_" + textBox_Vlan.Text + "";
-            bool ValidaExistencia = Sentencias.ValidadorTabla(VlanAdaptada);
+            GlobalParam.Vlan_IPv6_in_IP_Select = textBox_Vlan.Text;
+            bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
+            bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
+            string CampoSeleccionado = comboBoxSearchIP.SelectedItem.ToString();
+            string datocampo = textBoxStringSearch.Text.ToString();
             if (VVlan == true && ValidaExistencia == true)
             {
-                Sentencias.Bbdd_apply_all_datagridView(VlanAdaptada, dataGridView_ipv4);
+                if (CampoSeleccionado == "ALL")
+                {
+                    Sentencias.Bbdd_apply_all_datagridView(VlanAdaptada, dataGridView_ipv4);
+                }
+                else
+                {
+                    if (CampoSeleccionado == "IP")
+                    {
+                        Sentencias.Select_all_ip_like("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                    }
+                    else
+                    {
+                        Sentencias.Select_all_ip_like_others_fields("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                    }
+                }
             }
-                        
-
         }
-    }
+    }   
 }

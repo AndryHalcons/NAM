@@ -36,56 +36,56 @@ namespace NPMS
         private void Administrate_ipv4_ip_Click(object sender, EventArgs e)
         {
            Administrate_ipv4_ip_form panel_ip_ipv4 = new Administrate_ipv4_ip_form();
-            panel_ip_ipv4.Show();
+            panel_ip_ipv4.ShowDialog();
         }
 
         private void Administrate_ipv4_vlan_Click(object sender, EventArgs e)
         {
            
             Administrate_ipv4_vlan_form panel_vlan_ipv4 = new Administrate_ipv4_vlan_form();
-            panel_vlan_ipv4.Show();
+            panel_vlan_ipv4.ShowDialog();
         }
 
         private void Administrate_ipv6_ip_Click(object sender, EventArgs e)
         {
             Administrate_ipv6_ip_form panel_ip_ipv6 = new Administrate_ipv6_ip_form();
-            panel_ip_ipv6.Show();
+            panel_ip_ipv6.ShowDialog();
         }
 
         private void Administrate_ipv6_vlan_Click(object sender, EventArgs e)
         {
             Administrate_ipv6_vlan_form panel_vlan_ipv6 = new Administrate_ipv6_vlan_form();
-            panel_vlan_ipv6.Show();
+            panel_vlan_ipv6.ShowDialog();
         }
 
         private void ButtonUserManagement_Click(object sender, EventArgs e)
         {
             UserManagement panel_user_management = new UserManagement();
-            panel_user_management.Show();
+            panel_user_management.ShowDialog();
         }
 
         private void ButtonImportData_Click(object sender, EventArgs e)
         {
             ImportData panel_importData = new ImportData();
-            panel_importData.Show();
+            panel_importData.ShowDialog();
         }
 
         private void buttonLogsIpIpv4_Click(object sender, EventArgs e)
         {
             ChangesView panel_changes_view = new ChangesView();
-            panel_changes_view.Show();
+            panel_changes_view.ShowDialog();
         }
 
         private void inventory_Click(object sender, EventArgs e)
         {
             Inventory panel_inventory = new Inventory();
-            panel_inventory.Show();
+            panel_inventory.ShowDialog();
         }
 
         private void patching_switchs_Click(object sender, EventArgs e)
         {
             Patching_switchs panel_patching_switchs = new Patching_switchs();
-            panel_patching_switchs.Show();
+            panel_patching_switchs.ShowDialog();
         }
 
         private void ButtonFastNetworkFirewall_Click(object sender, EventArgs e)

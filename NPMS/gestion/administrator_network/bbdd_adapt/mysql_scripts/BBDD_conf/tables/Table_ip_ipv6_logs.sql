@@ -3,7 +3,7 @@
 CREATE TABLE `log_ip_ipv6` (
   `ID` INT(20) NOT NULL AUTO_INCREMENT,
   `IP` varchar(30) NOT NULL,
-  `Accion` varchar(45) DEFAULT NULL,
+  `Action` varchar(45) DEFAULT NULL,
   `Vlan` int(11) NOT NULL,
   `Location` varchar(150) DEFAULT NULL,
   `Mac` varchar(40) DEFAULT NULL,

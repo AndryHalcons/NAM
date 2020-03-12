@@ -58,13 +58,13 @@ namespace NPMS.administrate_network
         private void Button_Update_IP_Data_Click(object sender, EventArgs e)
         {
             Insert_or_update_vlan_ipv6 panel_update_ipv6_vlan = new Insert_or_update_vlan_ipv6();
-            panel_update_ipv6_vlan.Show();
+            panel_update_ipv6_vlan.ShowDialog();
         }
 
         private void ButtonDeleteVlan_Click(object sender, EventArgs e)
         {
             Delete_vlan_ipv6 panel_delete_vlan_ipv6 = new Delete_vlan_ipv6();
-            panel_delete_vlan_ipv6.Show();
+            panel_delete_vlan_ipv6.ShowDialog();
         }
     }
     

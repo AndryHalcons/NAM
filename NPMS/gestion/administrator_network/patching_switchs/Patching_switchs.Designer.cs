@@ -83,12 +83,14 @@
             this.tabDelete = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.textSimplyDelWorder0 = new System.Windows.Forms.TextBox();
+            this.comboBoxStack0 = new System.Windows.Forms.ComboBox();
             this.comboBoxPanel0 = new System.Windows.Forms.ComboBox();
             this.comboBoxPanelPort0 = new System.Windows.Forms.ComboBox();
             this.comboBoxCloset0 = new System.Windows.Forms.ComboBox();
             this.comboBoxFloor0 = new System.Windows.Forms.ComboBox();
             this.comboBoxBuilding0 = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -126,8 +128,6 @@
             this.label33 = new System.Windows.Forms.Label();
             this.textBoxWorder1 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.comboBoxStack0 = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).BeginInit();
             this.tabControlDel.SuspendLayout();
@@ -273,6 +273,7 @@
             // 
             // comboBoxBuilding
             // 
+            this.comboBoxBuilding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBuilding.FormattingEnabled = true;
             this.comboBoxBuilding.Location = new System.Drawing.Point(3, 39);
             this.comboBoxBuilding.MaxDropDownItems = 50;
@@ -791,8 +792,18 @@
             this.textSimplyDelWorder0.Size = new System.Drawing.Size(204, 28);
             this.textSimplyDelWorder0.TabIndex = 57;
             // 
+            // comboBoxStack0
+            // 
+            this.comboBoxStack0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStack0.FormattingEnabled = true;
+            this.comboBoxStack0.Location = new System.Drawing.Point(131, 183);
+            this.comboBoxStack0.Name = "comboBoxStack0";
+            this.comboBoxStack0.Size = new System.Drawing.Size(204, 25);
+            this.comboBoxStack0.TabIndex = 55;
+            // 
             // comboBoxPanel0
             // 
+            this.comboBoxPanel0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPanel0.FormattingEnabled = true;
             this.comboBoxPanel0.Location = new System.Drawing.Point(131, 111);
             this.comboBoxPanel0.Name = "comboBoxPanel0";
@@ -801,6 +812,7 @@
             // 
             // comboBoxPanelPort0
             // 
+            this.comboBoxPanelPort0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPanelPort0.FormattingEnabled = true;
             this.comboBoxPanelPort0.Location = new System.Drawing.Point(131, 147);
             this.comboBoxPanelPort0.Name = "comboBoxPanelPort0";
@@ -809,6 +821,7 @@
             // 
             // comboBoxCloset0
             // 
+            this.comboBoxCloset0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCloset0.FormattingEnabled = true;
             this.comboBoxCloset0.Location = new System.Drawing.Point(131, 75);
             this.comboBoxCloset0.Name = "comboBoxCloset0";
@@ -817,6 +830,7 @@
             // 
             // comboBoxFloor0
             // 
+            this.comboBoxFloor0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFloor0.FormattingEnabled = true;
             this.comboBoxFloor0.Location = new System.Drawing.Point(131, 39);
             this.comboBoxFloor0.Name = "comboBoxFloor0";
@@ -825,6 +839,7 @@
             // 
             // comboBoxBuilding0
             // 
+            this.comboBoxBuilding0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBuilding0.FormattingEnabled = true;
             this.comboBoxBuilding0.Location = new System.Drawing.Point(131, 3);
             this.comboBoxBuilding0.Name = "comboBoxBuilding0";
@@ -843,6 +858,19 @@
             this.label22.TabIndex = 24;
             this.label22.Text = "Building";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label25.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label25.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label25.Location = new System.Drawing.Point(4, 180);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(120, 36);
+            this.label25.TabIndex = 34;
+            this.label25.Text = "Stack";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
             // 
@@ -1019,6 +1047,7 @@
             // 
             // comboBoxDelFloor3
             // 
+            this.comboBoxDelFloor3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDelFloor3.FormattingEnabled = true;
             this.comboBoxDelFloor3.Location = new System.Drawing.Point(131, 39);
             this.comboBoxDelFloor3.Name = "comboBoxDelFloor3";
@@ -1070,6 +1099,7 @@
             // 
             // comboBoxDelCloset3
             // 
+            this.comboBoxDelCloset3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDelCloset3.FormattingEnabled = true;
             this.comboBoxDelCloset3.Location = new System.Drawing.Point(286, 39);
             this.comboBoxDelCloset3.Name = "comboBoxDelCloset3";
@@ -1078,6 +1108,7 @@
             // 
             // comboBoxBuilding3
             // 
+            this.comboBoxBuilding3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBuilding3.FormattingEnabled = true;
             this.comboBoxBuilding3.Location = new System.Drawing.Point(3, 39);
             this.comboBoxBuilding3.Name = "comboBoxBuilding3";
@@ -1133,6 +1164,7 @@
             // 
             // comboBoxBuilding2
             // 
+            this.comboBoxBuilding2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBuilding2.FormattingEnabled = true;
             this.comboBoxBuilding2.Location = new System.Drawing.Point(3, 39);
             this.comboBoxBuilding2.Name = "comboBoxBuilding2";
@@ -1172,6 +1204,7 @@
             // 
             // comboBoxDelFloor2
             // 
+            this.comboBoxDelFloor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDelFloor2.FormattingEnabled = true;
             this.comboBoxDelFloor2.Location = new System.Drawing.Point(131, 39);
             this.comboBoxDelFloor2.Name = "comboBoxDelFloor2";
@@ -1248,6 +1281,7 @@
             // 
             // comboBoxBuilding1
             // 
+            this.comboBoxBuilding1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBuilding1.FormattingEnabled = true;
             this.comboBoxBuilding1.Location = new System.Drawing.Point(3, 39);
             this.comboBoxBuilding1.Name = "comboBoxBuilding1";
@@ -1285,27 +1319,6 @@
             this.label24.TabIndex = 25;
             this.label24.Text = "Using it is dangerous";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxStack0
-            // 
-            this.comboBoxStack0.FormattingEnabled = true;
-            this.comboBoxStack0.Location = new System.Drawing.Point(131, 183);
-            this.comboBoxStack0.Name = "comboBoxStack0";
-            this.comboBoxStack0.Size = new System.Drawing.Size(204, 25);
-            this.comboBoxStack0.TabIndex = 55;
-            // 
-            // label25
-            // 
-            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label25.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label25.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label25.Location = new System.Drawing.Point(4, 180);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(120, 36);
-            this.label25.TabIndex = 34;
-            this.label25.Text = "Stack";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Patching_switchs
             // 

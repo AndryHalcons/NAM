@@ -301,18 +301,19 @@
             // 
             // dataGridViewFastNetworkFirewall
             // 
-            this.dataGridViewFastNetworkFirewall.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridViewFastNetworkFirewall.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewFastNetworkFirewall.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.dataGridViewFastNetworkFirewall.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewFastNetworkFirewall.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFastNetworkFirewall.GridColor = System.Drawing.Color.Tan;
-            this.dataGridViewFastNetworkFirewall.Location = new System.Drawing.Point(416, 176);
+            this.dataGridViewFastNetworkFirewall.Location = new System.Drawing.Point(404, 155);
             this.dataGridViewFastNetworkFirewall.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewFastNetworkFirewall.Name = "dataGridViewFastNetworkFirewall";
             this.dataGridViewFastNetworkFirewall.ReadOnly = true;
-            this.dataGridViewFastNetworkFirewall.Size = new System.Drawing.Size(639, 86);
-            this.dataGridViewFastNetworkFirewall.TabIndex = 14;
+            this.dataGridViewFastNetworkFirewall.Size = new System.Drawing.Size(639, 68);
+            this.dataGridViewFastNetworkFirewall.TabIndex = 40;
             // 
             // Gestion
             // 
@@ -351,10 +352,10 @@
         private System.Windows.Forms.TextBox textBoxFastDestination;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button buttonFastNetworkFirewall;
-        private System.Windows.Forms.DataGridView dataGridViewFastNetworkFirewall;
         private System.Windows.Forms.Button buttonImportData;
         private System.Windows.Forms.Button inventory;
         private System.Windows.Forms.Button patching_switchs;
         private System.Windows.Forms.CheckBox checkBoxIPv6;
+        private System.Windows.Forms.DataGridView dataGridViewFastNetworkFirewall;
     }
 }

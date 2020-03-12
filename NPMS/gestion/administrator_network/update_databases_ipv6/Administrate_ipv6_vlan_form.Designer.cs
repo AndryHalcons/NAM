@@ -36,12 +36,12 @@
             this.button_Update_IP_Data = new System.Windows.Forms.Button();
             this.buttonDeleteVlan = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView_ipv6_vlan = new System.Windows.Forms.DataGridView();
             this.label_field_select = new System.Windows.Forms.Label();
             this.comboBoxSearchVlan = new System.Windows.Forms.ComboBox();
             this.label_String = new System.Windows.Forms.Label();
             this.textBoxStringSearch = new System.Windows.Forms.TextBox();
             this.checkBoxStringSearch = new System.Windows.Forms.CheckBox();
+            this.dataGridView_ipv6_vlan = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ipv6_vlan)).BeginInit();
             this.SuspendLayout();
@@ -120,47 +120,6 @@
             this.label1.Text = "Search for";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView_ipv6_vlan
-            // 
-            this.dataGridView_ipv6_vlan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_ipv6_vlan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView_ipv6_vlan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridView_ipv6_vlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ipv6_vlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_ipv6_vlan.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView_ipv6_vlan.EnableHeadersVisualStyles = false;
-            this.dataGridView_ipv6_vlan.GridColor = System.Drawing.Color.Tan;
-            this.dataGridView_ipv6_vlan.Location = new System.Drawing.Point(5, 189);
-            this.dataGridView_ipv6_vlan.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView_ipv6_vlan.Name = "dataGridView_ipv6_vlan";
-            this.dataGridView_ipv6_vlan.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ipv6_vlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView_ipv6_vlan.Size = new System.Drawing.Size(705, 287);
-            this.dataGridView_ipv6_vlan.TabIndex = 11;
-            // 
             // label_field_select
             // 
             this.label_field_select.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -175,6 +134,7 @@
             // 
             // comboBoxSearchVlan
             // 
+            this.comboBoxSearchVlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSearchVlan.FormattingEnabled = true;
             this.comboBoxSearchVlan.Items.AddRange(new object[] {
             "ALL",
@@ -234,6 +194,47 @@
             this.checkBoxStringSearch.TabIndex = 15;
             this.checkBoxStringSearch.Text = "String Search";
             this.checkBoxStringSearch.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_ipv6_vlan
+            // 
+            this.dataGridView_ipv6_vlan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_ipv6_vlan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView_ipv6_vlan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.dataGridView_ipv6_vlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ipv6_vlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_ipv6_vlan.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_ipv6_vlan.EnableHeadersVisualStyles = false;
+            this.dataGridView_ipv6_vlan.GridColor = System.Drawing.Color.Tan;
+            this.dataGridView_ipv6_vlan.Location = new System.Drawing.Point(5, 189);
+            this.dataGridView_ipv6_vlan.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView_ipv6_vlan.Name = "dataGridView_ipv6_vlan";
+            this.dataGridView_ipv6_vlan.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ipv6_vlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView_ipv6_vlan.Size = new System.Drawing.Size(705, 287);
+            this.dataGridView_ipv6_vlan.TabIndex = 11;
             // 
             // Administrate_ipv6_vlan_form
             // 

@@ -45,7 +45,7 @@ namespace NPMS.gestion.administrator_network
         private void Button_Create_Inventory_Click(object sender, EventArgs e)
         {
             Update_inventory panel_update_inventory = new Update_inventory();
-            panel_update_inventory.Show();
+            panel_update_inventory.ShowDialog();
         }
     }
 }
