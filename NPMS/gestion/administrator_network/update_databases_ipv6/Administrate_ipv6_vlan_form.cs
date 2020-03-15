@@ -37,21 +37,29 @@ namespace NPMS.administrate_network
             }
             else
             {
-                if (checkBoxStringSearch.Checked == true)
+                if (CampoSeleccionado == "For IP")
                 {
-                    Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv6", CampoSeleccionado, datocampo, dataGridView_ipv6_vlan);
+                    Sentencias.Bbdd_apply_search_vlan_for_IP("IPv4", "vlan_ipv4", datocampo, dataGridView_ipv6_vlan);
                 }
                 else
                 {
-                    if (CampoSeleccionado == "Date")
-                    {
-                        Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv6", CampoSeleccionado, datocampo, dataGridView_ipv6_vlan);
-                    }
-                    else
-                    {
-                        Sentencias.Bbdd_apply_where_datagridView("vlan_ipv6", CampoSeleccionado, datocampo, dataGridView_ipv6_vlan);
-                    }
 
+                
+                    if (checkBoxStringSearch.Checked == true)
+                     {
+                       Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv6", CampoSeleccionado, datocampo, dataGridView_ipv6_vlan);
+                     }
+                     else
+                      {
+                           if (CampoSeleccionado == "Date")
+                           {
+                                Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv6", CampoSeleccionado, datocampo, dataGridView_ipv6_vlan);
+                           }
+                         else
+                          {
+                            Sentencias.Bbdd_apply_where_datagridView("vlan_ipv6", CampoSeleccionado, datocampo, dataGridView_ipv6_vlan);
+                          }
+                      }
                 }
             }
         }

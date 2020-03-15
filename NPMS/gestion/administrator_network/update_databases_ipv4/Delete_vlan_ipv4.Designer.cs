@@ -90,7 +90,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 32);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Tarea";
+            this.label2.Text = "Work Order";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxTareaDel

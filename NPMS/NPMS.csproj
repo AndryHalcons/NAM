@@ -466,12 +466,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\complete_script\script_completo.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\IP\select_ipv4_hostname_all_vlan.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\User\Create_users.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\General\Delete_simply_where_field.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\General\Search_table_exists.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\User\Delete_users.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\Vlan\Search_Domain_Name.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\Vlan\Search_vlan_for_Fast_firewall.sql" />
-    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\IP\Search_vlan_for_IP.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\Vlan\Search_vlan_for_IP.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\General\Select_all_order_desc.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\General\Select_distinct.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\General\Select_select_where_like.sql" />
@@ -504,6 +506,7 @@
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\Vlan\update_vlan_log_ipv4.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\procedures\Vlan\update_vlan_log_ipv6.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\tables\Create_Schema.sql" />
+    <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\tables\Tables_no_create\Table_domain_name.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\tables\Table_inventory.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\tables\Table_inventory_logs.sql" />
     <Content Include="gestion\administrator_network\bbdd_adapt\mysql_scripts\BBDD_conf\tables\Tables_no_create\Table_ip_ipv4_.sql" />

@@ -1,4 +1,5 @@
-﻿using NPMS.gestion.administrator_network.CommonMethods;
+﻿using NPMS.administrate_network;
+using NPMS.gestion.administrator_network.CommonMethods;
 using System;
 using System.Windows.Forms;
 

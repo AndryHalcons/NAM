@@ -32,8 +32,6 @@
             this.ButtonOpenExcelIp = new System.Windows.Forms.Button();
             this.ButtonProcessExcelIp = new System.Windows.Forms.Button();
             this.labelExcelNameIP = new System.Windows.Forms.Label();
-            this.labelVlanIdIp = new System.Windows.Forms.Label();
-            this.textBoxIpId = new System.Windows.Forms.TextBox();
             this.ButtonProcessExcelVlan = new System.Windows.Forms.Button();
             this.ButtonOpenExcelVlan = new System.Windows.Forms.Button();
             this.listBoxVlan = new System.Windows.Forms.ListBox();
@@ -45,10 +43,16 @@
             this.ButtonProcessExcelInventory = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelCountVlan = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.labelVlan = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelCountIP = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.labelIP = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.labelCountInventory = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.labelInventory = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,10 +61,6 @@
             this.ButtonProcessExcelPatching = new System.Windows.Forms.Button();
             this.ButtonOpenExcelPatching = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelCountInventory = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelCountVlan = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,27 +111,6 @@
             this.labelExcelNameIP.Text = "Excel selected";
             this.labelExcelNameIP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelVlanIdIp
-            // 
-            this.labelVlanIdIp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelVlanIdIp.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.labelVlanIdIp.Location = new System.Drawing.Point(249, 134);
-            this.labelVlanIdIp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelVlanIdIp.Name = "labelVlanIdIp";
-            this.labelVlanIdIp.Size = new System.Drawing.Size(87, 28);
-            this.labelVlanIdIp.TabIndex = 25;
-            this.labelVlanIdIp.Text = "Vlan ID";
-            this.labelVlanIdIp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxIpId
-            // 
-            this.textBoxIpId.Location = new System.Drawing.Point(342, 134);
-            this.textBoxIpId.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxIpId.MaxLength = 30;
-            this.textBoxIpId.Name = "textBoxIpId";
-            this.textBoxIpId.Size = new System.Drawing.Size(93, 28);
-            this.textBoxIpId.TabIndex = 26;
-            // 
             // ButtonProcessExcelVlan
             // 
             this.ButtonProcessExcelVlan.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
@@ -177,7 +156,7 @@
             this.listBoxIP.Items.AddRange(new object[] {
             "IPv4",
             "IPv6"});
-            this.listBoxIP.Location = new System.Drawing.Point(248, 165);
+            this.listBoxIP.Location = new System.Drawing.Point(280, 126);
             this.listBoxIP.Name = "listBoxIP";
             this.listBoxIP.Size = new System.Drawing.Size(185, 38);
             this.listBoxIP.TabIndex = 31;
@@ -275,6 +254,27 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Vlan";
             // 
+            // labelCountVlan
+            // 
+            this.labelCountVlan.AutoSize = true;
+            this.labelCountVlan.Location = new System.Drawing.Point(182, 198);
+            this.labelCountVlan.Name = "labelCountVlan";
+            this.labelCountVlan.Size = new System.Drawing.Size(62, 17);
+            this.labelCountVlan.TabIndex = 44;
+            this.labelCountVlan.Text = "Nº Rows";
+            // 
+            // label7
+            // 
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label7.Location = new System.Drawing.Point(49, 187);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 39);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Import Rows";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelVlan
             // 
             this.labelVlan.AutoSize = true;
@@ -287,14 +287,14 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.tabPage2.Controls.Add(this.labelCountIP);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.labelIP);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.ButtonOpenExcelIp);
             this.tabPage2.Controls.Add(this.ButtonProcessExcelIp);
-            this.tabPage2.Controls.Add(this.labelVlanIdIp);
             this.tabPage2.Controls.Add(this.labelExcelNameIP);
             this.tabPage2.Controls.Add(this.listBoxIP);
-            this.tabPage2.Controls.Add(this.textBoxIpId);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -302,10 +302,31 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "IP";
             // 
+            // labelCountIP
+            // 
+            this.labelCountIP.AutoSize = true;
+            this.labelCountIP.Location = new System.Drawing.Point(155, 180);
+            this.labelCountIP.Name = "labelCountIP";
+            this.labelCountIP.Size = new System.Drawing.Size(62, 17);
+            this.labelCountIP.TabIndex = 45;
+            this.labelCountIP.Text = "Nº Rows";
+            // 
+            // label8
+            // 
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label8.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label8.Location = new System.Drawing.Point(8, 169);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 39);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Import Rows";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelIP
             // 
             this.labelIP.AutoSize = true;
-            this.labelIP.Location = new System.Drawing.Point(249, 101);
+            this.labelIP.Location = new System.Drawing.Point(277, 101);
             this.labelIP.Name = "labelIP";
             this.labelIP.Size = new System.Drawing.Size(87, 17);
             this.labelIP.TabIndex = 34;
@@ -325,6 +346,27 @@
             this.tabPage3.Size = new System.Drawing.Size(781, 513);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventory";
+            // 
+            // labelCountInventory
+            // 
+            this.labelCountInventory.AutoSize = true;
+            this.labelCountInventory.Location = new System.Drawing.Point(181, 158);
+            this.labelCountInventory.Name = "labelCountInventory";
+            this.labelCountInventory.Size = new System.Drawing.Size(62, 17);
+            this.labelCountInventory.TabIndex = 43;
+            this.labelCountInventory.Text = "Nº Rows";
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.label5.Location = new System.Drawing.Point(29, 147);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 39);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Import Rows";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelInventory
             // 
@@ -416,48 +458,6 @@
             this.label4.Text = "Import Patching";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label5.Location = new System.Drawing.Point(29, 147);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 39);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Import Rows";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelCountInventory
-            // 
-            this.labelCountInventory.AutoSize = true;
-            this.labelCountInventory.Location = new System.Drawing.Point(181, 158);
-            this.labelCountInventory.Name = "labelCountInventory";
-            this.labelCountInventory.Size = new System.Drawing.Size(62, 17);
-            this.labelCountInventory.TabIndex = 43;
-            this.labelCountInventory.Text = "Nº Rows";
-            // 
-            // label7
-            // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label7.Location = new System.Drawing.Point(49, 187);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 39);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Import Rows";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelCountVlan
-            // 
-            this.labelCountVlan.AutoSize = true;
-            this.labelCountVlan.Location = new System.Drawing.Point(182, 198);
-            this.labelCountVlan.Name = "labelCountVlan";
-            this.labelCountVlan.Size = new System.Drawing.Size(62, 17);
-            this.labelCountVlan.TabIndex = 44;
-            this.labelCountVlan.Text = "Nº Rows";
-            // 
             // ImportData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -487,8 +487,6 @@
         private System.Windows.Forms.Button ButtonOpenExcelIp;
         private System.Windows.Forms.Button ButtonProcessExcelIp;
         private System.Windows.Forms.Label labelExcelNameIP;
-        private System.Windows.Forms.Label labelVlanIdIp;
-        private System.Windows.Forms.TextBox textBoxIpId;
         private System.Windows.Forms.Button ButtonProcessExcelVlan;
         private System.Windows.Forms.Button ButtonOpenExcelVlan;
         private System.Windows.Forms.ListBox listBoxVlan;
@@ -516,5 +514,7 @@
         private System.Windows.Forms.Label labelCountInventory;
         private System.Windows.Forms.Label labelCountVlan;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelCountIP;
+        private System.Windows.Forms.Label label8;
     }
 }

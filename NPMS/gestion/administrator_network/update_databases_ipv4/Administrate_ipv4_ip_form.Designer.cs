@@ -109,14 +109,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(432, 132);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(559, 132);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.label5.Location = new System.Drawing.Point(239, 0);
+            this.label5.Location = new System.Drawing.Point(266, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(186, 39);
@@ -152,7 +152,7 @@
             this.label1.Location = new System.Drawing.Point(76, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 39);
+            this.label1.Size = new System.Drawing.Size(182, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Search for";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -163,7 +163,7 @@
             this.button_search.Location = new System.Drawing.Point(76, 79);
             this.button_search.Margin = new System.Windows.Forms.Padding(4);
             this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(144, 38);
+            this.button_search.Size = new System.Drawing.Size(181, 38);
             this.button_search.TabIndex = 7;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
@@ -179,7 +179,6 @@
             this.comboBoxSearchIP.Items.AddRange(new object[] {
             "ALL",
             "IP",
-            "Vlan",
             "Location",
             "Mac",
             "DNS",
@@ -188,15 +187,16 @@
             "Hostname",
             "Date",
             "Work_Order",
-            "User"});
+            "User",
+            "Hostname in All Vlan"});
             this.comboBoxSearchIP.Location = new System.Drawing.Point(75, 42);
             this.comboBoxSearchIP.Name = "comboBoxSearchIP";
-            this.comboBoxSearchIP.Size = new System.Drawing.Size(157, 25);
+            this.comboBoxSearchIP.Size = new System.Drawing.Size(184, 25);
             this.comboBoxSearchIP.TabIndex = 23;
             // 
             // textBoxStringSearch
             // 
-            this.textBoxStringSearch.Location = new System.Drawing.Point(238, 42);
+            this.textBoxStringSearch.Location = new System.Drawing.Point(265, 42);
             this.textBoxStringSearch.Name = "textBoxStringSearch";
             this.textBoxStringSearch.Size = new System.Drawing.Size(187, 28);
             this.textBoxStringSearch.TabIndex = 29;
@@ -204,7 +204,7 @@
             // button_Update_IP_Data
             // 
             this.button_Update_IP_Data.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button_Update_IP_Data.Location = new System.Drawing.Point(239, 79);
+            this.button_Update_IP_Data.Location = new System.Drawing.Point(266, 79);
             this.button_Update_IP_Data.Margin = new System.Windows.Forms.Padding(4);
             this.button_Update_IP_Data.Name = "button_Update_IP_Data";
             this.button_Update_IP_Data.Size = new System.Drawing.Size(186, 38);

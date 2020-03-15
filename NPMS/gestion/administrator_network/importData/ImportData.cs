@@ -86,6 +86,8 @@ namespace NPMS.gestion.administrator_network
 
         private void ButtonProcessExcelIp_Click(object sender, EventArgs e)
         {
+            string protocolo = listBoxIP.Text;
+            Sentencias.Import_IP(labelIP, labelCountIP, protocolo);
         }
 
         private void ButtonProcessExcelInventory_Click(object sender, EventArgs e)

@@ -170,5 +170,49 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             Marshal.ReleaseComObject(xlApp);
             MessageBox.Show("Import Completed");
         }
+
+
+        public static void Import_IP_IPv4(Label url_Excel, Label labelCount)
+        {
+
+            ////////////////OPEN EXCEL/////////////////
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@url_Excel.Text);
+            Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            Excel.Range range = xlWorksheet.UsedRange;
+            int rows = range.Rows.Count;
+            int cols = range.Columns.Count;
+            int marcador = rows;
+            string protocolo = "IPv4";
+            string workOrder = "" + GlobalParam.IDUser + "_Import_Data";
+            //REcorremos el EXCEL
+            for (int i = 2; i <= rows; i++)
+            {
+                marcador = marcador - 1;
+                labelCount.Text = marcador.ToString();
+                string id_ip = range.Cells[i, 1].Value2.ToString();
+                string id_Location = range.Cells[i, 2].Value2.ToString();
+                string id_Mac = range.Cells[i, 3].Value2.ToString();
+                string id_DNS = range.Cells[i, 4].Value2.ToString();
+                string id_Descripcion = range.Cells[i, 5].Value2.ToString();
+                string id_HostnameRevisado = range.Cells[i, 6].Value2.ToString();
+                string id_Hostname= range.Cells[i, 7].Value2.ToString();
+                string id_vlan = Sentencias.Dato_campo_string_vlan_for_ip_ipv4(id_ip);
+                
+               
+                    //////////BBDD INSERT///////////////////////////
+                    Sentencias.Insert_ip(protocolo, id_vlan, id_Location, id_Mac, id_DNS, id_Descripcion, id_HostnameRevisado,
+                        id_Hostname, workOrder, id_ip);
+                          
+            }
+            /////////////////CLOSE EXCEL/////////////////
+            Marshal.ReleaseComObject(range);
+            Marshal.ReleaseComObject(xlWorksheet);
+            xlWorkbook.Close();
+            Marshal.ReleaseComObject(xlWorkbook);
+            xlApp.Quit();
+            Marshal.ReleaseComObject(xlApp);
+            MessageBox.Show("Import Completed");
+        }
     }
 }

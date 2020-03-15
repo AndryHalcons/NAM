@@ -53,30 +53,54 @@ namespace NPMS.administrate_network
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
-            GlobalParam.Vlan_IPv4_in_IP_Select = textBox_Vlan.Text;
-            bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
-            bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
+
+            bool ValidaDatoInsertado_Vacio = Common.ValidadorCamposVacios_SinMensaje(textBoxStringSearch.Text);
             string CampoSeleccionado = comboBoxSearchIP.SelectedItem.ToString();
             string datocampo = textBoxStringSearch.Text.ToString();
-            if (VVlan == true && ValidaExistencia == true)
+
+
+            if (CampoSeleccionado == "Hostname in All Vlan")
             {
-                //Sentencias.Select_all_ip("IPv4",textBox_Vlan.Text, dataGridView_ipv4);
-                if (CampoSeleccionado == "ALL")
+                Sentencias.select_ipv4_hostname_all_vlan("IPv4", datocampo, dataGridView_ipv4);
+            }
+            else
+            {
+                GlobalParam.Vlan_IPv4_in_IP_Select = textBox_Vlan.Text;
+                bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
+                bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
+         
+                if (VVlan == true && ValidaExistencia == true)
                 {
-                    Sentencias.Select_all_ip("IPv4", textBox_Vlan.Text, dataGridView_ipv4);
-                }
-                else
-                {
-                    if (CampoSeleccionado == "IP")
+                    //Sentencias.Select_all_ip("IPv4",textBox_Vlan.Text, dataGridView_ipv4);
+                    if (CampoSeleccionado == "ALL")
                     {
-                        Sentencias.Select_all_ip_like_logs("IPv4",textBox_Vlan.Text, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                        Sentencias.Select_all_ip("IPv4", textBox_Vlan.Text, dataGridView_ipv4);
                     }
+
                     else
                     {
-                        Sentencias.Select_all_ip_like_others_fields_logs("IPv4",textBox_Vlan.Text, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                        if (CampoSeleccionado == "IP" && ValidaDatoInsertado_Vacio == true)
+                        {
+                            bool ValidaFormatoIP = Common.ValidadorIP(datocampo, "IP");
+                            if (ValidaFormatoIP == true)
+                            {
+                                Sentencias.Select_all_ip_like("IPv4", textBox_Vlan.Text, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                            }
+                        }
+                        else if (CampoSeleccionado == "Hostname in All Vlan")
+                        {
+                            Sentencias.select_ipv4_hostname_all_vlan("IPv4", datocampo, dataGridView_ipv4);
+                        }
+                        else
+                        {
+                            Sentencias.Select_all_ip_like_others_fields("IPv4", textBox_Vlan.Text, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                        }
                     }
                 }
-            }                     
+            }
+
+           
+            
         }   
     }
 }

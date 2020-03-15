@@ -39,24 +39,29 @@ namespace NPMS.administrate_network
             }
             else
             {
-                if (checkBoxStringSearch.Checked == true)
+                if (CampoSeleccionado == "For IP")
                 {
-                    Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                    Sentencias.Bbdd_apply_search_vlan_for_IP("IPv4", "vlan_ipv4", datocampo, dataGridView_ipv4_vlan);
                 }
                 else
-                {
-                    if (CampoSeleccionado == "Date")
+                {               
+                    if (checkBoxStringSearch.Checked == true)
                     {
-                        Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                         Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
                     }
-                    else
-                    {
-                        Sentencias.Bbdd_apply_where_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
-                    }
-
+                     else
+                     {
+                          if (CampoSeleccionado == "Date")
+                         {
+                              Sentencias.Bbdd_apply_wherelike_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                          }
+                          else
+                          {
+                              Sentencias.Bbdd_apply_where_datagridView("vlan_ipv4", CampoSeleccionado, datocampo, dataGridView_ipv4_vlan);
+                          }
+                     }
                 }
             }
-
         }
         private void Button_Update_IP_Data_Click(object sender, EventArgs e)
         {

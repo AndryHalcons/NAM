@@ -139,6 +139,7 @@
             this.comboBoxSearchVlan.Items.AddRange(new object[] {
             "ALL",
             "Vlan",
+            "For IP",
             "Name",
             "Location",
             "Description",

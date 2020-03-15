@@ -153,6 +153,24 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             return Rol;
         }
 
+        //Encuentra la VLAN de una IP , especial para importacviones
+        public static string Dato_campo_string_vlan_for_ip_ipv4(string DatoCampo)
+        {
+            MySqlCommand Query = new MySqlCommand();
+            MySqlConnection Conexion = new MySqlConnection();
+            MySqlDataReader consultar;
+            Conexion = new MySqlConnection();
+            Conexion.ConnectionString = bbdd_connection_data();
+            Conexion.Open();
+            Query.CommandText = "call search_vlan_for_ip('vlan_ipv4','" + DatoCampo + "');";
+            Query.Connection = Conexion;
+            consultar = Query.ExecuteReader();
+            consultar.Read();
+            string resultado = consultar.GetString(0);
+            Conexion.Close();
+            return resultado;
+        }
+
         //*******************************************************************************************//
 
         //**************Valida que una tabla existe *************************
@@ -284,10 +302,14 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
         }
         //Metodo que encuentra la vlan correspondiente a una IP y la muestra en un DATAGRIDVIEW
-        public static void Bbdd_apply_search_vlan_for_IP(string tabla, string IP, string campoMenor, string campoMayor, DataGridView Datagrid_Name)
+        public static void Bbdd_apply_search_vlan_for_IP(string protocolo,string tabla, string IP, DataGridView Datagrid_Name)
         {
-            string query = "call search_vlan_for_IP('" + tabla + "','" + IP + "','" + campoMenor + "','" + campoMayor + "')";
-            Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+            if (protocolo == "IPv4")
+            {
+                string query = "call search_vlan_for_ip('" + tabla + "','" + IP + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+            }
+                
         }
 
         //Metodo que encuentra la vlan correspondiente a una IP origen y una IP destino
@@ -389,8 +411,20 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 Bbdd_simply_all_datagridView(id_vlan, query, Name_datagrid);
             }
         }
+        // Metodo que hace un select all HOSTNAME mostrando todas las ips que tengan el mismo nombre
+        public static void select_ipv4_hostname_all_vlan(string protocolo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (protocolo == "IPv4")
+            {
+                string query = "call select_ipv4_hostname_all_vlan('" + datocampo + "');";
+                Bbdd_simply_all_datagridView("domain_name", query, Name_datagrid);
 
+            }
+            if (protocolo == "IPv6")
+            {
 
+            }
+        }
         // Metodo que hace un select wherE campo  IP like DESconvirtiendo las IP guaradas en iner_aton
         public static void Select_all_ip_like(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
         {

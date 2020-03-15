@@ -178,7 +178,6 @@
             this.comboBoxSearchIP.Items.AddRange(new object[] {
             "ALL",
             "IP",
-            "Vlan",
             "Location",
             "Mac",
             "DNS",

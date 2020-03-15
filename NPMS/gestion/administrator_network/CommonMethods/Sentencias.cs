@@ -143,11 +143,11 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
         }
         //Metodo que encuentra la vlan correspondiente a una IP y la muestra en un DATAGRIDVIEW
-        public static void Bbdd_apply_search_vlan_for_IP(string tabla, string IP, string campoMenor, string campoMayor, DataGridView Datagrid_Name)
+        public static void Bbdd_apply_search_vlan_for_IP(string protocolo, string tabla, string IP, DataGridView Datagrid_Name)
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                mysql_commands.Bbdd_apply_search_vlan_for_IP(tabla, IP, campoMenor, campoMayor, Datagrid_Name);
+                mysql_commands.Bbdd_apply_search_vlan_for_IP(protocolo,tabla, IP, Datagrid_Name);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
@@ -252,6 +252,22 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 //resultado = sqlserver_commands.Dato_Campo_String(tabla, NombreCampo, DatoCampo, PosicionCampo);
                 //return resultado;
             }       
+            return resultado;
+        }
+        //Encuentra la VLAN de una IP , especial para importacviones
+        public static string Dato_campo_string_vlan_for_ip_ipv4(string DatoCampo)
+        {
+            string resultado = "0";
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                resultado = mysql_commands.Dato_campo_string_vlan_for_ip_ipv4(DatoCampo);
+                return resultado;
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //resultado = sqlserver_commands.Dato_campo_string_vlan_for_ip_ipv4(DatoCampo);
+                //return resultado;
+            }
             return resultado;
         }
 
@@ -400,6 +416,18 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             if (GlobalParam.BBDD_Type == "MySQL")
             {
                 mysql_commands.Select_all_ip(protocolo, id_vlan,Name_datagrid);
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //sqlserver_commands.Select_all_ip(protocolo, id_vlan, Name_datagrid);
+            }
+        }
+        // Metodo que hace un select all HOSTNAME mostrando todas las ips que tengan el mismo nombre
+        public static void select_ipv4_hostname_all_vlan(string protocolo, string datocampo, DataGridView Name_datagrid)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                mysql_commands.select_ipv4_hostname_all_vlan(protocolo, datocampo, Name_datagrid);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
@@ -666,6 +694,25 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 if (protocolo == "IPv6")
                 {
                     //mysql_imports.Import_Vlan_IPv4(url_Excel, labelCount);
+                }
+
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+
+            }
+        }
+        public static void Import_IP(Label url_Excel, Label labelCount, string protocolo)
+        {
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                if (protocolo == "IPv4")
+                {
+                    mysql_imports.Import_IP_IPv4(url_Excel, labelCount);
+                }
+                if (protocolo == "IPv6")
+                {
+                    //mysql_imports.Import_IP_IPv4(url_Excel, labelCount);
                 }
 
             }

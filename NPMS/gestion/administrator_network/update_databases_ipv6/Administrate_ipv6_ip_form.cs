@@ -36,6 +36,7 @@ namespace NPMS.administrate_network
             string VlanAdaptada = "ipv6_" + textBox_Vlan.Text + "";
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool VClan = Common.ValidadorCamposVacios(textBox_Vlan.Text, "Vlan");
+            bool ValidaDatoInsertado_Vacio = Common.ValidadorCamposVacios_SinMensaje(textBoxStringSearch.Text);
             bool ComprobarExistencia = Sentencias.ValidadorTabla(VlanAdaptada);
             if (VVlan == true && VClan == true && ComprobarExistencia == true)
             {
@@ -57,6 +58,7 @@ namespace NPMS.administrate_network
             GlobalParam.Vlan_IPv6_in_IP_Select = textBox_Vlan.Text;
             bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
             bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
+            bool ValidaDatoInsertado_Vacio = Common.ValidadorCamposVacios_SinMensaje(textBoxStringSearch.Text);
             string CampoSeleccionado = comboBoxSearchIP.SelectedItem.ToString();
             string datocampo = textBoxStringSearch.Text.ToString();
             if (VVlan == true && ValidaExistencia == true)
@@ -67,7 +69,7 @@ namespace NPMS.administrate_network
                 }
                 else
                 {
-                    if (CampoSeleccionado == "IP")
+                    if (CampoSeleccionado == "IP" && ValidaDatoInsertado_Vacio == true)
                     {
                         Sentencias.Select_all_ip_like("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv4);
                     }
