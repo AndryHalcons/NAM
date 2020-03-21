@@ -170,6 +170,23 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             Conexion.Close();
             return resultado;
         }
+        //Encuentra la VLAN de una IP , especial para importacviones IPV6
+        public static string Dato_campo_string_vlan_for_ip_ipv6(string DatoCampo)
+        {
+            MySqlCommand Query = new MySqlCommand();
+            MySqlConnection Conexion = new MySqlConnection();
+            MySqlDataReader consultar;
+            Conexion = new MySqlConnection();
+            Conexion.ConnectionString = bbdd_connection_data();
+            Conexion.Open();
+            Query.CommandText = "call search_vlan_for_ipv6('vlan_ipv6','" + DatoCampo + "');";
+            Query.Connection = Conexion;
+            consultar = Query.ExecuteReader();
+            consultar.Read();
+            string resultado = consultar.GetString(0);
+            Conexion.Close();
+            return resultado;
+        }
 
         //*******************************************************************************************//
 
@@ -309,7 +326,12 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
                 string query = "call search_vlan_for_ip('" + tabla + "','" + IP + "')";
                 Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
             }
-                
+            if (protocolo == "IPv6")
+            {
+                string query = "call search_vlan_for_ipv6('" + tabla + "','" + IP + "')";
+                Bbdd_simply_all_datagridView(tabla, query, Datagrid_Name);
+            }
+
         }
 
         //Metodo que encuentra la vlan correspondiente a una IP origen y una IP destino
@@ -323,7 +345,7 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
             if (protocolo == "IPv6")
             {
-                string query = "call search_vlan_for_Fast_Firewall('vlan_ipv6','" + IPorigen + "','" + IPdestino + "')";
+                string query = "call search_vlan_for_Fast_Firewall_ipv6('vlan_ipv6','" + IPorigen + "','" + IPdestino + "')";
                 Bbdd_simply_all_datagridView("vlan_ipv6", query, Datagrid_Name);
             }
         }
@@ -406,24 +428,17 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
             if (protocolo == "IPv6")
             {
-                string FormatoVlanIPv6 = "ipv6_" + id_vlan + "";
+                string FormatoVlanIPv6 = "ipv6_"+id_vlan+"";
                 string query = "call select_ipv6_ip('" + FormatoVlanIPv6 + "','IP');";
                 Bbdd_simply_all_datagridView(id_vlan, query, Name_datagrid);
             }
         }
         // Metodo que hace un select all HOSTNAME mostrando todas las ips que tengan el mismo nombre
-        public static void select_ipv4_hostname_all_vlan(string protocolo, string datocampo, DataGridView Name_datagrid)
+        public static void select_ip_hostname_all_vlan(string datocampo, DataGridView Name_datagrid)
         {
-            if (protocolo == "IPv4")
-            {
-                string query = "call select_ipv4_hostname_all_vlan('" + datocampo + "');";
+                string query = "call select_ip_hostname_all_vlan('" + datocampo + "');";
                 Bbdd_simply_all_datagridView("domain_name", query, Name_datagrid);
 
-            }
-            if (protocolo == "IPv6")
-            {
-
-            }
         }
         // Metodo que hace un select wherE campo  IP like DESconvirtiendo las IP guaradas en iner_aton
         public static void Select_all_ip_like(string protocolo, string tabla, string campo, string datocampo, DataGridView Name_datagrid)
@@ -436,7 +451,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
             if (protocolo == "IPv6")
             {
-                string query = "call select_ipv4_ip_like('" + tabla + "','" + campo + "','" + datocampo + "')";
+                string FormatoVlanIPv6 = "ipv6_" + tabla + "";
+                string query = "call select_ipv6_ip_like('" + FormatoVlanIPv6 + "','" + campo + "','" + datocampo + "')";
                 Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
             }
         }
@@ -452,7 +468,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
             if (protocolo == "IPv6")
             {
-                string query = "call select_ipv4_ip_like_logs('" + tabla + "','" + campo + "','" + datocampo + "')";
+                string FormatoVlanIPv6 = "ipv6_" + tabla + "";
+                string query = "call select_ipv6_ip_like_logs('" + FormatoVlanIPv6 + "','" + campo + "','" + datocampo + "')";
                 Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
             }
         }
@@ -468,7 +485,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
             if (protocolo == "IPv6")
             {
-                string query = "call select_ipv4_ip_like_other_fields('" + tabla + "','" + campo + "','" + datocampo + "')";
+                string FormatoVlanIPv6 = "ipv6_" + tabla + "";
+                string query = "call select_ipv6_ip_like_other_fields('" + FormatoVlanIPv6 + "','" + campo + "','" + datocampo + "')";
                 Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
             }
         }
@@ -483,7 +501,8 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             }
             if (protocolo == "IPv6")
             {
-                string query = "call select_ipv4_ip_like_other_fields_logs('" + tabla + "','" + campo + "','" + datocampo + "')";
+                string FormatoVlanIPv6 = "ipv6_" + tabla + "";
+                string query = "call select_ipv6_ip_like_other_fields_logs('" + FormatoVlanIPv6 + "','" + campo + "','" + datocampo + "')";
                 Bbdd_simply_all_datagridView(tabla, query, Name_datagrid);
             }
         }
@@ -597,11 +616,11 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             string link, string speed,string duplex,string type_,string vlan,string description,
             string ip_switch,string workOrder)
         {
-            string query = "call insert_patching(' " + building + " ',' "+floor+" ',' " + closet + "',' " + panel + " '," +
-                "' " + panel_port + " ',' " + stack + " ',' " + switch_ + " ',' " + switch_port + " '," +
-                "' " + interface_ + " ',' " + link + " ',' " + speed + " ',' " + duplex + " '," +
-                "' " + type_ + " ',' " + vlan + " ',' " + description + " ',' " + ip_switch + " '," +
-                "' " + GlobalParam.IDUser + " ',' " + workOrder + " ',' Create ')";
+            string query = "call insert_patching('" + building + "','"+floor+"','" + closet + "','" + panel + "'," +
+                "'" + panel_port + "','" + stack + "','" + switch_ + "','" + switch_port + "'," +
+                "'" + interface_ + "','" + link + "','" + speed + "','" + duplex + "'," +
+                "'" + type_ + " ','" + vlan + "','" + description + "','" + ip_switch + "'," +
+                "'" + GlobalParam.IDUser + "','" + workOrder + "',' Create ')";
             Bbdd_apply_simple(query);
         }
         //metodo que borra el parcheo de un edificio entero

@@ -96,6 +96,7 @@ namespace NPMS.gestion.administrator_network
                 Sentencias.Insert_Patching(in_building, in_Floor, in_Closet, in_Panel, in_PanelPort, in_Stack,
                     in_Switch, in_SwitchPort, in_interface, in_link, in_Speed, in_Duplex,
                     in_Type, in_Vlan, in_Description, in_IP_Switch,in_WorkOrder);
+                labelSuccesfullInsert.Text = "Successful!";
             }
         }
 

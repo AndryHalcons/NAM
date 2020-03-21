@@ -21,9 +21,33 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         /*Variable que indica al programa donde se encuentra el archivo
          * que contiene la configuracion de conexion a la base de datos */
         public static string ruta_ArchivoConfBbdd =  Application.StartupPath+"/DatSettings.txt";
-       /*Comprueba que el txt que contiene los datos de conexion a BBDD
-         * existen en la carpeta del proyecto, si no está lo crea  
-         * genera contenido para trabajar con el*/
+        /*Comprueba que el txt que contiene los datos de conexion a BBDD
+          * existen en la carpeta del proyecto, si no está lo crea  
+          * genera contenido para trabajar con el*/
+        public static void ArchivoConfBbdd_PrimeraVez()
+        {
+            try
+            {
+                StreamReader sr = File.OpenText(ruta_ArchivoConfBbdd);
+                sr.Close();
+             
+            }
+            catch
+            {
+                StreamWriter sw = File.CreateText(ruta_ArchivoConfBbdd);
+                sw.WriteLine(SecureCommon.Encriptar("Database User"));
+                sw.WriteLine(SecureCommon.Encriptar("Database Pass"));
+                sw.WriteLine(SecureCommon.Encriptar("Database Server"));
+                sw.WriteLine(SecureCommon.Encriptar("Database schema"));
+                sw.WriteLine(SecureCommon.Encriptar("Database Port"));
+                sw.WriteLine(SecureCommon.Encriptar("BBDD Type"));
+                sw.Close();
+               
+            }
+        }
+        /*Comprueba que el txt que contiene los datos de conexion a BBDD
+       * existen en la carpeta del proyecto, si no está lo crea  
+       * genera contenido para trabajar con el*/
         public static bool ArchivoConfBbdd()
         {
             try
@@ -45,6 +69,8 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 return true;
             }                                                                                                                                             
          }
+
+
         //Metodo que le indica al programa antes de iniciar que tipo de BBDD se va a usar
         //Necesario para que se cargue el string de conexion de la BBDD correspondiente
         public static void Type_bbdd_connection_data()

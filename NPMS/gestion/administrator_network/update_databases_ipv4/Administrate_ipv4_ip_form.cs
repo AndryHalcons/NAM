@@ -61,7 +61,7 @@ namespace NPMS.administrate_network
 
             if (CampoSeleccionado == "Hostname in All Vlan")
             {
-                Sentencias.select_ipv4_hostname_all_vlan("IPv4", datocampo, dataGridView_ipv4);
+                Sentencias.select_ip_hostname_all_vlan( datocampo, dataGridView_ipv4);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace NPMS.administrate_network
                         }
                         else if (CampoSeleccionado == "Hostname in All Vlan")
                         {
-                            Sentencias.select_ipv4_hostname_all_vlan("IPv4", datocampo, dataGridView_ipv4);
+                            Sentencias.select_ip_hostname_all_vlan( datocampo, dataGridView_ipv4);
                         }
                         else
                         {

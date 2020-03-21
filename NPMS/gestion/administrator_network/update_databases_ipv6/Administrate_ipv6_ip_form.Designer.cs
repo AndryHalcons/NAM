@@ -28,63 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView_ipv4 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataGridView_ipv6 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_Vlan = new System.Windows.Forms.TextBox();
             this.label_Vlan = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_search = new System.Windows.Forms.Button();
+            this.Button_search = new System.Windows.Forms.Button();
             this.comboBoxSearchIP = new System.Windows.Forms.ComboBox();
             this.textBoxStringSearch = new System.Windows.Forms.TextBox();
             this.button_Update_IP_Data = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ipv4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ipv6)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView_ipv4
+            // dataGridView_ipv6
             // 
-            this.dataGridView_ipv4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView_ipv6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_ipv4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView_ipv4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridView_ipv4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ipv4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_ipv4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView_ipv4.EnableHeadersVisualStyles = false;
-            this.dataGridView_ipv4.GridColor = System.Drawing.Color.Tan;
-            this.dataGridView_ipv4.Location = new System.Drawing.Point(4, 138);
-            this.dataGridView_ipv4.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView_ipv4.Name = "dataGridView_ipv4";
-            this.dataGridView_ipv4.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ipv4.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView_ipv4.Size = new System.Drawing.Size(737, 289);
-            this.dataGridView_ipv4.TabIndex = 11;
+            this.dataGridView_ipv6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView_ipv6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.dataGridView_ipv6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ipv6.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_ipv6.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView_ipv6.EnableHeadersVisualStyles = false;
+            this.dataGridView_ipv6.GridColor = System.Drawing.Color.Tan;
+            this.dataGridView_ipv6.Location = new System.Drawing.Point(4, 138);
+            this.dataGridView_ipv6.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView_ipv6.Name = "dataGridView_ipv6";
+            this.dataGridView_ipv6.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ipv6.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView_ipv6.Size = new System.Drawing.Size(737, 289);
+            this.dataGridView_ipv6.TabIndex = 11;
             // 
             // tableLayoutPanel1
             // 
@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox_Vlan, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label_Vlan, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button_search, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Button_search, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSearchIP, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBoxStringSearch, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.button_Update_IP_Data, 2, 2);
@@ -157,16 +157,17 @@
             this.label1.Text = "Search for";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button_search
+            // Button_search
             // 
-            this.button_search.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
-            this.button_search.Location = new System.Drawing.Point(76, 79);
-            this.button_search.Margin = new System.Windows.Forms.Padding(4);
-            this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(144, 38);
-            this.button_search.TabIndex = 7;
-            this.button_search.Text = "Search";
-            this.button_search.UseVisualStyleBackColor = true;
+            this.Button_search.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.Button_search.Location = new System.Drawing.Point(76, 79);
+            this.Button_search.Margin = new System.Windows.Forms.Padding(4);
+            this.Button_search.Name = "Button_search";
+            this.Button_search.Size = new System.Drawing.Size(144, 38);
+            this.Button_search.TabIndex = 7;
+            this.Button_search.Text = "Search";
+            this.Button_search.UseVisualStyleBackColor = true;
+            this.Button_search.Click += new System.EventHandler(this.Button_search_Click);
             // 
             // comboBoxSearchIP
             // 
@@ -186,7 +187,8 @@
             "Hostname",
             "Date",
             "Work_Order",
-            "User"});
+            "User",
+            "Hostname in All Vlan"});
             this.comboBoxSearchIP.Location = new System.Drawing.Point(75, 42);
             this.comboBoxSearchIP.Name = "comboBoxSearchIP";
             this.comboBoxSearchIP.Size = new System.Drawing.Size(157, 25);
@@ -217,7 +219,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(754, 426);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.dataGridView_ipv4);
+            this.Controls.Add(this.dataGridView_ipv6);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -226,7 +228,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "IPv6 IP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ipv4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ipv6)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -234,13 +236,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView_ipv4;
+        private System.Windows.Forms.DataGridView dataGridView_ipv6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_Vlan;
         private System.Windows.Forms.Label label_Vlan;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button_search;
+        private System.Windows.Forms.Button Button_search;
         private System.Windows.Forms.ComboBox comboBoxSearchIP;
         private System.Windows.Forms.Button button_Update_IP_Data;
         private System.Windows.Forms.TextBox textBoxStringSearch;

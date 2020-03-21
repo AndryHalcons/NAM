@@ -79,6 +79,7 @@
             // administrate_ipv6_ip
             // 
             this.administrate_ipv6_ip.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.administrate_ipv6_ip.Enabled = false;
             this.administrate_ipv6_ip.Location = new System.Drawing.Point(4, 160);
             this.administrate_ipv6_ip.Margin = new System.Windows.Forms.Padding(4);
             this.administrate_ipv6_ip.Name = "administrate_ipv6_ip";
@@ -91,6 +92,7 @@
             // administrate_ipv6_vlan
             // 
             this.administrate_ipv6_vlan.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.administrate_ipv6_vlan.Enabled = false;
             this.administrate_ipv6_vlan.Location = new System.Drawing.Point(4, 212);
             this.administrate_ipv6_vlan.Margin = new System.Windows.Forms.Padding(4);
             this.administrate_ipv6_vlan.Name = "administrate_ipv6_vlan";

@@ -70,6 +70,7 @@
             // buttonVlanIPv6
             // 
             this.buttonVlanIPv6.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonVlanIPv6.Enabled = false;
             this.buttonVlanIPv6.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonVlanIPv6.Location = new System.Drawing.Point(8, 50);
             this.buttonVlanIPv6.Margin = new System.Windows.Forms.Padding(5);
@@ -96,6 +97,7 @@
             // buttonIP_IPv6
             // 
             this.buttonIP_IPv6.BackgroundImage = global::NPMS.Properties.Resources.botonVerde;
+            this.buttonIP_IPv6.Enabled = false;
             this.buttonIP_IPv6.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonIP_IPv6.Location = new System.Drawing.Point(5, 56);
             this.buttonIP_IPv6.Margin = new System.Windows.Forms.Padding(5);

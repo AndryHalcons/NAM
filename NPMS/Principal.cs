@@ -17,7 +17,8 @@ namespace NPMS
         public Principal()
         {
             InitializeComponent();
-           
+            Common.ArchivoConfBbdd_PrimeraVez();
+
 
         }
       

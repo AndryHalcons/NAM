@@ -271,6 +271,22 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             return resultado;
         }
 
+        public static string Dato_campo_string_vlan_for_ip_ipv6(string DatoCampo)
+        {
+            string resultado = "0";
+            if (GlobalParam.BBDD_Type == "MySQL")
+            {
+                resultado = mysql_commands.Dato_campo_string_vlan_for_ip_ipv6(DatoCampo);
+                return resultado;
+            }
+            if (GlobalParam.BBDD_Type == "SQLServer")
+            {
+                //resultado = sqlserver_commands.Dato_campo_string_vlan_for_ip_ipv6(DatoCampo);
+                //return resultado;
+            }
+            return resultado;
+        }
+
         //*******************************************************************************************//
 
         //**************Valida que una tabla existe *************************
@@ -423,11 +439,11 @@ namespace NPMS.gestion.administrator_network.CommonMethods
             }
         }
         // Metodo que hace un select all HOSTNAME mostrando todas las ips que tengan el mismo nombre
-        public static void select_ipv4_hostname_all_vlan(string protocolo, string datocampo, DataGridView Name_datagrid)
+        public static void select_ip_hostname_all_vlan(string datocampo, DataGridView Name_datagrid)
         {
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                mysql_commands.select_ipv4_hostname_all_vlan(protocolo, datocampo, Name_datagrid);
+                mysql_commands.select_ip_hostname_all_vlan(datocampo, Name_datagrid);
             }
             if (GlobalParam.BBDD_Type == "SQLServer")
             {
@@ -712,7 +728,7 @@ namespace NPMS.gestion.administrator_network.CommonMethods
                 }
                 if (protocolo == "IPv6")
                 {
-                    //mysql_imports.Import_IP_IPv4(url_Excel, labelCount);
+                    mysql_imports.Import_IP_IPv6(url_Excel, labelCount);
                 }
 
             }

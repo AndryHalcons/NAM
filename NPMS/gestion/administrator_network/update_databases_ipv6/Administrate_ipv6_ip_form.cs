@@ -51,34 +51,61 @@ namespace NPMS.administrate_network
         {
             Consulta_all();
         }
+
         //Metodo que genera la consulta y muestra el resultado
         public void Consulta_all()
         {
-            string VlanAdaptada = "ipv6_" + textBox_Vlan.Text + "";
+            string VlanAdaptada = "ipv6_"+textBox_Vlan.Text+"";
             GlobalParam.Vlan_IPv6_in_IP_Select = textBox_Vlan.Text;
-            bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
-            bool ValidaExistencia = Sentencias.ValidadorTabla(textBox_Vlan.Text);
             bool ValidaDatoInsertado_Vacio = Common.ValidadorCamposVacios_SinMensaje(textBoxStringSearch.Text);
             string CampoSeleccionado = comboBoxSearchIP.SelectedItem.ToString();
             string datocampo = textBoxStringSearch.Text.ToString();
-            if (VVlan == true && ValidaExistencia == true)
+
+
+            if (CampoSeleccionado == "Hostname in All Vlan")
             {
-                if (CampoSeleccionado == "ALL")
+                Sentencias.select_ip_hostname_all_vlan(datocampo, dataGridView_ipv6);
+            }
+            else
+            {
+                GlobalParam.Vlan_IPv4_in_IP_Select = textBox_Vlan.Text;
+                bool VVlan = Common.ValidadorInt(textBox_Vlan.Text, "Vlan");
+                bool ValidaExistencia = Sentencias.ValidadorTabla(VlanAdaptada);
+
+                if (VVlan == true && ValidaExistencia == true)
                 {
-                    Sentencias.Bbdd_apply_all_datagridView(VlanAdaptada, dataGridView_ipv4);
-                }
-                else
-                {
-                    if (CampoSeleccionado == "IP" && ValidaDatoInsertado_Vacio == true)
+                    //Sentencias.Select_all_ip("IPv4",textBox_Vlan.Text, dataGridView_ipv4);
+                    if (CampoSeleccionado == "ALL")
                     {
-                        Sentencias.Select_all_ip_like("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                        Sentencias.Select_all_ip("IPv6", textBox_Vlan.Text, dataGridView_ipv6);
                     }
+
                     else
                     {
-                        Sentencias.Select_all_ip_like_others_fields("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv4);
+                        if (CampoSeleccionado == "IP" && ValidaDatoInsertado_Vacio == true)
+                        {
+                            bool ValidaFormatoIP = Common.ValidadorIP(datocampo, "IP");
+                            if (ValidaFormatoIP == true)
+                            {
+                                Sentencias.Select_all_ip_like("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv6);
+                            }
+                        }
+                        else if (CampoSeleccionado == "Hostname in All Vlan")
+                        {
+                            Sentencias.select_ip_hostname_all_vlan(datocampo, dataGridView_ipv6);
+                        }
+                        else
+                        {
+                            Sentencias.Select_all_ip_like_others_fields("IPv6", VlanAdaptada, CampoSeleccionado, datocampo, dataGridView_ipv6);
+                        }
                     }
                 }
             }
+
+
+
         }
+
+   
     }   
 }
