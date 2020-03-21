@@ -21,10 +21,11 @@ namespace NPMS.administrate_network
         {
             //textBoxUsuarioLog.Text = Usuario;
             InitializeComponent();
+            comboBoxSearchVlan.SelectedIndex = 0;
         }
         private void Button_search_Click(object sender, EventArgs e)
         {
-            Consulta_all();
+            Consulta_all();           
         }
 
         public void Consulta_all()
@@ -39,7 +40,7 @@ namespace NPMS.administrate_network
             {
                 if (CampoSeleccionado == "For IP")
                 {
-                    Sentencias.Bbdd_apply_search_vlan_for_IP("IPv4", "vlan_ipv4", datocampo, dataGridView_ipv6_vlan);
+                    Sentencias.Bbdd_apply_search_vlan_for_IP("IPv6", "vlan_ipv4", datocampo, dataGridView_ipv6_vlan);
                 }
                 else
                 {

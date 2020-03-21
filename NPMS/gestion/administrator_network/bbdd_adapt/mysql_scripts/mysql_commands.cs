@@ -198,11 +198,11 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         }
         //Valida que una vlan existe Comprueba la id_vlan aportada con el campo Vlan de la tabla
         //Si el return es True es que el dato se encuentra previamente en la base de datos
-        public static bool ValidarExistenciaVlan(string id_vlan)
+        public static bool ValidarExistenciaVlan(string tabla,string id_vlan)
         {
             MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
             databaseConnection.Open();
-            string query = "call simplyselectwhere('vlan_ipv4','Vlan','" + id_vlan + "')";
+            string query = "call simplyselectwhere('" + tabla + "','Vlan','" + id_vlan + "')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.Prepare();
             var reader = commandDatabase.ExecuteReader();

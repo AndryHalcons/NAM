@@ -79,7 +79,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Equipos = textBoxEquipos.Text.ToString();
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
                 string id_Tarea = textBoxTarea.Text.ToString();
-                bool Exists_Vlan = Sentencias.ValidarExistenciaVlan(id_vlan);
+                bool Exists_Vlan = Sentencias.ValidarExistenciaVlan("vlan_ipv4",id_vlan);
                 //////////////////////////////////////             
                 if (Exists_Vlan == false)
                 {

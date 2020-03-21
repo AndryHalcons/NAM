@@ -291,13 +291,13 @@ namespace NPMS.gestion.administrator_network.CommonMethods
         }
         //Valida que una vlan existe Comprueba la id_vlan aportada con el campo Vlan de la tabla
         //Si el return es True es que el dato se encuentra previamente en la base de datos
-        public static bool ValidarExistenciaVlan(string id_vlan)
+        public static bool ValidarExistenciaVlan(string tabla, string id_vlan)
         {
             
             bool resultado = true;
             if (GlobalParam.BBDD_Type == "MySQL")
             {
-                resultado = mysql_commands.ValidarExistenciaVlan(id_vlan);
+                resultado = mysql_commands.ValidarExistenciaVlan(tabla, id_vlan);
                 return resultado;
             }
             if (GlobalParam.BBDD_Type == "SQLServer")

@@ -71,7 +71,7 @@ UNIQUE KEY `ID_UNIQUE` (`ID`)
 /* //////////////// Rellenar tabla ip ////////////////// */
    set @ingate1 = CONCAT("INSERT INTO `npms`.`",formateo_vlan,"` 
    (`Vlan`, `IP`, `Location`, `Mac`, `DNS`, `Description`, `Revised_Hostname`, `Hostname`, `Work_Order`, `User`) 
-   VALUES ('" , id_vlan , "', '" , id_Gateway1 , "', 'Gateway', 
+   VALUES ('" , id_vlan , "', '" , gateway_aton , "', 'Gateway', 
    'Gateway', 'Gateway', 'Gateway', 'Gateway', 'Gateway', '" , id_Tarea , "', '" , id_Usuario , "');");
     PREPARE stmt FROM @ingate1;
     EXECUTE stmt;

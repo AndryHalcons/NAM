@@ -44,7 +44,7 @@ namespace NPMS.gestion.administrator_network.update_databases
         private void Button_apply_update_ipv4_Click(object sender, EventArgs e)
         {
 
-            bool BredNetwork = Sentencias.ValidarDatoExistenteConMensaje("vlan_ipv4", "Network", textBoxDireccionRed.Text, "Network");
+            bool BredNetwork = Sentencias.ValidarDatoExistenteConMensaje("vlan_ipv6", "Network", textBoxDireccionRed.Text, "Network");
             bool VVlan = Common.ValidadorInt(textBoxVlan.Text, "Vlan");
             bool CVlan = Common.ValidadorCamposVacios(textBoxVlan.Text, "Vlan");
             bool CNombreVlan = Common.ValidadorCamposVacios(textBoxNombre.Text, "Name");
@@ -82,7 +82,7 @@ namespace NPMS.gestion.administrator_network.update_databases
                 string id_Equipos = textBoxEquipos.Text.ToString();
                 string id_Descripcion = textBoxDescripcion.Text.ToString();
                 string id_Tarea = textBoxTarea.Text.ToString();
-                bool Exists_Vlan = Sentencias.ValidarExistenciaVlan(id_vlan);
+                bool Exists_Vlan = Sentencias.ValidarExistenciaVlan("vlan_ipv6",id_vlan);
                 string tablaFormat = "ipv6_" + id_vlan + "";
                 if (Exists_Vlan == false)
                 {
