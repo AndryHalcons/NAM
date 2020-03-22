@@ -35,29 +35,24 @@ namespace NPMS.gestion.administrator_network
 
         private void Button_Search_Click(object sender, EventArgs e)
         {
-            string building = comboBoxBuilding.Text.ToString();
+
             string floor = textBoxFloor.Text.ToString();
             string closet = textBoxCloset.Text.ToString();
             string panel = textBoxPanel.Text.ToString();
             string port_panel = textBoxPortPanel.Text.ToString();
+            string building = comboBoxBuilding.Text.ToString();
             bool Vbuilding = Common.ValidadorCamposVacios_SinMensaje(building);
+            /*
             bool Vfloor = Common.ValidadorCamposVacios_SinMensaje(floor);
             bool Vcloset = Common.ValidadorCamposVacios_SinMensaje(closet);
             bool Vpanel = Common.ValidadorCamposVacios_SinMensaje(panel);
             bool Vport_panel = Common.ValidadorCamposVacios_SinMensaje(port_panel);
-            if (Vbuilding == true && (Vfloor == false | Vcloset == false | Vpanel == false | Vport_panel == false))
-            {
-                Sentencias.Bbdd_apply_where_datagridView("patching", "Building", building, dataGridView_patching);
-            }
-            else if (Vbuilding == false | Vfloor == false | Vcloset == false | Vpanel == false | Vport_panel == false)
-            {
-                Sentencias.Bbdd_apply_all_datagridView("patching", dataGridView_patching);
-            }        
-            else
+            */
+
+            if (Vbuilding == true)
             {
                 Sentencias.Select_patching(building, floor, closet, panel, port_panel, dataGridView_patching);
             }
-
             
         }
 

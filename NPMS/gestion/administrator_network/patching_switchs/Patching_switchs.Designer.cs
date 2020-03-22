@@ -45,6 +45,7 @@
             this.TabSearch = new System.Windows.Forms.TabPage();
             this.tabInsert = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelSuccesfullInsert = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.BoxDescription = new System.Windows.Forms.TextBox();
             this.BoxVlan = new System.Windows.Forms.TextBox();
@@ -128,7 +129,6 @@
             this.label33 = new System.Windows.Forms.Label();
             this.textBoxWorder1 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.labelSuccesfullInsert = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).BeginInit();
             this.tabControlDel.SuspendLayout();
@@ -393,6 +393,21 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(707, 343);
             this.tableLayoutPanel2.TabIndex = 39;
+            // 
+            // labelSuccesfullInsert
+            // 
+            this.labelSuccesfullInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSuccesfullInsert.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelSuccesfullInsert.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelSuccesfullInsert.Image = global::NPMS.Properties.Resources.botonNaranja;
+            this.labelSuccesfullInsert.Location = new System.Drawing.Point(132, 288);
+            this.labelSuccesfullInsert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSuccesfullInsert.Name = "labelSuccesfullInsert";
+            this.labelSuccesfullInsert.Size = new System.Drawing.Size(202, 55);
+            this.labelSuccesfullInsert.TabIndex = 58;
+            this.labelSuccesfullInsert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label20
             // 
@@ -1321,21 +1336,6 @@
             this.label24.TabIndex = 25;
             this.label24.Text = "Using it is dangerous";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelSuccesfullInsert
-            // 
-            this.labelSuccesfullInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSuccesfullInsert.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelSuccesfullInsert.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelSuccesfullInsert.Image = global::NPMS.Properties.Resources.botonNaranja;
-            this.labelSuccesfullInsert.Location = new System.Drawing.Point(132, 288);
-            this.labelSuccesfullInsert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelSuccesfullInsert.Name = "labelSuccesfullInsert";
-            this.labelSuccesfullInsert.Size = new System.Drawing.Size(202, 55);
-            this.labelSuccesfullInsert.TabIndex = 58;
-            this.labelSuccesfullInsert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Patching_switchs
             // 

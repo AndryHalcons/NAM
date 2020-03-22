@@ -698,26 +698,56 @@ FROM npms.`",tabla,"` where ",campo," LIKE '%", datocampo,"%';");
     DEALLOCATE PREPARE stmt;   
 END$$
 DELIMITER ;
+
 DELIMITER $$
-CREATE   PROCEDURE `select_patching`(in building varchar(30),in floor varchar(30),
-in closet varchar(30),in panel varchar(30),in port_panel varchar(30))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_patching`(in building varchar(30),in floor varchar(30),
+in closet varchar(30),in panel varchar(30),in port_panel varchar(30), in tipo_consulta int(10))
 BEGIN
+/* Si ningun campo es null (building nunca lo es por eso no se parameteriza)*/
+if tipo_consulta = '1' then
 SET @s = CONCAT("SELECT * FROM npms.patching where Building = '",building,"' and floor = '",floor,"' and closet = '",closet,"' 
 and panel = '",panel,"' and Panel_port = '",port_panel,"';");
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;   
-END$$
-DELIMITER ;
-DELIMITER $$
-CREATE   PROCEDURE `simply_delete_where`(in tabla varchar (40),in campo varchar (40),in datocampo varchar(100))
-BEGIN
-SET @s = CONCAT("Delete FROM npms.`",tabla,"` where ",campo," = '", datocampo,"';");
+end if;
+/* si el campo port panel es null */
+if tipo_consulta = '2' then
+SET @s = CONCAT("SELECT * FROM npms.patching where Building = '",building,"' and floor = '",floor,"' and closet = '",closet,"' 
+and panel = '",panel,"';");
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;   
+end if;
+/* si el campo PANEL  es null */
+if tipo_consulta = '3' then
+SET @s = CONCAT("SELECT * FROM npms.patching where Building = '",building,"' and floor = '",floor,"' 
+and closet = '",closet,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+end if;
+
+/* si el campo CLOSET es null */
+if tipo_consulta = '4' then
+SET @s = CONCAT("SELECT * FROM npms.patching where Building = '",building,"' and 
+floor = '",floor,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+end if;
+
+/* si el campo FLOOR es null */
+if tipo_consulta = '5' then
+SET @s = CONCAT("SELECT * FROM npms.patching where Building = '",building,"';");
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;   
+end if;
 END$$
 DELIMITER ;
+
+
 DELIMITER $$
 CREATE   PROCEDURE `simplyselect_view2fields`(
 in tabla varchar (40),

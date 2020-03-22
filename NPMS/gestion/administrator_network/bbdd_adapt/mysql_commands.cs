@@ -79,9 +79,9 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
         {
             MySqlConnection databaseConnection = new MySqlConnection(bbdd_connection_data());
             databaseConnection.Open();
-            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query, databaseConnection);
+            MySqlDataAdapter commandDatabase = new MySqlDataAdapter(query,databaseConnection);
             DataSet ds = new DataSet();
-            commandDatabase.Fill(ds, tabla);
+            commandDatabase.Fill(ds,tabla);
             Datagrid_Name.DataSource = ds;
             Datagrid_Name.DataMember = tabla;
             databaseConnection.Close();
@@ -605,10 +605,50 @@ namespace NPMS.gestion.administrator_network.bbdd_adapt
             databaseConnection.Close();
         }
         //Metodo que obtiene la fila solicitada en PATCHING y lo muestra en un datagridview
-        public static void Select_patching(string building,string floor,string closet,string panel,string panel_port, DataGridView Datagrid_Name)
+        public static void Select_patching(string building,string floor,string closet,string panel,string port_panel, DataGridView Datagrid_Name)
         {
-            string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + panel_port + "')";
-            Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+
+            
+            bool Vfloor = Common.ValidadorCamposVacios_SinMensaje(floor);
+            bool Vcloset = Common.ValidadorCamposVacios_SinMensaje(closet);
+            bool Vpanel = Common.ValidadorCamposVacios_SinMensaje(panel);
+            bool Vport_panel = Common.ValidadorCamposVacios_SinMensaje(port_panel);
+            
+            // si todos los campos son true
+            if (Vfloor == true && Vcloset == true && Vpanel == true && Vport_panel == true)
+            {
+                int TipoConsulta = 1;
+                string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + port_panel + "','" + TipoConsulta + "')";
+                Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+            }
+            // si port_panel es false y lo demas es true
+            if (Vfloor == true && Vcloset == true && Vpanel == true && Vport_panel == false)
+            {
+                int TipoConsulta = 2;
+                string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + port_panel + "','" + TipoConsulta + "')";
+                Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+            }
+            //si el campo panel es false y lo demas true
+            if (Vfloor == true && Vcloset == true && Vpanel == false)
+            {
+                int TipoConsulta = 3;
+                string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + port_panel + "','" + TipoConsulta + "')";
+                Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+            }
+            //si el campo closet es null y lo demas true
+            if (Vfloor == true && Vcloset == false)
+            {
+                int TipoConsulta = 4;
+                string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + port_panel + "','" + TipoConsulta + "')";
+                Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+            }
+            //si el campo floor es null
+            if (Vfloor == false)
+            {
+                int TipoConsulta = 5;
+                string query = "call select_patching('" + building + "','" + floor + "','" + closet + "','" + panel + "','" + port_panel + "','" + TipoConsulta + "')";
+                Bbdd_simply_all_datagridView("patching", query, Datagrid_Name);
+            }         
         }
         //Metodo que se encarga de hacer insert en patching PARCHEO        
         public static void Insert_Patching(string building, string floor,string closet, string panel,
