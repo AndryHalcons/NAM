@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrate_ipv4_vlan_form));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label_field_select = new System.Windows.Forms.Label();
             this.button_search = new System.Windows.Forms.Button();
@@ -247,6 +248,7 @@
             this.Controls.Add(this.dataGridView_ipv4_vlan);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Administrate_ipv4_vlan_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

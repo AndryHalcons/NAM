@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -480,9 +480,13 @@
     <Content Include="BBDD_Resources\Mysql\npms_vlan_ipv4.sql" />
     <Content Include="BBDD_Resources\Mysql\npms_vlan_ipv6.sql" />
     <Content Include="BBDD_Resources\Mysql\script_mysql_create_database.sql" />
+    <None Include="Resources\IconLogf.ico" />
+    <None Include="Resources\IconLog.ico" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\IconLogo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BBDD_Resources\SQLServer\" />
+    <Folder Include="BBDD_Resources\Mysql\SQLServer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

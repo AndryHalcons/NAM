@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangesView));
             this.buttonVlanIPv6 = new System.Windows.Forms.Button();
             this.buttonVlanIPv4 = new System.Windows.Forms.Button();
             this.buttonIP_IPv6 = new System.Windows.Forms.Button();
             this.buttonIP_IPv4 = new System.Windows.Forms.Button();
             this.ButtonInventory = new System.Windows.Forms.Button();
             this.ButtonPatching = new System.Windows.Forms.Button();
-            this.dataGridViewLogs = new System.Windows.Forms.DataGridView();
             this.tabcontrol = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkBoxStringSearchIP = new System.Windows.Forms.CheckBox();
@@ -58,13 +61,14 @@
             this.textBoxStringSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBoxStringSearch = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).BeginInit();
+            this.dataGridViewLogs = new System.Windows.Forms.DataGridView();
             this.tabcontrol.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonVlanIPv6
@@ -146,23 +150,6 @@
             this.ButtonPatching.Text = "Patching";
             this.ButtonPatching.UseVisualStyleBackColor = true;
             this.ButtonPatching.Click += new System.EventHandler(this.ButtonPatching_Click);
-            // 
-            // dataGridViewLogs
-            // 
-            this.dataGridViewLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridViewLogs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridViewLogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridViewLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLogs.GridColor = System.Drawing.Color.Tan;
-            this.dataGridViewLogs.Location = new System.Drawing.Point(2, 164);
-            this.dataGridViewLogs.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewLogs.Name = "dataGridViewLogs";
-            this.dataGridViewLogs.Size = new System.Drawing.Size(754, 330);
-            this.dataGridViewLogs.TabIndex = 23;
             // 
             // tabcontrol
             // 
@@ -520,23 +507,64 @@
             this.checkBoxStringSearch.Text = "String Search";
             this.checkBoxStringSearch.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewLogs
+            // 
+            this.dataGridViewLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridViewLogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.dataGridViewLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLogs.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewLogs.EnableHeadersVisualStyles = false;
+            this.dataGridViewLogs.GridColor = System.Drawing.Color.Tan;
+            this.dataGridViewLogs.Location = new System.Drawing.Point(3, 164);
+            this.dataGridViewLogs.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewLogs.Name = "dataGridViewLogs";
+            this.dataGridViewLogs.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLogs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewLogs.Size = new System.Drawing.Size(752, 328);
+            this.dataGridViewLogs.TabIndex = 28;
+            // 
             // ChangesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(759, 495);
+            this.Controls.Add(this.dataGridViewLogs);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.checkBoxStringSearch);
             this.Controls.Add(this.tabcontrol);
             this.Controls.Add(this.textBoxStringSearch);
-            this.Controls.Add(this.dataGridViewLogs);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangesView";
             this.Text = "LogsApp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).EndInit();
             this.tabcontrol.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -546,6 +574,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,7 +588,6 @@
         private System.Windows.Forms.Button buttonIP_IPv4;
         private System.Windows.Forms.Button ButtonInventory;
         private System.Windows.Forms.Button ButtonPatching;
-        private System.Windows.Forms.DataGridView dataGridViewLogs;
         private System.Windows.Forms.TabControl tabcontrol;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox comboBoxSearchIP;
@@ -583,5 +611,6 @@
         private System.Windows.Forms.ComboBox comboBoxSearchUser;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ButtonLog;
+        private System.Windows.Forms.DataGridView dataGridViewLogs;
     }
 }

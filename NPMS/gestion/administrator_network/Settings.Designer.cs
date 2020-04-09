@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.textBox_server_bbdd_settings = new System.Windows.Forms.TextBox();
             this.textBox_user_bbdd_settings = new System.Windows.Forms.TextBox();
             this.textBox_password_bbdd_settings = new System.Windows.Forms.TextBox();
@@ -244,6 +245,7 @@
             this.ClientSize = new System.Drawing.Size(425, 422);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Settings";
             this.Text = "Settings";

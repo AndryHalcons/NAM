@@ -109,5 +109,15 @@ namespace NPMS.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon IconLogf {
+            get {
+                object obj = ResourceManager.GetObject("IconLogf", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

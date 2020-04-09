@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patching_switchs));
             this.labeledificio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,9 +44,9 @@
             this.textBoxPortPanel = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBoxBuilding = new System.Windows.Forms.ComboBox();
-            this.dataGridView_patching = new System.Windows.Forms.DataGridView();
             this.tabControlDel = new System.Windows.Forms.TabControl();
             this.TabSearch = new System.Windows.Forms.TabPage();
+            this.dataGridView_patching = new System.Windows.Forms.DataGridView();
             this.tabInsert = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelSuccesfullInsert = new System.Windows.Forms.Label();
@@ -130,9 +134,9 @@
             this.textBoxWorder1 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).BeginInit();
             this.tabControlDel.SuspendLayout();
             this.TabSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).BeginInit();
             this.tabInsert.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabDelete.SuspendLayout();
@@ -282,22 +286,6 @@
             this.comboBoxBuilding.Size = new System.Drawing.Size(121, 25);
             this.comboBoxBuilding.TabIndex = 1;
             // 
-            // dataGridView_patching
-            // 
-            this.dataGridView_patching.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_patching.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridView_patching.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView_patching.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_patching.GridColor = System.Drawing.Color.Tan;
-            this.dataGridView_patching.Location = new System.Drawing.Point(4, 133);
-            this.dataGridView_patching.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView_patching.Name = "dataGridView_patching";
-            this.dataGridView_patching.ReadOnly = true;
-            this.dataGridView_patching.Size = new System.Drawing.Size(782, 398);
-            this.dataGridView_patching.TabIndex = 29;
-            // 
             // tabControlDel
             // 
             this.tabControlDel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -316,14 +304,55 @@
             // TabSearch
             // 
             this.TabSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.TabSearch.Controls.Add(this.tableLayoutPanel1);
             this.TabSearch.Controls.Add(this.dataGridView_patching);
+            this.TabSearch.Controls.Add(this.tableLayoutPanel1);
             this.TabSearch.Location = new System.Drawing.Point(4, 26);
             this.TabSearch.Name = "TabSearch";
             this.TabSearch.Padding = new System.Windows.Forms.Padding(3);
             this.TabSearch.Size = new System.Drawing.Size(793, 535);
             this.TabSearch.TabIndex = 0;
             this.TabSearch.Text = "Search";
+            // 
+            // dataGridView_patching
+            // 
+            this.dataGridView_patching.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_patching.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView_patching.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.dataGridView_patching.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_patching.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_patching.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_patching.EnableHeadersVisualStyles = false;
+            this.dataGridView_patching.GridColor = System.Drawing.Color.Tan;
+            this.dataGridView_patching.Location = new System.Drawing.Point(4, 133);
+            this.dataGridView_patching.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView_patching.Name = "dataGridView_patching";
+            this.dataGridView_patching.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_patching.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView_patching.Size = new System.Drawing.Size(778, 394);
+            this.dataGridView_patching.TabIndex = 29;
             // 
             // tabInsert
             // 
@@ -1345,15 +1374,16 @@
             this.ClientSize = new System.Drawing.Size(801, 567);
             this.Controls.Add(this.tabControlDel);
             this.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Patching_switchs";
             this.Text = "Patching_switchs";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).EndInit();
             this.tabControlDel.ResumeLayout(false);
             this.TabSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_patching)).EndInit();
             this.tabInsert.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -1384,7 +1414,6 @@
         private System.Windows.Forms.TextBox textBoxPortPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ComboBox comboBoxBuilding;
-        private System.Windows.Forms.DataGridView dataGridView_patching;
         private System.Windows.Forms.TabControl tabControlDel;
         private System.Windows.Forms.TabPage TabSearch;
         private System.Windows.Forms.TabPage tabInsert;
@@ -1473,5 +1502,6 @@
         private System.Windows.Forms.ComboBox comboBoxStack0;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label labelSuccesfullInsert;
+        private System.Windows.Forms.DataGridView dataGridView_patching;
     }
 }
